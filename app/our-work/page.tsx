@@ -14,35 +14,34 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      {/* Research Initiatives */}
+      {/* Competitions */}
       <section className="py-16">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Research Initiatives</h2>
+              <h2 className="text-2xl font-bold">Competitions</h2>
               <p className="text-slate-600">
-                Our research proposal competition allows students to work with mentors to develop impactful research
-                proposals. Students collaborate with the guidance of educators and experienced medical students.
+                We provide students with unique opportunities to engage in research, writing, and academic exploration. From creative competitions to collaborative projects, our members gain hands-on experience with real-world applications in healthcare and STEM fields.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-slate-600">Hands-on research experience</span>
+                  <span className="text-slate-600">Research Poster Competition</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-slate-600">Opportunity to publish papers</span>
+                  <span className="text-slate-600">Creative Arts & Writing Competition</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-slate-600">Mentorship from healthcare researchers</span>
+                  <span className="text-slate-600">Mentorship from within the club</span>
                 </li>
               </ul>
             </div>
             <div className="relative h-[300px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/placeholder.svg?height=600&width=800"
-                alt="Research Initiatives"
+                src="/competition.png"
+                alt="Competitions"
                 fill
                 className="object-cover"
               />
@@ -51,23 +50,22 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      {/* Educational Webinars */}
+      {/* Research Initiatives */}
       <section className="py-16 bg-slate-50">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-[300px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/placeholder.svg?height=600&width=800"
-                alt="Educational Webinars"
+                src="/research.png"
+                alt="Research Initiatives"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="order-1 md:order-2 space-y-6">
-              <h2 className="text-2xl font-bold">Educational Webinars</h2>
+              <h2 className="text-2xl font-bold">Research Initiatives</h2>
               <p className="text-slate-600">
-                We host engaging webinars featuring healthcare professionals who share insights about different medical
-                specialties, career paths, and the realities of working in healthcare.
+                At Dr. Interested, we empower students to explore cutting-edge medical research through hands-on initiatives. Our programs provide opportunities to develop research skills, collaborate with mentors, and contribute to meaningful projects in the healthcare field.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
@@ -76,7 +74,7 @@ export default function OurWorkPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-slate-600">Diverse medical topics</span>
+                  <span className="text-slate-600">Research Internship Program</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary font-bold">•</span>
@@ -115,7 +113,7 @@ export default function OurWorkPage() {
             </div>
             <div className="relative h-[300px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/placeholder.svg?height=600&width=800"
+                src="/collaboration.png"
                 alt="Community Building"
                 fill
                 className="object-cover"
@@ -131,20 +129,20 @@ export default function OurWorkPage() {
           <h2 className="text-2xl font-bold mb-12 text-center">Our Impact</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-primary mb-2">100+</div>
+              <div className="text-3xl font-bold text-primary mb-2">20,000+</div>
               <div className="text-slate-600">Students Engaged</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-primary mb-2">20+</div>
+              <div className="text-3xl font-bold text-primary mb-2">2+</div>
               <div className="text-slate-600">Webinars Hosted</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-primary mb-2">15+</div>
+              <div className="text-3xl font-bold text-primary mb-2">11+</div>
               <div className="text-slate-600">Research Projects</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-primary mb-2">10+</div>
-              <div className="text-slate-600">Schools Represented</div>
+              <div className="text-3xl font-bold text-primary mb-2">200+</div>
+              <div className="text-slate-600">Members</div>
             </div>
           </div>
           <div className="text-center mt-8">

@@ -110,7 +110,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-semibold mb-3 text-[#405862]">11. Contact Us</h2>
           <p className="text-slate-600">
-            If you have any questions about these Terms, please contact us at info@drinterested.org.
+            If you have any questions about these Terms, please contact us at admin@drinterested.tech.
           </p>
         </section>
       </div>
@@ -118,7 +118,7 @@ export default function TermsPage() {
       <div className="mt-8 text-center">
         <Link href="/" className="inline-flex items-center text-[#405862] hover:text-[#4ecdc4] transition-colors">
           <FileText className="h-4 w-4 mr-2" />
-          Return to Home
+          Return Home
         </Link>
       </div>
     </div>

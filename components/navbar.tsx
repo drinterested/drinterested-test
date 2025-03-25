@@ -89,10 +89,10 @@ export default function Navbar() {
         </nav>
         <div className="flex items-center gap-4">
           <Link
-            href="/sign-up"
+            href="https://discord.gg/pzbGRgsGXY"
             className="hidden md:inline-flex bg-[#405862] text-white hover:bg-[#334852] px-4 py-2 rounded-md text-sm font-medium transition-all hover:shadow-md"
           >
-            Join Interested
+            Interested?
           </Link>
           <Link
             href="https://discord.gg/pzbGRgsGXY"
