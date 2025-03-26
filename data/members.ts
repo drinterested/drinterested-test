@@ -26,7 +26,7 @@ export const president: MemberType = {
   id: "president",
   name: "Adil Mukhi",
   role: "President",
-  image: "/images/members/adil-mukhi.jpeg",
+  image: "/images/members/adil-mukhi.png",
   bio: "Adil Mukhi is a Grade 10 student and Vice President of both the French Club and STEM Fellowship Chapter at Glenforest Secondary School. He founded Dr. Interested, a club hosting webinars on medical pathways and a research proposal competition since he saw a lack of knowledge of different medical pathways and opportunities to develop basic skills. Adil has also been very involved in his community and has also been working to publish research on stress and memory, showcasing his passion for education, science, and community impact.",
   socialLinks: {
     website: "https://adilmukhi.vercel.app/",
@@ -239,7 +239,7 @@ export const departments: DepartmentType[] = [
         id: "marketing-dir2",
         name: "Manmeet Singh",
         role: "Director of Marketing",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/images/members/manmeet.png",
         bio: "Manmeet Singh is a highly motivated highschool student currently enrolled in the IB program at Glenforest Secondary School. Through hands-on learning experiences in the IBT and IB programs, Manmeet has developed a strong foundation in science and mathematics allowing for critical thinking and complex problem solving skills. Manmeet's creative and entrepreneurial mindset has led to the development of two business models showcasing his ability to innovate and adapt. Overall, Manmeet's dedication to both academics and sports has driven Manmeet to excel in various leadership roles, demonstrating perseverance, discipline, and commitment.",
         socialLinks: {
           linkedin: "https://linkedin.com",
