@@ -4,49 +4,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Calendar, Clock, MapPin } from "lucide-react"
+import { Calendar, Clock, MapPin, AlertCircle, CheckCircle, ExternalLink } from "lucide-react"
 import NewsletterForm from "@/components/newsletter-form"
-
-const upcomingEvents = [
-  {
-    id: 1,
-    title: "Pathways to Medicine Webinar",
-    date: "Apr 15",
-    time: "4:00 PM EST",
-    location: "Virtual Event",
-    description: "Learn about the different pathways to medical professions and current trends in healthcare.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 2,
-    title: "Medical School Application Workshop",
-    date: "May 10",
-    time: "5:30 PM EST",
-    location: "Virtual Event",
-    description: "Get insider tips on preparing medical school applications from admissions experts.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 3,
-    title: "Healthcare Career Panel",
-    date: "Jun 05",
-    time: "6:00 PM EST",
-    location: "Virtual Event",
-    description: "Explore diverse healthcare careers beyond medicine with professionals from various specialties.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-]
-
-const pastEvents = [
-  {
-    id: 4,
-    title: "Research Proposal Competition",
-    date: "Feb 20",
-    description:
-      "Students worked with mentors to create impactful research proposals, with the top submissions developed into full papers.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-]
+import { upcomingEvents, pastEvents } from "@/data/events"
 
 export default function EventsPage() {
   return (
@@ -81,10 +41,12 @@ export default function EventsPage() {
                       <Calendar className="h-4 w-4 mr-2" />
                       {event.date}
                     </div>
-                    <div className="flex items-center text-sm text-[#405862]">
-                      <Clock className="h-4 w-4 mr-2" />
-                      {event.time}
-                    </div>
+                    {event.time && (
+                      <div className="flex items-center text-sm text-[#405862]">
+                        <Clock className="h-4 w-4 mr-2" />
+                        {event.time}
+                      </div>
+                    )}
                     <div className="flex items-center text-sm text-[#405862]">
                       <MapPin className="h-4 w-4 mr-2" />
                       {event.location}
@@ -93,9 +55,26 @@ export default function EventsPage() {
                   <p className="text-sm text-[#405862]">{event.description}</p>
                 </CardContent>
                 <CardFooter className="px-6 pb-6 pt-0">
-                  <Button className="w-full bg-[#405862] hover:bg-[#334852]" size="sm">
-                    Register Now
-                  </Button>
+                  {event.status === "open" ? (
+                    <Button className="w-full bg-[#405862] hover:bg-[#334852]" size="sm" asChild>
+                      <Link href={event.link} target="_blank" rel="noopener noreferrer">
+                        Register Now
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  ) : event.status === "full" ? (
+                    <Button className="w-full bg-gray-500 hover:bg-gray-600 cursor-not-allowed" size="sm" disabled>
+                      <AlertCircle className="mr-2 h-4 w-4" />
+                      Registration Full
+                    </Button>
+                  ) : (
+                    <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5]" size="sm" asChild>
+                      <Link href={event.link}>
+                        See Impact
+                        <CheckCircle className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             ))}
@@ -112,7 +91,7 @@ export default function EventsPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {pastEvents.map((event) => (
+            {pastEvents.slice(0, 4).map((event) => (
               <div
                 key={event.id}
                 className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg shadow-sm border border-[#405862]"
@@ -131,8 +110,12 @@ export default function EventsPage() {
                     variant="outline"
                     className="border-[#405862] text-[#405862] hover:bg-[#405862] hover:text-white"
                     size="sm"
+                    asChild
                   >
-                    View Recap
+                    <Link href={event.link}>
+                      View Recap
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
               </div>

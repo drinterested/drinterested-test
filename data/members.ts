@@ -26,7 +26,7 @@ export const president: MemberType = {
   id: "president",
   name: "Adil Mukhi",
   role: "President",
-  image: "/images/members/adil-mukhi.jpg",
+  image: "/images/members/adil-mukhi.jpeg",
   bio: "Adil Mukhi is a Grade 10 student and Vice President of both the French Club and STEM Fellowship Chapter at Glenforest Secondary School. He founded Dr. Interested, a club hosting webinars on medical pathways and a research proposal competition since he saw a lack of knowledge of different medical pathways and opportunities to develop basic skills. Adil has also been very involved in his community and has also been working to publish research on stress and memory, showcasing his passion for education, science, and community impact.",
   socialLinks: {
     website: "https://adilmukhi.vercel.app/",
@@ -165,7 +165,7 @@ export const departments: DepartmentType[] = [
       id: "research-dir",
       name: "Velan Mangai Sivakumar",
       role: "Director of Research",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "/images/members/velan.png",
       bio: "Velan Mangai Sivakumar is a Grade 10 student in Glenforest Secondary School. He is extremely passionate about STEM and biological sciences in particular. He has volunteered for many STEM organizations such as the Rosalind Franklin Institute. He is a trainer for HOSA (Health Occupation Students of America). His best result in STEM contests would be getting top 25 nationally and qualifying for the national camp in the Junior Science Olympiad of Canada. He also plays chess and his best results include qualifying for the Canadian Youth Chess Championship U16 twice and getting 4th in the Canadian Chess League Twice.",
       socialLinks: {
         linkedin: "https://linkedin.com",
@@ -303,8 +303,8 @@ export const departments: DepartmentType[] = [
       id: "publications-dir",
       name: "Muhammad Ibrahim Lari",
       role: "Director of Publications",
-      image: "/placeholder.svg?height=400&width=300",
-      bio: "Leading our publications team with a focus on creating informative and engaging content for our community.",
+      image: "/images/members/lari.png",
+      bio: "Muhammad Lari is a dedicated high school student currently enrolled at Glenforest Secondary School. With a strong academic background, particularly in science and mathematics, Muhammad has honed critical thinking and problem-solving skills through both independent learning and hands-on experiences. Their organizational and leadership abilities are evident through their involvement in managing logistics for school events and tutoring peers in mathematics. Additionally, Muhammad  is passionate about astronomy and health education, contributing to student initiatives that empower the community with valuable wellness insights. Their commitment to academics, extracurriculars, and personal growth highlights their perseverance, adaptability, and drive for excellence.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         instagram: "https://instagram.com",
@@ -316,7 +316,7 @@ export const departments: DepartmentType[] = [
         name: "Shaza Ali",
         role: "Publications Member",
         image: "/placeholder.svg?height=400&width=300",
-        bio: "Writing and editing content for our newsletters and educational materials.",
+        bio: "Shaza is a 9th grade student who has a deep interest in STEM. She is also interested in neurology and cardiology and is very interested for future careers in these fields. She has taken part (and won) in many STEM competitions held at her school and is a viable member of the schools green initiative club. She also has an interest in true crime and has made a podcast all about it (The Killer Instinct). She hopes she can make a true impact in the world and be known for her diligent work ethics.",
         socialLinks: {
           linkedin: "https://linkedin.com",
           instagram: "https://instagram.com",
@@ -365,8 +365,8 @@ export const departments: DepartmentType[] = [
       id: "hr-dir",
       name: "Aayan Shivji",
       role: "Director of Human Resources",
-      image: "/placeholder.svg?height=400&width=300",
-      bio: "Leading our HR initiatives with a focus on building a strong, engaged community of members.",
+      image: "/images/logo.png",
+      bio: "Aayan Shivji is a hardworking high school student at St. Francis Xavier Secondary School with a passion for learning and community involvement. He enjoys exploring science and mathematics, constantly challenging himself with new concepts and problem-solving opportunities. Beyond academics, Aayan is deeply involved in extracurricular activities and loves volunteering. Whether organizing school events, mentoring younger students, or participating in community service, he is always eager to make a positive impact. His enthusiasm extends to sports, where he really enjoys table tennis and tennis, embracing both the competitive and team aspects of the game. With a strong work ethic and a drive to grow, Aayan continues to seek new experiences that shape his skills and character. He is truly looking forward to working with Dr. Interested and having a meaningful learning experience that will help him grow both academically and professionally.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         instagram: "https://instagram.com",
@@ -417,8 +417,8 @@ export const departments: DepartmentType[] = [
       id: "events-dir",
       name: "Aarav Kumar",
       role: "Director of Events",
-      image: "/placeholder.svg?height=400&width=300",
-      bio: "Leading our events team with a focus on creating engaging, educational experiences for our community.",
+      image: "/images/members/aarav.png",
+      bio: "Aarav Kumar is a passionate director with a strong interest in technology, math, and the evolving field of medical innovations. Currently working on a patent in the medical sector, Aarav is deeply involved with advanced genome-editing tools like CRISPR, contributing to cutting-edge research and development. With a natural flair for leadership and collaboration, Aarav thrives in team environments and has proven skills in managing complex projects.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         instagram: "https://instagram.com",
@@ -451,7 +451,7 @@ export const departments: DepartmentType[] = [
         id: "events-mem3",
         name: "Soham Somani",
         role: "Events Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/images/members/soham.png",
         bio: "Developing networking opportunities to help students build connections in the healthcare field.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -469,8 +469,8 @@ export const departments: DepartmentType[] = [
       id: "grants-dir",
       name: "Govardhan Challa Kandru",
       role: "Director of Grant Writing",
-      image: "/placeholder.svg?height=400&width=300",
-      bio: "Leading our grant writing efforts to secure funding for our programs and initiatives.",
+      image: "/images/members/Govardhan.png",
+      bio: "Govardhan Govi Kandru (11th) is a diligent student at The Frazer School. Govi, who is passionate about scientific research, data science, and biotechnology, focuses on machine learning applications in genomics. His independent research focuses on gene expression profiling and tailored cancer vaccine formulation, merging AI-driven techniques with network medicine. Furthermore, he has investigated comparative genome analysis using machine learning and whole genome SNPs. Govi has raised funds for various STEM nonprofit organizations, utilizing his analytical and strategic skills to push creative projects. Aside from academia, he is a successful international competitive golfer.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         instagram: "https://instagram.com",

@@ -3,14 +3,20 @@
 import { useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Linkedin, FileText } from "lucide-react"
+import { Instagram, Linkedin, FileText, Calendar, Clock, MapPin, ExternalLink, AlertCircle } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { getLatestOngoingEvent } from "@/data/events"
 
 export default function Home() {
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  // Get the latest ongoing event
+  const latestEvent = getLatestOngoingEvent()
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -120,8 +126,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Latest Event Section */}
+      {latestEvent && (
+        <section className="py-16 bg-white">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-center mb-8 text-[#405862]">
+              Latest Ongoing Event
+              <div className="w-24 h-1 bg-[#4ecdc4] mx-auto mt-4"></div>
+            </h2>
+
+            <div className="max-w-4xl mx-auto">
+              <Card className="overflow-hidden border-[#405862] shadow-lg">
+                <div className="grid md:grid-cols-2">
+                  <div className="relative h-64 md:h-auto">
+                    <Image
+                      src={latestEvent.image || "/placeholder.svg"}
+                      alt={latestEvent.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-6 flex flex-col">
+                    <div>
+                      <h3 className="text-xl font-bold mb-3 text-[#405862]">{latestEvent.title}</h3>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-[#405862]">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          {latestEvent.date}
+                        </div>
+                        {latestEvent.time && (
+                          <div className="flex items-center text-sm text-[#405862]">
+                            <Clock className="h-4 w-4 mr-2" />
+                            {latestEvent.time}
+                          </div>
+                        )}
+                        <div className="flex items-center text-sm text-[#405862]">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          {latestEvent.location}
+                        </div>
+                      </div>
+                      <p className="text-[#405862] mb-6">{latestEvent.description}</p>
+                    </div>
+                    <div className="mt-auto">
+                      {latestEvent.status === "open" ? (
+                        <Button className="w-full bg-[#405862] hover:bg-[#334852]" asChild>
+                          <Link href={latestEvent.link} target="_blank" rel="noopener noreferrer">
+                            Register Now
+                            <ExternalLink className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      ) : latestEvent.status === "full" ? (
+                        <Button className="w-full bg-gray-500 hover:bg-gray-600 cursor-not-allowed" disabled>
+                          <AlertCircle className="mr-2 h-4 w-4" />
+                          Registration Full
+                        </Button>
+                      ) : (
+                        <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5]" asChild>
+                          <Link href={latestEvent.link}>See Impact</Link>
+                        </Button>
+                      )}
+                      <div className="text-center mt-3">
+                        <Link href="/events" className="text-[#405862] hover:text-[#4ecdc4] text-sm">
+                          View all upcoming events
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* What We Are Section */}
-      <section className="py-16">
+      <section className="py-16 bg-[#f5f1eb]">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-4 text-[#405862]">
             What We Are
@@ -138,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section className="py-16 bg-[#f5f1eb]">
+      <section className="py-16 bg-white">
         <div className="container grid md:grid-cols-2 gap-8 items-center">
           <div className="relative h-[300px] rounded-lg flex items-center justify-center">
             <Image
@@ -167,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Our Goal, Mission, and Vision */}
-      <section className="py-16">
+      <section className="py-16 bg-[#f5f1eb]">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-4 text-[#405862]">
             Our Goal, Mission, and Vision

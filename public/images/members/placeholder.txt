@@ -1,3 +1,0 @@
-This is a placeholder file to ensure the images/members directory exists.
-Member images should be placed in this directory.
-
