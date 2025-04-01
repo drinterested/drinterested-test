@@ -26,7 +26,7 @@ export const president: MemberType = {
   id: "president",
   name: "Adil Mukhi",
   role: "President",
-  image: "/images/members/adil.png",
+  image: "/adil.png",
   bio: "Adil Mukhi is a Grade 10 student and Vice President of both the French Club and STEM Fellowship Chapter at Glenforest Secondary School. He founded Dr. Interested, a club hosting webinars on medical pathways and a research proposal competition since he saw a lack of knowledge of different medical pathways and opportunities to develop basic skills. Adil has also been very involved in his community and has also been working to publish research on stress and memory, showcasing his passion for education, science, and community impact.",
   socialLinks: {
     website: "https://adilmukhi.vercel.app/",
