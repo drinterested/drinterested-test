@@ -18,19 +18,47 @@ export default function ContactPage() {
     message: "",
   })
 
+  const [isSubmitted, setIsSubmitted] = useState(false) // New state for form submission status
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    // Show success message
-    alert("Message sent! We'll get back to you soon.")
+
+    // Prepare the data for submission
+    const formDataToSend = new FormData()
+    formDataToSend.append('name', formData.name)
+    formDataToSend.append('email', formData.email)
+    formDataToSend.append('subject', formData.subject)
+    formDataToSend.append('message', formData.message)
+
+    // Send the data to Formspree endpoint
+    try {
+        const response = await fetch('https://formspree.io/f/mnnpgkee', {
+            method: 'POST',
+            body: formDataToSend,
+            headers: {
+                'Accept': 'application/json',
+            },
+        })
+
+        // Check if the form submission was successful
+        if (response.ok) {
+            console.log("Form submitted successfully")
+            setIsSubmitted(true)
+            setFormData({ name: "", email: "", subject: "", message: "" })
+            setTimeout(() => setIsSubmitted(false), 5000) // Hide success message after 5 seconds
+        } else {
+            console.error('Form submission failed')
+            alert('There was an error submitting the form. Please try again.')
+        }
+    } catch (error) {
+        console.error('Error:', error)
+        alert('There was an error submitting the form. Please try again.')
+    }
   }
 
   return (
@@ -158,6 +186,13 @@ export default function ContactPage() {
                   </Button>
                 </div>
               </form>
+
+              {/* Show success message */}
+              {isSubmitted && (
+                <div className="mt-4 text-center text-green-600">
+                  <p>Form submitted successfully! We will get back to you soon.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -212,4 +247,3 @@ export default function ContactPage() {
     </div>
   )
 }
-
