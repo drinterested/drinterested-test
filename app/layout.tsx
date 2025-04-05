@@ -12,13 +12,51 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Dr. Interested - Inspiring Future Healthcare Professionals",
   description:
-    "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
+    "Dr. Interested empowers high school students to explore careers in healthcare through education, research, and mentorship. Join our community today!",
+  keywords: [
+    "healthcare education",
+    "medical careers",
+    "high school students",
+    "healthcare mentorship",
+    "medical research",
+    "Dr. Interested",
+  ],
+  authors: [{ name: "Dr. Interested Team" }],
+  creator: "Dr. Interested",
+  publisher: "Dr. Interested",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://drinterested.tech",
+    title: "Dr. Interested - Inspiring Future Healthcare Professionals",
+    description:
+      "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
+    siteName: "Dr. Interested",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Interested Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr. Interested - Inspiring Future Healthcare Professionals",
+    description:
+      "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
+    images: ["/logo.png"],
+  },
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   generator: "v0.dev",
 }
 
 export const viewport: Viewport = {
   themeColor: "#405862",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -30,6 +68,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="lazyOnload" />
+        <link rel="canonical" href="https://drinterested.tech" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
@@ -46,3 +85,6 @@ export default function RootLayout({
 
 import "./globals.css"
 
+
+
+import './globals.css'

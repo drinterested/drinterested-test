@@ -30,34 +30,34 @@ export default function ContactPage() {
 
     // Prepare the data for submission
     const formDataToSend = new FormData()
-    formDataToSend.append('name', formData.name)
-    formDataToSend.append('email', formData.email)
-    formDataToSend.append('subject', formData.subject)
-    formDataToSend.append('message', formData.message)
+    formDataToSend.append("name", formData.name)
+    formDataToSend.append("email", formData.email)
+    formDataToSend.append("subject", formData.subject)
+    formDataToSend.append("message", formData.message)
 
     // Send the data to Formspree endpoint
     try {
-        const response = await fetch('https://formspree.io/f/mnnpgkee', {
-            method: 'POST',
-            body: formDataToSend,
-            headers: {
-                'Accept': 'application/json',
-            },
-        })
+      const response = await fetch("https://formspree.io/f/mnnpgkee", {
+        method: "POST",
+        body: formDataToSend,
+        headers: {
+          Accept: "application/json",
+        },
+      })
 
-        // Check if the form submission was successful
-        if (response.ok) {
-            console.log("Form submitted successfully")
-            setIsSubmitted(true)
-            setFormData({ name: "", email: "", subject: "", message: "" })
-            setTimeout(() => setIsSubmitted(false), 5000) // Hide success message after 5 seconds
-        } else {
-            console.error('Form submission failed')
-            alert('There was an error submitting the form. Please try again.')
-        }
+      // Check if the form submission was successful
+      if (response.ok) {
+        console.log("Form submitted successfully")
+        setIsSubmitted(true)
+        setFormData({ name: "", email: "", subject: "", message: "" })
+        setTimeout(() => setIsSubmitted(false), 5000) // Hide success message after 5 seconds
+      } else {
+        console.error("Form submission failed")
+        alert("There was an error submitting the form. Please try again.")
+      }
     } catch (error) {
-        console.error('Error:', error)
-        alert('There was an error submitting the form. Please try again.')
+      console.error("Error:", error)
+      alert("There was an error submitting the form. Please try again.")
     }
   }
 
@@ -247,3 +247,4 @@ export default function ContactPage() {
     </div>
   )
 }
+

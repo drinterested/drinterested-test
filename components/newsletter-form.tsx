@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import Link from "next/link"
 
 export default function NewsletterForm() {
   useEffect(() => {
@@ -11,7 +12,9 @@ export default function NewsletterForm() {
 
     return () => {
       // Clean up script when component unmounts
-      document.body.removeChild(script)
+      if (document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
     }
   }, [])
 
@@ -31,7 +34,7 @@ export default function NewsletterForm() {
           data-uid="fc097f686e"
           data-format="inline"
           data-version="5"
-          data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+          data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"hide","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15}},"version":"5"}'
         >
           <div data-style="clean">
             <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
@@ -67,8 +70,29 @@ export default function NewsletterForm() {
                 <span>Subscribe</span>
               </button>
             </div>
+            {/* Added text-center to the success message container */}
+            <div className="formkit-alert formkit-alert-success text-center" data-element="success" data-group="alert">
+              <div className="formkit-alert-inner" style={{ maxWidth: "100%" }}>
+                <div className="formkit-alert-content">
+                  <div className="formkit-alert-message"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </form>
+        <p className="text-center text-sm mt-2">
+          By subscribing, you agree to our{" "}
+          <Link href="/terms" className="text-[#405862] hover:text-[#4ecdc4] transition-colors font-medium underline">
+            Terms & Conditions
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="/privacy-policy"
+            className="text-[#405862] hover:text-[#4ecdc4] transition-colors font-medium underline"
+          >
+            Privacy Policy
+          </Link>
+        </p>
       </div>
     </div>
   )

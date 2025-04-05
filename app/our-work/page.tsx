@@ -1,6 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 
 export default function OurWorkPage() {
   return (
@@ -21,7 +19,9 @@ export default function OurWorkPage() {
             <div className="space-y-6">
               <h2 className="text-2xl font-bold">Competitions</h2>
               <p className="text-slate-600">
-                We provide students with unique opportunities to engage in research, writing, and academic exploration. From creative competitions to collaborative projects, our members gain hands-on experience with real-world applications in healthcare and STEM fields.
+                We provide students with unique opportunities to engage in research, writing, and academic exploration.
+                From creative competitions to collaborative projects, our members gain hands-on experience with
+                real-world applications in healthcare and STEM fields.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
@@ -39,12 +39,7 @@ export default function OurWorkPage() {
               </ul>
             </div>
             <div className="relative h-[300px] rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/competition.png"
-                alt="Competitions"
-                fill
-                className="object-cover"
-              />
+              <Image src="/competition.png" alt="Competitions" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -55,17 +50,14 @@ export default function OurWorkPage() {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-[300px] rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/research.png"
-                alt="Research Initiatives"
-                fill
-                className="object-cover"
-              />
+              <Image src="/research.png" alt="Research Initiatives" fill className="object-cover" />
             </div>
             <div className="order-1 md:order-2 space-y-6">
               <h2 className="text-2xl font-bold">Research Initiatives</h2>
               <p className="text-slate-600">
-                At Dr. Interested, we empower students to explore cutting-edge medical research through hands-on initiatives. Our programs provide opportunities to develop research skills, collaborate with mentors, and contribute to meaningful projects in the healthcare field.
+                At Dr. Interested, we empower students to explore cutting-edge medical research through hands-on
+                initiatives. Our programs provide opportunities to develop research skills, collaborate with mentors,
+                and contribute to meaningful projects in the healthcare field.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
@@ -112,12 +104,7 @@ export default function OurWorkPage() {
               </ul>
             </div>
             <div className="relative h-[300px] rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/collaboration.png"
-                alt="Community Building"
-                fill
-                className="object-cover"
-              />
+              <Image src="/collaboration.png" alt="Community Building" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -144,11 +131,6 @@ export default function OurWorkPage() {
               <div className="text-3xl font-bold text-primary mb-2">200+</div>
               <div className="text-slate-600">Members</div>
             </div>
-          </div>
-          <div className="text-center mt-8">
-            <Button asChild>
-              <Link href="/our-work/impact">See Our Full Impact</Link>
-            </Button>
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Linkedin, FileText, Calendar, Clock, MapPin, ExternalLink, AlertCircle } from "lucide-react"
+import { Instagram, Linkedin, Calendar, Clock, MapPin, ExternalLink, AlertCircle } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -37,7 +37,9 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4 items-center mt-6">
               <Link
-                href="/sign-up"
+                href="https://forms.gle/i3Y6vazF5TErGBxG7"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#405862] text-white hover:bg-[#334852] px-6 py-3 rounded-md font-medium inline-flex items-center shadow-md hover:shadow-lg transition-all"
               >
                 Sign Up Here
@@ -115,7 +117,7 @@ export default function Home() {
           </div>
           <div className="relative h-[300px] md:h-[400px] rounded-lg flex items-center justify-center">
             <Image
-              src="/images/logo.png"
+              src="/logo.png"
               alt="Dr. Interested Logo"
               width={300}
               height={300}
@@ -220,13 +222,7 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="container grid md:grid-cols-2 gap-8 items-center">
           <div className="relative h-[300px] rounded-lg flex items-center justify-center">
-            <Image
-              src="/images/logo.png"
-              alt="About Dr. Interested"
-              width={250}
-              height={250}
-              className="object-contain"
-            />
+            <Image src="/logo.png" alt="About Dr. Interested" width={250} height={250} className="object-contain" />
           </div>
           <div className="space-y-4">
             <h2 className="text-3xl font-bold text-[#405862]">About Us</h2>
@@ -294,7 +290,7 @@ export default function Home() {
               data-uid="fc097f686e"
               data-format="inline"
               data-version="5"
-              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"hide","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15}},"version":"5"}'
             >
               <div data-style="clean">
                 <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
@@ -340,16 +336,31 @@ export default function Home() {
                     </svg>
                   </button>
                 </div>
+                {/* Added text-center to the success message container */}
+                <div
+                  className="formkit-alert formkit-alert-success text-center"
+                  data-element="success"
+                  data-group="alert"
+                >
+                  <div className="formkit-alert-inner" style={{ maxWidth: "100%" }}>
+                    <div className="formkit-alert-content">
+                      <div className="formkit-alert-message"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
             <p className="text-center text-sm mt-2">
               By subscribing, you agree to our{" "}
-              <Link
-                href="/terms"
-                className="text-white hover:text-[#4ecdc4] transition-colors font-medium underline flex items-center gap-1 inline-flex"
-              >
-                <FileText className="h-3 w-3" />
+              <Link href="/terms" className="text-white hover:text-[#4ecdc4] transition-colors font-medium underline">
                 Terms & Conditions
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/privacy-policy"
+                className="text-white hover:text-[#4ecdc4] transition-colors font-medium underline"
+              >
+                Privacy Policy
               </Link>
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Column 1: Logo and Description */}
           <div>
             <div className="mb-4">
-              <Image src="/images/logo.png" alt="Dr. Interested Logo" width={150} height={150} className="mb-2" />
+              <Image src="/logo.png" alt="Dr. Interested Logo" width={150} height={150} className="mb-2" />
             </div>
             <p className="text-sm mb-4">
               Inspiring the next generation of healthcare professionals through education, collaboration, and meaningful
@@ -29,16 +29,25 @@ export default function Footer() {
               <Link
                 href="https://www.instagram.com/dr.interested/"
                 className="text-white hover:text-[#4ecdc4] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram className="h-6 w-6" />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/dr-interested"
                 className="text-white hover:text-[#4ecdc4] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin className="h-6 w-6" />
               </Link>
-              <Link href="https://discord.gg/pzbGRgsGXY" className="text-white hover:text-[#4ecdc4] transition-colors">
+              <Link
+                href="https://discord.gg/pzbGRgsGXY"
+                className="text-white hover:text-[#4ecdc4] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -93,14 +102,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-sm hover:text-[#4ecdc4] transition-colors">
-                  Gallery
-                </Link>
-              </li>
-              <li>
                 <Link href="/terms" className="text-sm hover:text-[#4ecdc4] transition-colors flex items-center gap-1">
                   <FileText className="h-3 w-3" />
                   Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="text-sm hover:text-[#4ecdc4] transition-colors flex items-center gap-1"
+                >
+                  <FileText className="h-3 w-3" />
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -156,7 +169,7 @@ export default function Footer() {
               data-uid="fc097f686e"
               data-format="inline"
               data-version="5"
-              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"hide","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15}},"version":"5"}'
             >
               <div data-style="clean">
                 <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
@@ -198,13 +211,36 @@ export default function Footer() {
                     </svg>
                   </button>
                 </div>
+                {/* Added text-center to the success message container */}
+                <div
+                  className="formkit-alert formkit-alert-success text-center"
+                  data-element="success"
+                  data-group="alert"
+                >
+                  <div className="formkit-alert-inner" style={{ maxWidth: "100%" }}>
+                    <div className="formkit-alert-content">
+                      <div className="formkit-alert-message"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
+            <p className="text-center text-sm mt-2">
+              By subscribing, you agree to our{" "}
+              <Link href="/terms" className="text-white hover:text-[#4ecdc4] transition-colors underline">
+                Terms
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy-policy" className="text-white hover:text-[#4ecdc4] transition-colors underline">
+                Privacy Policy
+              </Link>
+            </p>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-[#4f6b75] flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm">© 2025 Dr. Interested. All rights reserved.</div>
+          <div className="flex items-center gap-4">© 2025 Dr. Interested. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <Link
               href="/terms"

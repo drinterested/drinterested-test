@@ -48,9 +48,12 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-semibold mb-3 text-[#405862]">4. Privacy Policy</h2>
           <p className="text-slate-600">
-            Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your personal
-            information. By using our services, you consent to the collection and use of your data as described in our
-            Privacy Policy.
+            Your privacy is important to us. Our{" "}
+            <Link href="/privacy-policy" className="text-[#405862] font-medium underline hover:text-[#4ecdc4]">
+              Privacy Policy
+            </Link>{" "}
+            explains how we collect, use, and protect your personal information. By using our services, you consent to
+            the collection and use of your data as described in our Privacy Policy.
           </p>
         </section>
 
