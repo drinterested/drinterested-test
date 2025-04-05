@@ -286,34 +286,61 @@ export default function Home() {
             Subscribe to our newsletter for the latest events and opportunities.
           </p>
           <div className="max-w-md mx-auto">
-            <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-md border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#4ecdc4]"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg"
-              >
-                Sign Up
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="ml-2 h-5 w-5"
+            <form
+              action="https://app.kit.com/forms/7869628/subscriptions"
+              className="seva-form formkit-form"
+              method="post"
+              data-sv-form="7869628"
+              data-uid="fc097f686e"
+              data-format="inline"
+              data-version="5"
+              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+            >
+              <div data-style="clean">
+                <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+                <div
+                  data-element="fields"
+                  data-stacked="false"
+                  className="seva-fields formkit-fields flex flex-col sm:flex-row gap-2"
                 >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </button>
+                  <div className="formkit-field flex-grow">
+                    <input
+                      className="px-4 py-3 rounded-md border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full"
+                      name="email_address"
+                      aria-label="Email Address"
+                      placeholder="Your email address"
+                      required
+                      type="email"
+                    />
+                  </div>
+                  <button
+                    data-element="submit"
+                    className="bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg"
+                  >
+                    <div className="formkit-spinner">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <span>Sign Up</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="ml-2 h-5 w-5"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </form>
             <p className="text-center text-sm mt-2">
               By subscribing, you agree to our{" "}

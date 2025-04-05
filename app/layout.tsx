@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export const viewport: Viewport = {
@@ -27,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="lazyOnload" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
@@ -40,6 +44,5 @@ export default function RootLayout({
   )
 }
 
+import "./globals.css"
 
-
-import './globals.css'

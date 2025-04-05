@@ -1,21 +1,19 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
-import Link from "next/link"
-import { FileText } from "lucide-react"
+import { useEffect } from "react"
 
 export default function NewsletterForm() {
-  const [email, setEmail] = useState("")
+  useEffect(() => {
+    // Load ConvertKit script
+    const script = document.createElement("script")
+    script.src = "https://f.convertkit.com/ckjs/ck.5.js"
+    document.body.appendChild(script)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Subscribing email:", email)
-    // Add your subscription logic here
-    setEmail("")
-    alert("Thank you for subscribing!")
-  }
+    return () => {
+      // Clean up script when component unmounts
+      document.body.removeChild(script)
+    }
+  }, [])
 
   return (
     <div className="w-full">
@@ -24,47 +22,53 @@ export default function NewsletterForm() {
         <p className="text-center mb-8 text-lg">
           Stay updated on Dr. Interested and other exciting healthcare opportunities for high schoolers!
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 mb-2">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Your email address"
-            className="flex-grow px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#405862] text-black"
-            required
-          />
-          <button
-            type="submit"
-            className="bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg"
-          >
-            Subscribe
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="ml-2 h-5 w-5"
-            >
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </button>
+
+        <form
+          action="https://app.kit.com/forms/7869628/subscriptions"
+          className="seva-form formkit-form"
+          method="post"
+          data-sv-form="7869628"
+          data-uid="fc097f686e"
+          data-format="inline"
+          data-version="5"
+          data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+        >
+          <div data-style="clean">
+            <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+            <div data-element="fields" data-stacked="false" className="seva-fields formkit-fields">
+              <div className="formkit-field">
+                <input
+                  className="formkit-input px-4 py-3 rounded-md border border-[#405862] bg-white text-[#405862] focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full"
+                  aria-label="First Name"
+                  name="fields[first_name]"
+                  placeholder="First Name"
+                  type="text"
+                />
+              </div>
+              <div className="formkit-field mt-2">
+                <input
+                  className="formkit-input px-4 py-3 rounded-md border border-[#405862] bg-white text-[#405862] focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full"
+                  name="email_address"
+                  aria-label="Email Address"
+                  placeholder="Email Address"
+                  required
+                  type="email"
+                />
+              </div>
+              <button
+                data-element="submit"
+                className="formkit-submit formkit-submit bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg w-full mt-2"
+              >
+                <div className="formkit-spinner">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span>Subscribe</span>
+              </button>
+            </div>
+          </div>
         </form>
-        <p className="text-center text-sm">
-          By subscribing, you agree to our{" "}
-          <Link
-            href="/terms"
-            className="text-white hover:text-[#4ecdc4] transition-colors font-medium underline flex items-center gap-1 inline-flex"
-          >
-            <FileText className="h-3 w-3" />
-            Terms & Conditions
-          </Link>
-        </p>
       </div>
     </div>
   )
