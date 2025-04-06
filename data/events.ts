@@ -20,7 +20,7 @@ export const upcomingEvents: EventType[] = [
     location: "Virtual Event",
     description:
       "A virtual initiative aimed at empowering youth with practical strategies to improve mental, emotional, and physical well-being. Through engaging workshops, interactive activities, and expert insights, participants will gain valuable skills in stress management, resilience-building, and self-care.",
-    image: "/resilient-minds.png",
+    image: "/mindsproject.png",
     status: "closed",
     link: "#",
     featured: true,

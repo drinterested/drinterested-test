@@ -41,7 +41,7 @@ export const vicePresidents: MemberType[] = [
     id: "vp1",
     name: "VP Name 1",
     role: "Vice President",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/logo.png",
     bio: "Supporting the mission of Dr. Interested through strategic leadership and innovation. Focused on expanding our reach and impact in the high school community.",
     socialLinks: {
       linkedin: "https://linkedin.com",
@@ -52,7 +52,7 @@ export const vicePresidents: MemberType[] = [
     id: "vp2",
     name: "VP Name 2",
     role: "Vice President",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/logo.png",
     bio: "Dedicated to creating meaningful experiences for students interested in healthcare. Brings expertise in event planning and educational programming.",
     socialLinks: {
       linkedin: "https://linkedin.com",
@@ -96,7 +96,7 @@ export const departments: DepartmentType[] = [
         id: "tech-mem1",
         name: "Bhavish Mehta",
         role: "Technology Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Supporting the technology team with expertise in frontend development and user experience design.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -125,7 +125,7 @@ export const departments: DepartmentType[] = [
         id: "outreach-mem1",
         name: "Keenan Johnson",
         role: "Outreach Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Working to establish connections with healthcare organizations and educational institutions.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -136,7 +136,7 @@ export const departments: DepartmentType[] = [
         id: "outreach-mem2",
         name: "Ganesh Kartik Nagasubramanian",
         role: "Outreach Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Developing strategies to increase our presence in high schools across the region.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -166,7 +166,7 @@ export const departments: DepartmentType[] = [
         id: "research-mem1",
         name: "Gaeun Lee",
         role: "Research Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Supporting research projects and mentorship programs for aspiring medical researchers.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -177,7 +177,7 @@ export const departments: DepartmentType[] = [
         id: "research-mem2",
         name: "Dabosmita Parial",
         role: "Research Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Facilitating connections between students and research mentors in various medical fields.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -188,7 +188,7 @@ export const departments: DepartmentType[] = [
         id: "research-mem3",
         name: "Prithi Balaji",
         role: "Research Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Coordinating the research proposal competition and providing guidance to participants.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -199,7 +199,7 @@ export const departments: DepartmentType[] = [
         id: "research-mem4",
         name: "Brittany Ha",
         role: "Research Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Developing resources to help students understand and engage in medical research.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -210,7 +210,7 @@ export const departments: DepartmentType[] = [
         id: "research-mem5",
         name: "Aaron Sethi",
         role: "Research Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Developing resources to help students understand and engage in medical research.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -252,7 +252,7 @@ export const departments: DepartmentType[] = [
         id: "marketing-mem1",
         name: "Adam Alchihneh",
         role: "Marketing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Creating engaging visual content for our social media platforms and promotional materials.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -263,7 +263,7 @@ export const departments: DepartmentType[] = [
         id: "marketing-mem2",
         name: "David Santoso",
         role: "Marketing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Developing marketing strategies to increase engagement with our target audience.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -274,7 +274,7 @@ export const departments: DepartmentType[] = [
         id: "marketing-mem3",
         name: "Hasnain Ali",
         role: "Marketing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Managing our social media presence and creating content that resonates with high school students.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -304,7 +304,7 @@ export const departments: DepartmentType[] = [
         id: "publications-mem1",
         name: "Shaza Ali",
         role: "Publications Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Shaza is a 9th grade student who has a deep interest in STEM. She is also interested in neurology and cardiology and is very interested for future careers in these fields. She has taken part (and won) in many STEM competitions held at her school and is a viable member of the schools green initiative club. She also has an interest in true crime and has made a podcast all about it (The Killer Instinct). She hopes she can make a true impact in the world and be known for her diligent work ethics.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -315,7 +315,7 @@ export const departments: DepartmentType[] = [
         id: "publications-mem2",
         name: "Maliha Metla",
         role: "Publications Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Developing educational resources to help students understand medical concepts and career paths.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -326,7 +326,7 @@ export const departments: DepartmentType[] = [
         id: "publications-mem3",
         name: "Andrew Nguyen",
         role: "Publications Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Creating content that highlights the achievements and experiences of our members.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -337,7 +337,7 @@ export const departments: DepartmentType[] = [
         id: "publications-mem2",
         name: "Manha",
         role: "Publications Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Developing educational resources to help students understand medical concepts and career paths.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -348,7 +348,7 @@ export const departments: DepartmentType[] = [
         id: "publications-mem3",
         name: "Ellie Williams",
         role: "Publications Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Creating content that highlights the achievements and experiences of our members.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -378,7 +378,7 @@ export const departments: DepartmentType[] = [
         id: "hr-mem1",
         name: "Yumeth Wickramasinghe",
         role: "HR Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Coordinating recruitment efforts and developing strategies to enhance member engagement.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -389,7 +389,7 @@ export const departments: DepartmentType[] = [
         id: "hr-mem2",
         name: "Hamsini Punukollu",
         role: "HR Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Supporting the onboarding process and creating resources for new members.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -419,7 +419,7 @@ export const departments: DepartmentType[] = [
         id: "events-mem1",
         name: "Katlyn Lindsy Tendoh",
         role: "Events Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Coordinating webinars and virtual events to connect students with healthcare professionals.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -430,7 +430,7 @@ export const departments: DepartmentType[] = [
         id: "events-mem2",
         name: "Andrew Wang",
         role: "Events Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Planning and executing workshops that provide hands-on learning experiences.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -471,7 +471,7 @@ export const departments: DepartmentType[] = [
         id: "grants-mem1",
         name: "Akeer Kuol Malual Nyok",
         role: "Grant Writing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Researching grant opportunities and developing compelling proposals.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -482,7 +482,7 @@ export const departments: DepartmentType[] = [
         id: "grants-mem2",
         name: "Danish Akhtar",
         role: "Grant Writing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Danish Akhtar: An ambitious Grade 9 student with a 96% average who is aiming to get into one of the Oxbridge Universities. Planning on going in several AP courses next summer for Strathcona Composite High School, with amazing academic performances in all four core subjects (ELA, Science, Social Studies and Mathematics) and a passion for the fields of medicine and astrophysics/astronomy (both of which I hope to pursue as a career). In possession of several great qualities and skills in several different fields (including Leadership), all of which are listed in my CV.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -493,7 +493,7 @@ export const departments: DepartmentType[] = [
         id: "grants-mem3",
         name: "Adya Mishra",
         role: "Grant Writing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Creating budgets and financial plans for grant proposals.",
         socialLinks: {
           linkedin: "https://linkedin.com",
@@ -504,7 +504,7 @@ export const departments: DepartmentType[] = [
         id: "grants-mem4",
         name: "Daniel Solo",
         role: "Grant Writing Member",
-        image: "/placeholder.svg?height=400&width=300",
+        image: "/logo.png",
         bio: "Tracking grant applications and reporting on funding outcomes.",
         socialLinks: {
           linkedin: "https://linkedin.com",

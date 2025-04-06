@@ -37,19 +37,19 @@ export const authors: Record<string, Author> = {
   },
   "shaza-ali": {
     name: "Shaza Ali",
-    image: "/shaza-ali.jpg",
+    image: "/logo.png",
     bio: "Shaza is a 9th grade student with a deep interest in STEM, particularly neurology and cardiology. She has won several STEM competitions and is part of her school's green initiative club. She also hosts a true crime podcast called 'The Killer Instinct'.",
     instagram: "https://instagram.com/shaza.ali",
   },
   "maliha-metla": {
     name: "Maliha Metla",
-    image: "/maliha-metla.jpg",
+    image: "/logo.png",
     bio: "Developing educational resources to help students understand medical concepts and career paths.",
     linkedIn: "https://linkedin.com/in/maliha-metla",
   },
   manha: {
     name: "Manha",
-    image: "/manha.jpg",
+    image: "/logo.png",
     bio: "Creating content that highlights the achievements and experiences of our members.",
     twitter: "https://twitter.com/manha",
   },
@@ -59,24 +59,24 @@ export const authors: Record<string, Author> = {
 export const blogTopics: BlogTopic[] = [
   {
     name: "Types of Nurses",
-    slug: "types-of-nurses",
+    slug: "nurses",
     description:
       "Explore the diverse roles and specializations within the nursing profession, from pediatric care to elder care and beyond.",
-    image: "/blog/topics/nurses.jpg",
+    image: "/logo.png",
   },
   {
     name: "Types of Doctors",
-    slug: "types-of-doctors",
+    slug: "doctors",
     description:
       "Learn about the various medical specialties and the doctors who practice them, from general practitioners to specialized consultants.",
-    image: "/blog/topics/doctors.jpg",
+    image: "/logo.png",
   },
   {
     name: "Cancer",
     slug: "cancer",
     description:
       "Discover the latest research, treatments, and insights into cancer, one of the most challenging medical conditions of our time.",
-    image: "/blog/topics/cancer.jpg",
+    image: "/logo.png",
   },
 ]
 
@@ -84,7 +84,7 @@ export const blogTopics: BlogTopic[] = [
 export const blogPosts: BlogPost[] = [
   // Types of Nurses
   {
-    slug: "nurses-in-elder-care-centers",
+    slug: "geriatric",
     title: "Nurses In Elder Care Centers",
     excerpt:
       "An in-depth look at the crucial role nurses play in elder care facilities, their responsibilities, challenges, and the impact they make on patients' lives.",
@@ -131,7 +131,7 @@ Becoming an elder care nurse typically requires:
 
 As the global population ages, the demand for skilled elder care nurses continues to grow. Technological advancements and evolving care models are creating new opportunities for nurses to make a difference in this essential field.
 `,
-    coverImage: "/blog/nurses-elder-care.jpg",
+    coverImage: "/logo.png",
     date: "April 10, 2025",
     author: authors["muhammad-lari"],
     topic: "Types of Nurses",
@@ -139,65 +139,65 @@ As the global population ages, the demand for skilled elder care nurses continue
     featured: true,
   },
   {
-    slug: "pediatric-nurses",
+    slug: "pediatric",
     title: "Pediatric Nurses",
     excerpt:
       "Discover the specialized world of pediatric nursing, where healthcare professionals dedicate their careers to caring for children from infancy through adolescence.",
     content: `
-      # Pediatric Nurses: Champions of Children's Health
+# Pediatric Nurses: Champions of Children's Health
 
-      Pediatric nurses are specialized healthcare professionals dedicated to the care of children from infancy through adolescence. Their unique role combines clinical expertise with a child-friendly approach to healthcare.
+Pediatric nurses are specialized healthcare professionals dedicated to the care of children from infancy through adolescence. Their unique role combines clinical expertise with a child-friendly approach to healthcare.
 
-      ## The Scope of Pediatric Nursing
+## The Scope of Pediatric Nursing
 
-      Pediatric nurses work in various settings, including:
-      
-      - Children's hospitals
-      - Pediatric units in general hospitals
-      - Primary care pediatric offices
-      - Schools
-      - Community health centers
-      
-      Their responsibilities span from routine well-child care to managing complex medical conditions.
+Pediatric nurses work in various settings, including:
 
-      ## Specialized Skills and Knowledge
+- Children's hospitals
+- Pediatric units in general hospitals
+- Primary care pediatric offices
+- Schools
+- Community health centers
 
-      Effective pediatric nursing requires:
-      
-      - Understanding of developmental stages and age-appropriate care
-      - Ability to assess children of different ages
-      - Expertise in childhood diseases and conditions
-      - Strong communication skills with both children and parents
-      - Techniques for minimizing pain and trauma during procedures
-      
-      ## Education and Certification
+Their responsibilities span from routine well-child care to managing complex medical conditions.
 
-      Becoming a pediatric nurse involves:
-      
-      1. Earning a nursing degree (BSN preferred)
-      2. Obtaining RN licensure
-      3. Gaining experience in pediatric settings
-      4. Pursuing Certified Pediatric Nurse (CPN) certification
-      
-      Many pediatric nurses also specialize further in areas such as pediatric oncology, critical care, or neonatal care.
+## Specialized Skills and Knowledge
 
-      ## Challenges and Rewards
+Effective pediatric nursing requires:
 
-      While pediatric nursing presents emotional challenges, particularly when caring for seriously ill children, it also offers tremendous rewards. Pediatric nurses often cite the resilience of their young patients and the opportunity to positively impact developing lives as the most fulfilling aspects of their career.
+- Understanding of developmental stages and age-appropriate care
+- Ability to assess children of different ages
+- Expertise in childhood diseases and conditions
+- Strong communication skills with both children and parents
+- Techniques for minimizing pain and trauma during procedures
 
-      ## The Future of Pediatric Nursing
+## Education and Certification
 
-      As pediatric healthcare evolves, nurses in this field are increasingly involved in:
-      
-      - Telehealth initiatives
-      - Family-centered care models
-      - Pediatric research
-      - Advocacy for children's health issues
-      - Specialized care for children with chronic conditions
-      
-      These developments are expanding the already vital role pediatric nurses play in healthcare.
-    `,
-    coverImage: "/blog/pediatric-nurses.jpg",
+Becoming a pediatric nurse involves:
+
+1. Earning a nursing degree (BSN preferred)
+2. Obtaining RN licensure
+3. Gaining experience in pediatric settings
+4. Pursuing Certified Pediatric Nurse (CPN) certification
+
+Many pediatric nurses also specialize further in areas such as pediatric oncology, critical care, or neonatal care.
+
+## Challenges and Rewards
+
+While pediatric nursing presents emotional challenges, particularly when caring for seriously ill children, it also offers tremendous rewards. Pediatric nurses often cite the resilience of their young patients and the opportunity to positively impact developing lives as the most fulfilling aspects of their career.
+
+## The Future of Pediatric Nursing
+
+As pediatric healthcare evolves, nurses in this field are increasingly involved in:
+
+- Telehealth initiatives
+- Family-centered care models
+- Pediatric research
+- Advocacy for children's health issues
+- Specialized care for children with chronic conditions
+
+These developments are expanding the already vital role pediatric nurses play in healthcare.
+`,
+    coverImage: "/logo.png",
     date: "March 25, 2025",
     author: authors["shaza-ali"],
     topic: "Types of Nurses",
@@ -206,66 +206,66 @@ As the global population ages, the demand for skilled elder care nurses continue
 
   // Types of Doctors
   {
-    slug: "internist-and-general-care-provider",
+    slug: "internist",
     title: "Internist and General Care Provider",
     excerpt:
       "Explore the essential role of internists and general care providers as the foundation of the healthcare system and often the first point of contact for patients.",
     content: `
-      # Internist and General Care Provider: The Cornerstone of Healthcare
+# Internist and General Care Provider: The Cornerstone of Healthcare
 
-      Internists and general care providers form the foundation of our healthcare system, serving as primary physicians for adults and coordinating comprehensive care across specialties.
+Internists and general care providers form the foundation of our healthcare system, serving as primary physicians for adults and coordinating comprehensive care across specialties.
 
-      ## What is an Internist?
+## What is an Internist?
 
-      An internist is a physician specializing in internal medicine, focusing on the prevention, diagnosis, and treatment of adult diseases. Unlike general practitioners, internists complete additional training specifically in adult medicine.
+An internist is a physician specializing in internal medicine, focusing on the prevention, diagnosis, and treatment of adult diseases. Unlike general practitioners, internists complete additional training specifically in adult medicine.
 
-      ## Key Responsibilities
+## Key Responsibilities
 
-      These physicians handle a wide range of health concerns, including:
-      
-      - Preventive care and health maintenance
-      - Management of chronic conditions like diabetes and hypertension
-      - Diagnosis and treatment of acute illnesses
-      - Coordination of care with specialists
-      - Health education and counseling
-      
-      ## Training and Expertise
+These physicians handle a wide range of health concerns, including:
 
-      Becoming an internist requires:
-      
-      1. Completing medical school (4 years)
-      2. Finishing a 3-year residency in internal medicine
-      3. Optional fellowship training for subspecialization
-      4. Board certification in Internal Medicine
-      
-      ## Subspecialties Within Internal Medicine
+- Preventive care and health maintenance
+- Management of chronic conditions like diabetes and hypertension
+- Diagnosis and treatment of acute illnesses
+- Coordination of care with specialists
+- Health education and counseling
 
-      Many internists choose to subspecialize in areas such as:
-      
-      - Cardiology
-      - Gastroenterology
-      - Endocrinology
-      - Rheumatology
-      - Pulmonology
-      - Nephrology
-      
-      ## The Internist's Approach
+## Training and Expertise
 
-      What distinguishes internists is their comprehensive approach to patient care. They are trained to solve puzzling diagnostic problems and handle severe chronic illnesses and situations where several different illnesses may strike at the same time.
+Becoming an internist requires:
 
-      ## The Future of Internal Medicine
+1. Completing medical school (4 years)
+2. Finishing a 3-year residency in internal medicine
+3. Optional fellowship training for subspecialization
+4. Board certification in Internal Medicine
 
-      As healthcare evolves, internists are adapting to:
-      
-      - Value-based care models
-      - Telehealth integration
-      - Preventive medicine emphasis
-      - Population health management
-      - Collaborative care teams
-      
-      These changes are reinforcing the central role internists play in coordinating effective, patient-centered healthcare.
-    `,
-    coverImage: "/blog/internist.jpg",
+## Subspecialties Within Internal Medicine
+
+Many internists choose to subspecialize in areas such as:
+
+- Cardiology
+- Gastroenterology
+- Endocrinology
+- Rheumatology
+- Pulmonology
+- Nephrology
+
+## The Internist's Approach
+
+What distinguishes internists is their comprehensive approach to patient care. They are trained to solve puzzling diagnostic problems and handle severe chronic illnesses and situations where several different illnesses may strike at the same time.
+
+## The Future of Internal Medicine
+
+As healthcare evolves, internists are adapting to:
+
+- Value-based care models
+- Telehealth integration
+- Preventive medicine emphasis
+- Population health management
+- Collaborative care teams
+
+These changes are reinforcing the central role internists play in coordinating effective, patient-centered healthcare.
+`,
+    coverImage: "/logo.png",
     date: "April 8, 2025",
     author: authors["maliha-metla"],
     topic: "Types of Doctors",
@@ -273,428 +273,169 @@ As the global population ages, the demand for skilled elder care nurses continue
     featured: true,
   },
   {
-    slug: "the-role-of-endocrinologists",
+    slug: "endocrinologists",
     title: "The Role of Endocrinologists",
     excerpt:
       "Delve into the specialized field of endocrinology and learn how these physicians diagnose and treat hormonal disorders affecting multiple body systems.",
     content: `
-      # The Role of Endocrinologists: Masters of the Hormonal System
+# The Role of Endocrinologists: Masters of the Hormonal System
 
-      Endocrinologists are specialized physicians who diagnose and treat disorders of the endocrine system, the complex network of glands that produce and secrete hormones regulating numerous bodily functions.
+Endocrinologists are specialized physicians who diagnose and treat disorders of the endocrine system, the complex network of glands that produce and secrete hormones regulating numerous bodily functions.
 
-      ## The Endocrine System
+## The Endocrine System
 
-      The endocrine system includes:
-      
-      - Pituitary gland
-      - Thyroid and parathyroid glands
-      - Adrenal glands
-      - Pancreas (endocrine portion)
-      - Ovaries and testes
-      - Hypothalamus
-      
-      These glands produce hormones that control metabolism, growth, development, reproduction, sleep, and mood.
+The endocrine system includes:
 
-      ## Common Conditions Treated
+- Pituitary gland
+- Thyroid and parathyroid glands
+- Adrenal glands
+- Pancreas (endocrine portion)
+- Ovaries and testes
+- Hypothalamus
 
-      Endocrinologists manage a wide range of conditions, including:
-      
-      - Diabetes mellitus
-      - Thyroid disorders (hypothyroidism, hyperthyroidism)
-      - Adrenal disorders (Cushing's syndrome, Addison's disease)
-      - Pituitary disorders
-      - Metabolic disorders
-      - Osteoporosis
-      - Hormonal imbalances
-      - Growth disorders
-      
-      ## Training and Expertise
+These glands produce hormones that control metabolism, growth, development, reproduction, sleep, and mood.
 
-      Becoming an endocrinologist requires:
-      
-      1. Completing medical school
-      2. Finishing an internal medicine residency (3 years)
-      3. Completing an endocrinology fellowship (2-3 years)
-      4. Board certification in Endocrinology, Diabetes, and Metabolism
-      
-      This extensive training equips endocrinologists with the specialized knowledge needed to diagnose and treat complex hormonal disorders.
+## Common Conditions Treated
 
-      ## Diagnostic Approaches
+Endocrinologists manage a wide range of conditions, including:
 
-      Endocrinologists use various diagnostic tools, including:
-      
-      - Specialized blood and urine tests
-      - Stimulation and suppression tests
-      - Imaging studies
-      - Genetic testing
-      
-      Their expertise in interpreting these tests is crucial for accurate diagnosis of endocrine disorders.
+- Diabetes mellitus
+- Thyroid disorders (hypothyroidism, hyperthyroidism)
+- Adrenal disorders (Cushing's syndrome, Addison's disease)
+- Pituitary disorders
+- Metabolic disorders
+- Osteoporosis
+- Hormonal imbalances
+- Growth disorders
 
-      ## Treatment Approaches
+## Training and Expertise
 
-      Treatment may include:
-      
-      - Hormone replacement therapy
-      - Medication to suppress or stimulate hormone production
-      - Lifestyle modifications
-      - Surgery (in collaboration with endocrine surgeons)
-      - Continuous monitoring and adjustment of treatment
-      
-      ## The Future of Endocrinology
+Becoming an endocrinologist requires:
 
-      The field of endocrinology continues to evolve with:
-      
-      - Advanced hormone delivery systems
-      - Genetic and molecular diagnostics
-      - Artificial intelligence in treatment planning
-      - Personalized medicine approaches
-      - New understanding of hormone interactions
-      
-      These developments are expanding treatment options and improving outcomes for patients with endocrine disorders.
-    `,
-    coverImage: "/blog/endocrinologist.jpg",
+1. Completing medical school
+2. Finishing an internal medicine residency (3 years)
+3. Completing an endocrinology fellowship (2–3 years)
+4. Board certification in Endocrinology, Diabetes, and Metabolism
+
+This extensive training equips endocrinologists with the specialized knowledge needed to diagnose and treat complex hormonal disorders.
+
+## Diagnostic Approaches
+
+Endocrinologists use various diagnostic tools, including:
+
+- Specialized blood and urine tests
+- Stimulation and suppression tests
+- Imaging studies
+- Genetic testing
+
+Their expertise in interpreting these tests is crucial for accurate diagnosis of endocrine disorders.
+
+## Treatment Approaches
+
+Treatment may include:
+
+- Hormone replacement therapy
+- Medication to suppress or stimulate hormone production
+- Lifestyle modifications
+- Surgery (in collaboration with endocrine surgeons)
+- Continuous monitoring and adjustment of treatment
+
+## The Future of Endocrinology
+
+The field of endocrinology continues to evolve with:
+
+- Advanced hormone delivery systems
+- Genetic and molecular diagnostics
+- Artificial intelligence in treatment planning
+- Personalized medicine approaches
+- New understanding of hormone interactions
+
+These developments are expanding treatment options and improving outcomes for patients with endocrine disorders.
+`,
+    coverImage: "/logo.png",
     date: "March 30, 2025",
-    author: authors["maliha-metla"],
-    topic: "Types of Doctors",
-    readingTime: "10 min read",
-  },
-  {
-    slug: "cardiologist",
-    title: "Cardiologist",
-    excerpt:
-      "Understand the critical work of cardiologists in diagnosing and treating heart conditions, from preventive care to advanced interventional procedures.",
-    content: `
-      # Cardiologist: Guardian of the Heart
-
-      Cardiologists are medical doctors who specialize in diagnosing and treating diseases and conditions of the cardiovascular system – the heart and blood vessels. These specialists play a crucial role in preventing, managing, and treating heart disease, the leading cause of death globally.
-
-      ## Scope of Practice
-
-      Cardiologists focus on:
-      
-      - Diagnosing and treating coronary artery disease
-      - Managing heart failure and arrhythmias
-      - Evaluating heart valve problems
-      - Addressing congenital heart defects
-      - Preventing cardiovascular disease
-      - Managing hypertension and hyperlipidemia
-      
-      ## Types of Cardiology Specializations
-
-      The field of cardiology includes several subspecialties:
-      
-      - **Interventional Cardiology**: Specialists who perform catheter-based procedures like angioplasty and stent placement
-      - **Electrophysiology**: Focuses on heart rhythm disorders
-      - **Heart Failure and Transplant Cardiology**: Manages advanced heart failure and transplant patients
-      - **Preventive Cardiology**: Emphasizes risk reduction and disease prevention
-      - **Pediatric Cardiology**: Specializes in heart conditions affecting children
-      
-      ## Training and Expertise
-
-      Becoming a cardiologist requires:
-      
-      1. Completing medical school (4 years)
-      2. Internal medicine residency (3 years)
-      3. Cardiology fellowship (3 years)
-      4. Optional additional training for subspecialties (1-2 years)
-      5. Board certification in Cardiovascular Disease
-      
-      This rigorous training pathway ensures cardiologists have comprehensive knowledge of the cardiovascular system.
-
-      ## Diagnostic Tools
-
-      Cardiologists utilize various diagnostic methods, including:
-      
-      - Electrocardiogram (ECG/EKG)
-      - Echocardiogram
-      - Stress testing
-      - Cardiac catheterization
-      - Cardiac CT and MRI
-      - Nuclear cardiac imaging
-      
-      ## Treatment Approaches
-
-      Treatment options may include:
-      
-      - Lifestyle modifications
-      - Medication management
-      - Interventional procedures (angioplasty, stent placement)
-      - Device therapy (pacemakers, defibrillators)
-      - Coordination with cardiac surgeons for surgical interventions
-      
-      ## The Future of Cardiology
-
-      The field continues to advance with:
-      
-      - Minimally invasive procedures
-      - Artificial intelligence in diagnostics
-      - Remote monitoring technologies
-      - Personalized medicine approaches
-      - Novel pharmaceutical therapies
-      - Regenerative medicine techniques
-      
-      These innovations are transforming cardiovascular care and improving outcomes for patients with heart disease.
-    `,
-    coverImage: "/blog/cardiologist.jpg",
-    date: "March 22, 2025",
-    author: authors["shaza-ali"],
-    topic: "Types of Doctors",
-    readingTime: "8 min read",
-  },
-  {
-    slug: "understanding-hepatology",
-    title: "Understanding Hepatology",
-    excerpt:
-      "Learn about the specialized field of hepatology and how these physicians diagnose and treat disorders of the liver, gallbladder, and biliary system.",
-    content: `
-      # Understanding Hepatology: Specialists of the Liver
-
-      Hepatology is a branch of medicine concerned with the study, prevention, diagnosis, and management of diseases that affect the liver, gallbladder, biliary tree, and pancreas. Hepatologists are specialized physicians who focus on these vital digestive organs.
-
-      ## The Scope of Hepatology
-
-      Hepatologists focus on:
-      
-      - Viral hepatitis (Hepatitis A, B, C, D, E)
-      - Alcoholic liver disease
-      - Non-alcoholic fatty liver disease (NAFLD)
-      - Cirrhosis and its complications
-      - Liver cancer (hepatocellular carcinoma)
-      - Autoimmune liver diseases
-      - Genetic and metabolic liver disorders
-      - Liver transplantation
-      
-      ## Training and Expertise
-
-      Becoming a hepatologist typically involves:
-      
-      1. Completing medical school
-      2. Internal medicine residency (3 years)
-      3. Gastroenterology fellowship (3 years)
-      4. Additional hepatology fellowship (1-2 years)
-      5. Board certification in Gastroenterology with focused practice in Hepatology
-      
-      Some hepatologists come from a background in infectious disease or transplant medicine.
-
-      ## Diagnostic Approaches
-
-      Hepatologists use various diagnostic tools, including:
-      
-      - Liver function tests
-      - Imaging studies (ultrasound, CT, MRI, fibroscan)
-      - Liver biopsy
-      - Endoscopic procedures
-      - Specialized blood tests for autoimmune and genetic conditions
-      
-      ## Treatment Approaches
-
-      Treatment options may include:
-      
-      - Antiviral medications for viral hepatitis
-      - Immunosuppressive therapy for autoimmune liver diseases
-      - Lifestyle modifications for fatty liver disease
-      - Management of complications of cirrhosis
-      - Coordination of liver transplantation
-      - Novel therapies for liver fibrosis and regeneration
-      
-      ## The Liver's Remarkable Capabilities
-
-      The liver is unique among organs for its ability to regenerate. This remarkable capacity allows for innovative treatments, including living donor liver transplantation, where a portion of a healthy liver can be transplanted and will grow to normal size in both donor and recipient.
-
-      ## The Future of Hepatology
-
-      The field is advancing rapidly with:
-      
-      - Curative therapies for hepatitis C
-      - New approaches to fatty liver disease
-      - Bioartificial liver support systems
-      - Gene therapy for genetic liver disorders
-      - Improved immunotherapy for liver cancer
-      - Enhanced imaging techniques for early diagnosis
-      
-      These developments are transforming the prognosis for many liver conditions that were previously difficult to treat.
-    `,
-    coverImage: "/blog/hepatology.jpg",
-    date: "March 15, 2025",
-    author: authors["muhammad-lari"],
-    topic: "Types of Doctors",
-    readingTime: "9 min read",
-  },
-  {
-    slug: "nephrologist",
-    title: "Nephrologist",
-    excerpt:
-      "Discover the specialized world of nephrology and how these physicians diagnose and treat kidney diseases, from acute kidney injury to chronic kidney disease.",
-    content: `
-      # Nephrologist: Expert of Kidney Health
-
-      Nephrologists are medical specialists who focus on kidney health and the treatment of kidney diseases. These physicians play a crucial role in managing conditions that affect the kidneys' ability to filter waste from the blood and maintain fluid and electrolyte balance.
-
-      ## The Scope of Nephrology
-
-      Nephrologists diagnose and treat:
-      
-      - Chronic kidney disease (CKD)
-      - Acute kidney injury
-      - Glomerulonephritis
-      - Polycystic kidney disease
-      - Kidney stones
-      - Electrolyte disorders
-      - Acid-base imbalances
-      - Hypertension related to kidney disease
-      - Kidney transplantation
-      
-      ## Training and Expertise
-
-      Becoming a nephrologist requires:
-      
-      1. Completing medical school
-      2. Internal medicine residency (3 years)
-      3. Nephrology fellowship (2-3 years)
-      4. Optional additional training in transplant nephrology or interventional nephrology
-      5. Board certification in Nephrology
-      
-      This extensive training provides nephrologists with specialized knowledge of kidney physiology and pathology.
-
-      ## The Kidney's Complex Functions
-
-      The kidneys perform several vital functions:
-      
-      - Filtering waste products from the blood
-      - Regulating fluid balance
-      - Maintaining electrolyte balance
-      - Producing hormones that regulate blood pressure
-      - Stimulating red blood cell production
-      - Activating vitamin D for bone health
-      
-      This complexity explains why kidney disease can affect multiple body systems.
-
-      ## Diagnostic Approaches
-
-      Nephrologists use various diagnostic tools:
-      
-      - Blood tests (creatinine, BUN, GFR estimation)
-      - Urine analysis and microscopy
-      - Imaging studies (ultrasound, CT, MRI)
-      - Kidney biopsy
-      - Genetic testing for hereditary kidney diseases
-      
-      ## Treatment Approaches
-
-      Treatment options may include:
-      
-      - Medications to slow CKD progression
-      - Management of complications (anemia, bone disease, hypertension)
-      - Dietary modifications
-      - Renal replacement therapy (dialysis)
-      - Kidney transplantation
-      
-      ## Dialysis: A Life-Sustaining Treatment
-
-      When kidneys fail, nephrologists oversee dialysis treatment:
-      
-      - **Hemodialysis**: Blood is filtered through a machine
-      - **Peritoneal Dialysis**: The lining of the abdomen is used as a natural filter
-      
-      Nephrologists help patients choose the most appropriate dialysis modality and manage complications.
-
-      ## The Future of Nephrology
-
-      The field continues to advance with:
-      
-      - Improved dialysis technologies
-      - Wearable and implantable artificial kidneys
-      - Biomarkers for early detection of kidney injury
-      - Regenerative medicine approaches
-      - Novel therapies for genetic kidney diseases
-      - Improved immunosuppression for transplantation
-      
-      These innovations aim to improve quality of life and outcomes for patients with kidney disease.
-    `,
-    coverImage: "/blog/nephrologist.jpg",
-    date: "March 10, 2025",
-    author: authors["shaza-ali"],
+    author: authors["manha"],
     topic: "Types of Doctors",
     readingTime: "8 min read",
   },
 
   // Cancer
-  {
-    slug: "coleys-toxins",
-    title: "Coley's Toxins",
-    excerpt:
-      "Explore the fascinating history of Coley's Toxins, one of the earliest forms of immunotherapy, and its impact on modern cancer treatment approaches.",
-    content: `
-      # Coley's Toxins: The Birth of Immunotherapy
+{
+  slug: "coleys-toxins",
+  title: "Coley's Toxins",
+  excerpt:
+    "Explore the fascinating history of Coley's Toxins, one of the earliest forms of immunotherapy, and its impact on modern cancer treatment approaches.",
+  content: `
+# Coley's Toxins: The Birth of Immunotherapy
 
-      Coley's Toxins represent one of the earliest attempts at immunotherapy for cancer treatment, pioneered by Dr. William Coley in the late 19th century. This groundbreaking approach laid the foundation for modern immunotherapeutic strategies.
+Coley's Toxins represent one of the earliest attempts at immunotherapy for cancer treatment, pioneered by Dr. William Coley in the late 19th century. This groundbreaking approach laid the foundation for modern immunotherapeutic strategies.
 
-      ## The Discovery
+## The Discovery
 
-      In the 1890s, Dr. William B. Coley, a bone surgeon at New York Cancer Hospital (now Memorial Sloan Kettering), observed something remarkable: some cancer patients who developed bacterial infections after surgery experienced tumor regression. This observation led him to develop a mixture of killed bacteria, which became known as "Coley's Toxins."
+In the 1890s, Dr. William B. Coley, a bone surgeon at New York Cancer Hospital (now Memorial Sloan Kettering), observed something remarkable: some cancer patients who developed bacterial infections after surgery experienced tumor regression. This observation led him to develop a mixture of killed bacteria, which became known as "Coley's Toxins."
 
-      ## The Mechanism
+## The Mechanism
 
-      Coley's approach worked by:
-      
-      - Stimulating the immune system with bacterial products
-      - Inducing fever and inflammatory responses
-      - Activating immune cells to recognize and attack cancer cells
-      
-      Though Coley didn't understand the precise immunological mechanisms, he had discovered the principle that the immune system could be harnessed to fight cancer.
+Coley's approach worked by:
 
-      ## Historical Impact
+- Stimulating the immune system with bacterial products
+- Inducing fever and inflammatory responses
+- Activating immune cells to recognize and attack cancer cells
 
-      Despite some remarkable successes, Coley's Toxins fell out of favor due to:
-      
-      - Inconsistent results
-      - Lack of standardization
-      - The rise of radiation therapy and chemotherapy
-      - Difficulty in reproducing outcomes
-      
-      For decades, Coley's work was largely forgotten as conventional cancer treatments dominated.
+Though Coley didn't understand the precise immunological mechanisms, he had discovered the principle that the immune system could be harnessed to fight cancer.
 
-      ## Rediscovery and Modern Relevance
+## Historical Impact
 
-      Interest in Coley's work was revived in the late 20th century as researchers began to understand:
-      
-      - The role of cytokines in immune responses
-      - How pattern recognition receptors detect bacterial components
-      - The concept of tumor immunosurveillance
-      - The importance of the tumor microenvironment
-      
-      Modern immunotherapy approaches, while much more sophisticated, build upon Coley's fundamental insight that the immune system can be stimulated to fight cancer.
+Despite some remarkable successes, Coley's Toxins fell out of favor due to:
 
-      ## From Coley to Modern Immunotherapy
+- Inconsistent results
+- Lack of standardization
+- The rise of radiation therapy and chemotherapy
+- Difficulty in reproducing outcomes
 
-      Today's immunotherapies include:
-      
-      - Immune checkpoint inhibitors
-      - CAR-T cell therapy
-      - Cancer vaccines
-      - Cytokine therapy
-      - Oncolytic virus therapy
-      
-      These approaches have revolutionized cancer treatment, particularly for previously difficult-to-treat cancers.
+For decades, Coley's work was largely forgotten as conventional cancer treatments dominated.
 
-      ## The Legacy
+## Rediscovery and Modern Relevance
 
-      Dr. Coley is now recognized as the "Father of Immunotherapy." His daughter, Helen Coley Nauts, founded the Cancer Research Institute, which continues to support immunotherapy research today.
+Interest in Coley's work was revived in the late 20th century as researchers began to understand:
 
-      Coley's work reminds us that sometimes medical innovations come from careful observation and thinking outside conventional boundaries—a lesson that continues to inspire cancer researchers today.
-    `,
-    coverImage: "/blog/coleys-toxins.jpg",
-    date: "April 12, 2025",
-    author: authors["shaza-ali"],
-    topic: "Cancer",
-    readingTime: "7 min read",
-  },
-  {
-    slug: "immunotherapy",
-    title: "Immunotherapy",
-    excerpt:
-      "Understand how modern immunotherapy harnesses the body's own immune system to fight cancer, revolutionizing treatment approaches and outcomes.",
-    content: `
+- The role of cytokines in immune responses
+- How pattern recognition receptors detect bacterial components
+- The concept of tumor immunosurveillance
+- The importance of the tumor microenvironment
+
+Modern immunotherapy approaches, while much more sophisticated, build upon Coley's fundamental insight that the immune system can be stimulated to fight cancer.
+
+## From Coley to Modern Immunotherapy
+
+Today's immunotherapies include:
+
+- Immune checkpoint inhibitors
+- CAR-T cell therapy
+- Cancer vaccines
+- Cytokine therapy
+- Oncolytic virus therapy
+
+These approaches have revolutionized cancer treatment, particularly for previously difficult-to-treat cancers.
+
+## The Legacy
+
+Dr. Coley is now recognized as the "Father of Immunotherapy." His daughter, Helen Coley Nauts, founded the Cancer Research Institute, which continues to support immunotherapy research today.
+
+Coley's work reminds us that sometimes medical innovations come from careful observation and thinking outside conventional boundaries—a lesson that continues to inspire cancer researchers today.
+  `,
+  coverImage: "/coleytoxins.png",
+  date: "April 12, 2025",
+  author: authors["shaza-ali"],
+  topic: "Cancer",
+  readingTime: "7 min read",
+},
+{
+  slug: "immunotherapy",
+  title: "Immunotherapy",
+  excerpt:
+    "Understand how modern immunotherapy harnesses the body's own immune system to fight cancer, revolutionizing treatment approaches and outcomes.",
+  content: `
 # Immunotherapy: Revolutionizing Cancer Treatment
 
 Immunotherapy represents a paradigm shift in cancer treatment, leveraging the body's own immune system to recognize and destroy cancer cells. This innovative approach has transformed the landscape of oncology in recent years.
@@ -779,451 +520,451 @@ Research continues to advance the field:
 - Extending benefits to more cancer types
 
 Immunotherapy represents one of the most significant advances in cancer treatment in decades, offering hope to patients who previously had limited options.
+  `,
+  coverImage: "/logo.png",
+  date: "April 8, 2025",
+  author: authors["maliha-metla"],
+  topic: "Cancer",
+  readingTime: "9 min read",
+  featured: true,
+},
+{
+  slug: "cancer",
+  title: "Cancer",
+  excerpt:
+    "A comprehensive overview of cancer, exploring its causes, types, diagnosis, treatment approaches, and the latest research developments.",
+  content: `
+# Cancer: Understanding the Disease of the Modern Era
+
+Cancer represents not a single disease but a collection of related diseases characterized by abnormal cell growth with the potential to invade or spread to other parts of the body. This complex condition remains one of the most significant health challenges of our time.
+
+## The Biology of Cancer
+
+At its core, cancer develops when:
+
+- Cells begin to divide uncontrollably
+- Old or damaged cells survive when they should die
+- New cells form when they are not needed
+- Abnormal cell growth spreads to surrounding tissues
+
+These changes result from genetic mutations that disrupt normal cell function.
+
+## Types of Cancer
+
+Cancer can develop in almost any organ or tissue. Major types include:
+
+- Carcinomas: Cancers that begin in the skin or tissues lining internal organs
+- Sarcomas: Cancers in bone, cartilage, fat, muscle, blood vessels, or connective tissues
+- Leukemias: Cancers of blood-forming tissues like bone marrow
+- Lymphomas: Cancers of the immune system
+- Central nervous system cancers: Cancers of the brain and spinal cord
+
+Each type has distinct characteristics, risk factors, and treatment approaches.
+
+## Risk Factors
+
+Cancer development is influenced by:
+
+- Genetic factors and family history
+- Environmental exposures (radiation, chemicals)
+- Lifestyle factors (smoking, alcohol, diet, physical activity)
+- Infectious agents (certain viruses and bacteria)
+- Age (cancer risk generally increases with age)
+
+Many cancers result from a combination of these factors.
+
+## Diagnosis and Staging
+
+Cancer diagnosis typically involves:
+
+- Physical examination
+- Imaging studies (X-rays, CT scans, MRIs, PET scans)
+- Laboratory tests
+- Biopsy and pathological examination
+
+Once diagnosed, cancer is staged based on size, local invasion, lymph node involvement, and metastasis.
+
+## Treatment Approaches
+
+Modern cancer treatment includes:
+
+- Surgery to remove tumors
+- Radiation therapy to kill cancer cells
+- Chemotherapy using drugs to target rapidly dividing cells
+- Targeted therapy focusing on specific molecular targets
+- Immunotherapy harnessing the immune system
+- Hormone therapy for hormone-sensitive cancers
+- Stem cell transplantation for certain blood cancers
+
+Treatment plans are increasingly personalized based on cancer type, stage, and molecular characteristics.
+
+## Living With Cancer
+
+Cancer care extends beyond treatment to include:
+
+- Symptom management
+- Psychological support
+- Survivorship care
+- Palliative care for advanced disease
+
+The cancer journey affects not only patients but also families and caregivers.
+
+## The Future of Cancer Research
+
+Promising areas of research include:
+
+- Precision medicine approaches
+- Liquid biopsies for early detection
+- Novel immunotherapy strategies
+- Cancer vaccines
+- Artificial intelligence in diagnosis and treatment planning
+
+These advances continue to improve outcomes and quality of life for cancer patients.
+  `,
+  coverImage: "/logo.png",
+  date: "April 5, 2025",
+  author: authors["muhammad-lari"],
+  topic: "Cancer",
+  readingTime: "10 min read",
+},
+{
+  slug: "anaplastic-thyroid-cancer",
+  title: "Anaplastic Thyroid Cancer",
+  excerpt:
+    "An in-depth look at anaplastic thyroid cancer, one of the most aggressive forms of thyroid cancer, including diagnosis, treatment options, and research developments.",
+  content: `
+# Anaplastic Thyroid Cancer: Understanding a Rare and Aggressive Disease
+
+Anaplastic thyroid cancer (ATC) is the most aggressive form of thyroid cancer, accounting for less than 2% of all thyroid cancers but responsible for a disproportionate number of thyroid cancer-related deaths. This rare malignancy presents unique challenges for patients and healthcare providers.
+
+## Clinical Presentation
+
+ATC typically presents as:
+
+- A rapidly growing neck mass
+- Hoarseness or voice changes
+- Difficulty swallowing or breathing
+- Neck pain
+- Enlarged lymph nodes
+
+Unlike other thyroid cancers, ATC often progresses rapidly, with symptoms developing over weeks rather than months or years.
+
+## Pathology and Biology
+
+ATC is characterized by:
+
+- Undifferentiated thyroid cells that have lost typical thyroid cell features
+- Aggressive local invasion
+- Early metastasis to distant sites
+- Multiple genetic alterations, including mutations in p53, BRAF, RAS, and PIK3CA
+
+These biological features contribute to its aggressive behavior and resistance to treatment.
+
+## Diagnosis
+
+Diagnosing ATC involves:
+
+- Fine needle aspiration biopsy
+- Imaging studies (ultrasound, CT, MRI, PET)
+- Molecular testing
+- Careful staging to assess extent of disease
+
+Early diagnosis is crucial but challenging due to the rapid progression.
+
+## Treatment Approaches
+
+Management of ATC requires a multidisciplinary approach:
+
+### Surgery
+
+- When possible, complete surgical resection is attempted
+- Often limited by extensive local invasion
+
+### Radiation Therapy
+
+- High-dose external beam radiation
+- May be combined with radiosensitizing chemotherapy
+
+### Systemic Therapy
+
+- Multimodal chemotherapy regimens
+- Targeted therapies for specific mutations (BRAF inhibitors)
+- Immunotherapy in selected cases
+
+### Clinical Trials
+
+- Novel targeted approaches
+- Immunotherapy combinations
+- Innovative multimodal strategies
+
+Despite these approaches, prognosis remains poor, with median survival often less than 6 months from diagnosis.
+
+## Recent Advances
+
+Research has led to some promising developments:
+
+- Better understanding of molecular drivers
+- Identification of actionable mutations
+- Novel combination approaches
+- Improved supportive care strategies
+
+In 2018, the FDA approved the combination of dabrafenib and trametinib for BRAF V600E-mutated ATC, representing the first approved targeted therapy for this disease.
+
+## Living With ATC
+
+Patients with ATC face significant challenges:
+
+- Rapid disease progression
+- Symptoms affecting breathing and swallowing
+- Psychological impact of a poor prognosis
+
+Palliative care plays a crucial role in maintaining quality of life and managing symptoms.
+
+## Future Directions
+
+Ongoing research focuses on:
+
+- Identifying new therapeutic targets
+- Developing more effective drug combinations
+- Understanding mechanisms of resistance
+- Improving early detection
+- Enhancing supportive care approaches
+
+While ATC remains a formidable challenge, continued research offers hope for improved outcomes in the future.
+  `,
+  coverImage: "/logo.png",
+  date: "April 5, 2025",
+  author: authors["muhammad-lari"],
+  topic: "Cancer",
+  readingTime: "8 min read",
+},
+{
+  slug: "effects-chemotherapy",
+  title: "The History and Impact of Chemotherapy",
+  excerpt:
+    "Trace the fascinating evolution of chemotherapy from its origins in World War I to modern targeted approaches, and understand its transformative impact on cancer treatment.",
+  content: `
+# The History and Impact of Chemotherapy: From Warfare to Precision Medicine
+
+Chemotherapy has transformed cancer treatment over the past century, evolving from rudimentary compounds to sophisticated targeted therapies. This journey reflects both scientific ingenuity and the persistent challenge of treating cancer.
+
+## The Origins: From Chemical Warfare to Medicine
+
+Chemotherapy's roots trace back to an unlikely source:
+
+- World War I mustard gas exposure was observed to deplete white blood cells
+- In the 1940s, Louis Goodman and Alfred Gilman studied nitrogen mustard as a treatment for lymphoma
+- Their work led to the first clinical use of chemotherapy for cancer
+
+This accidental discovery launched a new era in cancer treatment.
+
+## The Early Days: 1940s-1960s
+
+The first generation of chemotherapy drugs included:
+
+- Nitrogen mustard derivatives
+- Antifolates like methotrexate
+- Antimetabolites such as 5-fluorouracil
+- Plant alkaloids including vincristine
+
+These drugs primarily targeted rapidly dividing cells, affecting both cancer cells and normal cells with high turnover rates.
+
+## The Combination Era: 1960s-1980s
+
+Major advances came through:
+
+- Development of combination chemotherapy regimens
+- MOPP regimen for Hodgkin lymphoma
+- CMF protocol for breast cancer
+- Adjuvant therapy after surgery
+
+These approaches led to the first cures for certain cancers and significant improvements in survival rates.
+
+## The Molecular Revolution: 1980s-2000s
+
+Understanding of cancer biology led to:
+
+- Targeted therapies addressing specific molecular abnormalities
+- Monoclonal antibodies like rituximab and trastuzumab
+- Small molecule inhibitors such as imatinib
+- Hormone therapies for hormone-responsive cancers
+
+These treatments offered greater specificity and often fewer side effects than traditional chemotherapy.
+
+## Modern Chemotherapy: 2000s-Present
+
+Today's landscape includes:
+
+- Precision medicine approaches based on tumor genetics
+- Antibody-drug conjugates combining targeted delivery with cytotoxic effects
+- Immunotherapy combined with traditional chemotherapy
+- Neoadjuvant chemotherapy to shrink tumors before surgery
+- Maintenance chemotherapy to prevent recurrence
+
+The boundaries between "chemotherapy" and other cancer treatments have increasingly blurred.
+
+## Impact on Cancer Outcomes
+
+Chemotherapy has dramatically changed the prognosis for many cancers:
+
+- Childhood acute lymphoblastic leukemia: from fatal to >90% cure rate
+- Hodgkin lymphoma: from incurable to >80% long-term survival
+- Testicular cancer: from deadly to highly curable
+- Breast cancer: significant improvements in survival with adjuvant therapy
+
+These successes represent some of medicine's greatest achievements.
+
+## Challenges and Side Effects
+
+Despite its benefits, chemotherapy presents challenges:
+
+- Short-term side effects (nausea, hair loss, fatigue, immunosuppression)
+- Long-term complications (cardiac toxicity, secondary cancers, neuropathy)
+- Resistance development
+- Limited efficacy in some cancer types
+
+Managing these issues remains a priority in oncology.
+
+## The Future of Chemotherapy
+
+Looking ahead, we can expect:
+
+- Increasingly personalized treatment selection
+- Novel drug delivery systems to reduce side effects
+- Rational combinations with immunotherapy and targeted agents
+- Continued refinement of dosing and scheduling
+- Development of agents targeting cancer-specific vulnerabilities
+
+While newer treatment modalities have emerged, chemotherapy remains a cornerstone of cancer care, continuing to evolve and improve.
 `,
-    coverImage: "/blog/immunotherapy.jpg",
-    date: "April 8, 2025",
-    author: authors["maliha-metla"],
-    topic: "Cancer",
-    readingTime: "9 min read",
-    featured: true,
-  },
-  {
-    slug: "cancer",
-    title: "Cancer",
-    excerpt:
-      "A comprehensive overview of cancer, exploring its causes, types, diagnosis, treatment approaches, and the latest research developments.",
-    content: `
-      # Cancer: Understanding the Disease of the Modern Era
+  coverImage: "/logo.png",
+  date: "April 3, 2025",
+  author: authors["maliha-metla"],
+  topic: "Cancer",
+  readingTime: "11 min read",
+},
+{
+  slug: "chemotherapy",
+  title: "Chemotherapy",
+  excerpt:
+    "A comprehensive guide to chemotherapy, exploring how these powerful drugs work, common regimens, side effects, and strategies for managing treatment.",
+  content: `
+# Chemotherapy: Understanding a Cornerstone of Cancer Treatment
 
-      Cancer represents not a single disease but a collection of related diseases characterized by abnormal cell growth with the potential to invade or spread to other parts of the body. This complex condition remains one of the most significant health challenges of our time.
+Chemotherapy remains one of the primary modalities for treating cancer, using powerful drugs to kill rapidly dividing cells throughout the body. Despite newer treatment approaches, chemotherapy continues to play a crucial role in many cancer treatment plans.
 
-      ## The Biology of Cancer
+## How Chemotherapy Works
 
-      At its core, cancer develops when:
-      
-      - Cells begin to divide uncontrollably
-      - Old or damaged cells survive when they should die
-      - New cells form when they are not needed
-      - Abnormal cell growth spreads to surrounding tissues
-      
-      These changes result from genetic mutations that disrupt normal cell function.
+Chemotherapy drugs target cells at various phases of the cell division cycle by:
 
-      ## Types of Cancer
+- Damaging DNA to prevent replication
+- Interfering with cell division processes
+- Disrupting enzymes needed for cell reproduction
+- Blocking cellular metabolism
 
-      Cancer can develop in almost any organ or tissue. Major types include:
-      
-      - Carcinomas: Cancers that begin in the skin or tissues lining internal organs
-      - Sarcomas: Cancers in bone, cartilage, fat, muscle, blood vessels, or connective tissues
-      - Leukemias: Cancers of blood-forming tissues like bone marrow
-      - Lymphomas: Cancers of the immune system
-      - Central nervous system cancers: Cancers of the brain and spinal cord
-      
-      Each type has distinct characteristics, risk factors, and treatment approaches.
+While cancer cells are particularly vulnerable due to their rapid division, normal cells with high turnover rates are also affected, leading to side effects.
 
-      ## Risk Factors
+## Major Classes of Chemotherapy Drugs
 
-      Cancer development is influenced by:
-      
-      - Genetic factors and family history
-      - Environmental exposures (radiation, chemicals)
-      - Lifestyle factors (smoking, alcohol, diet, physical activity)
-      - Infectious agents (certain viruses and bacteria)
-      - Age (cancer risk generally increases with age)
-      
-      Many cancers result from a combination of these factors.
+Several types of chemotherapy agents are used:
 
-      ## Diagnosis and Staging
+### Alkylating Agents
 
-      Cancer diagnosis typically involves:
-      
-      - Physical examination
-      - Imaging studies (X-rays, CT scans, MRIs, PET scans)
-      - Laboratory tests
-      - Biopsy and pathological examination
-      
-      Once diagnosed, cancer is staged based on size, local invasion, lymph node involvement, and metastasis.
+- Cyclophosphamide, cisplatin, carboplatin
+- Directly damage DNA by adding alkyl groups
 
-      ## Treatment Approaches
+### Antimetabolites
 
-      Modern cancer treatment includes:
-      
-      - Surgery to remove tumors
-      - Radiation therapy to kill cancer cells
-      - Chemotherapy using drugs to target rapidly dividing cells
-      - Targeted therapy focusing on specific molecular targets
-      - Immunotherapy harnessing the immune system
-      - Hormone therapy for hormone-sensitive cancers
-      - Stem cell transplantation for certain blood cancers
-      
-      Treatment plans are increasingly personalized based on cancer type, stage, and molecular characteristics.
+- 5-fluorouracil, gemcitabine, methotrexate
+- Interfere with DNA and RNA production
 
-      ## Living With Cancer
+### Anthracyclines
 
-      Cancer care extends beyond treatment to include:
-      
-      - Symptom management
-      - Psychological support
-      - Survivorship care
-      - Palliative care for advanced disease
-      
-      The cancer journey affects not only patients but also families and caregivers.
+- Doxorubicin, epirubicin
+- Interfere with enzymes involved in DNA replication
 
-      ## The Future of Cancer Research
+### Plant Alkaloids
 
-      Promising areas of research include:
-      
-      - Precision medicine approaches
-      - Liquid biopsies for early detection
-      - Novel immunotherapy strategies
-      - Cancer vaccines
-      - Artificial intelligence in diagnosis and treatment planning
-      
-      These advances continue to improve outcomes and quality of life for cancer patients.
-    `,
-    coverImage: "/blog/cancer-overview.jpg",
-    date: "April 5, 2025",
-    author: authors["muhammad-lari"],
-    topic: "Cancer",
-    readingTime: "10 min read",
-  },
-  {
-    slug: "anaplastic-thyroid-cancer",
-    title: "Anaplastic Thyroid Cancer",
-    excerpt:
-      "An in-depth look at anaplastic thyroid cancer, one of the most aggressive forms of thyroid cancer, including diagnosis, treatment options, and research developments.",
-    content: `
-      # Anaplastic Thyroid Cancer: Understanding a Rare and Aggressive Disease
+- Vincristine, paclitaxel, docetaxel
+- Inhibit cell division by interfering with microtubules
 
-      Anaplastic thyroid cancer (ATC) is the most aggressive form of thyroid cancer, accounting for less than 2% of all thyroid cancers but responsible for a disproportionate number of thyroid cancer-related deaths. This rare malignancy presents unique challenges for patients and healthcare providers.
+### Topoisomerase Inhibitors
 
-      ## Clinical Presentation
+- Irinotecan, etoposide
+- Interfere with enzymes that control DNA structure
 
-      ATC typically presents as:
-      
-      - A rapidly growing neck mass
-      - Hoarseness or voice changes
-      - Difficulty swallowing or breathing
-      - Neck pain
-      - Enlarged lymph nodes
-      
-      Unlike other thyroid cancers, ATC often progresses rapidly, with symptoms developing over weeks rather than months or years.
+### Miscellaneous Agents
 
-      ## Pathology and Biology
+- Platinum compounds, L-asparaginase
+- Various mechanisms of action
 
-      ATC is characterized by:
-      
-      - Undifferentiated thyroid cells that have lost typical thyroid cell features
-      - Aggressive local invasion
-      - Early metastasis to distant sites
-      - Multiple genetic alterations, including mutations in p53, BRAF, RAS, and PIK3CA
-      
-      These biological features contribute to its aggressive behavior and resistance to treatment.
+## Administration Methods
 
-      ## Diagnosis
+Chemotherapy can be delivered through various routes:
 
-      Diagnosing ATC involves:
-      
-      - Fine needle aspiration biopsy
-      - Imaging studies (ultrasound, CT, MRI, PET)
-      - Molecular testing
-      - Careful staging to assess extent of disease
-      
-      Early diagnosis is crucial but challenging due to the rapid progression.
+- Intravenous (most common)
+- Oral pills or liquids
+- Intrathecal (into spinal fluid)
+- Intraperitoneal (into abdominal cavity)
+- Intra-arterial (directly into arteries feeding a tumor)
+- Topical (applied to skin)
 
-      ## Treatment Approaches
+Treatment schedules typically involve cycles of therapy followed by rest periods.
 
-      Management of ATC requires a multidisciplinary approach:
-      
-      ### Surgery
-      
-      - When possible, complete surgical resection is attempted
-      - Often limited by extensive local invasion
-      
-      ### Radiation Therapy
-      
-      - High-dose external beam radiation
-      - May be combined with radiosensitizing chemotherapy
-      
-      ### Systemic Therapy
-      
-      - Multimodal chemotherapy regimens
-      - Targeted therapies for specific mutations (BRAF inhibitors)
-      - Immunotherapy in selected cases
-      
-      ### Clinical Trials
-      
-      - Novel targeted approaches
-      - Immunotherapy combinations
-      - Innovative multimodal strategies
-      
-      Despite these approaches, prognosis remains poor, with median survival often less than 6 months from diagnosis.
+## Common Side Effects
 
-      ## Recent Advances
+Side effects vary by drug and individual, but may include:
 
-      Research has led to some promising developments:
-      
-      - Better understanding of molecular drivers
-      - Identification of actionable mutations
-      - Novel combination approaches
-      - Improved supportive care strategies
-      
-      In 2018, the FDA approved the combination of dabrafenib and trametinib for BRAF V600E-mutated ATC, representing the first approved targeted therapy for this disease.
+- Nausea and vomiting
+- Hair loss
+- Fatigue
+- Decreased blood counts (anemia, neutropenia, thrombocytopenia)
+- Mouth sores
+- Peripheral neuropathy
+- Cognitive effects ("chemo brain")
 
-      ## Living With ATC
+Modern supportive care has significantly improved the management of these side effects.
 
-      Patients with ATC face significant challenges:
-      
-      - Rapid disease progression
-      - Symptoms affecting breathing and swallowing
-      - Psychological impact of a poor prognosis
-      
-      Palliative care plays a crucial role in maintaining quality of life and managing symptoms.
+## Treatment Strategies
 
-      ## Future Directions
+Chemotherapy may be used in several ways:
 
-      Ongoing research focuses on:
-      
-      - Identifying new therapeutic targets
-      - Developing more effective drug combinations
-      - Understanding mechanisms of resistance
-      - Improving early detection
-      - Enhancing supportive care approaches
-      
-      While ATC remains a formidable challenge, continued research offers hope for improved outcomes in the future.
-    `,
-    coverImage: "/blog/anaplastic-thyroid-cancer.jpg",
-    date: "April 5, 2025",
-    author: authors["muhammad-lari"],
-    topic: "Cancer",
-    readingTime: "8 min read",
-  },
-  {
-    slug: "the-history-and-impact-of-chemotherapy",
-    title: "The History and Impact of Chemotherapy",
-    excerpt:
-      "Trace the fascinating evolution of chemotherapy from its origins in World War I to modern targeted approaches, and understand its transformative impact on cancer treatment.",
-    content: `
-      # The History and Impact of Chemotherapy: From Warfare to Precision Medicine
+- **Curative**: Aiming to eliminate all cancer cells
+- **Adjuvant**: After surgery to eliminate microscopic disease
+- **Neoadjuvant**: Before surgery to shrink tumors
+- **Palliative**: To relieve symptoms and extend life in advanced disease
+- **Maintenance**: Low-dose therapy to prevent recurrence
 
-      Chemotherapy has transformed cancer treatment over the past century, evolving from rudimentary compounds to sophisticated targeted therapies. This journey reflects both scientific ingenuity and the persistent challenge of treating cancer.
+The specific approach depends on cancer type, stage, and patient factors.
 
-      ## The Origins: From Chemical Warfare to Medicine
+## Preparing for Chemotherapy
 
-      Chemotherapy's roots trace back to an unlikely source:
-      
-      - World War I mustard gas exposure was observed to deplete white blood cells
-      - In the 1940s, Louis Goodman and Alfred Gilman studied nitrogen mustard as a treatment for lymphoma
-      - Their work led to the first clinical use of chemotherapy for cancer
-      
-      This accidental discovery launched a new era in cancer treatment.
+Patients can prepare by:
 
-      ## The Early Days: 1940s-1960s
+- Having a thorough medical evaluation
+- Discussing fertility preservation if relevant
+- Arranging practical support for treatment days
+- Learning about side effect management
+- Considering complementary approaches for symptom management
 
-      The first generation of chemotherapy drugs included:
-      
-      - Nitrogen mustard derivatives
-      - Antifolates like methotrexate
-      - Antimetabolites such as 5-fluorouracil
-      - Plant alkaloids including vincristine
-      
-      These drugs primarily targeted rapidly dividing cells, affecting both cancer cells and normal cells with high turnover rates.
+## Advances in Chemotherapy
 
-      ## The Combination Era: 1960s-1980s
+Recent improvements include:
 
-      Major advances came through:
-      
-      - Development of combination chemotherapy regimens
-      - MOPP regimen for Hodgkin lymphoma
-      - CMF protocol for breast cancer
-      - Adjuvant therapy after surgery
-      
-      These approaches led to the first cures for certain cancers and significant improvements in survival rates.
+- Better anti-nausea medications
+- Growth factors to support blood cell production
+- Improved delivery systems
+- More precise dosing strategies
+- Combination with targeted therapies and immunotherapy
 
-      ## The Molecular Revolution: 1980s-2000s
-
-      Understanding of cancer biology led to:
-      
-      - Targeted therapies addressing specific molecular abnormalities
-      - Monoclonal antibodies like rituximab and trastuzumab
-      - Small molecule inhibitors such as imatinib
-      - Hormone therapies for hormone-responsive cancers
-      
-      These treatments offered greater specificity and often fewer side effects than traditional chemotherapy.
-
-      ## Modern Chemotherapy: 2000s-Present
-
-      Today's landscape includes:
-      
-      - Precision medicine approaches based on tumor genetics
-      - Antibody-drug conjugates combining targeted delivery with cytotoxic effects
-      - Immunotherapy combined with traditional chemotherapy
-      - Neoadjuvant chemotherapy to shrink tumors before surgery
-      - Maintenance chemotherapy to prevent recurrence
-      
-      The boundaries between "chemotherapy" and other cancer treatments have increasingly blurred.
-
-      ## Impact on Cancer Outcomes
-
-      Chemotherapy has dramatically changed the prognosis for many cancers:
-      
-      - Childhood acute lymphoblastic leukemia: from fatal to >90% cure rate
-      - Hodgkin lymphoma: from incurable to >80% long-term survival
-      - Testicular cancer: from deadly to highly curable
-      - Breast cancer: significant improvements in survival with adjuvant therapy
-      
-      These successes represent some of medicine's greatest achievements.
-
-      ## Challenges and Side Effects
-
-      Despite its benefits, chemotherapy presents challenges:
-      
-      - Short-term side effects (nausea, hair loss, fatigue, immunosuppression)
-      - Long-term complications (cardiac toxicity, secondary cancers, neuropathy)
-      - Resistance development
-      - Limited efficacy in some cancer types
-      
-      Managing these issues remains a priority in oncology.
-
-      ## The Future of Chemotherapy
-
-      Looking ahead, we can expect:
-      
-      - Increasingly personalized treatment selection
-      - Novel drug delivery systems to reduce side effects
-      - Rational combinations with immunotherapy and targeted agents
-      - Continued refinement of dosing and scheduling
-      - Development of agents targeting cancer-specific vulnerabilities
-      
-      While newer treatment modalities have emerged, chemotherapy remains a cornerstone of cancer care, continuing to evolve and improve.
-    `,
-    coverImage: "/blog/chemotherapy-history.jpg",
-    date: "April 3, 2025",
-    author: authors["maliha-metla"],
-    topic: "Cancer",
-    readingTime: "11 min read",
-  },
-  {
-    slug: "chemotherapy",
-    title: "Chemotherapy",
-    excerpt:
-      "A comprehensive guide to chemotherapy, exploring how these powerful drugs work, common regimens, side effects, and strategies for managing treatment.",
-    content: `
-      # Chemotherapy: Understanding a Cornerstone of Cancer Treatment
-
-      Chemotherapy remains one of the primary modalities for treating cancer, using powerful drugs to kill rapidly dividing cells throughout the body. Despite newer treatment approaches, chemotherapy continues to play a crucial role in many cancer treatment plans.
-
-      ## How Chemotherapy Works
-
-      Chemotherapy drugs target cells at various phases of the cell division cycle by:
-      
-      - Damaging DNA to prevent replication
-      - Interfering with cell division processes
-      - Disrupting enzymes needed for cell reproduction
-      - Blocking cellular metabolism
-      
-      While cancer cells are particularly vulnerable due to their rapid division, normal cells with high turnover rates are also affected, leading to side effects.
-
-      ## Major Classes of Chemotherapy Drugs
-
-      Several types of chemotherapy agents are used:
-      
-      ### Alkylating Agents
-      
-      - Cyclophosphamide, cisplatin, carboplatin
-      - Directly damage DNA by adding alkyl groups
-      
-      ### Antimetabolites
-      
-      - 5-fluorouracil, gemcitabine, methotrexate
-      - Interfere with DNA and RNA production
-      
-      ### Anthracyclines
-      
-      - Doxorubicin, epirubicin
-      - Interfere with enzymes involved in DNA replication
-      
-      ### Plant Alkaloids
-      
-      - Vincristine, paclitaxel, docetaxel
-      - Inhibit cell division by interfering with microtubules
-      
-      ### Topoisomerase Inhibitors
-      
-      - Irinotecan, etoposide
-      - Interfere with enzymes that control DNA structure
-      
-      ### Miscellaneous Agents
-      
-      - Platinum compounds, L-asparaginase
-      - Various mechanisms of action
-
-      ## Administration Methods
-
-      Chemotherapy can be delivered through various routes:
-      
-      - Intravenous (most common)
-      - Oral pills or liquids
-      - Intrathecal (into spinal fluid)
-      - Intraperitoneal (into abdominal cavity)
-      - Intra-arterial (directly into arteries feeding a tumor)
-      - Topical (applied to skin)
-      
-      Treatment schedules typically involve cycles of therapy followed by rest periods.
-
-      ## Common Side Effects
-
-      Side effects vary by drug and individual, but may include:
-      
-      - Nausea and vomiting
-      - Hair loss
-      - Fatigue
-      - Decreased blood counts (anemia, neutropenia, thrombocytopenia)
-      - Mouth sores
-      - Peripheral neuropathy
-      - Cognitive effects ("chemo brain")
-      
-      Modern supportive care has significantly improved the management of these side effects.
-
-      ## Treatment Strategies
-
-      Chemotherapy may be used in several ways:
-      
-      - **Curative**: Aiming to eliminate all cancer cells
-      - **Adjuvant**: After surgery to eliminate microscopic disease
-      - **Neoadjuvant**: Before surgery to shrink tumors
-      - **Palliative**: To relieve symptoms and extend life in advanced disease
-      - **Maintenance**: Low-dose therapy to prevent recurrence
-      
-      The specific approach depends on cancer type, stage, and patient factors.
-
-      ## Preparing for Chemotherapy
-
-      Patients can prepare by:
-      
-      - Having a thorough medical evaluation
-      - Discussing fertility preservation if relevant
-      - Arranging practical support for treatment days
-      - Learning about side effect management
-      - Considering complementary approaches for symptom management
-      
-      ## Advances in Chemotherapy
-
-      Recent improvements include:
-      
-      - Better anti-nausea medications
-      - Growth factors to support blood cell production
-      - Improved delivery systems
-      - More precise dosing strategies
-      - Combination with targeted therapies and immunotherapy
-      
-      These advances have made chemotherapy more tolerable and effective than in the past.
-    `,
-    coverImage: "/blog/chemotherapy.jpg",
-    date: "April 1, 2025",
-    author: authors["manha"],
-    topic: "Cancer",
-    readingTime: "9 min read",
-  },
+These advances have made chemotherapy more tolerable and effective than in the past.
+`,
+  coverImage: "/logo.png",
+  date: "April 1, 2025",
+  author: authors["manha"],
+  topic: "Cancer",
+  readingTime: "9 min read",
+},
 ]
 
 // Helper functions
