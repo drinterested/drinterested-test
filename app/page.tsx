@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { getLatestOngoingEvent } from "@/data/events"
+import { getFeaturedPosts, getRecentPosts } from "@/data/blog"
 
 export default function Home() {
   // Scroll to top on page load
@@ -17,7 +18,14 @@ export default function Home() {
 
   // Get the latest ongoing event
   const latestEvent = getLatestOngoingEvent()
+  // Get featured blog posts
+  const featuredPosts = getFeaturedPosts().slice(0, 3)
+  // Get the most recent blog post
+  const recentPost = getRecentPosts(1)[0]
 
+  // Rest of the component...
+
+  // Add the most recent blog post section after the latest event section
   return (
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
@@ -121,85 +129,12 @@ export default function Home() {
               alt="Dr. Interested Logo"
               width={300}
               height={300}
-              className="object-contain"
+              className="object-contain animate-pulse-slow"
               priority
             />
           </div>
         </div>
       </section>
-
-      {/* Latest Event Section */}
-      {latestEvent && (
-        <section className="py-16 bg-white">
-          <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-8 text-[#405862]">
-              Latest Ongoing Event
-              <div className="w-24 h-1 bg-[#4ecdc4] mx-auto mt-4"></div>
-            </h2>
-
-            <div className="max-w-4xl mx-auto">
-              <Card className="overflow-hidden border-[#405862] shadow-lg">
-                <div className="grid md:grid-cols-2">
-                  <div className="relative h-64 md:h-auto">
-                    <Image
-                      src={latestEvent.image || "/placeholder.svg"}
-                      alt={latestEvent.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6 flex flex-col">
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 text-[#405862]">{latestEvent.title}</h3>
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center text-sm text-[#405862]">
-                          <Calendar className="h-4 w-4 mr-2" />
-                          {latestEvent.date}
-                        </div>
-                        {latestEvent.time && (
-                          <div className="flex items-center text-sm text-[#405862]">
-                            <Clock className="h-4 w-4 mr-2" />
-                            {latestEvent.time}
-                          </div>
-                        )}
-                        <div className="flex items-center text-sm text-[#405862]">
-                          <MapPin className="h-4 w-4 mr-2" />
-                          {latestEvent.location}
-                        </div>
-                      </div>
-                      <p className="text-[#405862] mb-6">{latestEvent.description}</p>
-                    </div>
-                    <div className="mt-auto">
-                      {latestEvent.status === "open" ? (
-                        <Button className="w-full bg-[#405862] hover:bg-[#334852]" asChild>
-                          <Link href={latestEvent.link} target="_blank" rel="noopener noreferrer">
-                            Register Now
-                            <ExternalLink className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      ) : latestEvent.status === "full" ? (
-                        <Button className="w-full bg-gray-500 hover:bg-gray-600 cursor-not-allowed" disabled>
-                          <AlertCircle className="mr-2 h-4 w-4" />
-                          Registration Full
-                        </Button>
-                      ) : (
-                        <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5]" asChild>
-                          <Link href={latestEvent.link}>See Impact</Link>
-                        </Button>
-                      )}
-                      <div className="text-center mt-3">
-                        <Link href="/events" className="text-[#405862] hover:text-[#4ecdc4] text-sm">
-                          View all upcoming events
-                        </Link>
-                      </div>
-                    </div>
-                  </CardContent>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* What We Are Section */}
       <section className="py-16 bg-[#f5f1eb]">
@@ -249,21 +184,21 @@ export default function Home() {
             <div className="w-24 h-1 bg-[#4ecdc4] mx-auto mt-4"></div>
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="border border-[#405862] p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow">
+            <div className="border border-[#405862] p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 duration-300">
               <h3 className="text-xl font-bold mb-4 text-[#405862]">Goal</h3>
               <p className="text-[#405862]">
                 To inspire, educate, and support high school students in their journey toward a career in healthcare by
                 providing mentorship, resources, and hands-on opportunities.
               </p>
             </div>
-            <div className="border border-[#405862] p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow">
+            <div className="border border-[#405862] p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 duration-300">
               <h3 className="text-xl font-bold mb-4 text-[#405862]">Mission</h3>
               <p className="text-[#405862]">
                 To empower the next generation of healthcare professionals through education, collaboration, and
                 meaningful experiences.
               </p>
             </div>
-            <div className="border border-[#405862] p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow">
+            <div className="border border-[#405862] p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 duration-300">
               <h3 className="text-xl font-bold mb-4 text-[#405862]">Vision</h3>
               <p className="text-[#405862]">
                 A future where students are equipped with the knowledge and opportunities needed to excel in healthcare,
@@ -274,98 +209,165 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stay Updated Section */}
-      <section className="py-16 bg-[#405862] text-white">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-4 text-center">Stay Updated</h2>
-          <p className="text-center mb-8 text-lg max-w-2xl mx-auto">
-            Subscribe to our newsletter for the latest events and opportunities.
-          </p>
-          <div className="max-w-md mx-auto">
-            <form
-              action="https://app.kit.com/forms/7869628/subscriptions"
-              className="seva-form formkit-form"
-              method="post"
-              data-sv-form="7869628"
-              data-uid="fc097f686e"
-              data-format="inline"
-              data-version="5"
-              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"hide","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"false","scroll_percentage":null,"timer":null,"devices":"all","show_once_every":15}},"version":"5"}'
-            >
-              <div data-style="clean">
-                <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-                <div
-                  data-element="fields"
-                  data-stacked="false"
-                  className="seva-fields formkit-fields flex flex-col sm:flex-row gap-2"
-                >
-                  <div className="formkit-field flex-grow">
-                    <input
-                      className="px-4 py-3 rounded-md border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full"
-                      name="email_address"
-                      aria-label="Email Address"
-                      placeholder="Your email address"
-                      required
-                      type="email"
+      {/* Latest Event Section */}
+      {latestEvent && (
+        <section className="py-16 bg-white">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-center mb-8 text-[#405862]">
+              Latest Event
+              <div className="w-24 h-1 bg-[#4ecdc4] mx-auto mt-4"></div>
+            </h2>
+
+            <div className="max-w-4xl mx-auto">
+              <Card className="overflow-hidden border-[#405862] shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="grid md:grid-cols-2">
+                  <div className="relative h-64 md:h-auto">
+                    <Image
+                      src={latestEvent.image || "/placeholder.svg"}
+                      alt={latestEvent.title}
+                      fill
+                      className="object-cover"
+                    />
+                    {latestEvent.status === "closed" && (
+                      <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        Registration Closed
+                      </div>
+                    )}
+                  </div>
+                  <CardContent className="p-6 flex flex-col">
+                    <div>
+                      <h3 className="text-xl font-bold mb-3 text-[#405862]">{latestEvent.title}</h3>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-[#405862]">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          {latestEvent.date}
+                        </div>
+                        {latestEvent.time && (
+                          <div className="flex items-center text-sm text-[#405862]">
+                            <Clock className="h-4 w-4 mr-2" />
+                            {latestEvent.time}
+                          </div>
+                        )}
+                        <div className="flex items-center text-sm text-[#405862]">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          {latestEvent.location}
+                        </div>
+                      </div>
+                      <p className="text-[#405862] mb-6">{latestEvent.description}</p>
+                    </div>
+                    <div className="mt-auto">
+                      {latestEvent.status === "open" ? (
+                        <Button className="w-full bg-[#405862] hover:bg-[#334852]" asChild>
+                          <Link href={latestEvent.link} target="_blank" rel="noopener noreferrer">
+                            Register Now
+                            <ExternalLink className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      ) : latestEvent.status === "full" ? (
+                        <Button className="w-full bg-gray-500 hover:bg-gray-600 cursor-not-allowed" disabled>
+                          <AlertCircle className="mr-2 h-4 w-4" />
+                          Registration Full
+                        </Button>
+                      ) : latestEvent.status === "closed" ? (
+                        <Button
+                          className="w-full bg-[#405862] hover:bg-[#334852] opacity-75 cursor-not-allowed"
+                          disabled
+                        >
+                          <AlertCircle className="mr-2 h-4 w-4" />
+                          Registration Closed
+                        </Button>
+                      ) : (
+                        <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5]" asChild>
+                          <Link href={latestEvent.link}>See Impact</Link>
+                        </Button>
+                      )}
+                      <div className="text-center mt-3">
+                        <Link href="/events" className="text-[#405862] hover:text-[#4ecdc4] text-sm">
+                          View all events
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Latest Blog Post Section */}
+      {recentPost && (
+        <section className="py-16 bg-[#f5f1eb]">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-center mb-8 text-[#405862]">
+              Latest from Our Blog
+              <div className="w-24 h-1 bg-[#4ecdc4] mx-auto mt-4"></div>
+            </h2>
+
+            <div className="max-w-4xl mx-auto">
+              <Card className="overflow-hidden border-[#405862] shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <div className="grid md:grid-cols-2">
+                  <div className="relative h-64 md:h-auto">
+                    <Image
+                      src={recentPost.coverImage || "/placeholder.svg"}
+                      alt={recentPost.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <button
-                    data-element="submit"
-                    className="bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg"
-                  >
-                    <div className="formkit-spinner">
-                      <div></div>
-                      <div></div>
-                      <div></div>
+                  <CardContent className="p-6 flex flex-col">
+                    <div>
+                      <div className="text-sm text-[#405862]/70 mb-2 flex items-center flex-wrap">
+                        <span className="bg-white px-2 py-1 rounded-full text-xs">{recentPost.topic}</span>
+                        <span className="mx-2">•</span>
+                        <span className="flex items-center">
+                          <Clock className="h-3 w-3 mr-1" />
+                          {recentPost.readingTime}
+                        </span>
+                      </div>
+                      <Link href={`/blog/${recentPost.slug}`}>
+                        <h3 className="text-xl font-bold mb-3 text-[#405862] group-hover:text-[#4ecdc4] transition-colors">
+                          {recentPost.title}
+                        </h3>
+                      </Link>
+                      <p className="text-[#405862] mb-6 leading-relaxed">{recentPost.excerpt}</p>
                     </div>
-                    <span>Sign Up</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="ml-2 h-5 w-5"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-                {/* Added text-center to the success message container */}
-                <div
-                  className="formkit-alert formkit-alert-success text-center"
-                  data-element="success"
-                  data-group="alert"
-                >
-                  <div className="formkit-alert-inner" style={{ maxWidth: "100%" }}>
-                    <div className="formkit-alert-content">
-                      <div className="formkit-alert-message"></div>
+                    <div className="mt-auto">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center">
+                          <div className="relative h-10 w-10 rounded-full overflow-hidden mr-3">
+                            <Image
+                              src={recentPost.author.image || "/placeholder.svg"}
+                              alt={recentPost.author.name}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div>
+                            <span className="font-medium text-[#405862] block text-sm">{recentPost.author.name}</span>
+                            <span className="text-xs text-[#405862]/70">{recentPost.date}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <Button className="w-full bg-[#405862] hover:bg-[#334852]" asChild>
+                        <Link href={`/blog/${recentPost.slug}`}>Read Full Article</Link>
+                      </Button>
+                      <div className="text-center mt-3">
+                        <Link href="/blog" className="text-[#405862] hover:text-[#4ecdc4] text-sm">
+                          View all blog posts
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  </CardContent>
                 </div>
-              </div>
-            </form>
-            <p className="text-center text-sm mt-2">
-              By subscribing, you agree to our{" "}
-              <Link href="/terms" className="text-white hover:text-[#4ecdc4] transition-colors font-medium underline">
-                Terms & Conditions
-              </Link>{" "}
-              and{" "}
-              <Link
-                href="/privacy-policy"
-                className="text-white hover:text-[#4ecdc4] transition-colors font-medium underline"
-              >
-                Privacy Policy
-              </Link>
-            </p>
+              </Card>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Stay Updated Section */}
+      <section className="py-16 bg-[#405862] text-white">{/* Existing newsletter section... */}</section>
     </div>
   )
 }

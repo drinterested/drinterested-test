@@ -13,6 +13,7 @@ const routes = [
   { href: "/", label: "Home" },
   { href: "/our-work", label: "Our Work" },
   { href: "/events", label: "Events" },
+  { href: "/blog", label: "Blog" },
   { href: "/members", label: "Members" },
   { href: "/contact", label: "Contact" },
 ]
@@ -67,10 +68,14 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "flex items-center px-3 py-2 text-sm font-medium transition-colors hover:text-[#405862] rounded-md",
-                        pathname === route.href ? "text-[#405862] font-bold bg-[#f5f1eb]" : "text-muted-foreground",
+                        pathname === route.href || pathname?.startsWith(`${route.href}/`)
+                          ? "text-[#405862] font-bold bg-[#f5f1eb]"
+                          : "text-muted-foreground",
                       )}
                     >
-                      {pathname === route.href && <div className="w-1 h-4 bg-[#405862] mr-2 rounded-full"></div>}
+                      {(pathname === route.href || pathname?.startsWith(`${route.href}/`)) && (
+                        <div className="w-1 h-4 bg-[#405862] mr-2 rounded-full"></div>
+                      )}
                       {route.label}
                     </Link>
                   ))}
@@ -92,13 +97,13 @@ export default function Navbar() {
               href={route.href}
               className={cn(
                 "text-base font-medium transition-colors hover:text-[#405862] relative py-1.5 px-2",
-                pathname === route.href
+                pathname === route.href || pathname?.startsWith(`${route.href}/`)
                   ? "text-[#405862] font-bold"
                   : "text-muted-foreground hover:bg-[#f5f1eb]/50 rounded-md",
               )}
             >
               {route.label}
-              {pathname === route.href && (
+              {(pathname === route.href || pathname?.startsWith(`${route.href}/`)) && (
                 <span className="absolute -bottom-[6px] left-0 w-full h-1 bg-[#405862] rounded-full"></span>
               )}
             </Link>

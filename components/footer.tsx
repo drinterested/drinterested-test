@@ -92,6 +92,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/members" className="text-sm hover:text-[#4ecdc4] transition-colors">
                   Members
                 </Link>

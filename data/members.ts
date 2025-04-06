@@ -103,17 +103,6 @@ export const departments: DepartmentType[] = [
           instagram: "https://instagram.com",
         },
       },
-      {
-        id: "tech-mem2",
-        name: "Traicy Moreno",
-        role: "Technology Member",
-        image: "/edelweiss-traicy.jpg", // Updated path
-        bio: "Contributing to the technical aspects of our platform with skills in backend development and database management.",
-        socialLinks: {
-          linkedin: "https://linkedin.com",
-          instagram: "https://instagram.com",
-        },
-      },
     ],
   },
   {
@@ -217,6 +206,17 @@ export const departments: DepartmentType[] = [
           instagram: "https://instagram.com",
         },
       },
+      {
+        id: "research-mem5",
+        name: "Aaron Sethi",
+        role: "Research Member",
+        image: "/placeholder.svg?height=400&width=300",
+        bio: "Developing resources to help students understand and engage in medical research.",
+        socialLinks: {
+          linkedin: "https://linkedin.com",
+          instagram: "https://instagram.com",
+        },
+      },
     ],
   },
   {
@@ -281,17 +281,6 @@ export const departments: DepartmentType[] = [
           instagram: "https://instagram.com",
         },
       },
-      {
-        id: "marketing-mem4",
-        name: "Zechariah Zac Loo",
-        role: "Marketing Member",
-        image: "/placeholder.svg?height=400&width=300",
-        bio: "Supporting our marketing initiatives with creative ideas and implementation strategies.",
-        socialLinks: {
-          linkedin: "https://linkedin.com",
-          instagram: "https://instagram.com",
-        },
-      },
     ],
   },
   {
@@ -345,13 +334,25 @@ export const departments: DepartmentType[] = [
         },
       },
       {
-        id: "publications-mem4",
-        name: "Saide Zülal Taşlıyol",
+        id: "publications-mem2",
+        name: "Manha",
         role: "Publications Member",
-        image: "/saide-zulal.jpg", // Updated path
-        bio: "Hello, I'm Saide Zülal from Turkey. I aim to combine science and technology to find solutions to global issues. I started the 'Coding Kids' project to promote equal opportunities in education and inspire young people to explore science. I'm also working on bioplastic production to reduce plastic pollution and leading the World Water Platform to protect water resources. I am passionate about space and physics as well. My goal is to make the world a better place and create an impact through science.",
+        image: "/placeholder.svg?height=400&width=300",
+        bio: "Developing educational resources to help students understand medical concepts and career paths.",
         socialLinks: {
-          linkedin: "https://www.linkedin.com/in/saide-zülal-taşlıyol-303307268",
+          linkedin: "https://linkedin.com",
+          instagram: "https://instagram.com",
+        },
+      },
+      {
+        id: "publications-mem3",
+        name: "Ellie Williams",
+        role: "Publications Member",
+        image: "/placeholder.svg?height=400&width=300",
+        bio: "Creating content that highlights the achievements and experiences of our members.",
+        socialLinks: {
+          linkedin: "https://linkedin.com",
+          instagram: "https://instagram.com",
         },
       },
     ],
@@ -390,17 +391,6 @@ export const departments: DepartmentType[] = [
         role: "HR Member",
         image: "/placeholder.svg?height=400&width=300",
         bio: "Supporting the onboarding process and creating resources for new members.",
-        socialLinks: {
-          linkedin: "https://linkedin.com",
-          instagram: "https://instagram.com",
-        },
-      },
-      {
-        id: "hr-mem3",
-        name: "Pranjali Kulkarni",
-        role: "HR Member",
-        image: "/pranjali-kulkarni.jpeg", // Updated path
-        bio: "Developing initiatives to foster a sense of community and collaboration among members.",
         socialLinks: {
           linkedin: "https://linkedin.com",
           instagram: "https://instagram.com",

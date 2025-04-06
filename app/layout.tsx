@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "healthcare mentorship",
     "medical research",
     "Dr. Interested",
+    "healthcare internships",
+    "medical technology",
   ],
   authors: [{ name: "Dr. Interested Team" }],
   creator: "Dr. Interested",
@@ -48,8 +50,18 @@ export const metadata: Metadata = {
       "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
     images: ["/logo.png"],
   },
+  alternates: {
+    canonical: "https://drinterested.tech",
+    languages: {
+      "en-US": "https://drinterested.tech",
+    },
+  },
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   generator: "v0.dev",
+  metadataBase: new URL("https://drinterested.tech"),
+  verification: {
+    google: "google-site-verification-code",
+  },
 }
 
 export const viewport: Viewport = {
@@ -82,8 +94,6 @@ export default function RootLayout({
     </html>
   )
 }
-
-import "./globals.css"
 
 
 

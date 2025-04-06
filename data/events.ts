@@ -1,13 +1,12 @@
 // Types for our events data
 export type EventType = {
-  id: number
   title: string
   date: string
   time?: string
   location: string
   description: string
   image: string
-  status: "open" | "full" | "completed"
+  status: "open" | "full" | "completed" | "closed"
   link: string
   featured?: boolean
 }
@@ -15,7 +14,18 @@ export type EventType = {
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
   {
-    id: 1,
+    title: "The Resilient Minds Project",
+    date: "April 27, 2025",
+    time: "2:00 PM - 4:00 PM EST",
+    location: "Virtual Event",
+    description:
+      "A virtual initiative aimed at empowering youth with practical strategies to improve mental, emotional, and physical well-being. Through engaging workshops, interactive activities, and expert insights, participants will gain valuable skills in stress management, resilience-building, and self-care.",
+    image: "/resilient-minds.png",
+    status: "closed",
+    link: "#",
+    featured: true,
+  },
+  {
     title: "Healthcare Media Promotion Event",
     date: "March 2025 - Ongoing",
     time: "Ongoing",
@@ -24,19 +34,6 @@ export const upcomingEvents: EventType[] = [
     image: "/media-event.png",
     status: "open",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfx4SmOt6v3zgsgTunvjzLd8kwZUqV6RywEpkYekYPPFfw36A/viewform",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Dr. Interested Medical-Technological Internship",
-    date: "March 2025 - Ongoing",
-    time: "Ongoing",
-    location: "Virtual Event",
-    description:
-      "Participants work on research projects and technological innovations in medicine, culminating in final presentations.",
-    image: "/research.png",
-    status: "full",
-    link: "https://empty-link.com",
     featured: false,
   },
 ]
@@ -44,7 +41,16 @@ export const upcomingEvents: EventType[] = [
 // Past events data
 export const pastEvents: EventType[] = [
   {
-    id: 3,
+    title: "Dr. Interested Medical-Technological Internship",
+    date: "March 2025",
+    location: "Virtual Event",
+    description:
+      "Participants worked on research projects and technological innovations in medicine, culminating in final presentations.",
+    image: "/research.png",
+    status: "completed",
+    link: "/events/internship-recap",
+  },
+  {
     title: "Dr. Interested Creative Contest",
     date: "February 2025",
     location: "Virtual Event",
@@ -55,7 +61,6 @@ export const pastEvents: EventType[] = [
     link: "/our-work/creative-contest-2025",
   },
   {
-    id: 4,
     title: "Virtual Cards for Nurses",
     date: "January 2025 - February 2025",
     location: "Virtual Event",
@@ -71,9 +76,9 @@ export const pastEvents: EventType[] = [
 export const getLatestOngoingEvent = (): EventType | undefined => {
   return upcomingEvents.find(
     (event) =>
-      event.featured &&
-      (event.date.toLowerCase().includes("ongoing") ||
-        new Date(event.date.split(" - ")[1] || event.date) >= new Date()),
+      event.featured ||
+      event.date.toLowerCase().includes("ongoing") ||
+      new Date(event.date.split(" - ")[1] || event.date) >= new Date(),
   )
 }
 

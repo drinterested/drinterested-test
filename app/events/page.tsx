@@ -28,10 +28,18 @@ export default function EventsPage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {upcomingEvents.map((event) => (
-              <Card key={event.id} className="overflow-hidden border-[#405862]">
+            {upcomingEvents.map((event, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden border-[#405862] hover:shadow-lg transition-all duration-300"
+              >
                 <div className="relative h-48">
                   <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+                  {event.status === "closed" && (
+                    <div className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                      Registration Closed
+                    </div>
+                  )}
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold mb-2 text-[#405862]">{event.title}</h3>
@@ -66,6 +74,15 @@ export default function EventsPage() {
                       <AlertCircle className="mr-2 h-4 w-4" />
                       Registration Full
                     </Button>
+                  ) : event.status === "closed" ? (
+                    <Button
+                      className="w-full bg-[#405862] hover:bg-[#334852] opacity-75 cursor-not-allowed"
+                      size="sm"
+                      disabled
+                    >
+                      <AlertCircle className="mr-2 h-4 w-4" />
+                      Registration Closed
+                    </Button>
                   ) : (
                     <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5]" size="sm" asChild>
                       <Link href={event.link}>
@@ -90,10 +107,10 @@ export default function EventsPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {pastEvents.map((event) => (
+            {pastEvents.map((event, index) => (
               <div
-                key={event.id}
-                className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg shadow-sm border border-[#405862]"
+                key={index}
+                className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg shadow-sm border border-[#405862] hover:shadow-lg transition-all duration-300"
               >
                 <div className="md:w-1/3 relative h-48 md:h-auto rounded-lg overflow-hidden">
                   <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
@@ -111,10 +128,17 @@ export default function EventsPage() {
                     size="sm"
                     asChild
                   >
-                    <Link href="https://www.instagram.com/dr.interested/" target="_blank" rel="noopener noreferrer">
-                      View Recap
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
+                    {event.title === "Dr. Interested Medical-Technological Internship" ? (
+                      <Link href="/events/internship-recap">
+                        View Recap
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Link>
+                    ) : (
+                      <Link href={event.link} target="_blank" rel="noopener noreferrer">
+                        View Recap
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Link>
+                    )}
                   </Button>
                 </div>
               </div>
@@ -166,7 +190,7 @@ export default function EventsPage() {
                   </div>
                   <button
                     data-element="submit"
-                    className="formkit-submit formkit-submit bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg w-full mt-2"
+                    className="formkit-submit formkit-submit bg-[#4ecdc4] text-white px-6 py-3 rounded-md font-medium flex items-center justify-center hover:bg-[#3dbdb5] transition-colors shadow-md hover:shadow-lg w-full mt-2 transform hover:scale-105 duration-300"
                   >
                     <div className="formkit-spinner">
                       <div></div>
