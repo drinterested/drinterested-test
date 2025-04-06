@@ -167,8 +167,10 @@ export default function Footer() {
             </h3>
             <p className="text-sm mb-4">Subscribe to our newsletter for the latest events and opportunities.</p>
 
-            {/* Use our new newsletter component with compact styling for the footer */}
-            <NewsletterForm darkMode={true} showFirstName={false} className="scale-90 origin-top" />
+            {/* Use our newsletter component with compact styling for the footer */}
+            <div className="bg-[#405862] p-4 rounded">
+              <NewsletterForm darkMode={true} showFirstName={false} compact={true} />
+            </div>
           </div>
         </div>
 

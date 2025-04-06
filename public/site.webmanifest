@@ -1,0 +1,24 @@
+{
+    "name": "Dr. Interested",
+    "short_name": "Dr. Interested",
+    "icons": [
+      {
+        "src": "/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#405862",
+    "background_color": "#f5f1eb",
+    "display": "standalone",
+    "start_url": "/",
+    "orientation": "portrait",
+    "description": "Empowering high school students to explore careers in healthcare through education, research, and mentorship."
+  }
+  
+  
