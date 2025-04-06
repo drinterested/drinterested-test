@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function NewsletterForm({
   className = "",
@@ -17,6 +18,7 @@ export default function NewsletterForm({
 }) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const isMobile = useIsMobile()
 
   // Add useEffect to load ConvertKit script
   useEffect(() => {
@@ -40,13 +42,19 @@ export default function NewsletterForm({
   // Adjust heading sizes for compact mode
   const headingClass = compact
     ? `text-xl font-bold mb-2 text-center ${textColor}`
-    : `text-3xl font-bold mb-4 text-center ${textColor}`
+    : `text-3xl md:text-3xl font-bold mb-4 text-center ${textColor}`
 
-  const descriptionClass = compact ? `text-center mb-4 text-sm ${textColor}` : `text-center mb-8 text-lg ${textColor}`
+  const descriptionClass = compact
+    ? `text-center mb-4 text-sm ${textColor}`
+    : `text-center mb-6 md:mb-8 text-base md:text-lg ${textColor}`
+
+  // Adjust input padding for mobile
+  const inputPadding = isMobile ? "px-3 py-2.5" : "px-4 py-3"
+  const buttonPadding = isMobile ? "px-4 py-2.5" : "px-6 py-3"
 
   return (
     <div className={`w-full ${className}`}>
-      <div className="mx-auto">
+      <div className="mx-auto max-w-md">
         {!compact && (
           <>
             <h2 className={headingClass}>Stay Updated</h2>
@@ -83,7 +91,7 @@ export default function NewsletterForm({
                 {showFirstName && (
                   <div className="formkit-field">
                     <input
-                      className={`px-4 py-3 rounded-md border ${inputBorderColor} ${inputBgColor} ${inputTextColor} ${inputPlaceholderColor} focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full`}
+                      className={`${inputPadding} rounded-md border ${inputBorderColor} ${inputBgColor} ${inputTextColor} ${inputPlaceholderColor} focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full text-base`}
                       aria-label="First Name"
                       name="fields[first_name]"
                       placeholder="First Name"
@@ -93,7 +101,7 @@ export default function NewsletterForm({
                 )}
                 <div className="formkit-field">
                   <input
-                    className={`px-4 py-3 rounded-md border ${inputBorderColor} ${inputBgColor} ${inputTextColor} ${inputPlaceholderColor} focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full`}
+                    className={`${inputPadding} rounded-md border ${inputBorderColor} ${inputBgColor} ${inputTextColor} ${inputPlaceholderColor} focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] w-full text-base`}
                     name="email_address"
                     aria-label="Email Address"
                     placeholder="Email Address"
@@ -103,7 +111,7 @@ export default function NewsletterForm({
                 </div>
                 <button
                   data-element="submit"
-                  className="formkit-submit formkit-submit bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white px-6 py-3 rounded-md font-medium w-full flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300"
+                  className={`formkit-submit formkit-submit bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white ${buttonPadding} rounded-md font-medium w-full flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 text-base`}
                 >
                   <div className="formkit-spinner">
                     <div></div>
@@ -114,7 +122,7 @@ export default function NewsletterForm({
                 </button>
               </div>
             </div>
-            <p className={`text-center text-sm mt-2 ${textColor}/70`}>
+            <p className={`text-center text-xs md:text-sm mt-2 ${textColor}/70`}>
               By subscribing, you agree to our{" "}
               <Link href="/terms" className={`${linkColor} transition-colors underline`}>
                 Terms

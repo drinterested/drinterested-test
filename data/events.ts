@@ -58,7 +58,7 @@ export const pastEvents: EventType[] = [
       "Encouraged students to creatively express their passion for healthcare through art, writing, and multimedia projects.",
     image: "/competition.png",
     status: "completed",
-    link: "/our-work/creative-contest-2025",
+    link: "https://www.instagram.com/p/DHBvw9WOyKj/?img_index=1",
   },
   {
     title: "Virtual Cards for Nurses",
@@ -68,7 +68,7 @@ export const pastEvents: EventType[] = [
       "Participants created over 375 virtual appreciation cards for nurses to recognize their dedication and hard work.",
     image: "/cards.png",
     status: "completed",
-    link: "/our-work/nurse-appreciation-2025",
+    link: "https://www.instagram.com/p/DGjvbTNup3c/",
   },
 ]
 
