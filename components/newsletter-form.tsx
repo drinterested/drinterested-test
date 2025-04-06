@@ -10,10 +10,12 @@ export default function NewsletterForm({
   className = "",
   darkMode = false,
   showFirstName = false,
+  compact = false,
 }: {
   className?: string
   darkMode?: boolean
   showFirstName?: boolean
+  compact?: boolean
 }) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -54,24 +56,35 @@ export default function NewsletterForm({
 
   const textColor = darkMode ? "text-white" : "text-[#405862]"
   const inputBgColor = darkMode ? "bg-[#4f6b75]" : "bg-white"
-  const inputBorderColor = darkMode ? "border-white" : "border-[#405862]"
+  const inputBorderColor = darkMode ? "border-[#5a7682]" : "border-[#405862]"
   const inputTextColor = darkMode ? "text-white" : "text-[#405862]"
-  const inputPlaceholderColor = darkMode ? "placeholder:text-gray-200" : "placeholder:text-gray-500"
-  const linkColor = darkMode ? "text-[#4ecdc4] hover:text-white" : "text-[#405862] hover:text-[#4ecdc4]"
+  const inputPlaceholderColor = darkMode ? "placeholder:text-gray-300" : "placeholder:text-gray-500"
+  const linkColor = darkMode ? "text-white hover:text-[#4ecdc4]" : "text-[#405862] hover:text-[#4ecdc4]"
+
+  // Adjust heading sizes for compact mode
+  const headingClass = compact
+    ? `text-xl font-bold mb-2 text-center ${textColor}`
+    : `text-3xl font-bold mb-4 text-center ${textColor}`
+
+  const descriptionClass = compact ? `text-center mb-4 text-sm ${textColor}` : `text-center mb-8 text-lg ${textColor}`
 
   return (
     <div className={`w-full ${className}`}>
-      <div className="max-w-xl mx-auto">
-        <h2 className={`text-3xl font-bold mb-4 text-center ${textColor}`}>Stay Updated</h2>
-        <p className={`text-center mb-8 text-lg ${textColor}`}>
-          Stay updated on Dr. Interested and other exciting healthcare opportunities for high schoolers!
-        </p>
+      <div className="mx-auto">
+        {!compact && (
+          <>
+            <h2 className={headingClass}>Stay Updated</h2>
+            <p className={descriptionClass}>
+              Stay updated on Dr. Interested and other exciting healthcare opportunities for high schoolers!
+            </p>
+          </>
+        )}
 
         {isSubmitted ? (
-          <div className="text-center p-6 bg-[#4ecdc4]/10 rounded-lg border border-[#4ecdc4]">
-            <h3 className={`text-xl font-bold mb-2 ${textColor}`}>Thank You for Subscribing!</h3>
-            <p className={`mb-4 ${textColor}`}>Check your email to confirm your subscription.</p>
-            <Button onClick={resetForm} className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white">
+          <div className="text-center p-4 bg-[#4ecdc4]/10 rounded-lg border border-[#4ecdc4]">
+            <h3 className={`text-lg font-bold mb-2 ${textColor}`}>Thank You!</h3>
+            <p className={`mb-4 text-sm ${textColor}`}>Check your email to confirm your subscription.</p>
+            <Button onClick={resetForm} className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white text-sm py-2">
               Subscribe Another Email
             </Button>
           </div>
@@ -101,7 +114,7 @@ export default function NewsletterForm({
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white px-6 py-3 rounded-md font-medium w-full flex items-center justify-center shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
+              className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white px-6 py-3 rounded-md font-medium w-full flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300"
             >
               {isSubmitting ? (
                 <div className="flex items-center">
