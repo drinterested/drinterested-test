@@ -21,8 +21,8 @@ export const upcomingEvents: EventType[] = [
     description:
       "A virtual initiative aimed at empowering youth with practical strategies to improve mental, emotional, and physical well-being. Through engaging workshops, interactive activities, and expert insights, participants will gain valuable skills in stress management, resilience-building, and self-care.",
     image: "/mindsproject.png",
-    status: "closed",
-    link: "#",
+    status: "open",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSdM-BTNwWFN59RXof6DdnFsb1Qdqs5I8q-V_ee4C6skshDhgA/viewform?usp=dialog",
     featured: true,
   },
   {

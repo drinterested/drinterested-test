@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Dr. Interested",
     images: [
       {
-        url: "/logo.png",
+        url: "https://drinterested.tech/logo.png",
         width: 1200,
         height: 630,
         alt: "Dr. Interested Logo",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Dr. Interested - Inspiring Future Healthcare Professionals",
     description:
       "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
-    images: ["/logo.png"],
+    images: ["https://drinterested.tech/logo.png"],
   },
   alternates: {
     canonical: "https://drinterested.tech",
@@ -95,6 +95,5 @@ export default function RootLayout({
   )
 }
 
+import "./globals.css"
 
-
-import './globals.css'

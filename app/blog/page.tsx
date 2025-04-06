@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Clock, ChevronRight, Search } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
+import NewsletterForm from "@/components/newsletter-form"
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -248,35 +249,7 @@ export default function BlogPage() {
       {/* Newsletter */}
       <section className="py-16 bg-[#405862] text-white">
         <div className="container">
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Subscribe to Our Blog</h2>
-            <p className="mb-6">
-              Get the latest articles, research insights, and healthcare career information delivered directly to your
-              inbox.
-            </p>
-
-            <form className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="px-4 py-3 rounded-md border border-white bg-[#4f6b75] text-white placeholder:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4ecdc4] flex-grow"
-                required
-              />
-              <Button className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white px-6 py-3 rounded-md font-medium transition-colors shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
-                Subscribe
-              </Button>
-            </form>
-            <p className="text-sm mt-4 text-white/70">
-              By subscribing, you agree to our{" "}
-              <Link href="/terms" className="text-[#4ecdc4] hover:text-white transition-colors underline">
-                Terms
-              </Link>{" "}
-              and{" "}
-              <Link href="/privacy-policy" className="text-[#4ecdc4] hover:text-white transition-colors underline">
-                Privacy Policy
-              </Link>
-            </p>
-          </div>
+          <NewsletterForm darkMode={true} />
         </div>
       </section>
     </div>
