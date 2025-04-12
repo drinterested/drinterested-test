@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone, Instagram, Linkedin } from "lucide-react"
+import SeoSchema from "@/components/seo-schema"
+import Head from "next/head"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -61,8 +62,40 @@ export default function ContactPage() {
     }
   }
 
+  // SEO schema for contact page
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Dr. Interested",
+    description:
+      "Get in touch with Dr. Interested for questions about our events, collaborations, or joining our team.",
+    url: "https://drinterested.tech/contact",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Dr. Interested",
+      email: "admin@drinterested.tech",
+      url: "https://drinterested.tech",
+      sameAs: ["https://www.instagram.com/dr.interested/", "https://www.linkedin.com/company/dr-interested"],
+    },
+  }
+
   return (
     <div>
+      <Head>
+        <title>Contact Us | Dr. Interested - Healthcare Education</title>
+        <meta
+          name="description"
+          content="Have questions or want to get involved? Contact Dr. Interested for information about our events, collaborations, or joining our team."
+        />
+        <meta
+          name="keywords"
+          content="contact, healthcare education, high school students, medical careers, Dr. Interested"
+        />
+        <link rel="canonical" href="https://drinterested.tech/contact" />
+      </Head>
+
+      <SeoSchema schema={contactPageSchema} />
+
       <section className="bg-slate-100 py-12">
         <div className="container">
           <h1 className="text-3xl font-bold text-center">Contact Us</h1>
@@ -247,4 +280,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

@@ -130,7 +130,7 @@ export default function Home() {
               alt="Dr. Interested Logo"
               width={300}
               height={300}
-              className="object-contain animate-pulse-slow"
+              className="object-contain animate-pulse-slow rounded-lg"
               priority
             />
           </div>
@@ -158,7 +158,14 @@ export default function Home() {
       <section className="py-16 bg-[#f5f1eb]">
         <div className="container grid md:grid-cols-2 gap-8 items-center">
           <div className="relative h-[300px] rounded-lg flex items-center justify-center">
-            <Image src="/logo.png" alt="About Dr. Interested" width={250} height={250} className="object-contain" />
+            <Image
+              src="/logo.png"
+              alt="About Dr. Interested"
+              width={250}
+              height={250}
+              className="object-contain rounded-lg"
+              priority
+            />
           </div>
           <div className="space-y-4">
             <h2 className="text-3xl font-bold text-[#405862]">About Us</h2>
@@ -224,10 +231,11 @@ export default function Home() {
                 <div className="grid md:grid-cols-2">
                   <div className="relative h-64 md:h-auto">
                     <Image
-                      src={latestEvent.image || "/placeholder.svg"}
+                      src={latestEvent.image || "/logo.png"}
                       alt={latestEvent.title}
                       fill
                       className="object-cover"
+                      priority
                     />
                     {latestEvent.status === "closed" && (
                       <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
@@ -310,10 +318,11 @@ export default function Home() {
                 <div className="grid md:grid-cols-2">
                   <div className="relative h-64 md:h-auto">
                     <Image
-                      src={recentPost.coverImage || "/placeholder.svg"}
+                      src={recentPost.coverImage || "/logo.png"}
                       alt={recentPost.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      priority
                     />
                   </div>
                   <CardContent className="p-6 flex flex-col">
@@ -338,10 +347,11 @@ export default function Home() {
                         <div className="flex items-center">
                           <div className="relative h-10 w-10 rounded-full overflow-hidden mr-3">
                             <Image
-                              src={recentPost.author.image || "/placeholder.svg"}
+                              src={recentPost.author.image || "/logo.png"}
                               alt={recentPost.author.name}
                               fill
                               className="object-cover"
+                              priority
                             />
                           </div>
                           <div>
@@ -376,4 +386,3 @@ export default function Home() {
     </div>
   )
 }
-

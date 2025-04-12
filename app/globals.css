@@ -201,3 +201,23 @@ html {
   outline-offset: 2px;
 }
 
+/* Prevent image loading flicker */
+img {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+img.loading {
+  opacity: 0;
+}
+
+/* Ensure images maintain aspect ratio */
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure rounded corners for logo images */
+.logo-image {
+  border-radius: 50%;
+}

@@ -58,7 +58,14 @@ export default function Navbar() {
             <SheetContent side="left" className="w-[240px] sm:w-[300px]">
               <div className="flex flex-col gap-4 py-4">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                  <Image src="/logo.png" alt="Dr. Interested Logo" width={100} height={100} />
+                  <Image
+                    src="/circle-logo.png"
+                    alt="Dr. Interested Logo"
+                    width={100}
+                    height={100}
+                    className="rounded-full"
+                    priority
+                  />
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {routes.map((route) => (
@@ -84,7 +91,14 @@ export default function Navbar() {
             </SheetContent>
           </Sheet>
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Dr. Interested Logo" width={40} height={40} className="hidden md:block" />
+            <Image
+              src="/circle-logo.png"
+              alt="Dr. Interested Logo"
+              width={40}
+              height={40}
+              className="hidden md:block rounded-full"
+              priority
+            />
             <div className="font-semibold text-lg">
               <span className="text-[#405862]">Dr.</span> Interested
             </div>
@@ -166,4 +180,3 @@ export default function Navbar() {
     </header>
   )
 }
-

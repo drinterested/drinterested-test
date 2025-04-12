@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     siteName: "Dr. Interested",
     images: [
       {
-        url: "https://drinterested.tech/logo.png",
-        width: 1200,
-        height: 630,
+        url: "/logo.png",
+        width: 800,
+        height: 800,
         alt: "Dr. Interested Logo",
       },
     ],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Dr. Interested - Inspiring Future Healthcare Professionals",
     description:
       "Empowering high school students to explore careers in healthcare through education, research, and mentorship.",
-    images: ["https://drinterested.tech/logo.png"],
+    images: ["/circle-logo.png"],
   },
   alternates: {
     canonical: "https://drinterested.tech",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "en-US": "https://drinterested.tech",
     },
   },
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/circle-logo.png" }],
   generator: "v0.dev",
   metadataBase: new URL("https://drinterested.tech"),
   verification: {
@@ -96,4 +96,3 @@ export default function RootLayout({
 }
 
 import "./globals.css"
-

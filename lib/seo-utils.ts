@@ -17,7 +17,7 @@ export function generateSeoMetadata({
   title,
   description,
   url,
-  ogImage = "https://drinterested.tech/logo.png",
+  ogImage = "/circle-logo.png",
   type = "website",
   publishedTime,
   modifiedTime,
@@ -150,7 +150,7 @@ export function generateArticleSchema(article: {
       name: article.publisherName || "Dr. Interested",
       logo: {
         "@type": "ImageObject",
-        url: article.publisherLogo || "https://drinterested.tech/logo.png",
+        url: article.publisherLogo || "https://drinterested.tech/circle-logo.png",
       },
     },
     mainEntityOfPage: {
@@ -159,4 +159,3 @@ export function generateArticleSchema(article: {
     },
   }
 }
-

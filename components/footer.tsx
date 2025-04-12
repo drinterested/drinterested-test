@@ -20,7 +20,14 @@ export default function Footer() {
           {/* Column 1: Logo and Description */}
           <div>
             <div className="mb-4">
-              <Image src="/logo.png" alt="Dr. Interested Logo" width={150} height={150} className="mb-2" />
+              <Image
+                src="/circle-logo.png"
+                alt="Dr. Interested Logo"
+                width={150}
+                height={150}
+                className="mb-2 rounded-full"
+                priority
+              />
             </div>
             <p className="text-sm mb-4">
               Inspiring the next generation of healthcare professionals through education, collaboration, and meaningful
@@ -197,4 +204,3 @@ export default function Footer() {
     </footer>
   )
 }
-
