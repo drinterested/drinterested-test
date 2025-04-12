@@ -56,7 +56,10 @@ export const metadata: Metadata = {
       "en-US": "https://drinterested.tech",
     },
   },
-  icons: [{ rel: "icon", url: "/circle-logo.png" }],
+  icons: [
+    { rel: "icon", url: "/favicon.ico" },
+    { rel: "apple-touch-icon", url: "/circle-logo.png" },
+  ],
   generator: "v0.dev",
   metadataBase: new URL("https://drinterested.tech"),
   verification: {
