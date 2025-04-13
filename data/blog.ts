@@ -512,7 +512,7 @@ In conclusion, eosinophils are far more than simple defenders against parasites 
     date: "April 13, 2025",
     author: authors["shaza-ali"],
     topic: "Cancer",
-    readingTime: "11 min read",
+    readingTime: "8 min read",
   },
 // stereotactic-radiosurgery
 {
@@ -534,16 +534,24 @@ Once the tumor is identified, multiple radiation beams are delivered from differ
 Unlike conventional radiation therapy, which often requires daily sessions over several weeks, SRS can typically be completed in just 1 to 5 sessions, making it far more convenient and efficient for many patients.
 ## Common Uses in Cancer Treatment
 SRS is best suited for small, well-defined tumors in areas where traditional surgery would be risky or difficult. It is particularly useful in:
-### **Brain Tumors:** Effective against both benign (e.g., meningiomas) and malignant tumors (e.g., glioblastomas, brain metastases from lung, breast, or melanoma cancers).
-### **Spinal Tumors:** Offers precise radiation to spinal tumors while minimizing risk to the spinal cord.
-### **Early-stage Lung Cancer:** Particularly effective for small, localized tumors, especially in patients who may not tolerate surgery.
-### **Liver and Other Tumors:** Outside the brain and spine, SRS is known as Stereotactic Body Radiation Therapy (SBRT) and is used to treat various body tumors with similar precision.
+### **Brain Tumors:**
+Effective against both benign (e.g., meningiomas) and malignant tumors (e.g., glioblastomas, brain metastases from lung, breast, or melanoma cancers).
+### **Spinal Tumors:** 
+Offers precise radiation to spinal tumors while minimizing risk to the spinal cord.
+### **Early-stage Lung Cancer:** 
+Particularly effective for small, localized tumors, especially in patients who may not tolerate surgery.
+### **Liver and Other Tumors:** 
+Outside the brain and spine, SRS is known as Stereotactic Body Radiation Therapy (SBRT) and is used to treat various body tumors with similar precision.
 
 ## Advantages of SRS
-### **Minimally Invasive:** No incisions or hospital stays—ideal for hard-to-reach tumors and for patients not suited for surgery.
-### **Highly Precise:** Targets tumors while preserving healthy tissue, resulting in fewer side effects.
-### **Fewer Treatments:** Can often be completed in a few sessions, reducing the treatment burden.
-### **Quick Recovery:** Most patients return home the same day with minimal recovery time.
+### **Minimally Invasive:** 
+No incisions or hospital stays—ideal for hard-to-reach tumors and for patients not suited for surgery.
+### **Highly Precise:** 
+Targets tumors while preserving healthy tissue, resulting in fewer side effects.
+### **Fewer Treatments:** 
+Can often be completed in a few sessions, reducing the treatment burden.
+### **Quick Recovery:** 
+Most patients return home the same day with minimal recovery time.
 
 ## Limitations of SRS
 Despite its many benefits, SRS has its limitations. It is not suitable for large, irregular, or widespread tumors, which may require a combination of treatments such as:
@@ -554,7 +562,7 @@ Despite its many benefits, SRS has its limitations. It is not suitable for large
 Often, SRS is used as part of a multimodal treatment plan, complementing other therapies to maximize effectiveness.
 
 `,
-    coverImage: "",
+    coverImage: "/logo.png",
     date: "April 13, 2025",
     author: authors["muhammad-lari"],
     topic: "Cancer",
