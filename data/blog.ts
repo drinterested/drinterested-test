@@ -562,7 +562,7 @@ Despite its many benefits, SRS has its limitations. It is not suitable for large
 Often, SRS is used as part of a multimodal treatment plan, complementing other therapies to maximize effectiveness.
 
 `,
-    coverImage: "/logo.png",
+    coverImage: "/stereotactic-surgery.png",
     date: "April 13, 2025",
     author: authors["muhammad-lari"],
     topic: "Cancer",
