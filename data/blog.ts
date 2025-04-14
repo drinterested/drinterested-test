@@ -473,7 +473,7 @@ Nephrologists play a vital role in managing kidney health and preventing complic
   coverImage: "/logo.png",
   date: "April 1, 2025",
   author: authors["shaza-ali"],
-  topic: "Cancer",
+  topic: "Types of Doctors",
   readingTime: "9 min read",
 },
 //Eosinophils	
