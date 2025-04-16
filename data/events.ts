@@ -41,14 +41,14 @@ export const upcomingEvents: EventType[] = [
 // Past events data
 export const pastEvents: EventType[] = [
   {
-    title: "Dr. Interested Medical-Technological Internship",
+    title: "Dr. Interested Medical-Technological Compitition",
     date: "March 2025",
     location: "Virtual Event",
     description:
       "Participants worked on research projects and technological innovations in medicine, culminating in final presentations.",
     image: "/research.png",
     status: "completed",
-    link: "/events/internship-recap",
+    link: "/events/compitition-recap",
   },
   {
     title: "Dr. Interested Creative Contest",
