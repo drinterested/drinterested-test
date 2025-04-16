@@ -473,7 +473,7 @@ Nephrologists play a vital role in managing kidney health and preventing complic
   coverImage: "/logo.png",
   date: "April 1, 2025",
   author: authors["shaza-ali"],
-  topic: "Cancer",
+  topic: "Types of Doctors",
   readingTime: "9 min read",
 },
 //Eosinophils	
@@ -512,7 +512,61 @@ In conclusion, eosinophils are far more than simple defenders against parasites 
     date: "April 13, 2025",
     author: authors["shaza-ali"],
     topic: "Cancer",
-    readingTime: "11 min read",
+    readingTime: "8 min read",
+  },
+// stereotactic-radiosurgery
+{
+   slug: "stereotactic-radiosurgery",
+  title: "Stereotactic Radiosurgery",
+  excerpt: "Stereotactic Radiosurgery (SRS) is a non-invasive cancer treatment that uses precise, high-dose radiation beams to target tumors, especially in the brain, spine, and lungs. It delivers focused radiation with minimal damage to healthy tissue, often in just 1–5 sessions. SRS is ideal for small, well-defined tumors and offers quick recovery, though it's not suitable for larger or widespread cancers.",
+  content: `
+# Diving into Various Cures for Cancer: Stereotactic Radiosurgery (SRS)
+
+## What is Stereotactic Radiosurgery (SRS)?
+
+Stereotactic Radiosurgery (SRS) is a non-invasive, highly precise form of radiation therapy designed to treat tumors—including specific types of cancer—by delivering concentrated, high-dose radiation directly to the target area. Unlike traditional surgery, SRS doesn’t require any incisions or physical removal of tissue. Instead, it uses advanced imaging and pinpoint-accurate technology to attack tumors from the outside.
+
+## How SRS Works
+The power of SRS lies in its unmatched precision. Through detailed imaging techniques—such as CT (Computed Tomography), MRI (Magnetic Resonance Imaging), or PET (Positron Emission Tomography) scans—the exact size, shape, and location of the tumor are mapped out in three dimensions.
+
+Once the tumor is identified, multiple radiation beams are delivered from different angles. Individually, these beams are relatively weak, which protects surrounding healthy tissue. But at the point where all the beams converge—right at the tumor—their combined intensity delivers a powerful therapeutic dose that damages cancer cells while minimizing side effects.
+
+Unlike conventional radiation therapy, which often requires daily sessions over several weeks, SRS can typically be completed in just 1 to 5 sessions, making it far more convenient and efficient for many patients.
+## Common Uses in Cancer Treatment
+SRS is best suited for small, well-defined tumors in areas where traditional surgery would be risky or difficult. It is particularly useful in:
+### **Brain Tumors:**
+Effective against both benign (e.g., meningiomas) and malignant tumors (e.g., glioblastomas, brain metastases from lung, breast, or melanoma cancers).
+### **Spinal Tumors:** 
+Offers precise radiation to spinal tumors while minimizing risk to the spinal cord.
+### **Early-stage Lung Cancer:** 
+Particularly effective for small, localized tumors, especially in patients who may not tolerate surgery.
+### **Liver and Other Tumors:** 
+Outside the brain and spine, SRS is known as Stereotactic Body Radiation Therapy (SBRT) and is used to treat various body tumors with similar precision.
+
+## Advantages of SRS
+### **Minimally Invasive:** 
+No incisions or hospital stays—ideal for hard-to-reach tumors and for patients not suited for surgery.
+### **Highly Precise:** 
+Targets tumors while preserving healthy tissue, resulting in fewer side effects.
+### **Fewer Treatments:** 
+Can often be completed in a few sessions, reducing the treatment burden.
+### **Quick Recovery:** 
+Most patients return home the same day with minimal recovery time.
+
+## Limitations of SRS
+Despite its many benefits, SRS has its limitations. It is not suitable for large, irregular, or widespread tumors, which may require a combination of treatments such as:
+### Traditional surgery
+### Chemotherapy
+### Immunotherapy or targeted systemic therapies
+
+Often, SRS is used as part of a multimodal treatment plan, complementing other therapies to maximize effectiveness.
+
+`,
+    coverImage: "/stereotactic-surgery.png",
+    date: "April 13, 2025",
+    author: authors["muhammad-lari"],
+    topic: "Cancer",
+    readingTime: "5 min read",
   },
   
 ]
