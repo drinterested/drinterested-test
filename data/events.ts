@@ -48,7 +48,7 @@ export const pastEvents: EventType[] = [
       "Participants worked on research projects and technological innovations in medicine, culminating in final presentations.",
     image: "/research.png",
     status: "completed",
-    link: "/events/compitition-recap",
+    link: "/events/internship-recap",
   },
   {
     title: "Dr. Interested Creative Contest",
