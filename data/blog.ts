@@ -568,6 +568,37 @@ Often, SRS is used as part of a multimodal treatment plan, complementing other t
     topic: "Cancer",
     readingTime: "5 min read",
   },
+{
+   slug: "Granulocytes",
+  title: "Paul Ehrlich and the Discovery of Granulocytes: Pioneering Immunology",
+  excerpt: "Paul Ehrlich's innovative dye techniques helped identify and differentiate granulocytes, key white blood cells involved in immune responses. His work laid the foundation for modern immunology and our understanding of immune cell functions.",
+  content: `
+# Paul Ehrlich’s Contribution to Granulocyte Research
+
+## Who was Paul Ehrlich?
+
+Paul Ehrlich (1854–1915) was a super important scientist who helped start the field of immunology and was one of the first to work with chemotherapy. Even though he didn’t like school tests and wasn’t the best student, he made a huge impact in medicine. He worked in a bunch of different areas like chemistry, blood studies, and medicine. What really got him interested was how dyes stuck to body tissues, and that curiosity helped him come up with early ideas about how the immune system works.
+## What are Granulocytes?
+
+ Granulocytes are the most common type of white blood cells. They have tiny dots (called granules) inside them that release chemicals when your body is under attack, like during infections, allergic reactions, or asthma. These cells are made in your bone marrow and usually only live a few days.
+## What did Ehrlich do with them?
+
+ Between 1879 and 1880, Ehrlich figured out how to stain (or color) blood cells using dyes made from coal tar. This helped scientists finally tell the different types of white blood cells apart. He used acidic and basic dyes to find eosinophils and basophils; two types of granulocytes. This work built on his earlier discovery of something called mast cells, which he had written about in his PhD paper.
+ Later, Ehrlich made a neutral dye that helped him spot special granules inside neutrophils (another white blood cell with oddly-shaped nuclei). He also made guesses, most of which were correct, about how neutrophils and eosinophils form, what they do, and what happens to them over time.
+
+ ## What came before Ehrlich?
+ 
+ Even though Ehrlich did a lot, other scientists had noticed some things about white blood cells before him. William Hewson studied blood and lymph. People like Alfred Donné, John Hughes Bennett, and Rudolf Virchow had already described leukemia. William Addison, Friedrich von Recklinghausen, and Julius Cohnheim had looked into how inflammation works.
+Eosinophils may have even been seen earlier. In 1846, Thomas Wharton Jones talked about “granule blood-cells” in humans and animals. Julius Vogel also saw these types of cells in inflamed areas. Vogel knew about Gottlieb Gluge, who had noticed “compound inflammatory globules” in pus that looked a lot like eosinophils.
+Almost 20 years before Ehrlich’s staining work, Max Johann Schultze had done tests with heat and a microscope and saw that these granular cells could move and eat other things, just like immune cells do.
+But even with all those earlier discoveries, it was Ehrlich’s special dye work that kicked off modern research on white blood cells and how they relate to sickness.
+`,
+    coverImage: "/eosinophils.png",
+    date: "April 13, 2025",
+    author: authors["shaza-ali"],
+    topic: "Cancer",
+    readingTime: "8 min read",
+  }
   
 ]
 
