@@ -568,6 +568,7 @@ Often, SRS is used as part of a multimodal treatment plan, complementing other t
     topic: "Cancer",
     readingTime: "5 min read",
   },
+	// Granulocytes
 {
    slug: "Granulocytes",
   title: "Paul Ehrlich and the Discovery of Granulocytes: Pioneering Immunology",
@@ -593,9 +594,9 @@ Eosinophils may have even been seen earlier. In 1846, Thomas Wharton Jones talke
 Almost 20 years before Ehrlich’s staining work, Max Johann Schultze had done tests with heat and a microscope and saw that these granular cells could move and eat other things, just like immune cells do.
 But even with all those earlier discoveries, it was Ehrlich’s special dye work that kicked off modern research on white blood cells and how they relate to sickness.
 `,
-    coverImage: "/eosinophils.png",
-    date: "April 13, 2025",
-    author: authors["shaza-ali"],
+    coverImage: "/Granulocytes.png",
+    date: "April 20, 2025",
+    author: authors["Manha"],
     topic: "Cancer",
     readingTime: "8 min read",
   }
