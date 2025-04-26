@@ -599,7 +599,7 @@ But even with all those earlier discoveries, it was Ehrlich’s special dye work
     author: authors["manha"],
     topic: "Cancer",
     readingTime: "8 min read",
-  }
+  },
 	//Vascular surgeons
 {
    slug: "vascular-surgeons",
