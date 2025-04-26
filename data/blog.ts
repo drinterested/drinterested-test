@@ -125,7 +125,7 @@ Greenall, G. (2025, January 10). Registered nurse jobs (with salaries) in Canada
 Lisa Lagace. (2024, December 10). Demand for nurses in Canada still high as talent shortage ... Indeed. https://ca.indeed.com/career-advice/news/high-demand-for-nurses#:~:text=While demand has slowed in,searched by employers throughout 2023.
 What is a geriatric nurse?. Fortis Colleges & Institutes: Accredited Career Training Programs. (2023, December 11). https://www.fortis.edu/blog/nursing/what-is-a-geriatric-nurse-.html#:~:text=They’re%20registered%20nurses%20(RNs,may%20monitor%20patients’%20daily%20mobility
 `,
-    coverImage: "/logo.png",
+    coverImage: "/Elder-healthcare.png",
     date: "April 10, 2025",
     author: authors["muhammad-lari"],
     topic: "Types of Nurses",
@@ -162,7 +162,7 @@ With the increasing demand for pediatric healthcare services, more nurses must s
 
 
 `,
-    coverImage: "/logo.png",
+    coverImage: "/PediatricNurse.png",
     date: "March 25, 2025",
     author: authors["shaza-ali"],
     topic: "Types of Nurses",
@@ -208,7 +208,7 @@ chemotherapy, a treatment used to fight blood cancer. Over time, the patient’s
 improved, and her rashes started to fade. Thanks to the teamwork between the internal medicine and dermatology departments, the doctors were able to correctly diagnose and treat her condition. This case highlights the critical role that internal medicine doctors play in healthcare. While general practitioners focus on common illnesses, internists are trained to diagnose and manage complex medical conditions. Sweet’s Syndrome is just one example of how an internist’s expertise can make a huge difference. By investigating rare diseases, connecting symptoms to hidden causes, and working with specialists, internists help patients get the right treatment even when the diagnosis is extremely challenging.
 
 `,
-    coverImage: "/logo.png",
+    coverImage: "/Internist.png",
     date: "April 8, 2025",
     author: authors["maliha-metla"],
     topic: "Types of Doctors",
@@ -247,7 +247,7 @@ Since the cancer was already at an advanced stage, surgery was not a viable opti
 Endocrinologists play a crucial role in diagnosing and treating hormone-related diseases. The case study of the 88-year-old man underscores how an endocrinologist’s expertise led to the detection of medullary thyroid cancer through abnormal hormone levels. Although surgery was not an option, ongoing treatment has successfully controlled the disease, allowing the patient to maintain his independence and quality of life. This case highlights the importance of early detection and specialized medical care in managing complex endocrine disorders.
 
 `,
-    coverImage: "/logo.png",
+    coverImage: "/endocrinologist.png",
     date: "March 30, 2025",
     author: authors["manha"],
     topic: "Types of Doctors",
@@ -305,7 +305,7 @@ There are several types of immunotherapy, each designed to boost the immune syst
 Immunotherapy offers a promising alternative to traditional cancer treatments. By enhancing the body’s natural defenses, it can improve survival rates and reduce the side effects often caused by chemotherapy and radiation. As research continues, immunotherapy is expected to play an even larger role in the fight against cancer.
 
   `,
-  coverImage: "/logo.png",
+  coverImage: "/Immunotherapy.png",
   date: "April 8, 2025",
   author: authors["maliha-metla"],
   topic: "Cancer",
@@ -344,7 +344,7 @@ Cancers are categorized based on the specific tissues or cells from which they o
 
 This structured overview provides a comprehensive understanding of cancer, encompassing its nature, characteristics of cancerous cells, factors contributing to its development, and the diverse types of cancer that can affect the human body.
  `,
-  coverImage: "/logo.png",
+  coverImage: "/cancer.png",
   date: "April 5, 2025",
   author: authors["muhammad-lari"],
   topic: "Cancer",
@@ -401,7 +401,7 @@ Anaplastic thyroid Cancer (ATC). (2025, March 19). Cleveland Clinic.
 Anaplastic Thyroid Cancer | Columbia University Department of Surgery. (n.d.). Columbiasurgery.org. 
   https://columbiasurgery.org/conditions-and-treatments/anaplastic-thyroid-cancer
   `,
-  coverImage: "/logo.png",
+  coverImage: "/Anaplastic.png",
   date: "April 5, 2025",
   author: authors["muhammad-lari"],
   topic: "Cancer",
@@ -435,7 +435,7 @@ Anaplastic Thyroid Cancer | Columbia University Department of Surgery. (n.d.). C
  Chemotherapy has a long and evolving history. From its accidental discovery during wartime to the targeted treatments used today, it has revolutionized cancer care. While chemotherapy still has side effects, continuous research has improved its effectiveness and reduced its risks. Today, chemotherapy remains a critical tool in the fight against cancer, saving and prolonging lives around the world.
 
 `,
-  coverImage: "/logo.png",
+  coverImage: "/Chemo.png",
   date: "April 3, 2025",
   author: authors["maliha-metla"],
   topic: "Cancer",
@@ -470,7 +470,7 @@ When a 57-year-old man was diagnosed with subacute bacterial endocarditis caused
 ## Conclusion
 Nephrologists play a vital role in managing kidney health and preventing complications that affect other organs. Their expertise extends to various subspecialties, from pediatric care to kidney transplants. While nephrology often involves non-surgical treatments, advancements in the field continue to improve outcomes for patients with complex kidney disorders.
 `,
-  coverImage: "/logo.png",
+  coverImage: "/Nephrologist.png",
   date: "April 1, 2025",
   author: authors["shaza-ali"],
   topic: "Types of Doctors",
@@ -596,10 +596,41 @@ But even with all those earlier discoveries, it was Ehrlich’s special dye work
 `,
     coverImage: "/Granulocytes.png",
     date: "April 20, 2025",
-    author: authors["Manha"],
+    author: authors["manha"],
     topic: "Cancer",
     readingTime: "8 min read",
   }
+	//Vascular surgeons
+{
+   slug: "vascular-surgeons",
+  title: "Vascular Surgeons",
+  excerpt: "Vascular surgeons treat diseases of arteries and veins using medicine, surgery, or special tools. Their expertise saves lives and keeps blood flowing properly throughout the body.",
+  content: `
+# Vascular Surgeons: Lifesavers for Blood Vessel Health
+
+## What Vascular Surgeons Do and Why They Are Important
+
+A vascular surgeon is a doctor who treats problems with blood vessels. Blood vessels include arteries and veins, which carry blood throughout the body. When someone has a disease that blocks or weakens these blood vessels, it can cause serious health problems. Vascular surgeons help fix these problems. They can use medicine, do surgeries, or use special tools to treat the disease without needing to open the body.
+Some of the main problems they treat are aneurysms (which are bulges in blood vessels), peripheral artery disease (PAD), carotid artery disease (which can cause strokes), and deep vein thrombosis (DVT), which are blood clots. Vascular surgeons are trained to find these problems early, treat them the best way possible, and help patients recover safely. They are the only doctors who can give all types of treatment for blood vessel diseases from medicine to open surgery.
+## Training and Certification to Become a Vascular Surgeon
+Becoming a vascular surgeon takes many years of school and training. First, a person has to finish college and usually take a test called the MCAT to get into medical school. Then they go to medical school for four years. After that, they do five more years of training in a hospital. Some choose to do even more training to become experts in vascular surgery. After all that, they still have to pass two hard tests, one written and one oral, to become certified. This means they are officially allowed to work as a vascular surgeon.
+
+## Real-Life Case: Saving a Life Without Blood Transfusion
+
+There was a case at Johns Hopkins Hospital where a vascular surgeon helped an 81-year-old woman who had a very dangerous aneurysm. She was a Jehovah’s Witness, so she could not receive a blood transfusion, which made the surgery much harder. Dr. James Black used a special method called endovascular repair. It took seven hours, but he was able to fix the problem with very little blood loss. The blood she did lose was saved and put back in her body. She got better quickly and left the hospital after eight days without any problems.
+
+## Conclusion: Why Vascular Surgeons Matter
+In conclusion, vascular surgeons are very important doctors who help people with serious blood vessel problems. They have to go through a lot of training and learning to do their job. They save lives using both medicine and surgery. Thanks to them, many people with dangerous health issues can live longer and healthier lives.
+
+
+
+`,
+    coverImage: "/vascular.png",
+    date: "April 27, 2025",
+    author: authors["muhammad-lari"],
+    topic: "Types of Doctors",
+    readingTime: "5 min read",
+  },
   
 ]
 
