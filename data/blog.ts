@@ -660,7 +660,7 @@ An 11-year-old girl, part of a Jehovah’s Witness family, was admitted with pro
 ## The Lasting Impact of Neurosurgeons
 Neurosurgeons play an essential role in treating life-altering conditions of the nervous system. Their extensive training, surgical skill, and ability to collaborate with other specialists like neurologists ensure that patients receive the best possible care. As seen in the case of the young girl, neurosurgeons can even adapt their procedures to honor patients' cultural and religious needs, showing that medicine is not just about science but also compassion.
 `,
-  coverImage: "/Neurosurgeon.png",
+  coverImage: "/Neurosurgeon.jpg",
   date: "April 27, 2025",
   author: authors["shaza-ali"],
   topic: "Types of Doctors",
