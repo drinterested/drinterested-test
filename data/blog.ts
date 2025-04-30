@@ -631,6 +631,81 @@ In conclusion, vascular surgeons are very important doctors who help people with
     topic: "Types of Doctors",
     readingTime: "5 min read",
   },
+	//Neurosurgeon:
+{
+  slug: "neurosurgeon",
+  title: "Neurosurgeon",
+  excerpt:
+    "Neurosurgeons treat life-changing brain and spine conditions with precision and care. From years of training to complex surgeries, they stand at the crossroads of science, skill, and compassion.",
+  content: `
+# Neurosurgeons: Masters of the Mind and Spine
+
+
+## What Are Neurosurgeons?
+
+Neurosurgeons are highly trained medical doctors who diagnose and treat conditions affecting the brain, spinal cord, and nerves. Often referred to as "brain surgeons," they specialize in surgical solutions for complex neurological problems like strokes, tumors, and degenerative diseases. The path to becoming a neurosurgeon is long and demanding, requiring intense education, training, and dedication.
+
+## The Journey to Becoming a Neurosurgeon
+
+The journey to becoming a neurosurgeon typically spans about 16 years. It begins with a four-year bachelor's degree, followed by four years of medical school. Afterward, doctors complete a year-long general surgery internship and seven years of neurosurgery residency. Some neurosurgeons pursue fellowships in specialties like pediatric neurosurgery or spinal surgery. Competition is fierce; in 2020, only 74.3% of U.S. medical graduates applying for neurosurgery successfully matched into a residency program, much lower than other specialties. Despite the challenges, those who persevere are rewarded with a deeply impactful career.
+
+## Neurologists vs. Neurosurgeons
+
+Though they both work with the nervous system, neurologists and neurosurgeons serve different roles. Neurologists diagnose and medically manage conditions such as epilepsy, migraines, and multiple sclerosis but do not perform surgery. When surgical intervention is needed, they refer patients to neurosurgeons. Neurosurgeons are trained to operate and manage surgical cases, making the collaboration between the two specialties essential for comprehensive neurological care.
+
+## Case Study: Bloodless Neurosurgery in a Pediatric Patient:
+
+An 11-year-old girl, part of a Jehovah’s Witness family, was admitted with progressive leg weakness and abdominal pain. Imaging revealed an S1 extradural tumor pressing on her spinal nerves. Due to religious beliefs prohibiting blood transfusions, her family sought treatment at Johns Hopkins Hospital, renowned for expertise in bloodless surgery. Surgeons performed a hemilaminectomy, carefully removing part of the vertebra to access the tumor with minimal blood loss. Post-surgery, she recovered well, aided by iron supplements and medications to manage pain and nerve discomfort, successfully avoiding transfusions while respecting her family's beliefs.
+
+## The Lasting Impact of Neurosurgeons
+Neurosurgeons play an essential role in treating life-altering conditions of the nervous system. Their extensive training, surgical skill, and ability to collaborate with other specialists like neurologists ensure that patients receive the best possible care. As seen in the case of the young girl, neurosurgeons can even adapt their procedures to honor patients' cultural and religious needs, showing that medicine is not just about science but also compassion.
+`,
+  coverImage: "/Neurosurgeon.png",
+  date: "April 27, 2025",
+  author: authors["shaza-ali"],
+  topic: "Types of Doctors",
+  readingTime: "9 min read",
+},
+	//Opthalmic surgeons
+{
+  slug: "opthalmic_surgeons",
+  title: "Opthalmic_surgeons",
+  excerpt:
+    "Ophthalmic surgeons diagnose and treat complex eye conditions through both medical and surgical care. From cataracts to retinal disorders, their work helps restore vision and improve quality of life. This article explores their role, the path to becoming one, and a real case of sight-saving surgery in a teen with a rare condition.",
+  content: `
+# Ophthalmic Surgeons: Restoring Sight Through Precision
+
+## What is an Ophthalmic Surgeon?
+
+An ophthalmic surgeon is a medical doctor who specializes in doing surgeries on the eyes and the visual system. They diagnose eye problems, treat them, and perform surgeries to fix or manage different eye conditions, diseases, and injuries.
+
+## What Do Ophthalmic Surgeons Do?
+
+Ophthalmic surgeons do eye exams to check for any issues. They perform many kinds of surgeries, including cataract removal, fixing the retina, and doing corneal transplants. They also teach patients about how to take care of their eyes and how to recover after surgery.
+
+##  How to Become an Ophthalmic Surgeon
+
+To become an ophthalmic surgeon, a person usually starts by getting a Bachelor’s Degree in a science-related field. After that, they go to medical school for four years to become a doctor. Then, they must complete an ophthalmology residency, which is three to four years of special training focused on the eyes. Some surgeons also do a fellowship, which is an extra one to two years, to get even more specialized training, like learning more about retinal surgery or oculoplastics. After all of this, they have to pass medical board exams and get a license to be a doctor in their region. They also need to become board certified in ophthalmology, like through the American Board of Ophthalmology or similar boards in other countries. The path can be a little different depending on where in the world someone is studying.
+
+##  Case Study: Persistent Fetal Vasculature (PFV) in a 15-Year-Old
+### What is PFV?
+Persistent Fetal Vasculature, or PFV, is a condition that happens when certain blood vessels in the eye, which are supposed to disappear before birth, don’t go away as they should. These leftover vessels can cause problems inside the eye, like making the lens cloudy, which is known as a cataract.
+
+### The Patient's Situation
+
+In this case, a 15-year-old patient had PFV in one eye. The condition led to the development of a cataract, which made it hard for the patient to see clearly.
+
+### The Surgical Procedure
+To help the patient see better, a surgeon performed a cataract removal surgery. During the operation, the surgeon carefully took out the cloudy lens and addressed the issues caused by the persistent blood vessels.
+### Outcome and Recovery
+After the surgery, the patient needed time to heal and follow-up care to ensure the eye recovered properly. The goal was to improve vision and prevent any further problems related to PFV.
+`,
+  coverImage: "/Opthalmicsurgeon.png",
+  date: "April 28, 2025",
+  author: authors["manha"],
+  topic: "Types of Doctors",
+  readingTime: "9 min read",
+},
   
 ]
 
