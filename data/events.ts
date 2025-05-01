@@ -14,18 +14,6 @@ export type EventType = {
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
   {
-    title: "The Resilient Minds Project",
-    date: "April 27, 2025",
-    time: "2:00 PM - 4:00 PM EST",
-    location: "Virtual Event",
-    description:
-      "A virtual initiative aimed at empowering youth with practical strategies to improve mental, emotional, and physical well-being. Through engaging workshops, interactive activities, and expert insights, participants will gain valuable skills in stress management, resilience-building, and self-care.",
-    image: "/mindsproject.png",
-    status: "open",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSdM-BTNwWFN59RXof6DdnFsb1Qdqs5I8q-V_ee4C6skshDhgA/viewform?usp=dialog",
-    featured: true,
-  },
-  {
     title: "Healthcare Media Promotion Event",
     date: "March 2025 - Ongoing",
     time: "Ongoing",
@@ -40,6 +28,18 @@ export const upcomingEvents: EventType[] = [
 
 // Past events data
 export const pastEvents: EventType[] = [
+  {
+    title: "The Resilient Minds Project",
+    date: "April 27, 2025",
+    time: "2:00 PM - 4:00 PM EST",
+    location: "Virtual Event",
+    description:
+      "A virtual initiative aimed at empowering youth with practical strategies to improve mental, emotional, and physical well-being. Through engaging workshops, interactive activities, and expert insights, participants will gain valuable skills in stress management, resilience-building, and self-care.",
+    image: "/mindsproject.png",
+    status: "open",
+    link: "https://www.instagram.com/p/DI9yuL0u8SK/?img_index=1",
+    featured: true,
+  },
   {
     title: "Dr. Interested Medical-Technological Compitition",
     date: "March 2025",
