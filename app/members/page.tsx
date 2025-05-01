@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Instagram, Linkedin, Globe, ChevronDown, ChevronUp, Clock } from "lucide-react"
-import { president, departments } from "@/data/members"
+import { president, departments, vicePresidents } from "@/data/members"
 import ScrollToTop from "@/components/scroll-to-top"
 
 export default function MembersPage() {
@@ -128,23 +128,72 @@ export default function MembersPage() {
           <div>
             <h3 className="text-xl font-semibold mb-6 text-center text-[#405862]">Vice Presidents</h3>
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Coming Soon Cards */}
-              {[1, 2].map((index) => (
-                <Card key={index} className="overflow-hidden border-[#405862] shadow-md">
+              {vicePresidents.map((vp) => (
+                <Card key={vp.id} className="overflow-hidden border-[#405862] shadow-md hover:shadow-lg transition-shadow">
                   <div className="grid md:grid-cols-3">
                     <div className="md:col-span-1 bg-[#f5f1eb] flex items-center justify-center">
-                      <div className="relative h-full w-full aspect-square flex items-center justify-center bg-[#405862]/10">
-                        <Clock className="h-12 w-12 text-[#405862]/50" />
+                      <div className="relative h-full w-full aspect-square">
+                        <Image
+                          src={vp.image || "/placeholder.svg"}
+                          alt={vp.name}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     </div>
                     <CardContent className="md:col-span-2 p-6">
-                      <h4 className="text-lg font-semibold text-[#405862]">Coming Soon</h4>
-                      <p className="text-sm text-[#405862] opacity-75 mb-3">Vice President</p>
+                      <h4 className="text-lg font-semibold text-[#405862]">{vp.name}</h4>
+                      <p className="text-sm text-[#405862] opacity-75 mb-3">{vp.role}</p>
                       <p className="text-sm text-[#405862] mb-4">
-                        We're in the process of selecting our new Vice Presidents. Check back soon for updates!
+                        {expandedBios[vp.id] ? vp.bio : truncateBio(vp.bio, 150)}
                       </p>
+                      {vp.bio.length > 150 && (
+                        <button
+                          onClick={() => toggleBio(vp.id)}
+                          className="text-[#405862] text-sm font-medium hover:text-[#4ecdc4] transition-colors mb-4 flex items-center"
+                        >
+                          {expandedBios[vp.id] ? (
+                            <>
+                              Show Less <ChevronUp className="h-4 w-4 ml-1" />
+                            </>
+                          ) : (
+                            <>
+                              See More <ChevronDown className="h-4 w-4 ml-1" />
+                            </>
+                          )}
+                        </button>
+                      )}
                       <div className="flex space-x-3">
-                        <span className="text-[#405862]/50 text-sm">Position Open</span>
+                        {vp.socialLinks?.linkedin && (
+                          <Link
+                            href={vp.socialLinks.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+                          >
+                            <Linkedin className="h-6 w-6" />
+                          </Link>
+                        )}
+                        {vp.socialLinks?.instagram && (
+                          <Link
+                            href={vp.socialLinks.instagram}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+                          >
+                            <Instagram className="h-6 w-6" />
+                          </Link>
+                        )}
+                        {vp.socialLinks?.website && (
+                          <Link
+                            href={vp.socialLinks.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+                          >
+                            <Globe className="h-6 w-6" />
+                          </Link>
+                        )}
                       </div>
                     </CardContent>
                   </div>
