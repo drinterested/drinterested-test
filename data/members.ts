@@ -125,7 +125,7 @@ export const departments: DepartmentType[] = [
         id: "outreach-mem1",
         name: "Keenan Johnson",
         role: "Outreach Member",
-        image: "/keenan.png", // Need Image
+        image: "/keenan.jpg", // Need Image
         bio: "Working to establish connections with healthcare organizations and educational institutions.",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/keenan2009/",
