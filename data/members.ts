@@ -126,7 +126,7 @@ export const departments: DepartmentType[] = [
         name: "Keenan Johnson",
         role: "Outreach Member",
         image: "/keenan.jpg", // Need Image
-        bio: "Working to establish connections with healthcare organizations and educational institutions.",
+        bio: "Hi! I'm Keenan! I am a dedicated high school student with a passion for leadership, STEM exploration, and community engagement. Through my involvement in extracurricular activities such as the Athletic Council and STEM Fellowship programs, I have developed strong communication, teamwork, and problem-solving skills. I am committed to fostering positive, inclusive environments and inspiring young children to grow through creative activities. My curiosity and initiative drive me to explore various fields of knowledge, from physics to graphic design and video editing.",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/keenan2009/",
         },
