@@ -253,7 +253,7 @@ export const departments: DepartmentType[] = [
         role: "Marketing Member",
         image: "/logo.png",
         bio: "Jeevn is a Grade 11 student at Sherwood Heights with a strong interest in the sciences and medicine. As a member of the marketing team for the Dr. Interested program, she is excited to be part of an initiative that encourages exploration in the medical field. Jeevn’s ultimate career goal is to become a biomedical engineer, combining her passion for technology and healthcare to improve lives.",
-        socialLinks: {,
+        socialLinks: {},
       },
     ],
   },
