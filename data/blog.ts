@@ -88,7 +88,79 @@ export const blogTopics: BlogTopic[] = [
 
 // Blog Posts
 export const blogPosts: BlogPost[] = [
-  // Types of Nurses
+  {
+    slug: "doctors",
+    title: "Understanding the Role of an Occupational Therapist",
+    excerpt:
+      "An occupational therapist (OT) is a healthcare professional who helps people of all ages improve their ability to do everyday activities. These people may have physical, mental, or developmental challenges that make daily tasks difficult. Occupational therapists work to support patients in important parts of life, such as self-care, work, school, and free time activities.",
+    content: `
+
+# Understanding the Role of an Occupational Therapist
+
+An occupational therapist (OT) is a healthcare professional who helps people of all ages improve their ability to do everyday activities. These people may have physical, mental, or developmental challenges that make daily tasks difficult. Occupational therapists work to support patients in important parts of life, such as self-care, work, school, and free time activities.
+
+## What Does an Occupational Therapist Do?
+
+Occupational therapists help their patients by creating treatment plans that are designed for each person’s needs. These plans help patients improve their independence and confidence. Their main tasks include:
+
+- **Creating Treatment Plans:** The OT studies the patient’s condition and decides what
+steps are needed to help the patient improve.
+
+- **Communicating with the Patient:** OTs spend time listening to the patient and helping
+them solve problems in their daily routines.
+
+- **Recommending Tools or Devices:** If needed, the OT may suggest special tools that
+make tasks easier at home, school, or work.
+
+The overall goal is to help each patient live as independently and safely as possible.
+
+## How to Become an Occupational Therapist
+
+To become an occupational therapist, a person usually needs:
+
+- A Bachelor’s Degree: This is usually in a field like health sciences, psychology, or
+biology.
+
+- A Master’s Degree in Occupational Therapy: This degree includes both classwork and
+real-life training with patients.
+
+- Clinical Placements: These are hands-on experiences during the degree, where students
+practice helping real patients.
+
+- Certification or Licensing: Depending on the country, OTs must pass a test to become
+licensed to work.
+
+The path to becoming an OT may change depending on where a person lives, but these steps are
+usually required.
+
+## Case Study: Andrew’s Story
+
+Andrew was in a serious car accident at age 13 and experienced a major brain injury. Years later,
+at age 22, he was referred to an occupational therapist to help him become more independent.
+The OT worked with Andrew on daily routines, personal care, and skills to help him take part in
+the community. Through therapy, Andrew learned how to manage his time and complete tasks
+that made his life easier and more organized. This case shows how important occupational
+therapy can be. With the help of an OT, Andrew was able to improve his skills and feel more
+confident in his daily life.
+
+
+## Conclusion
+
+Occupational therapists make a big difference in the lives of people who face everyday
+challenges. They help others build independence and confidence, even after serious injuries or
+long-term conditions. The work they do shows how important it is to support people in living
+meaningful and independent lives.
+
+
+`,
+    coverImage: "/Internist.png",
+    date: "May 13, 2025",
+    author: authors["velan-mangai"],
+    topic: "Types of Doctors",
+    readingTime: "6 min read",
+    featured: true,
+  },
+  // Psychiatrists
     {
     slug: "psychiatrists",
     title: "Psychiatrists: Guiding Minds Toward Healing",
