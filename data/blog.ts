@@ -37,21 +37,28 @@ export const authors: Record<string, Author> = {
   },
   "shaza-ali": {
     name: "Shaza Ali",
-    image: "/logo.png",
+    image: "/shaza-ali.jpg",
     bio: "Shaza is a 9th grade student with a deep interest in STEM, particularly neurology and cardiology. She has won several STEM competitions and is part of her school's green initiative club. She also hosts a true crime podcast called 'The Killer Instinct'.",
     instagram: "https://instagram.com/shaza.ali",
   },
   "maliha-metla": {
     name: "Maliha Metla",
-    image: "/logo.png",
+    image: "/Maliha.JPG",
     bio: "Developing educational resources to help students understand medical concepts and career paths.",
-    linkedIn: "https://linkedin.com/in/maliha-metla",
+    linkedIn: "https://www.linkedin.com/in/maliha-metla-a71650343/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
-  manha: {
-    name: "Manha",
+  "manha": {
+    name: "Manha Atiq",
     image: "/logo.png",
     bio: "Creating content that highlights the achievements and experiences of our members.",
     twitter: "https://twitter.com/manha",
+  },
+  "mansvi": {
+    name: "Manasvi Bobade",
+    image: "/logo.png",
+    bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She’s actively pursuing both fields and has already started several initiatives in business. With an entrepreneurial mindset, she serves as the Director of Marketing & Outreach for EcoWave Foundation, a nonprofit focused on environmental conservation, particularly ocean cleanup. Manasvi also works as a social media marketing intern for an Airbnb rental, where she’s building her skills in digital marketing. With a remarkable academic turnaround and determination, she aims to make a positive impact through her work and plans to continue growing both professionally and personally.",
+    linkedIn: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
+    instagram: "https://www.instagram.com/misti.bobade/",
   },
 }
 
