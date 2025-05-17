@@ -59,6 +59,12 @@ export const authors: Record<string, Author> = {
     bio: "Velan Mangai Sivakumar is a Grade 10 student in Glenforest Secondary School. He is extremely passionate about STEM and biological sciences in particular. He has volunteered for many STEM organizations such as the Rosalind Franklin Institute. He is a trainer for HOSA (Health Occupation Students of America). His best result in STEM contests would be getting top 25 nationally and qualifying for the national camp in the Junior Science Olympiad of Canada. He also plays chess and his best results include qualifying for the Canadian Youth Chess Championship U16 twice and getting 4th in the Canadian Chess League Twice.",
     linkedIn: "https://linkedin.com",
   },
+manasvi: {
+    name: "Manasvi",
+    image: "/logo.png",
+    bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare.",
+    linkedIn: "https://linkedin.com",
+  },
 }
 
 // Blog Topics
