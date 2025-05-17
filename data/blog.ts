@@ -422,7 +422,7 @@ The history of cryosurgery is more than a story of cold—it is a story of innov
   author: authors["manasvi"],
   topic: "cancer",
   readingTime: "7 min read"
-}
+},
 
   // Coley tox
 {
