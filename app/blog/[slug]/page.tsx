@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, Clock, ChevronLeft, Share2, Linkedin, Twitter, Facebook, Link2 } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
 import Markdown from "react-markdown"
-import "react-markdown"
+
 
 export default function BlogPostPage() {
   const params = useParams()

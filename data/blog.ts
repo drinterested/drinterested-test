@@ -48,18 +48,23 @@ export const authors: Record<string, Author> = {
     linkedIn: "https://www.linkedin.com/in/maliha-metla-a71650343/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
   "manha": {
-    name: "Manha Atiq",
+    name: "Manha",
     image: "/logo.png",
     bio: "Creating content that highlights the achievements and experiences of our members.",
     twitter: "https://twitter.com/manha",
   },
-  "mansvi": {
-    name: "Manasvi Bobade",
-    image: "/logo.png",
-    bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She’s actively pursuing both fields and has already started several initiatives in business. With an entrepreneurial mindset, she serves as the Director of Marketing & Outreach for EcoWave Foundation, a nonprofit focused on environmental conservation, particularly ocean cleanup. Manasvi also works as a social media marketing intern for an Airbnb rental, where she’s building her skills in digital marketing. With a remarkable academic turnaround and determination, she aims to make a positive impact through her work and plans to continue growing both professionally and personally.",
-    linkedIn: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
-    instagram: "https://www.instagram.com/misti.bobade/",
+  "velan-mangai": {
+    name: "Velan Mangai Sivakumar",
+    image: "/velan.png",
+    bio: "Velan Mangai Sivakumar is a Grade 10 student in Glenforest Secondary School. He is extremely passionate about STEM and biological sciences in particular. He has volunteered for many STEM organizations such as the Rosalind Franklin Institute. He is a trainer for HOSA (Health Occupation Students of America). His best result in STEM contests would be getting top 25 nationally and qualifying for the national camp in the Junior Science Olympiad of Canada. He also plays chess and his best results include qualifying for the Canadian Youth Chess Championship U16 twice and getting 4th in the Canadian Chess League Twice.",
+    linkedIn: "https://linkedin.com",
   },
+  "manasvi": {
+      name: "Manasvi",
+      image: "/logo.png",
+      bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare.",
+      linkedIn: "https://linkedin.com",
+    },
 }
 
 // Blog Topics
@@ -89,7 +94,119 @@ export const blogTopics: BlogTopic[] = [
 
 // Blog Posts
 export const blogPosts: BlogPost[] = [
-  // Types of Nurses
+  {
+    slug: "doctors",
+    title: "Understanding the Role of an Occupational Therapist",
+    excerpt:
+      "An occupational therapist (OT) is a healthcare professional who helps people of all ages improve their ability to do everyday activities. These people may have physical, mental, or developmental challenges that make daily tasks difficult. Occupational therapists work to support patients in important parts of life, such as self-care, work, school, and free time activities.",
+    content: `
+
+# Understanding the Role of an Occupational Therapist
+
+An occupational therapist (OT) is a healthcare professional who helps people of all ages improve their ability to do everyday activities. These people may have physical, mental, or developmental challenges that make daily tasks difficult. Occupational therapists work to support patients in important parts of life, such as self-care, work, school, and free time activities.
+
+## What Does an Occupational Therapist Do?
+
+Occupational therapists help their patients by creating treatment plans that are designed for each person’s needs. These plans help patients improve their independence and confidence. Their main tasks include:
+
+- **Creating Treatment Plans:** The OT studies the patient’s condition and decides what
+steps are needed to help the patient improve.
+
+- **Communicating with the Patient:** OTs spend time listening to the patient and helping
+them solve problems in their daily routines.
+
+- **Recommending Tools or Devices:** If needed, the OT may suggest special tools that
+make tasks easier at home, school, or work.
+
+The overall goal is to help each patient live as independently and safely as possible.
+
+## How to Become an Occupational Therapist
+
+To become an occupational therapist, a person usually needs:
+
+- A Bachelor’s Degree: This is usually in a field like health sciences, psychology, or
+biology.
+
+- A Master’s Degree in Occupational Therapy: This degree includes both classwork and
+real-life training with patients.
+
+- Clinical Placements: These are hands-on experiences during the degree, where students
+practice helping real patients.
+
+- Certification or Licensing: Depending on the country, OTs must pass a test to become
+licensed to work.
+
+The path to becoming an OT may change depending on where a person lives, but these steps are
+usually required.
+
+## Case Study: Andrew’s Story
+
+Andrew was in a serious car accident at age 13 and experienced a major brain injury. Years later,
+at age 22, he was referred to an occupational therapist to help him become more independent.
+The OT worked with Andrew on daily routines, personal care, and skills to help him take part in
+the community. Through therapy, Andrew learned how to manage his time and complete tasks
+that made his life easier and more organized. This case shows how important occupational
+therapy can be. With the help of an OT, Andrew was able to improve his skills and feel more
+confident in his daily life.
+
+
+## Conclusion
+
+Occupational therapists make a big difference in the lives of people who face everyday
+challenges. They help others build independence and confidence, even after serious injuries or
+long-term conditions. The work they do shows how important it is to support people in living
+meaningful and independent lives.
+
+
+`,
+    coverImage: "/Internist.png",
+    date: "May 13, 2025",
+    author: authors["velan-mangai"],
+    topic: "Types of Doctors",
+    readingTime: "6 min read",
+    featured: true,
+  },
+
+  // Psychiatrists
+    {
+    slug: "psychiatrists",
+    title: "Psychiatrists: Guiding Minds Toward Healing",
+    excerpt:
+      "Psychiatrists are medical doctors who specialize in understanding and treating mental health disorders. Combining medicine, psychology, and neuroscience, they help individuals navigate emotional turmoil through therapy, medication, and compassionate care. ",
+    content: `
+
+# Psychiatrists: Guiding Minds Toward Healing
+
+Imagine your mind as a storm, thoughts racing, emotions overwhelming, and sleep slipping through your grasp. You may go through the motions of daily life, hiding the chaos within. This is where psychiatrists step in: not just as listeners, but as trained professionals who can untangle the mental and emotional turmoil that weighs people down.
+
+## Who Are Psychiatrists?
+
+Psychiatrists are medical doctors who specialize in diagnosing, treating, and preventing mental health disorders. They undergo rigorous training that combines medicine, psychology, and neuroscience to understand the complex relationship between the brain and behavior. Unlike therapists or counselors, psychiatrists can prescribe medications, offer psychotherapy, and monitor how both the mind and body respond to treatment. Whether it’s anxiety, depression, obsessive-compulsive disorder (OCD), bipolar disorder, or schizophrenia, psychiatrists are equipped to treat a wide range of mental health conditions.
+
+
+## What Do They Actually Do?
+The role of a psychiatrist is both scientific and deeply personal. Suppose someone is experiencing panic attacks. A psychiatrist begins by having a detailed conversation to explore symptoms, triggers, and lifestyle factors. Based on their findings, they may recommend therapy, lifestyle changes, and in many cases, medication to ease symptoms. The process doesn't stop there. They continue to check in, adjust treatments, and track progress to ensure real, lasting improvement.
+Psychiatrists work in various settings: hospitals, clinics, private practices, and even online platforms. Their job also involves collaboration with psychologists, social workers, and primary care physicians to offer holistic care to their patients.
+
+## Why They Matter:
+
+Mental health still carries stigma in many societies. Phrases like “just snap out of it” or “be strong” can minimize the real struggles people face. Psychiatrists provide a safe space where individuals don’t have to mask their emotions. They validate experiences, normalize seeking help, and guide patients toward healing. With rising awareness around mental health, especially in the wake of global crises, their role has become more essential than ever.
+
+## Behind the White Coat:
+
+The work of psychiatrists is not without challenges. They often carry the emotional weight of their patients’ pain, navigate shortages in the profession, and contend with societal misconceptions about therapy. Despite this, they continue to show up, driven by compassion and the hope of healing.
+
+## A Final Thought:
+Psychiatrists aren’t here to “fix” people. They are guides, helping individuals navigate the darkest parts of their minds, rediscover their strength, and reclaim control over their lives. In the quiet space between chaos and calm, psychiatrists help us find our way back to ourselves.
+
+`,
+    coverImage: "/Psychiatrists.png",
+    date: "May 13, 2025",
+    author: authors["manasvi"],
+    topic: "Types of Doctors",
+    readingTime: "6 min read",
+    featured: true,
+  },
   {
     slug: "geriatric",
     title: "Nurses In Elder Care Centers",
@@ -139,6 +256,7 @@ What is a geriatric nurse?. Fortis Colleges & Institutes: Accredited Career Trai
     readingTime: "8 min read",
     featured: true,
   },
+  
 //PICU
   {
     slug: "pediatric",
@@ -260,6 +378,51 @@ Endocrinologists play a crucial role in diagnosing and treating hormone-related 
     topic: "Types of Doctors",
     readingTime: "8 min read",
   },
+// Cryosurgery
+{
+  slug: "cryosurgery-history",
+  title: "The History of Cryosurgery",
+  excerpt:
+    "Explore how cryosurgery evolved from 19th-century ice applications to cutting-edge, image-guided treatments used across modern medicine—and even in space.",
+  content: `
+# The History of Cryosurgery
+
+Cryosurgery, or cryotherapy, is a medical technique that uses extremely low temperatures to destroy abnormal or diseased tissue. Though often considered a modern advancement, its origins trace back over a century. Today, cryosurgery is widely applied in fields like dermatology, oncology, gynecology, and ophthalmology. Its journey from rudimentary ice applications to highly targeted, image-guided procedures reflects the progression of both medical science and technology.
+
+## Early Foundations (19th Century)
+
+The first structured use of cold in medicine began in the mid-1800s. In 1845, British physician James Arnott applied a mixture of crushed ice and salt to treat breast and uterine tumors. He observed that the cold significantly reduced pain and temporarily shrank tumor size. Arnott proposed that low temperatures might slow or even stop tumor growth. However, due to the absence of advanced refrigeration technology, cryotherapy remained limited in scope and application during this period.
+
+## Technological Advancements (20th Century)
+
+Cryosurgery entered a new era with the invention of liquid gases such as liquid nitrogen and liquid oxygen, which could achieve temperatures as low as -196°C. In 1961, American neurosurgeon Dr. Irving S. Cooper introduced the cryoprobe—a device capable of precisely applying extreme cold to targeted tissues while preserving surrounding healthy cells. Initially developed for brain surgery, the cryoprobe soon found broader applications across multiple specialties.
+
+During the latter half of the 20th century, cryosurgery gained popularity for treating conditions like skin cancer, cervical lesions, prostate cancer, and retinal tumors. The ability to destroy diseased tissue without large incisions made it an ideal alternative to conventional surgery, especially for patients who were not suitable candidates for invasive procedures.
+
+## Cryosurgery in the Modern Era
+
+In the 21st century, cryosurgery has evolved into a highly sophisticated and reliable treatment method. The integration of medical imaging—such as ultrasound, CT scans, and MRI—has allowed doctors to monitor freezing processes in real time. This has significantly improved precision and minimized risks, especially when treating internal organs.
+
+Today, cryosurgery is used not only in cancer treatment but also in cardiology (such as cryoablation for arrhythmia), ophthalmology, and cosmetic dermatology. In some cases, cryotherapy has even been used for pain management and nerve-related disorders.
+
+## A Fascinating Frontier: Cryosurgery in Space and Preservation
+
+One lesser-known yet fascinating application of cryosurgery lies in space medicine and organ preservation. NASA and other space research organizations have shown interest in using cryogenic technology to manage health problems during long-duration space missions. In environments where conventional surgery is impractical, cryosurgery offers a minimally invasive alternative that can be used in microgravity conditions.
+
+Moreover, cryopreservation—an offshoot of cryosurgery principles—is becoming vital in preserving human organs for transplantation. Scientists are experimenting with ultra-low temperatures to safely freeze and store organs like hearts, kidneys, and lungs for extended periods without damaging their structure. This could revolutionize organ donation by drastically increasing the time available to match donors and recipients across the globe.
+
+In the future, cryosurgery and cryopreservation may even contribute to more speculative areas such as suspended animation or long-term hibernation in space travel—concepts once limited to science fiction, now being explored through real scientific research.
+
+## Conclusion
+
+The history of cryosurgery is more than a story of cold—it is a story of innovation, precision, and potential. From James Arnott’s ice-salt packs to the cryoprobes used in modern hospitals, the procedure has progressed rapidly in the last century. What began as a simple experiment has evolved into a vital part of modern medical practice. With continued research and cross-disciplinary applications, cryosurgery stands not only as a tool for healing, but also as a bridge between medicine, technology, and the future of human health—on Earth and beyond.
+`,
+  coverImage: "/cryosurgery.png",
+  date: "May 17, 2025",
+  author: authors["manasvi"],
+  topic: "cancer",
+  readingTime: "7 min read"
+},
 
   // Coley tox
 {

@@ -125,8 +125,8 @@ export const departments: DepartmentType[] = [
         id: "outreach-mem1",
         name: "Keenan Johnson",
         role: "Outreach Member",
-        image: "/keenan.png", // Need Image
-        bio: "Working to establish connections with healthcare organizations and educational institutions.",
+        image: "/keenan.jpg", // Need Image
+        bio: "Hi! I'm Keenan! I am a dedicated high school student with a passion for leadership, STEM exploration, and community engagement. Through my involvement in extracurricular activities such as the Athletic Council and STEM Fellowship programs, I have developed strong communication, teamwork, and problem-solving skills. I am committed to fostering positive, inclusive environments and inspiring young children to grow through creative activities. My curiosity and initiative drive me to explore various fields of knowledge, from physics to graphic design and video editing.",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/keenan2009/",
         },
@@ -253,7 +253,7 @@ export const departments: DepartmentType[] = [
         role: "Marketing Member",
         image: "/logo.png",
         bio: "Jeevn is a Grade 11 student at Sherwood Heights with a strong interest in the sciences and medicine. As a member of the marketing team for the Dr. Interested program, she is excited to be part of an initiative that encourages exploration in the medical field. Jeevn’s ultimate career goal is to become a biomedical engineer, combining her passion for technology and healthcare to improve lives.",
-        socialLinks: {,
+        socialLinks: {},
       },
     ],
   },
