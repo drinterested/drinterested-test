@@ -47,7 +47,7 @@ export const authors: Record<string, Author> = {
     bio: "Developing educational resources to help students understand medical concepts and career paths.",
     linkedIn: "https://linkedin.com/in/maliha-metla",
   },
-  manha: {
+  "manha": {
     name: "Manha",
     image: "/logo.png",
     bio: "Creating content that highlights the achievements and experiences of our members.",
@@ -59,7 +59,7 @@ export const authors: Record<string, Author> = {
     bio: "Velan Mangai Sivakumar is a Grade 10 student in Glenforest Secondary School. He is extremely passionate about STEM and biological sciences in particular. He has volunteered for many STEM organizations such as the Rosalind Franklin Institute. He is a trainer for HOSA (Health Occupation Students of America). His best result in STEM contests would be getting top 25 nationally and qualifying for the national camp in the Junior Science Olympiad of Canada. He also plays chess and his best results include qualifying for the Canadian Youth Chess Championship U16 twice and getting 4th in the Canadian Chess League Twice.",
     linkedIn: "https://linkedin.com",
   },
-manasvi: {
+"manasvi": {
     name: "Manasvi",
     image: "/logo.png",
     bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare.",
@@ -166,6 +166,7 @@ meaningful and independent lives.
     readingTime: "6 min read",
     featured: true,
   },
+
   // Psychiatrists
     {
     slug: "psychiatrists",
@@ -201,7 +202,7 @@ Psychiatrists aren’t here to “fix” people. They are guides, helping indivi
 `,
     coverImage: "/Psychiatrists.png",
     date: "May 13, 2025",
-    author: authors["velan-mangai"],
+    author: authors["manasvi"],
     topic: "Types of Doctors",
     readingTime: "6 min read",
     featured: true,
@@ -377,6 +378,51 @@ Endocrinologists play a crucial role in diagnosing and treating hormone-related 
     topic: "Types of Doctors",
     readingTime: "8 min read",
   },
+// Cryosurgery
+{
+  slug: "cryosurgery-history",
+  title: "The History of Cryosurgery",
+  excerpt:
+    "Explore how cryosurgery evolved from 19th-century ice applications to cutting-edge, image-guided treatments used across modern medicine—and even in space.",
+  content: `
+# The History of Cryosurgery
+
+Cryosurgery, or cryotherapy, is a medical technique that uses extremely low temperatures to destroy abnormal or diseased tissue. Though often considered a modern advancement, its origins trace back over a century. Today, cryosurgery is widely applied in fields like dermatology, oncology, gynecology, and ophthalmology. Its journey from rudimentary ice applications to highly targeted, image-guided procedures reflects the progression of both medical science and technology.
+
+## Early Foundations (19th Century)
+
+The first structured use of cold in medicine began in the mid-1800s. In 1845, British physician James Arnott applied a mixture of crushed ice and salt to treat breast and uterine tumors. He observed that the cold significantly reduced pain and temporarily shrank tumor size. Arnott proposed that low temperatures might slow or even stop tumor growth. However, due to the absence of advanced refrigeration technology, cryotherapy remained limited in scope and application during this period.
+
+## Technological Advancements (20th Century)
+
+Cryosurgery entered a new era with the invention of liquid gases such as liquid nitrogen and liquid oxygen, which could achieve temperatures as low as -196°C. In 1961, American neurosurgeon Dr. Irving S. Cooper introduced the cryoprobe—a device capable of precisely applying extreme cold to targeted tissues while preserving surrounding healthy cells. Initially developed for brain surgery, the cryoprobe soon found broader applications across multiple specialties.
+
+During the latter half of the 20th century, cryosurgery gained popularity for treating conditions like skin cancer, cervical lesions, prostate cancer, and retinal tumors. The ability to destroy diseased tissue without large incisions made it an ideal alternative to conventional surgery, especially for patients who were not suitable candidates for invasive procedures.
+
+## Cryosurgery in the Modern Era
+
+In the 21st century, cryosurgery has evolved into a highly sophisticated and reliable treatment method. The integration of medical imaging—such as ultrasound, CT scans, and MRI—has allowed doctors to monitor freezing processes in real time. This has significantly improved precision and minimized risks, especially when treating internal organs.
+
+Today, cryosurgery is used not only in cancer treatment but also in cardiology (such as cryoablation for arrhythmia), ophthalmology, and cosmetic dermatology. In some cases, cryotherapy has even been used for pain management and nerve-related disorders.
+
+## A Fascinating Frontier: Cryosurgery in Space and Preservation
+
+One lesser-known yet fascinating application of cryosurgery lies in space medicine and organ preservation. NASA and other space research organizations have shown interest in using cryogenic technology to manage health problems during long-duration space missions. In environments where conventional surgery is impractical, cryosurgery offers a minimally invasive alternative that can be used in microgravity conditions.
+
+Moreover, cryopreservation—an offshoot of cryosurgery principles—is becoming vital in preserving human organs for transplantation. Scientists are experimenting with ultra-low temperatures to safely freeze and store organs like hearts, kidneys, and lungs for extended periods without damaging their structure. This could revolutionize organ donation by drastically increasing the time available to match donors and recipients across the globe.
+
+In the future, cryosurgery and cryopreservation may even contribute to more speculative areas such as suspended animation or long-term hibernation in space travel—concepts once limited to science fiction, now being explored through real scientific research.
+
+## Conclusion
+
+The history of cryosurgery is more than a story of cold—it is a story of innovation, precision, and potential. From James Arnott’s ice-salt packs to the cryoprobes used in modern hospitals, the procedure has progressed rapidly in the last century. What began as a simple experiment has evolved into a vital part of modern medical practice. With continued research and cross-disciplinary applications, cryosurgery stands not only as a tool for healing, but also as a bridge between medicine, technology, and the future of human health—on Earth and beyond.
+`,
+  coverImage: "/cryosurgery.png",
+  date: "May 17, 2025",
+  author: authors["manasvi"],
+  topic: "cancer",
+  readingTime: "7 min read"
+}
 
   // Coley tox
 {
