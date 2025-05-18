@@ -46,12 +46,12 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4 items-center mt-6">
               <Link
-                href="https://forms.gle/i3Y6vazF5TErGBxG7"
+                href="https://discord.gg/pzbGRgsGXY"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#405862] text-white hover:bg-[#334852] px-6 py-3 rounded-md font-medium inline-flex items-center shadow-md hover:shadow-lg transition-all"
               >
-                Sign Up Here
+                Join Us
               </Link>
 
               <div className="flex items-center gap-4 flex-wrap mt-2">

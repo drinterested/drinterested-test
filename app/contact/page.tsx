@@ -239,8 +239,8 @@ export default function ContactPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-2">How can I join Dr. Interested?</h3>
                 <p className="text-slate-600">
-                  We open applications for new members periodically. Check our social media or join our mailing list to
-                  be notified when applications are open.
+                  Join our Discord to become a regular member, follow us on Instagram, and stay active on Discord to be 
+                  the first to know when executive applications open!
                 </p>
               </CardContent>
             </Card>
@@ -260,7 +260,7 @@ export default function ContactPage() {
                 <h3 className="font-semibold mb-2">Are your events only for members?</h3>
                 <p className="text-slate-600">
                   Most of our webinars and educational events are open to all interested students. Some special events
-                  may be member-exclusive.
+                  may be member-exclusive (meaning they would only be offered to the people on our Discord).
                 </p>
               </CardContent>
             </Card>
