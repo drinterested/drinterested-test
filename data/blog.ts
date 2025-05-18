@@ -420,7 +420,7 @@ The history of cryosurgery is more than a story of cold—it is a story of innov
   coverImage: "/cryosurgery.png",
   date: "May 17, 2025",
   author: authors["manasvi"],
-  topic: "cancer",
+  topic: "Cancer",
   readingTime: "7 min read"
 },
 
