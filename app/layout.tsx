@@ -35,6 +35,15 @@ export const metadata: Metadata = {
     "healthcare leadership",
     "medical podcast",
     "healthcare blog",
+    "healthcare community",
+    "healthcare workshops",
+    "healthcare research",
+    "highschool research",
+    "doctor interested",
+    "doctor interest",
+    "dr interested",
+    "dr interest",
+    "Adil Mukhi",
   ],
   authors: [{ name: "Dr. Interested Team" }],
   creator: "Dr. Interested",
@@ -118,18 +127,7 @@ export default function RootLayout({
             <Toaster />
           </div>
         </ThemeProvider>
-        <Script id="accessibility-widget" strategy="afterInteractive">
-          {`
-            window.addEventListener("load", (event) => {
-              setTimeout(() => {
-                let aioa_script_tag = document.createElement("script");
-                aioa_script_tag.src = "https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=#420083&token=&position=bottom_right";
-                aioa_script_tag.id = "aioa-adawidget";
-                document.getElementsByTagName("body")[0].appendChild(aioa_script_tag);
-              }, 3000);
-            });
-          `}
-        </Script>
+        <script> window.addEventListener("load", (event) => { setTimeout(() => { let aioa_script_tag = document.createElement("script"); aioa_script_tag.src = "https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=#4ecdc4&token=&position=bottom_right"; aioa_script_tag.id = "aioa-adawidget"; document.getElementsByTagName("body")[0].appendChild(aioa_script_tag); }, 3000)}); </script>
       </body>
     </html>
   )
