@@ -27,7 +27,7 @@ export const president: MemberType = {
   name: "Adil Mukhi",
   role: "President",
   image: "/adil.png", // Updated image path
-  bio: "I started Dr. Interested after seeing too many youth struggle to navigate med school paths or build core skills like research and public speaking. This platform exists to change that—by giving students the tools and guidance they need to thrive. Beyond this, I’ve worked with Drs. Alene Toulany and Ashley Vandermorris on applying for a CIHR grant for a SickKids project to develop national guidelines on healthy youth social media use. I also supported the Future of Sport in Canada Commission by signing onto key policy recommendations aimed at making sports safer and more inclusive. I'm passionate about turning ideas into impact—and helping youth lead the way. If you want to learn more about me, feel free to check out my website, which I’m sure is linked somewhere!",
+  bio: "Adil Mukhi is a Grade 10 student and Vice President of both the French Club and STEM Fellowship Chapter at Glenforest Secondary School. He founded Dr. Interested, a club hosting webinars on medical pathways and a research proposal competition since he saw a lack of knowledge of different medical pathways and opportunities to develop basic skills. Adil has also been very involved in his community and has also been working to publish research on stress and memory, showcasing his passion for education, science, and community impact.",
   socialLinks: {
     website: "https://adilmukhi.vercel.app/",
     linkedin: "https://www.linkedin.com/in/adil-mukhi-6aba27246/",

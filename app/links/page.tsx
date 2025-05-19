@@ -149,14 +149,14 @@ export default function LinksPage() {
             />
           </div>
           <h1 className="text-2xl font-bold text-[#405862] text-center">
-            Dr. <span className="text-[#4ecdc4]">Interested</span>
+            Dr.<span className="text-[#4ecdc4]">Interested</span>
           </h1>
           <p className="text-[#405862]/80 text-center mt-2 text-sm max-w-xs">
             Inspiring the Next Generation of Healthcare Professionals
           </p>
 
           <div className="flex items-center mt-3 text-sm bg-[#f0ebe3] rounded-full px-3 py-1.5">
-            <span className="text-[#405862]/70 mr-2">drinterested.tech/links</span>
+            <span className="text-[#405862]/70 mr-2">drinterested.org/links</span>
             <button
               onClick={copyToClipboard}
               className="text-[#4ecdc4] hover:text-[#3dbdb5] transition-colors"
