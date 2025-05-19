@@ -61,6 +61,21 @@ export function generateSeoMetadata({
     alternates: {
       canonical: url,
     },
+    keywords: [
+      "healthcare education",
+      "medical careers",
+      "high school students",
+      "healthcare mentorship",
+      "medical research",
+      "Dr. Interested",
+      "healthcare internships",
+      "medical technology",
+      "high school club",
+      "volunteer hours",
+      "healthcare volunteer",
+      "student-led organization",
+      ...(tags || []),
+    ],
   }
 }
 
@@ -76,11 +91,14 @@ export function generateOrganizationSchema() {
       "https://www.linkedin.com/company/dr-interested",
       "https://discord.gg/pzbGRgsGXY",
     ],
+    description:
+      "Dr. Interested is a student-led organization empowering high school students to explore careers in healthcare through education, research, and mentorship.",
     contactPoint: {
       "@type": "ContactPoint",
       email: "admin@drinterested.tech",
       contactType: "customer service",
     },
+    keywords: "healthcare education, medical careers, high school students, volunteer hours, healthcare mentorship",
   }
 }
 
@@ -129,6 +147,7 @@ export function generateArticleSchema(article: {
   publisherName?: string
   publisherLogo?: string
   url: string
+  keywords?: string[]
 }) {
   return {
     "@context": "https://schema.org",
@@ -157,5 +176,34 @@ export function generateArticleSchema(article: {
       "@type": "WebPage",
       "@id": article.url,
     },
+    keywords: article.keywords?.join(", ") || "healthcare education, medical careers, high school students",
+  }
+}
+
+export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+}
+
+export function generateFAQSchema(questions: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: questions.map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.answer,
+      },
+    })),
   }
 }

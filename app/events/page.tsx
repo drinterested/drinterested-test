@@ -4,153 +4,215 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Calendar, Clock, MapPin, AlertCircle, CheckCircle, ExternalLink } from "lucide-react"
+import { Calendar, Clock, MapPin, AlertCircle, CheckCircle, ExternalLink, ArrowRight } from "lucide-react"
 import { upcomingEvents, pastEvents } from "@/data/events"
 import NewsletterForm from "@/components/newsletter-form"
+import { motion } from "framer-motion"
 
 export default function EventsPage() {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
     <div>
-      <section className="bg-[#f5f1eb] py-12">
+      <section className="bg-[#f5f1eb] py-10">
         <div className="container">
-          <h1 className="text-3xl font-bold text-center text-[#405862]">Events</h1>
-          <p className="text-center text-[#405862] mt-4">
-            Join us for engaging events designed to educate and inspire the next generation of healthcare professionals.
-          </p>
+          <motion.div className="text-center" initial="hidden" animate="visible" variants={fadeIn}>
+            <h1 className="text-3xl font-bold text-[#405862]">Events</h1>
+            <p className="text-[#405862]/80 mt-3 max-w-2xl mx-auto">
+              Join us for engaging events designed to educate and inspire the next generation of healthcare
+              professionals.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-16 bg-[#ffffff]">
+      <section className="py-10 bg-white">
         <div className="container">
-          <h2 className="text-2xl font-bold mb-8 text-center text-[#405862]">Upcoming Events</h2>
-          <p className="text-center text-[#405862] mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-[#405862] flex items-center">
+              Upcoming Events
+              <div className="w-12 h-1 bg-[#4ecdc4] ml-3"></div>
+            </h2>
+          </div>
+          <p className="text-[#405862]/80 mb-8 max-w-2xl">
             Stay informed about our upcoming events, designed to educate and inspire.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            className="grid md:grid-cols-3 gap-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
             {upcomingEvents.map((event, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden border-[#405862] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="relative h-48">
-                  <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
-                  {event.status === "closed" && (
-                    <div className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                      Registration Closed
-                    </div>
-                  )}
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-2 text-[#405862]">{event.title}</h3>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm text-[#405862]">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      {event.date}
-                    </div>
-                    {event.time && (
-                      <div className="flex items-center text-sm text-[#405862]">
-                        <Clock className="h-4 w-4 mr-2" />
-                        {event.time}
+              <motion.div key={index} variants={fadeIn}>
+                <Card className="overflow-hidden border-[#405862]/10 hover:border-[#405862]/30 hover:shadow-lg transition-all duration-300 h-full group">
+                  <div className="relative h-44">
+                    <Image
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {event.status === "closed" && (
+                      <div className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        Registration Closed
                       </div>
                     )}
-                    <div className="flex items-center text-sm text-[#405862]">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      {event.location}
-                    </div>
                   </div>
-                  <p className="text-sm text-[#405862]">{event.description}</p>
-                </CardContent>
-                <CardFooter className="px-6 pb-6 pt-0">
-                  {event.status === "open" ? (
-                    <Button className="w-full bg-[#405862] hover:bg-[#334852]" size="sm" asChild>
-                      <Link href={event.link} target="_blank" rel="noopener noreferrer">
-                        Register Now
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  ) : event.status === "full" ? (
-                    <Button className="w-full bg-gray-500 hover:bg-gray-600 cursor-not-allowed" size="sm" disabled>
-                      <AlertCircle className="mr-2 h-4 w-4" />
-                      Registration Full
-                    </Button>
-                  ) : event.status === "closed" ? (
-                    <Button
-                      className="w-full bg-[#405862] hover:bg-[#334852] opacity-75 cursor-not-allowed"
-                      size="sm"
-                      disabled
-                    >
-                      <AlertCircle className="mr-2 h-4 w-4" />
-                      Registration Closed
-                    </Button>
-                  ) : (
-                    <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5]" size="sm" asChild>
-                      <Link href={event.link}>
-                        See Impact
-                        <CheckCircle className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  )}
-                </CardFooter>
-              </Card>
+                  <CardContent className="p-4">
+                    <h3 className="text-base font-semibold mb-2 text-[#405862] group-hover:text-[#4ecdc4] transition-colors">
+                      {event.title}
+                    </h3>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-center text-xs text-[#405862]/80">
+                        <Calendar className="h-3.5 w-3.5 mr-1.5 text-[#4ecdc4]" />
+                        {event.date}
+                      </div>
+                      {event.time && (
+                        <div className="flex items-center text-xs text-[#405862]/80">
+                          <Clock className="h-3.5 w-3.5 mr-1.5 text-[#4ecdc4]" />
+                          {event.time}
+                        </div>
+                      )}
+                      <div className="flex items-center text-xs text-[#405862]/80">
+                        <MapPin className="h-3.5 w-3.5 mr-1.5 text-[#4ecdc4]" />
+                        {event.location}
+                      </div>
+                    </div>
+                    <p className="text-xs text-[#405862]/80 line-clamp-3">{event.description}</p>
+                  </CardContent>
+                  <CardFooter className="px-4 pb-4 pt-0">
+                    {event.status === "open" ? (
+                      <Button className="w-full bg-[#405862] hover:bg-[#334852] text-xs h-8 group" size="sm" asChild>
+                        <Link href={event.link} target="_blank" rel="noopener noreferrer">
+                          Register Now
+                          <ExternalLink className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      </Button>
+                    ) : event.status === "full" ? (
+                      <Button
+                        className="w-full bg-gray-500 hover:bg-gray-600 cursor-not-allowed text-xs h-8"
+                        size="sm"
+                        disabled
+                      >
+                        <AlertCircle className="mr-1.5 h-3.5 w-3.5" />
+                        Registration Full
+                      </Button>
+                    ) : event.status === "closed" ? (
+                      <Button
+                        className="w-full bg-[#405862] hover:bg-[#334852] opacity-75 cursor-not-allowed text-xs h-8"
+                        size="sm"
+                        disabled
+                      >
+                        <AlertCircle className="mr-1.5 h-3.5 w-3.5" />
+                        Registration Closed
+                      </Button>
+                    ) : (
+                      <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5] text-xs h-8 group" size="sm" asChild>
+                        <Link href={event.link}>
+                          See Impact
+                          <CheckCircle className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      </Button>
+                    )}
+                  </CardFooter>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Past Events */}
-      <section className="py-16 bg-[#f5f1eb]">
+      <section className="py-10 bg-[#f5f1eb]/50">
         <div className="container">
-          <h2 className="text-2xl font-bold mb-8 text-center text-[#405862]">Past Events</h2>
-          <p className="text-center text-[#405862] mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-[#405862] flex items-center">
+              Past Events
+              <div className="w-12 h-1 bg-[#4ecdc4] ml-3"></div>
+            </h2>
+          </div>
+          <p className="text-[#405862]/80 mb-8 max-w-2xl">
             Take a look at some of the amazing events we've hosted so far!
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
             {pastEvents.map((event, index) => (
-              <div
-                key={index}
-                className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg shadow-sm border border-[#405862] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="md:w-1/3 relative h-48 md:h-auto rounded-lg overflow-hidden">
-                  <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
-                </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-lg font-semibold mb-2 text-[#405862]">{event.title}</h3>
-                  <div className="flex items-center text-sm text-[#405862] mb-4">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {event.date}
+              <motion.div key={index} variants={fadeIn}>
+                <div className="flex flex-col md:flex-row gap-4 bg-white p-4 rounded-lg shadow-sm border border-[#405862]/10 hover:border-[#405862]/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="md:w-1/3 relative h-40 md:h-auto rounded-lg overflow-hidden">
+                    <Image
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
-                  <p className="text-sm text-[#405862] mb-4">{event.description}</p>
-                  <Button
-                    variant="outline"
-                    className="border-[#405862] text-[#405862] hover:bg-[#405862] hover:text-white"
-                    size="sm"
-                    asChild
-                  >
-                    {event.title === "Dr. Interested Medical-Technological Internship" ? (
-                      <Link href="/events/internship-recap">
-                        View Recap
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    ) : (
-                      <Link href={event.link} target="_blank" rel="noopener noreferrer">
-                        View Recap
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    )}
-                  </Button>
+                  <div className="md:w-2/3">
+                    <h3 className="text-base font-semibold mb-1.5 text-[#405862] group-hover:text-[#4ecdc4] transition-colors">
+                      {event.title}
+                    </h3>
+                    <div className="flex items-center text-xs text-[#405862]/80 mb-2">
+                      <Calendar className="h-3.5 w-3.5 mr-1.5 text-[#4ecdc4]" />
+                      {event.date}
+                    </div>
+                    <p className="text-xs text-[#405862]/80 mb-3 line-clamp-3">{event.description}</p>
+                    <Button
+                      variant="outline"
+                      className="border-[#405862] text-[#405862] hover:bg-[#405862] hover:text-white h-8 text-xs group"
+                      size="sm"
+                      asChild
+                    >
+                      {event.title === "Dr. Interested Medical-Technological Internship" ? (
+                        <Link href="/events/internship-recap" className="inline-flex items-center">
+                          View Recap
+                          <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      ) : (
+                        <Link
+                          href={event.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center"
+                        >
+                          View Recap
+                          <ExternalLink className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      )}
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Stay Updated */}
-      <section className="py-16 bg-[#405862] text-white">
-        <div className="container">
+      <section className="py-10 bg-[#405862] text-white">
+        <div className="container max-w-4xl">
           <NewsletterForm darkMode={true} showFirstName={false} />
         </div>
       </section>

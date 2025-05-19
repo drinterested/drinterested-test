@@ -7,9 +7,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Instagram, Linkedin } from "lucide-react"
+import { Mail, MapPin, Phone, Instagram, Linkedin, ArrowRight } from "lucide-react"
 import SeoSchema from "@/components/seo-schema"
 import Head from "next/head"
+import { motion } from "framer-motion"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ export default function ContactPage() {
     message: "",
   })
 
-  const [isSubmitted, setIsSubmitted] = useState(false) // New state for form submission status
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -79,6 +80,21 @@ export default function ContactPage() {
     },
   }
 
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
     <div>
       <Head>
@@ -96,53 +112,63 @@ export default function ContactPage() {
 
       <SeoSchema schema={contactPageSchema} />
 
-      <section className="bg-slate-100 py-12">
+      <section className="bg-[#f5f1eb] py-10">
         <div className="container">
-          <h1 className="text-3xl font-bold text-center">Contact Us</h1>
-          <p className="text-center text-slate-600 mt-4">
-            Have questions or want to get involved? We'd love to hear from you!
-          </p>
+          <motion.div className="text-center" initial="hidden" animate="visible" variants={fadeIn}>
+            <h1 className="text-3xl font-bold text-[#405862]">Contact Us</h1>
+            <p className="text-[#405862]/80 mt-3 max-w-2xl mx-auto">
+              Have questions or want to get involved? We'd love to hear from you!
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
-              <p className="text-slate-600 mb-8">
+      <section className="py-10">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-xl font-bold mb-4 text-[#405862] flex items-center">
+                Get in Touch
+                <div className="w-10 h-1 bg-[#4ecdc4] ml-3"></div>
+              </h2>
+              <p className="text-[#405862]/80 text-sm mb-6">
                 Whether you have questions about our events, want to collaborate, or are interested in joining our team,
                 we're here to help.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <Mail className="h-5 w-5 text-primary mt-1" />
+              <div className="space-y-5">
+                <div className="flex items-start gap-3 p-3 rounded-lg border border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:bg-[#f5f1eb]/30 transition-all duration-300">
+                  <Mail className="h-5 w-5 text-[#4ecdc4] mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="text-slate-600">admin@drinterested.tech</p>
-                    <p className="text-sm text-slate-500">We'll respond within 48 hours</p>
+                    <h3 className="font-semibold text-[#405862] text-sm">Email</h3>
+                    <p className="text-[#405862]/80 text-sm">admin@drinterested.tech</p>
+                    <p className="text-xs text-[#405862]/60 mt-1">We'll respond within 48 hours</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-5 w-5 text-primary mt-1" />
+                <div className="flex items-start gap-3 p-3 rounded-lg border border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:bg-[#f5f1eb]/30 transition-all duration-300">
+                  <MapPin className="h-5 w-5 text-[#4ecdc4] mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Location</h3>
-                    <p className="text-slate-600">Connect with our community</p>
+                    <h3 className="font-semibold text-[#405862] text-sm">Location</h3>
+                    <p className="text-[#405862]/80 text-sm">Connect with our community</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Phone className="h-5 w-5 text-primary mt-1" />
+                <div className="flex items-start gap-3 p-3 rounded-lg border border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:bg-[#f5f1eb]/30 transition-all duration-300">
+                  <Phone className="h-5 w-5 text-[#4ecdc4] mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Follow Us</h3>
-                    <div className="flex space-x-4 mt-2">
+                    <h3 className="font-semibold text-[#405862] text-sm">Follow Us</h3>
+                    <div className="flex space-x-3 mt-2">
                       <a
                         href="https://www.instagram.com/dr.interested/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-600 hover:text-primary"
+                        className="text-[#405862]/80 hover:text-[#4ecdc4] transition-colors hover:scale-110 duration-200"
                       >
                         <Instagram className="h-5 w-5" />
                       </a>
@@ -150,7 +176,7 @@ export default function ContactPage() {
                         href="https://www.linkedin.com/company/dr-interested"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-600 hover:text-primary"
+                        className="text-[#405862]/80 hover:text-[#4ecdc4] transition-colors hover:scale-110 duration-200"
                       >
                         <Linkedin className="h-5 w-5" />
                       </a>
@@ -158,123 +184,170 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div>
-              <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
-              <form onSubmit={handleSubmit}>
-                <div className="space-y-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      required
-                    />
-                  </div>
-
-                  <div className="grid gap-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="What is this regarding?"
-                      required
-                    />
-                  </div>
-
-                  <div className="grid gap-2">
-                    <Label htmlFor="message">Your message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="How can we help you?"
-                      rows={5}
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-xl font-bold mb-4 text-[#405862] flex items-center">
+                Send Us a Message
+                <div className="w-10 h-1 bg-[#4ecdc4] ml-3"></div>
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-4 p-4 border border-[#405862]/10 rounded-lg">
+                <div className="grid gap-2">
+                  <Label htmlFor="name" className="text-sm text-[#405862]">
+                    Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    required
+                    className="border-[#405862]/20 focus:border-[#4ecdc4] h-9 text-sm"
+                  />
                 </div>
+
+                <div className="grid gap-2">
+                  <Label htmlFor="email" className="text-sm text-[#405862]">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                    required
+                    className="border-[#405862]/20 focus:border-[#4ecdc4] h-9 text-sm"
+                  />
+                </div>
+
+                <div className="grid gap-2">
+                  <Label htmlFor="subject" className="text-sm text-[#405862]">
+                    Subject
+                  </Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="What is this regarding?"
+                    required
+                    className="border-[#405862]/20 focus:border-[#4ecdc4] h-9 text-sm"
+                  />
+                </div>
+
+                <div className="grid gap-2">
+                  <Label htmlFor="message" className="text-sm text-[#405862]">
+                    Your message
+                  </Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you?"
+                    rows={4}
+                    required
+                    className="border-[#405862]/20 focus:border-[#4ecdc4] text-sm resize-none"
+                  />
+                </div>
+
+                <Button type="submit" className="w-full bg-[#405862] hover:bg-[#334852] group">
+                  <span>Send Message</span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
               </form>
 
               {/* Show success message */}
               {isSubmitted && (
-                <div className="mt-4 text-center text-green-600">
-                  <p>Form submitted successfully! We will get back to you soon.</p>
+                <div className="mt-4 p-3 text-center text-green-600 bg-green-50 rounded-lg border border-green-200">
+                  <p className="text-sm font-medium">Message sent successfully! We will get back to you soon.</p>
                 </div>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50">
-        <div className="container">
-          <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">How can I join Dr. Interested?</h3>
-                <p className="text-slate-600">
-                  Join our Discord to become a regular member, follow us on Instagram, and stay active on Discord to be 
-                  the first to know when executive applications open!
-                </p>
-              </CardContent>
-            </Card>
+      <section className="py-10 bg-[#f5f1eb]/50">
+        <div className="container max-w-5xl">
+          <motion.div
+            className="text-center mb-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeIn}
+          >
+            <h2 className="text-xl font-bold text-[#405862] inline-flex flex-col items-center">
+              Frequently Asked Questions
+              <div className="w-16 h-1 bg-[#4ecdc4] mt-2"></div>
+            </h2>
+          </motion.div>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">Do I need to be pre-med to join?</h3>
-                <p className="text-slate-600">
-                  Not at all! We welcome all high school students interested in healthcare, regardless of their future
-                  career plans.
-                </p>
-              </CardContent>
-            </Card>
+          <motion.div
+            className="grid md:grid-cols-2 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeIn}>
+              <Card className="border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:shadow-md transition-all duration-300">
+                <CardContent className="p-4">
+                  <h3 className="font-semibold mb-2 text-[#405862] text-sm">How can I join Dr. Interested?</h3>
+                  <p className="text-[#405862]/80 text-xs">
+                    Join our Discord to become a regular member, follow us on Instagram, and stay active on Discord to
+                    be the first to know when executive applications open!
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">Are your events only for members?</h3>
-                <p className="text-slate-600">
-                  Most of our webinars and educational events are open to all interested students. Some special events
-                  may be member-exclusive (meaning they would only be offered to the people on our Discord).
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div variants={fadeIn}>
+              <Card className="border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:shadow-md transition-all duration-300">
+                <CardContent className="p-4">
+                  <h3 className="font-semibold mb-2 text-[#405862] text-sm">Do I need to be pre-med to join?</h3>
+                  <p className="text-[#405862]/80 text-xs">
+                    Not at all! We welcome all high school students interested in healthcare, regardless of their future
+                    career plans.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">How many schools collaborate with Dr. Interested?</h3>
-                <p className="text-slate-600">
-                  We're always open to school partnerships and currently work with several high schools. Contact our
-                  Outreach Department for potential collaborations.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div variants={fadeIn}>
+              <Card className="border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:shadow-md transition-all duration-300">
+                <CardContent className="p-4">
+                  <h3 className="font-semibold mb-2 text-[#405862] text-sm">Are your events only for members?</h3>
+                  <p className="text-[#405862]/80 text-xs">
+                    Most of our webinars and educational events are open to all interested students. Some special events
+                    may be member-exclusive (meaning they would only be offered to the people on our Discord).
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeIn}>
+              <Card className="border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:shadow-md transition-all duration-300">
+                <CardContent className="p-4">
+                  <h3 className="font-semibold mb-2 text-[#405862] text-sm">
+                    How many schools collaborate with Dr. Interested?
+                  </h3>
+                  <p className="text-[#405862]/80 text-xs">
+                    We're always open to school partnerships and currently work with several high schools. Contact our
+                    Outreach Department for potential collaborations.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
