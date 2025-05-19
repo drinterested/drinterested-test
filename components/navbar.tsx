@@ -122,13 +122,13 @@ export default function Navbar() {
                 </nav>
                 <div className="p-4 border-t mt-auto">
                   <Link
-                    href="https://forms.gle/i3Y6vazF5TErGBxG7"
+                    href="https://discord.gg/pzbGRgsGXY"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full justify-center bg-[#405862] text-white hover:bg-[#334852] px-4 py-3 rounded-md text-sm font-medium transition-all hover:shadow-md"
                     onClick={() => setIsOpen(false)}
                   >
-                    Join Us
+                    Interested?
                   </Link>
                   <div className="flex items-center justify-center gap-4 mt-4">
                     <Link
