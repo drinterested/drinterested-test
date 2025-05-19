@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     { rel: "apple-touch-icon", url: "/circle-logo.png" },
   ],
   generator: "Next.js",
-  metadataBase: { url: "https://drinterested.tech" },
+  metadataBase: new URL("https://drinterested.tech"),
   verification: {
     google: "google-site-verification-code",
   },
