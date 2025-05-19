@@ -84,7 +84,7 @@ export default function HomePage() {
                 Empowering Future Healthcare Leaders
               </div>
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-[#405862]">
-                Welcome to Dr.<span className="text-[#4ecdc4]"> Interested</span>
+                Welcome to Dr. <span className="text-[#4ecdc4]">Interested</span>
               </h1>
               <p className="text-lg text-[#405862]/90 mt-2">
                 Inspiring the Next Generation of Healthcare Professionals

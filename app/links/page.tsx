@@ -149,7 +149,7 @@ export default function LinksPage() {
             />
           </div>
           <h1 className="text-2xl font-bold text-[#405862] text-center">
-            Dr.<span className="text-[#4ecdc4]"> Interested</span>
+            Dr. <span className="text-[#4ecdc4]">Interested</span>
           </h1>
           <p className="text-[#405862]/80 text-center mt-2 text-sm max-w-xs">
             Inspiring the Next Generation of Healthcare Professionals
