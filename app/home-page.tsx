@@ -84,7 +84,7 @@ export default function HomePage() {
                 Empowering Future Healthcare Leaders
               </div>
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-[#405862]">
-                Welcome to Dr.<span className="text-[#4ecdc4]">Interested</span>
+                Welcome to Dr. <span className="text-[#4ecdc4]">Interested</span>
               </h1>
               <p className="text-lg text-[#405862]/90 mt-2">
                 Inspiring the Next Generation of Healthcare Professionals
@@ -510,7 +510,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-2 gap-2 p-4 w-full h-full">
                       <div className="bg-white rounded-lg shadow-sm overflow-hidden flex items-center justify-center p-2">
                         <Image
-                          src="/logo.png"
+                          src="/tshirt.jpg"
                           alt="Dr. Interested T-Shirt - Healthcare Club Merchandise"
                           width={120}
                           height={120}
@@ -519,7 +519,7 @@ export default function HomePage() {
                       </div>
                       <div className="bg-white rounded-lg shadow-sm overflow-hidden flex items-center justify-center p-2">
                         <Image
-                          src="/circle-logo.png"
+                          src="/hoodie.jpg"
                           alt="Dr. Interested Hoodie - Healthcare Club Merchandise"
                           width={120}
                           height={120}
@@ -528,7 +528,7 @@ export default function HomePage() {
                       </div>
                       <div className="bg-white rounded-lg shadow-sm overflow-hidden flex items-center justify-center p-2">
                         <Image
-                          src="/logo.png"
+                          src="/sticker.jpg"
                           alt="Dr. Interested Sticker - Healthcare Club Merchandise"
                           width={120}
                           height={120}
@@ -537,7 +537,7 @@ export default function HomePage() {
                       </div>
                       <div className="bg-white rounded-lg shadow-sm overflow-hidden flex items-center justify-center p-2">
                         <Image
-                          src="/circle-logo.png"
+                          src="/mug.jpg"
                           alt="Dr. Interested Mug - Healthcare Club Merchandise"
                           width={120}
                           height={120}
