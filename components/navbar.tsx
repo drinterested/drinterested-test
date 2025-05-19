@@ -42,12 +42,12 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-200",
+        "sticky top-0 z-50 w-full border-b backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-all duration-200",
         scrolled ? "bg-background/95 shadow-md" : "bg-background border-transparent",
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
+      <div className="container flex h-14 items-center justify-between">
+        <div className="flex items-center gap-1">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -55,19 +55,24 @@ export default function Navbar() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[240px] sm:w-[300px]">
-              <div className="flex flex-col gap-4 py-4">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                  <Image
-                    src="/circle-logo.png"
-                    alt="Dr. Interested Logo"
-                    width={100}
-                    height={100}
-                    className="rounded-full"
-                    priority
-                  />
-                </Link>
-                <nav className="flex flex-col gap-4">
+            <SheetContent side="left" className="w-[240px] sm:w-[280px] p-0">
+              <div className="flex flex-col h-full">
+                <div className="p-4 border-b">
+                  <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                    <Image
+                      src="/circle-logo.png"
+                      alt="Dr. Interested Logo"
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                      priority
+                    />
+                    <span className="font-semibold text-lg">
+                      <span className="text-[#405862]">Dr.</span> Interested
+                    </span>
+                  </Link>
+                </div>
+                <nav className="flex flex-col gap-1 p-4 flex-1">
                   {routes.map((route) => (
                     <Link
                       key={route.href}
@@ -81,36 +86,89 @@ export default function Navbar() {
                       )}
                     >
                       {(pathname === route.href || pathname?.startsWith(`${route.href}/`)) && (
-                        <div className="w-1 h-4 bg-[#405862] mr-2 rounded-full"></div>
+                        <div className="w-1 h-4 bg-[#4ecdc4] mr-2 rounded-full"></div>
                       )}
                       {route.label}
                     </Link>
                   ))}
                 </nav>
+                <div className="p-4 border-t mt-auto">
+                  <Link
+                    href="https://forms.gle/i3Y6vazF5TErGBxG7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full justify-center bg-[#405862] text-white hover:bg-[#334852] px-4 py-2 rounded-md text-sm font-medium transition-all hover:shadow-md"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Interested?
+                  </Link>
+                  <div className="flex items-center justify-center gap-4 mt-4">
+                    <Link
+                      href="https://discord.gg/pzbGRgsGXY"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+                      aria-label="Discord"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="9" cy="12" r="1" />
+                        <circle cx="15" cy="12" r="1" />
+                        <path d="M7.5 7.2c.3-.1.6-.2.8-.2h7.4c.2 0 .5.1.8.2M7.5 16.8c.3.1.6.2.8.2h7.4c.2 0 .5-.1.8-.2" />
+                        <path d="M16 3h-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2H4a2 2 0 0 0-2 2v3a8 8 0 0 0 4 7v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a8 8 0 0 0 4-7V5a2 2 0 0 0-2-2z" />
+                      </svg>
+                    </Link>
+                    <Link
+                      href="https://www.instagram.com/dr.interested/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+                      aria-label="Instagram"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </Link>
+                    <Link
+                      href="https://www.linkedin.com/company/dr-interested"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+                      aria-label="LinkedIn"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/circle-logo.png"
-              alt="Dr. Interested Logo"
-              width={40}
-              height={40}
-              className="hidden md:block rounded-full"
-              priority
-            />
-            <div className="font-semibold text-lg">
-              <span className="text-[#405862]">Dr.</span> Interested
+            <div className="relative w-8 h-8 md:w-9 md:h-9">
+              <Image src="/circle-logo.png" alt="Dr. Interested Logo" fill className="rounded-full" priority />
+            </div>
+            <div className="font-semibold text-base md:text-lg">
+              <span className="text-[#405862]">Dr.</span> <span className="text-[#4ecdc4]">Interested</span>
             </div>
           </Link>
         </div>
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-6">
           {routes.map((route) => (
             <Link
               key={route.href}
               href={route.href}
               className={cn(
-                "text-base font-medium transition-colors hover:text-[#405862] relative py-1.5 px-2",
+                "text-sm font-medium transition-colors hover:text-[#405862] relative py-1 px-1",
                 pathname === route.href || pathname?.startsWith(`${route.href}/`)
                   ? "text-[#405862] font-bold"
                   : "text-muted-foreground hover:bg-[#f5f1eb]/50 rounded-md",
@@ -118,63 +176,64 @@ export default function Navbar() {
             >
               {route.label}
               {(pathname === route.href || pathname?.startsWith(`${route.href}/`)) && (
-                <span className="absolute -bottom-[6px] left-0 w-full h-1 bg-[#405862] rounded-full"></span>
+                <span className="absolute -bottom-[5px] left-0 w-full h-0.5 bg-[#4ecdc4] rounded-full"></span>
               )}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link
             href="https://forms.gle/i3Y6vazF5TErGBxG7"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex bg-[#405862] text-white hover:bg-[#334852] px-4 py-2 rounded-md text-sm font-medium transition-all hover:shadow-md btn-hover-effect"
+            className="hidden md:inline-flex bg-[#405862] text-white hover:bg-[#334852] px-3 py-1.5 rounded-md text-sm font-medium transition-all hover:shadow-md"
           >
             Interested?
           </Link>
-          <Link
-            href="https://discord.gg/pzbGRgsGXY"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#405862] hover:text-[#334852] transition-colors"
-            aria-label="Discord"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-discord"
+          <div className="flex items-center gap-2">
+            <Link
+              href="https://discord.gg/pzbGRgsGXY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+              aria-label="Discord"
             >
-              <circle cx="9" cy="12" r="1" />
-              <circle cx="15" cy="12" r="1" />
-              <path d="M7.5 7.2c.3-.1.6-.2.8-.2h7.4c.2 0 .5.1.8.2M7.5 16.8c.3.1.6.2.8.2h7.4c.2 0 .5-.1.8-.2" />
-              <path d="M16 3h-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2H4a2 2 0 0 0-2 2v3a8 8 0 0 0 4 7v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a8 8 0 0 0 4-7V5a2 2 0 0 0-2-2z" />
-            </svg>
-          </Link>
-          <Link
-            href="https://www.instagram.com/dr.interested/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#405862] hover:text-[#334852] transition-colors"
-            aria-label="Instagram"
-          >
-            <Instagram className="h-6 w-6" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/company/dr-interested"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#405862] hover:text-[#334852] transition-colors"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="h-6 w-6" />
-          </Link>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="9" cy="12" r="1" />
+                <circle cx="15" cy="12" r="1" />
+                <path d="M7.5 7.2c.3-.1.6-.2.8-.2h7.4c.2 0 .5.1.8.2M7.5 16.8c.3.1.6.2.8.2h7.4c.2 0 .5-.1.8-.2" />
+                <path d="M16 3h-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2H4a2 2 0 0 0-2 2v3a8 8 0 0 0 4 7v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a8 8 0 0 0 4-7V5a2 2 0 0 0-2-2z" />
+              </svg>
+            </Link>
+            <Link
+              href="https://www.instagram.com/dr.interested/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/dr-interested"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </div>
     </header>

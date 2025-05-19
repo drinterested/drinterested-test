@@ -23,4 +23,3 @@ export default function SeoSchema({ schema }: SeoSchemaProps) {
   // This component doesn't render anything visible
   return null
 }
-

@@ -81,4 +81,3 @@ export const getLatestOngoingEvent = (): EventType | undefined => {
       new Date(event.date.split(" - ")[1] || event.date) >= new Date(),
   )
 }
-

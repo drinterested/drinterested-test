@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Instagram, Linkedin, ArrowUp, FileText } from "lucide-react"
+import { Instagram, Linkedin, ArrowUp } from "lucide-react"
 import NewsletterForm from "./newsletter-form"
 
 export default function Footer() {
@@ -14,59 +14,64 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#405862] text-white py-12">
+    <footer className="bg-[#405862] text-white py-10">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Column 1: Logo and Description */}
-          <div>
-            <div className="mb-4">
+          <div className="md:col-span-3">
+            <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/circle-logo.png"
                 alt="Dr. Interested Logo"
-                width={150}
-                height={150}
-                className="mb-2 rounded-full"
+                width={50}
+                height={50}
+                className="rounded-full"
                 priority
               />
+              <span className="font-bold text-lg">
+                Dr. <span className="text-[#4ecdc4]">Interested</span>
+              </span>
             </div>
-            <p className="text-sm mb-4">
+            <p className="text-sm mb-4 text-white/80">
               Inspiring the next generation of healthcare professionals through education, collaboration, and meaningful
               experiences.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               <Link
                 href="https://www.instagram.com/dr.interested/"
                 className="text-white hover:text-[#4ecdc4] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
-                <Instagram className="h-6 w-6" />
+                <Instagram className="h-5 w-5" />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/dr-interested"
                 className="text-white hover:text-[#4ecdc4] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-5 w-5" />
               </Link>
               <Link
                 href="https://discord.gg/pzbGRgsGXY"
                 className="text-white hover:text-[#4ecdc4] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Discord"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="lucide lucide-discord"
                 >
                   <circle cx="9" cy="12" r="1" />
                   <circle cx="15" cy="12" r="1" />
@@ -78,125 +83,110 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="md:col-span-2">
+            <h3 className="text-base font-semibold mb-3 flex items-center">
+              <span className="w-2 h-4 bg-[#4ecdc4] mr-2"></span>
               Quick Links
-              <div className="w-12 h-1 bg-[#4ecdc4] mt-2"></div>
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5 text-sm">
               <li>
-                <Link href="/" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <Link href="/" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/our-work" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <Link href="/our-work" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   Our Work
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <Link href="/events" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <Link href="/blog" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/members" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <Link href="/members" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   Members
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <Link href="/contact" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm hover:text-[#4ecdc4] transition-colors flex items-center gap-1">
-                  <FileText className="h-3 w-3" />
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="text-sm hover:text-[#4ecdc4] transition-colors flex items-center gap-1"
-                >
-                  <FileText className="h-3 w-3" />
-                  Privacy Policy
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Column 3: Contact Us */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="md:col-span-3">
+            <h3 className="text-base font-semibold mb-3 flex items-center">
+              <span className="w-2 h-4 bg-[#4ecdc4] mr-2"></span>
               Contact Us
-              <div className="w-12 h-1 bg-[#4ecdc4] mt-2"></div>
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2 text-sm">
               <li>
-                <div className="text-[#4ecdc4] font-medium text-sm">Administration</div>
-                <a href="mailto:admin@drinterested.tech" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <div className="text-[#4ecdc4] font-medium text-xs">Administration</div>
+                <a
+                  href="mailto:admin@drinterested.tech"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   admin@drinterested.tech
                 </a>
               </li>
               <li>
-                <div className="text-[#4ecdc4] font-medium text-sm">Human Resources</div>
-                <a href="mailto:hr@drinterested.tech" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <div className="text-[#4ecdc4] font-medium text-xs">Human Resources</div>
+                <a href="mailto:hr@drinterested.tech" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
                   hr@drinterested.tech
                 </a>
               </li>
               <li>
-                <div className="text-[#4ecdc4] font-medium text-sm">Outreach</div>
-                <a href="mailto:outreach@drinterested.tech" className="text-sm hover:text-[#4ecdc4] transition-colors">
+                <div className="text-[#4ecdc4] font-medium text-xs">Outreach</div>
+                <a
+                  href="mailto:outreach@drinterested.tech"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   outreach@drinterested.tech
-                </a>
-              </li>
-              <li>
-                <div className="text-[#4ecdc4] font-medium text-sm">Technology</div>
-                <a href="mailto:tech@drinterested.tech" className="text-sm hover:text-[#4ecdc4] transition-colors">
-                  tech@drinterested.tech
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Stay Updated */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="md:col-span-4">
+            <h3 className="text-base font-semibold mb-3 flex items-center">
+              <span className="w-2 h-4 bg-[#4ecdc4] mr-2"></span>
               Stay Updated
-              <div className="w-12 h-1 bg-[#4ecdc4] mt-2"></div>
             </h3>
-            <p className="text-sm mb-4">Subscribe to our newsletter for the latest events and opportunities.</p>
+            <p className="text-sm mb-3 text-white/80">Subscribe for the latest events and opportunities.</p>
 
             {/* Use our newsletter component with compact styling for the footer */}
-            <div className="bg-[#405862] p-3 md:p-4 rounded">
+            <div className="bg-[#4f6b75] p-3 rounded">
               <NewsletterForm darkMode={true} showFirstName={false} compact={true} />
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[#4f6b75] flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm">© 2025 Dr. Interested. All rights reserved.</div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/terms"
-              className="text-sm text-white hover:text-[#4ecdc4] transition-colors flex items-center gap-1 bg-[#4f6b75] px-3 py-1 rounded-md"
-            >
-              <FileText className="h-4 w-4" />
+        <div className="mt-8 pt-5 border-t border-[#4f6b75] flex flex-col md:flex-row justify-between items-center gap-3">
+          <div className="text-xs text-white/70">© 2025 Dr. Interested. All rights reserved.</div>
+          <div className="flex items-center gap-3 text-xs">
+            <Link href="/terms" className="text-white/70 hover:text-[#4ecdc4] transition-colors">
               Terms & Conditions
+            </Link>
+            <span className="text-white/50">•</span>
+            <Link href="/privacy-policy" className="text-white/70 hover:text-[#4ecdc4] transition-colors">
+              Privacy Policy
             </Link>
             <button
               onClick={scrollToTop}
-              className="text-white hover:text-[#4ecdc4] transition-colors bg-[#4f6b75] p-2 rounded-full"
+              className="text-white hover:text-[#4ecdc4] transition-colors bg-[#4f6b75] p-1.5 rounded-full ml-2"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="h-5 w-5" />
+              <ArrowUp className="h-4 w-4" />
             </button>
           </div>
         </div>

@@ -11,7 +11,6 @@ import { Calendar, Clock, ChevronLeft, Share2, Linkedin, Twitter, Facebook, Link
 import ScrollToTop from "@/components/scroll-to-top"
 import Markdown from "react-markdown"
 
-
 export default function BlogPostPage() {
   const params = useParams()
   const slug = params?.slug as string
@@ -27,39 +26,24 @@ export default function BlogPostPage() {
       setPost(currentPost)
       setRelatedPosts(getRelatedPosts(slug, 3))
 
-      // Generate table of contents
-      const headings: { id: string; text: string; level: number }[] = []
-      const content = currentPost.content
-      const lines = content.split("\n")
-
-      lines.forEach((line) => {
-        const h1Match = line.match(/^# (.+)$/)
-        const h2Match = line.match(/^## (.+)$/)
-        const h3Match = line.match(/^### (.+)$/)
-
-        if (h1Match) {
-          const text = h1Match[1]
-          const id = text
-            .toLowerCase()
-            .replace(/[^\w\s]/g, "")
-            .replace(/\s+/g, "-")
-          headings.push({ id, text, level: 1 })
-        } else if (h2Match) {
-          const text = h2Match[1]
-          const id = text
-            .toLowerCase()
-            .replace(/[^\w\s]/g, "")
-            .replace(/\s+/g, "-")
-          headings.push({ id, text, level: 2 })
-        } else if (h3Match) {
-          const text = h3Match[1]
-          const id = text
-            .toLowerCase()
-            .replace(/[^\w\s]/g, "")
-            .replace(/\s+/g, "-")
-          headings.push({ id, text, level: 3 })
-        }
-      })
+      // More efficient table of contents generation
+      const headings = currentPost.content
+        .split("\n")
+        .filter((line) => /^#{1,3}\s.+$/.test(line))
+        .map((line) => {
+          const match = line.match(/^(#{1,3})\s(.+)$/)
+          if (match) {
+            const level = match[1].length
+            const text = match[2]
+            const id = text
+              .toLowerCase()
+              .replace(/[^\w\s]/g, "")
+              .replace(/\s+/g, "-")
+            return { id, text, level }
+          }
+          return null
+        })
+        .filter(Boolean)
 
       setTableOfContents(headings)
     }
@@ -69,17 +53,25 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     const updateReadingProgress = () => {
-      const currentProgress = window.scrollY
       const scrollHeight = document.body.scrollHeight - window.innerHeight
       if (scrollHeight) {
-        setReadingProgress(Number((currentProgress / scrollHeight).toFixed(2)) * 100)
+        setReadingProgress(Number((window.scrollY / scrollHeight).toFixed(2)) * 100)
       }
     }
 
-    window.addEventListener("scroll", updateReadingProgress)
+    // Debounce scroll event for better performance
+    let timeoutId: NodeJS.Timeout
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId)
+      timeoutId = setTimeout(updateReadingProgress, 10)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    updateReadingProgress() // Initial calculation
 
     return () => {
-      window.removeEventListener("scroll", updateReadingProgress)
+      window.removeEventListener("scroll", handleScroll)
+      if (timeoutId) clearTimeout(timeoutId)
     }
   }, [])
 
@@ -226,12 +218,37 @@ export default function BlogPostPage() {
 
       {/* Add this before the content section */}
       {tableOfContents.length > 2 && (
-        <div className="mb-8 p-6 bg-[#f5f1eb] rounded-lg">
-          <h3 className="text-lg font-bold text-[#405862] mb-4">Table of Contents</h3>
-          <ul className="space-y-2">
+        <div className="mb-6 p-5 bg-[#f5f1eb] rounded-lg border border-[#405862]/10">
+          <h3 className="text-lg font-bold text-[#405862] mb-3 flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="mr-2"
+            >
+              <line x1="21" y1="10" x2="7" y2="10"></line>
+              <line x1="21" y1="6" x2="3" y2="6"></line>
+              <line x1="21" y1="14" x2="3" y2="14"></line>
+              <line x1="21" y1="18" x2="7" y2="18"></line>
+            </svg>
+            Table of Contents
+          </h3>
+          <ul className="space-y-1.5 max-h-[300px] overflow-y-auto pr-2">
             {tableOfContents.map((heading, index) => (
-              <li key={index} className={`${heading.level === 1 ? "" : heading.level === 2 ? "ml-4" : "ml-8"}`}>
-                <a href={`#${heading.id}`} className="text-[#4ecdc4] hover:text-[#405862] transition-colors">
+              <li key={index} className={`${heading.level === 1 ? "" : heading.level === 2 ? "ml-3" : "ml-6"}`}>
+                <a
+                  href={`#${heading.id}`}
+                  className="text-[#4ecdc4] hover:text-[#405862] transition-colors flex items-center"
+                >
+                  {heading.level > 1 && (
+                    <span className="mr-1.5 text-[#405862]/40">{heading.level === 2 ? "○" : "•"}</span>
+                  )}
                   {heading.text}
                 </a>
               </li>
@@ -245,78 +262,80 @@ export default function BlogPostPage() {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="prose prose-lg max-w-none prose-headings:text-[#405862] prose-h1:text-3xl prose-h2:text-2xl prose-h2:mt-8 prose-p:text-[#405862]/90 prose-a:text-[#4ecdc4] prose-a:no-underline hover:prose-a:text-[#405862] prose-strong:text-[#405862] prose-ul:text-[#405862]/90 prose-ol:text-[#405862]/90 prose-li:my-1">
-              <Markdown
-                components={{
-                  h1: ({ children }) => {
-                    const id = children
-                      ?.toString()
-                      .toLowerCase()
-                      .replace(/[^\w\s]/g, "")
-                      .replace(/\s+/g, "-")
-                    return (
-                      <h1 id={id} className="text-3xl font-bold mb-6 mt-8 text-[#405862]">
+              {post.content && (
+                <Markdown
+                  components={{
+                    h1: ({ children }) => {
+                      const id = children
+                        ?.toString()
+                        .toLowerCase()
+                        .replace(/[^\w\s]/g, "")
+                        .replace(/\s+/g, "-")
+                      return (
+                        <h1 id={id} className="text-3xl font-bold mb-5 mt-8 text-[#405862]">
+                          {children}
+                        </h1>
+                      )
+                    },
+                    h2: ({ children }) => {
+                      const id = children
+                        ?.toString()
+                        .toLowerCase()
+                        .replace(/[^\w\s]/g, "")
+                        .replace(/\s+/g, "-")
+                      return (
+                        <h2 id={id} className="text-2xl font-bold mb-4 mt-7 text-[#405862]">
+                          {children}
+                        </h2>
+                      )
+                    },
+                    h3: ({ children }) => {
+                      const id = children
+                        ?.toString()
+                        .toLowerCase()
+                        .replace(/[^\w\s]/g, "")
+                        .replace(/\s+/g, "-")
+                      return (
+                        <h3 id={id} className="text-xl font-bold mb-3 mt-6 text-[#405862]">
+                          {children}
+                        </h3>
+                      )
+                    },
+                    ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-2">{children}</ul>,
+                    ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
+                    li: ({ children }) => <li className="text-[#405862]/90">{children}</li>,
+                    p: ({ children }) => <p className="my-4 text-[#405862]/90 leading-relaxed">{children}</p>,
+                    a: ({ href, children }) => (
+                      <a href={href} className="text-[#4ecdc4] hover:text-[#405862] transition-colors font-medium">
                         {children}
-                      </h1>
-                    )
-                  },
-                  h2: ({ children }) => {
-                    const id = children
-                      ?.toString()
-                      .toLowerCase()
-                      .replace(/[^\w\s]/g, "")
-                      .replace(/\s+/g, "-")
-                    return (
-                      <h2 id={id} className="text-2xl font-bold mb-4 mt-8 text-[#405862]">
+                      </a>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-4 border-[#4ecdc4] pl-4 italic my-4 text-[#405862]/80">
                         {children}
-                      </h2>
-                    )
-                  },
-                  h3: ({ children }) => {
-                    const id = children
-                      ?.toString()
-                      .toLowerCase()
-                      .replace(/[^\w\s]/g, "")
-                      .replace(/\s+/g, "-")
-                    return (
-                      <h3 id={id} className="text-xl font-bold mb-3 mt-6 text-[#405862]">
-                        {children}
-                      </h3>
-                    )
-                  },
-                  ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-2">{children}</ul>,
-                  ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
-                  li: ({ children }) => <li className="text-[#405862]/90">{children}</li>,
-                  p: ({ children }) => <p className="my-4 text-[#405862]/90 leading-relaxed">{children}</p>,
-                  a: ({ href, children }) => (
-                    <a href={href} className="text-[#4ecdc4] hover:text-[#405862] transition-colors font-medium">
-                      {children}
-                    </a>
-                  ),
-                  blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-[#4ecdc4] pl-4 italic my-4 text-[#405862]/80">
-                      {children}
-                    </blockquote>
-                  ),
-                  code: ({ node, inline, className, children, ...props }) => {
-                    const match = /language-(\w+)/.exec(className || "")
-                    return !inline && match ? (
-                      <div className="rounded-md bg-[#f5f1eb] p-4 my-4">
-                        <pre className="overflow-x-auto text-sm text-[#405862]">
-                          <code className={className} {...props}>
-                            {children}
-                          </code>
-                        </pre>
-                      </div>
-                    ) : (
-                      <code className="bg-[#f5f1eb] px-1.5 py-0.5 rounded text-[#405862] text-sm" {...props}>
-                        {children}
-                      </code>
-                    )
-                  },
-                }}
-              >
-                {post.content}
-              </Markdown>
+                      </blockquote>
+                    ),
+                    code: ({ node, inline, className, children, ...props }) => {
+                      const match = /language-(\w+)/.exec(className || "")
+                      return !inline && match ? (
+                        <div className="rounded-md bg-[#f5f1eb] p-4 my-4">
+                          <pre className="overflow-x-auto text-sm text-[#405862]">
+                            <code className={className} {...props}>
+                              {children}
+                            </code>
+                          </pre>
+                        </div>
+                      ) : (
+                        <code className="bg-[#f5f1eb] px-1.5 py-0.5 rounded text-[#405862] text-sm" {...props}>
+                          {children}
+                        </code>
+                      )
+                    },
+                  }}
+                >
+                  {post.content}
+                </Markdown>
+              )}
             </div>
 
             {/* Author Bio */}
@@ -448,41 +467,42 @@ export default function BlogPostPage() {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 bg-[#f5f1eb]">
+        <section className="py-12 bg-[#f5f1eb]">
           <div className="container">
-            <h2 className="text-2xl font-bold mb-8 text-[#405862]">
+            <h2 className="text-2xl font-bold mb-6 text-[#405862] flex items-center">
               Related Articles
-              <div className="w-24 h-1 bg-[#4ecdc4] mt-2"></div>
+              <div className="w-16 h-1 bg-[#4ecdc4] ml-3"></div>
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6">
               {relatedPosts.map((relatedPost, index) => (
                 <Card
                   key={index}
                   className="overflow-hidden border-[#405862]/20 hover:shadow-lg transition-all duration-300 hover:border-[#405862] flex flex-col h-full group"
                 >
-                  <div className="relative h-48">
+                  <div className="relative h-40">
                     <Image
                       src={relatedPost.coverImage || "/placeholder.svg"}
                       alt={relatedPost.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <CardContent className="p-6 flex flex-col flex-grow">
+                  <CardContent className="p-4 flex flex-col flex-grow">
                     <div>
-                      <div className="text-sm text-[#405862]/70 mb-2 flex items-center">
-                        <span className="bg-[#405862]/10 px-2 py-1 rounded-full text-xs">{relatedPost.topic}</span>
-                        <span className="mx-2">•</span>
+                      <div className="text-xs text-[#405862]/70 mb-1.5 flex items-center">
+                        <span className="bg-[#405862]/10 px-2 py-0.5 rounded-full">{relatedPost.topic}</span>
+                        <span className="mx-1.5">•</span>
                         <span className="flex items-center">
                           <Clock className="h-3 w-3 mr-1" />
                           {relatedPost.readingTime}
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold mb-2 text-[#405862] group-hover:text-[#4ecdc4] transition-colors">
+                      <h3 className="text-base font-bold mb-1.5 text-[#405862] group-hover:text-[#4ecdc4] transition-colors line-clamp-2">
                         {relatedPost.title}
                       </h3>
-                      <p className="text-[#405862]/80 mb-4 text-sm line-clamp-2">{relatedPost.excerpt}</p>
+                      <p className="text-[#405862]/80 mb-3 text-sm line-clamp-2">{relatedPost.excerpt}</p>
                     </div>
                     <div className="mt-auto">
                       <Link
@@ -515,4 +535,3 @@ export default function BlogPostPage() {
     </div>
   )
 }
-

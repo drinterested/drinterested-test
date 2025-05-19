@@ -421,4 +421,3 @@ export const departments: DepartmentType[] = [
     ],
   },
 ]
-
