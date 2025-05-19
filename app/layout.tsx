@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     { rel: "apple-touch-icon", url: "/circle-logo.png" },
   ],
   generator: "Next.js",
-  metadataBase: new URL("https://drinterested.tech"),
+  metadataBase: { url: "https://drinterested.tech" },
   verification: {
     google: "google-site-verification-code",
   },
@@ -107,7 +107,6 @@ export default function RootLayout({
           `}
         </Script>
         <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="lazyOnload" />
-        <link rel="canonical" href="https://drinterested.tech" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

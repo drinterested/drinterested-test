@@ -27,6 +27,8 @@ import { getLatestOngoingEvent } from "@/data/events"
 import { getFeaturedPosts, getRecentPosts } from "@/data/blog"
 import NewsletterForm from "@/components/newsletter-form"
 import { motion } from "framer-motion"
+import SeoSchema from "@/components/seo-schema"
+import { generateOrganizationSchema } from "@/lib/seo-utils"
 
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -62,6 +64,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SeoSchema schema={generateOrganizationSchema()} />
       <ScrollToTop />
 
       {/* Hero Section */}

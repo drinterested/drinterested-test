@@ -74,8 +74,7 @@ export function generateSeoMetadata({
       "volunteer hours",
       "healthcare volunteer",
       "student-led organization",
-      ...(tags || []),
-    ],
+    ].concat(tags || []),
   }
 }
 

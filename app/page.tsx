@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 import HomePage from "./home-page"
-import SeoSchema from "@/components/seo-schema"
-import { generateOrganizationSchema } from "@/lib/seo-utils"
 
 export const metadata: Metadata = {
   title: "Dr. Interested - Inspiring Future Healthcare Professionals",
@@ -30,10 +28,5 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  return (
-    <>
-      <SeoSchema schema={generateOrganizationSchema()} />
-      <HomePage />
-    </>
-  )
+  return <HomePage />
 }

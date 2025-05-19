@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next"
 import { blogPosts, blogTopics } from "@/data/blog"
-import { members } from "@/data/members"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://drinterested.tech"
@@ -92,13 +91,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  // Member anchor links
-  const memberUrls = members.map((member) => ({
-    url: `${baseUrl}/members#${member.id}`,
-    lastModified: currentDate,
-    changeFrequency: "monthly" as const,
-    priority: 0.5,
-  }))
-
-  return [...mainPages, ...blogPostsUrls, ...blogTopicsUrls, ...memberUrls]
+  // Return combined sitemap without member URLs which might be causing issues
+  return [...mainPages, ...blogPostsUrls, ...blogTopicsUrls]
 }
