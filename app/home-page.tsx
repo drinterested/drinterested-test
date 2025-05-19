@@ -356,8 +356,8 @@ export default function HomePage() {
               <div className="relative h-[220px] w-[220px] md:h-[280px] md:w-[280px] rounded-lg overflow-hidden">
                 <div className="absolute inset-0 bg-[#405862]/10 rounded-lg transform rotate-3"></div>
                 <Image
-                  src="/logo.png"
-                  alt="Dr. Interested - High School Healthcare Club Logo"
+                  src="/mindsproject.png"
+                  alt="Dr. Interested - Resilent Minds Program Photo"
                   fill
                   className="object-contain rounded-lg transform -rotate-3 hover:rotate-0 transition-transform duration-500"
                   priority
