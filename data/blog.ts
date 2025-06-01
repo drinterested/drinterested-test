@@ -65,6 +65,12 @@ export const authors: Record<string, Author> = {
       bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare.",
       linkedIn: "https://linkedin.com",
     },
+"dabosmita": {
+  name: "Dabosmita",
+  image: "/dabosmita.jpg",
+  bio: "Dabosmita is a Year 12 student who is endlessly curious and excited to explore new ideas. She actively engages with the latest developments in technology and medicine, while also enjoying deep, contemplative discussions in philosophy. Her interdisciplinary mindset and passion for learning drive her to seek knowledge beyond the classroom.",
+  linkedIn: "https://linkedin.com", // Replace with her actual LinkedIn if available
+},
 }
 
 // Blog Topics
@@ -90,6 +96,14 @@ export const blogTopics: BlogTopic[] = [
       "Discover the latest research, treatments, and insights into cancer, one of the most challenging medical conditions of our time.",
     image: "/logo.png",
   },
+{
+  name: "Healthcare Law",
+  slug: "healthcare-law",
+  description:
+    "Dive into the legal aspects of medicine, from malpractice to medical ethics and patients' rights.",
+  image: "/logo.png",
+}
+
 ]
 
 // Blog Posts
@@ -876,6 +890,99 @@ After the surgery, the patient needed time to heal and follow-up care to ensure 
   topic: "Types of Doctors",
   readingTime: "9 min read",
 },
+{
+    slug: "medical-malpractice",
+    title: "Understanding Medical Malpractice: Key Concepts and Canadian Case Studies",
+    excerpt:
+      "Medical malpractice occurs when a healthcare provider delivers substandard care that causes harm to a patient. This post explores what qualifies as malpractice, contributing factors, and landmark cases in Canadian medical law.",
+    content: `
+
+# Understanding Medical Malpractice: Key Concepts and Canadian Case Studies
+## What is Medical Malpractice?
+
+Medical malpractice occurs when a doctor or healthcare provider neglects a patient by failing to provide appropriate treatment or delivers care that falls below the accepted standard, potentially causing harm.
+
+## What is Medical Malpractice Law?
+
+Medical malpractice law is a branch of *tort law* focused on negligence in healthcare. It allows patients to seek compensation for harm caused by substandard medical treatment, even in the absence of a broken contract or criminal act.
+
+## Common Causes of Medical Malpractice
+
+- **Delayed diagnosis** – leads to incorrect treatment and worsening conditions.
+- **Medication errors** – prescribing or administering incorrect dosages.
+- **Surgical mistakes** – performing wrong procedures or damaging other organs.
+- **Poor communication** – between healthcare staff, causing treatment errors.
+
+## Key Factors for a Valid Claim
+
+- A failure to provide appropriate care.
+- Harm or injury directly resulting from negligence.
+- Substantial damage, such as:
+  - Chronic pain
+  - Loss of income
+  - Permanent disability
+
+---
+
+## Landmark Case: *Sylvester v. Crits et al. (1956)*
+
+This landmark Canadian case helped define the standard of care expected from medical professionals.
+
+> “Every medical practitioner must bring to his task a reasonable degree of skill and knowledge and must exercise a reasonable degree of care…”
+
+### What Happened?
+
+- A 5-year-old patient was given anesthesia via a mixture of ether and oxygen.
+- When complications arose, the mixture was stopped temporarily.
+- Upon re-administering, an explosion occurred due to leaked ether-oxygen vapors and static electricity, severely injuring the child.
+- Dr. Sylvester was found **negligent** for not fully stopping oxygen flow and for using a non-standard procedure.
+
+### Ruling:
+
+Because this technique was not proven to be a **standard hospital practice**, and appeared to be Dr. Sylvester’s own approach, the court ruled in favor of the patient and awarded compensation.
+
+---
+
+## Recent Case: *Boyd et al. v. Edington et al.*
+
+### Background
+
+- **Danielle Boyd**, 24, visited Hanover Hospital with high blood pressure and severe headaches.
+- Diagnosed with a migraine, hypertensive crisis, and alcohol use by **Dr. Richard Edington**.
+- Symptoms worsened; Dr. Edington delayed re-evaluation for 3 hours.
+
+### Diagnosis & Outcome
+
+- Boyd had a **vertebral artery dissection (VAD)**, leading to a **massive stroke** and **paralysis below the neck**.
+- VAD is rare, and its symptoms are often mistaken for migraines or alcohol intoxication.
+- Dr. Edington was found **liable for negligence** and ordered to pay **$15 million** to Boyd and her family.
+
+---
+
+## Conclusion
+
+Medical malpractice law ensures accountability in healthcare. While human error is natural, the law requires medical professionals to uphold a standard of care that prioritizes safety and proper treatment. These cases remind us of the importance of diligence, communication, and ongoing medical education.
+
+## Sources
+
+- Engel, K. G., & Hunt, E. A. (2009). *Medical malpractice and pediatric sedation: An overview*. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC2628513/)
+- Medical News Today. (2020, June 11). *What is medical malpractice?* [Link](https://www.medicalnewstoday.com/articles/248175)
+- Morrissey Legal Group. (2024, February). *4 factors contributing to medical malpractice*. [Link](https://www.morrisseylegalgroup.com/blog/2024/02/4-factors-contributing-to-medical-malpractice/)
+- CanLII Connects. (n.d.). *Medical malpractice and the standard of care*. [Link](https://canliiconnects.org/en/commentaries/73992)
+- Pacific Medical Law. (2020). *Medical malpractice: An overview (Rev. 2)*. [Link](https://www.pacificmedicallaw.ca/wp-content/uploads/2020/08/165_Medical_Malpractice_REV2.pdf)
+- Supreme Court of Canada. (1956). *Sylvester v. Crits*, 1956 CanLII 29 (SCC). [Link](https://www.canlii.org/en/ca/scc/doc/1956/1956canlii29/1956canlii29.html)
+- Halifax Medical Malpractice Lawyer Blog. (2014, March). *Defence experts crossed the line*. [Link](https://www.halifaxmedicalmalpracticelawyerblog.com/2014/03/defence_experts_crossed_the_li/)
+- Lexpert. (n.d.). *The five costliest examples of medical negligence*. [Link](https://www.lexpert.ca/news/legal-faq/the-five-costliest-examples-of-medical-negligence/378409)
+- Healthy Debate. (2014, April). *Medical malpractice*. [Link](https://healthydebate.ca/2014/04/about-healthy-debate/opinions-about-healthy-debate/medical-malpractice/)
+
+`,
+    coverImage: "/malpractice-cover.png", // Replace with the correct path to your image
+    date: "June 1, 2025",
+    author: authors["dabosmita"],
+    topic: "Healthcare Law",
+    readingTime: "7 min read",
+    featured: true,
+  },
   
 ]
 
