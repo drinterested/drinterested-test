@@ -48,7 +48,7 @@ export const authors: Record<string, Author> = {
     linkedIn: "https://www.linkedin.com/in/maliha-metla-a71650343/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
   "manha": {
-    name: "Manha",
+    name: "Manha Atiq",
     image: "/logo.png",
     bio: "Creating content that highlights the achievements and experiences of our members.",
     twitter: "https://twitter.com/manha",
@@ -60,8 +60,8 @@ export const authors: Record<string, Author> = {
     linkedIn: "https://linkedin.com",
   },
   "manasvi": {
-      name: "Manasvi",
-      image: "/logo.png",
+      name: "Manasvi Bobade",
+      image: "/Manasvi.jpg",
       bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare.",
       linkedIn: "https://linkedin.com",
     },
