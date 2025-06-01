@@ -6,7 +6,6 @@ import { FileText } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
 
 export default function TermsPage() {
-  // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -16,104 +15,102 @@ export default function TermsPage() {
       <ScrollToTop />
       <div className="bg-[#405862] text-white p-6 rounded-lg mb-8 shadow-md">
         <h1 className="text-3xl font-bold mb-2 text-center">Terms and Conditions</h1>
-        <p className="text-center mb-0">Please read these terms carefully before using our services.</p>
+        <p className="text-center mb-0">Please read these terms carefully before accessing or using any of our services.</p>
       </div>
 
       <div className="space-y-8 bg-white p-8 rounded-lg shadow-md">
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">1. Introduction</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">1. Legal Disclaimer</h2>
           <p className="text-slate-600">
-            Welcome to Dr Interested. These Terms and Conditions govern your use of our website and services. By
-            accessing or using our website, you agree to be bound by these Terms.
+            Dr. Interested is a youth-led educational project intended to provide informational content to high school students interested in healthcare-related careers. It is not a registered business, nonprofit, or legal entity. All activities, content, and communications are provided on a voluntary, non-commercial basis.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">2. Use of Our Services</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">2. Acceptance of Terms</h2>
           <p className="text-slate-600">
-            Dr Interested provides educational content, webinars, and resources for high school students interested in
-            healthcare careers. Our services are for educational purposes only and do not constitute professional
-            medical advice.
+            By accessing or using our website or services, you agree to be legally bound by these Terms and Conditions. If you do not agree with any part of these Terms, you must refrain from using our website or services.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">3. User Accounts</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">3. Educational Purpose Only</h2>
           <p className="text-slate-600">
-            When you create an account with us, you must provide accurate and complete information. You are responsible
-            for maintaining the confidentiality of your account and password and for restricting access to your device.
+            All content, events, webinars, and resources provided by Dr. Interested are for educational and informational purposes only. They are not intended to serve as professional medical advice, diagnosis, treatment, or as a substitute for consulting a licensed medical professional.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">4. Privacy Policy</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">4. No Liability</h2>
           <p className="text-slate-600">
-            Your privacy is important to us. Our{" "}
-            <Link href="/privacy-policy" className="text-[#405862] font-medium underline hover:text-[#4ecdc4]">
-              Privacy Policy
-            </Link>{" "}
-            explains how we collect, use, and protect your personal information. By using our services, you consent to
-            the collection and use of your data as described in our Privacy Policy.
+            To the fullest extent permitted by applicable law, Dr. Interested, its organizers, contributors, and affiliates disclaim all liability for any damages, direct or indirect, including but not limited to loss of data, loss of income, personal injury, or reputational harm arising from or related to your use or inability to use our services.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">5. Email Communications</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">5. User Responsibilities</h2>
           <p className="text-slate-600">
-            By providing your email address, you consent to receive communications from us. These may include updates,
-            event announcements, and educational content. You can unsubscribe at any time.
+            When engaging with our services, you agree not to:
           </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">6. Intellectual Property</h2>
-          <p className="text-slate-600">
-            All content on our website, including text, graphics, logos, and images, is the property of Dr Interested
-            and is protected by copyright laws. You may not reproduce, distribute, or create derivative works without
-            our permission.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">7. User Conduct</h2>
-          <p className="text-slate-600">When using our services, you agree not to:</p>
           <ul className="list-disc pl-6 mt-2 space-y-1 text-slate-600">
-            <li>Violate any applicable laws or regulations</li>
-            <li>Infringe on the rights of others</li>
-            <li>Submit false or misleading information</li>
-            <li>Attempt to gain unauthorized access to our systems</li>
-            <li>Use our services for commercial purposes without permission</li>
+            <li>Violate any local, national, or international laws or regulations</li>
+            <li>Upload or transmit any harmful, misleading, or unlawful content</li>
+            <li>Access or attempt to access unauthorized areas of the website</li>
+            <li>Impersonate any individual or misrepresent your affiliation</li>
+            <li>Exploit or misuse our resources for commercial purposes</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">8. Disclaimer of Warranties</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">6. Privacy</h2>
           <p className="text-slate-600">
-            Our services are provided "as is" without any warranties, express or implied. We do not guarantee that our
-            services will be error-free or uninterrupted.
+            Our{" "}
+            <Link href="/privacy-policy" className="text-[#405862] font-medium underline hover:text-[#4ecdc4]">
+              Privacy Policy
+            </Link>{" "}
+            outlines how personal data is collected, stored, and used. By using our services, you consent to the collection and use of information as outlined in our Privacy Policy.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">9. Limitation of Liability</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">7. Intellectual Property</h2>
           <p className="text-slate-600">
-            Dr Interested shall not be liable for any indirect, incidental, special, consequential, or punitive damages
-            arising out of your use or inability to use our services.
+            All content made available through this project, including but not limited to text, graphics, logos, and digital materials, remains the intellectual property of the creators of Dr. Interested. No content may be copied, reproduced, or distributed without explicit written consent.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">10. Changes to Terms</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">8. Communications</h2>
           <p className="text-slate-600">
-            We reserve the right to modify these Terms at any time. We will notify users of significant changes to our
-            Terms. Your continued use of our services constitutes your acceptance of the updated Terms.
+            By submitting your contact information, you agree to receive emails or messages from Dr. Interested, including but not limited to event updates and educational content. You may opt out of such communications at any time.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-[#405862]">11. Contact Us</h2>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">9. Modifications</h2>
           <p className="text-slate-600">
-            If you have any questions about these Terms, please contact us at admin@drinterested.tech.
+            We reserve the right to amend or modify these Terms at any time without prior notice. It is your responsibility to review the Terms periodically. Continued use of the website or services constitutes acceptance of any changes.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">10. Governing Law</h2>
+          <p className="text-slate-600">
+            These Terms and any disputes arising under them shall be governed by and interpreted in accordance with the laws of the Province of Ontario, Canada, without regard to conflict of laws principles.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-3 text-[#405862]">11. Contact Information</h2>
+          <p className="text-slate-600">
+            For questions or concerns regarding these Terms and Conditions, please contact us at:{" "}
+            <a
+              href="mailto:admin@drinterested.tech"
+              className="text-[#405862] font-medium underline hover:text-[#4ecdc4]"
+            >
+              admin@drinterested.tech
+            </a>
+            .
           </p>
         </section>
       </div>

@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
       <ScrollToTop />
       <div className="bg-[#405862] text-white p-6 rounded-lg mb-8 shadow-md">
         <h1 className="text-3xl font-bold mb-2 text-center">Privacy Policy</h1>
-        <p className="text-center mb-0">Last updated: April 5, 2025</p>
+        <p className="text-center mb-0">Last updated: May 31, 2025</p>
       </div>
 
       <div className="space-y-8 bg-white p-8 rounded-lg shadow-md">
@@ -46,6 +46,11 @@ export default function PrivacyPolicyPage() {
             The personal information we may collect includes names, email addresses, phone numbers, school information,
             and other details you provide when interacting with our services.
           </p>
+          <p className="text-slate-600 mt-4">
+            In some cases, we may also collect demographic information through voluntary forms. This data is only used in
+            combined (aggregated) formats for reporting and analysis. If used individually, all data will remain strictly
+            anonymous and will never be linked to personally identifiable information.
+          </p>
         </section>
 
         <section>
@@ -57,7 +62,12 @@ export default function PrivacyPolicyPage() {
             <li>Responding to your comments, questions, and requests</li>
             <li>Analyzing usage patterns to enhance user experience</li>
             <li>Protecting against unauthorized access and legal liability</li>
+            <li>Reporting impact and trends through aggregate demographic data</li>
           </ul>
+          <p className="text-slate-600 mt-4">
+            We take privacy seriously and ensure that demographic data is either combined with other responses or stripped of
+            identifiable details to maintain full anonymity.
+          </p>
         </section>
 
         <section>
