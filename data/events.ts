@@ -14,6 +14,16 @@ export type EventType = {
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
   {
+    title: "Podcast Collaboration with BioMedizone",
+    date: "June 2025",
+    location: "Virtual",
+    description: "Join our exciting podcast collaboration with BioMedizone to explore cutting-edge topics in healthcare and medical innovation. Sign-ups to make the podcast with us are now open!",
+    image: "/biomedpodcast.png",
+    status: "open",
+    link: "https://forms.gle/2Dxui6bq1Xdgpz5M8",
+    featured: true,
+  },
+  {
     title: "Healthcare Media Promotion Event",
     date: "March 2025 - Ongoing",
     time: "Ongoing",
@@ -24,16 +34,6 @@ export const upcomingEvents: EventType[] = [
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfx4SmOt6v3zgsgTunvjzLd8kwZUqV6RywEpkYekYPPFfw36A/viewform",
     featured: false,
   },
-  {
-  title: "Podcast Collaboration with BioMedizone",
-  date: "June 2025",
-  location: "Virtual",
-  description: "Join our exciting podcast collaboration with BioMedizone to explore cutting-edge topics in healthcare and medical innovation. Sign-ups to make the podcast with us are now open!",
-  image: "/biomedpodcast.png",
-  status: "open",
-  link: "https://forms.gle/2Dxui6bq1Xdgpz5M8",
-  featured: true,
-},
 ]
 
 // Past events data
