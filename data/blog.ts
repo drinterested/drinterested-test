@@ -892,7 +892,7 @@ After the surgery, the patient needed time to heal and follow-up care to ensure 
 },
 {
     slug: "medical-malpractice",
-    title: "Understanding Medical Malpractice: Key Concepts and Canadian Case Studies",
+    title: "Understanding Medical Malpractice: Key Concepts and Canadian Case Studies [Dr. Interested x Youth Law Advocates]",
     excerpt:
       "Medical malpractice occurs when a healthcare provider delivers substandard care that causes harm to a patient. This post explores what qualifies as malpractice, contributing factors, and landmark cases in Canadian medical law.",
     content: `
@@ -985,7 +985,7 @@ Medical malpractice law ensures accountability in healthcare. While human error 
   },
   {
   slug: "healthcare-law",
-  title: "CRISPR, Gene Editing, and the He Jiankui Case: A Healthcare Law Perspective",
+  title: "CRISPR, Gene Editing, and the He Jiankui Case: A Healthcare Law Perspective [Dr. Interested x Youth Law Advocates]",
   excerpt:
     "The controversial gene-editing experiment by Dr. He Jiankui shocked the global scientific community. This article explores the ethical, legal, and policy violations surrounding the world’s first gene-edited babies and the implications for healthcare law.",
   content: `
@@ -1049,7 +1049,7 @@ The He Jiankui case is a landmark example of healthcare law in action. It highli
 
 `,
   coverImage: "/crispr.png",
-  date: "June 1, 2025",
+  date: "June 2, 2025",
   author: authors["manasvi"],
   topic: "Healthcare Law",
   readingTime: "8 min read",
@@ -1057,7 +1057,7 @@ The He Jiankui case is a landmark example of healthcare law in action. It highli
 },
 {
   slug: "healthcare-law",
-  title: "The Ontario Mental Health Act: A Pillar of Mental Health Law",
+  title: "The Ontario Mental Health Act: A Pillar of Mental Health Law [Dr. Interested x Youth Law Advocates]",
   excerpt:
     "Explore the evolution, legal framework, and patient rights embedded in Ontario’s Mental Health Act—a cornerstone in balancing care and autonomy for individuals with mental illness.",
   content: `
