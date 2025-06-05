@@ -96,14 +96,13 @@ export const blogTopics: BlogTopic[] = [
       "Discover the latest research, treatments, and insights into cancer, one of the most challenging medical conditions of our time.",
     image: "/logo.png",
   },
-{
-  name: "Healthcare Law",
-  slug: "healthcare-law",
-  description:
-    "Dive into the legal aspects of medicine, from malpractice to medical ethics and patients' rights.",
-  image: "/logo.png",
-}
-
+  {
+    name: "Healthcare Law",
+    slug: "healthcare-law",
+    description:
+      "Dive into the legal aspects of medicine, from malpractice to medical ethics and patients' rights.",
+    image: "/logo.png",
+  },
 ]
 
 // Blog Posts
@@ -984,7 +983,7 @@ Medical malpractice law ensures accountability in healthcare. While human error 
     featured: true,
   },
   {
-  slug: "healthcare-law",
+  slug: "geneediting-ethics-law",
   title: "CRISPR, Gene Editing, and the He Jiankui Case: A Healthcare Law Perspective [Dr. Interested x Youth Law Advocates]",
   excerpt:
     "The controversial gene-editing experiment by Dr. He Jiankui shocked the global scientific community. This article explores the ethical, legal, and policy violations surrounding the world’s first gene-edited babies and the implications for healthcare law.",
@@ -1056,7 +1055,7 @@ The He Jiankui case is a landmark example of healthcare law in action. It highli
   featured: true,
 },
 {
-  slug: "healthcare-law",
+  slug: "mental-health-act",
   title: "The Ontario Mental Health Act: A Pillar of Mental Health Law [Dr. Interested x Youth Law Advocates]",
   excerpt:
     "Explore the evolution, legal framework, and patient rights embedded in Ontario’s Mental Health Act—a cornerstone in balancing care and autonomy for individuals with mental illness.",
