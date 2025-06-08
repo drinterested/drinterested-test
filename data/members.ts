@@ -136,7 +136,25 @@ export const departments: DepartmentType[] = [
         name: "Ganesh Kartik Nagasubramanian",
         role: "Outreach Member",
         image: "/logo.png", // Need Image
+        bio: "Ganesh Kartik Nagasubramanian is a Grade 10 student at Glenforest enrolled in the IB Program at Glenforest Secondary School.",
+        socialLinks: {
+        },
+      },
+      {
+        id: "outreach-mem3",
+        name: "Malak Zawra",
+        role: "Outreach Member",
+        image: "/logo.png", // Need Image
         bio: "Developing strategies to increase our presence in high schools across the region.",
+        socialLinks: {
+        },
+      },
+      {
+        id: "outreach-mem4",
+        name: "Maria Mohamed",
+        role: "Outreach Member",
+        image: "/logo.png", // Need Image
+        bio: "Hi, I am Maria Mohamed. I am a high school student with a passion for medicine and a dream of becoming a surgeon. I joined Dr. Interested as a member of the outreach team because I want to help others learn about healthcare and connect with opportunities that can shape their future.",
         socialLinks: {
         },
       },
