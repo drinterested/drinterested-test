@@ -210,7 +210,7 @@ export const departments: DepartmentType[] = [
         name: "Aaron Sethi",
         role: "Research Member",
         image: "/Aaron.png",
-        bio: "Developing resources to help students understand and engage in medical research.",
+        bio: "Designing educational resources to help students explore and participate in medical research.",
         socialLinks: {},
       },
       {
@@ -222,6 +222,14 @@ export const departments: DepartmentType[] = [
         socialLinks: {
           instagram: "https://www.instagram.com/sameerahussain53/",
         },
+      },
+      {
+        id: "research-mem6",
+        name: "Adhi Ammanath",
+        role: "Research Member",
+        image: "/logo.png",
+        bio: "Providing learning aids to guide students in understanding and contributing to medical research",
+        socialLinks: {},
       },
     ],
   },
