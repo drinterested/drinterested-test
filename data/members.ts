@@ -195,6 +195,16 @@ export const departments: DepartmentType[] = [
         bio: "Developing resources to help students understand and engage in medical research.",
         socialLinks: {},
       },
+      {
+        id: "research-mem6",
+        name: "Sameera Hussain",
+        role: "Research Member",
+        image: "/logo.png",
+        bio: "Sameera Hussain is a Grade 11 student at Castlebrooke Secondary School with a growing interest in public health and law. She aspires to pursue a career that will allow her to reform laws and systems in order to build a more equitable healthcare system for all. Sameera consistently demonstrates a strong work ethic both inside and outside the classroom. She actively contributes to her community through part-time work, volunteerism, and ongoing involvement in various service initiatives. Passionate about growth and impact, she regularly engages in passion projects that strengthen her skills in research, planning, and coordination. Sameera's dedication to her commitments, attention to detail, and drive to challenge herself have fostered the development of strong leadership qualities. She is eager to contribute to the innovative and meaningful work of Dr. Interested and looks forward to being part of initiatives that inspire real change.",
+        socialLinks: {
+          instagram: "https://www.instagram.com/sameerahussain53/",
+        },
+      },
     ],
   },
   {
