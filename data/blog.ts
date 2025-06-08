@@ -64,13 +64,13 @@ export const authors: Record<string, Author> = {
       image: "/Manasvi.jpg",
       bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare.",
       linkedIn: "https://linkedin.com",
-    },
-"dabosmita": {
-  name: "Dabosmita",
-  image: "/dabosmita.jpg",
-  bio: "Dabosmita is a Year 12 student who is endlessly curious and excited to explore new ideas. She actively engages with the latest developments in technology and medicine, while also enjoying deep, contemplative discussions in philosophy. Her interdisciplinary mindset and passion for learning drive her to seek knowledge beyond the classroom.",
-  linkedIn: "https://linkedin.com", // Replace with her actual LinkedIn if available
-},
+  },
+  "dabosmita": {
+      name: "Dabosmita",
+      image: "/dabosmita.jpg",
+      bio: "Dabosmita is a Year 12 student who is endlessly curious and excited to explore new ideas. She actively engages with the latest developments in technology and medicine, while also enjoying deep, contemplative discussions in philosophy. Her interdisciplinary mindset and passion for learning drive her to seek knowledge beyond the classroom.",
+      linkedIn: "https://linkedin.com", // Replace with her actual LinkedIn if available
+  },
 }
 
 // Blog Topics
