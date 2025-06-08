@@ -388,6 +388,17 @@ export const departments: DepartmentType[] = [
         bio: "Developing networking opportunities to help students build connections in the healthcare field.",
         socialLinks: {},
       },
+      {
+        id: "events-mem3",
+        name: "Christian Cortés ",
+        role: "Events Member",
+        image: "/Christian Cortés.jpeg", // Updated path
+        bio: "Christian Cortés is a second-year medical student with a strong commitment to making medical knowledge more human, accessible, and socially relevant. His passion for science communication, health education, and youth-led collaboration motivates him to join Dr. Interested, an organization that reflects the values he stands for: responsible communication, active participation, and social transformation through knowledge. He has been involved in projects at the intersection of medicine and the humanities, the application of artificial intelligence to biological signal analysis, and the creation of spaces where young people can learn, lead, and develop impactful health initiatives.",
+        socialLinks: {
+          linkedin: "https://www.linkedin.com/in/christian-cortes-armijo/",
+          instagram: "https://www.instagram.com/kris_coa/",
+        },
+      },
     ],
   },
   {
