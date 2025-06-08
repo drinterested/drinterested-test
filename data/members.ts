@@ -224,7 +224,7 @@ export const departments: DepartmentType[] = [
         },
       },
       {
-        id: "research-mem6",
+        id: "research-mem7",
         name: "Adhi Ammanath",
         role: "Research Member",
         image: "/logo.png",
