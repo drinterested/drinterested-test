@@ -312,6 +312,17 @@ export const departments: DepartmentType[] = [
           instagram: "https://www.instagram.com/misti.bobade/",
         },
       },
+      {
+        id: "publications-mem5",
+        name: "Raine Waverka",
+        role: "Publications Member",
+        image: "/raine.jpg",
+        bio: "Raine Waverka is a sophomore originating from Florida, currently enrolled in Cumberland County High School TN. With a deep interest in bacteriophage research and CRISPR-CAS, Raine is dedicated to increasing medical literacy and contributing to phage genomics. She is currently studying under Vanderbilt University’s SHE oncology program, and researching CRISPR in BU’s SummerLab program. Eager to make a meaningful contribution to the scientific field, Raine seeks to find genuine connections and form useful publications.",
+        socialLinks: {
+          linkedin: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
+          instagram: "https://www.instagram.com/misti.bobade/",
+        },
+      },
     ],
   },
   {
