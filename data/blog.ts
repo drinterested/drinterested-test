@@ -1184,7 +1184,7 @@ Bacteriophages represent a promising frontier in the fight against antibiotic re
   `,
   coverImage: "/phage-therapy.png",
   date: "June 11, 2025",
-  author: authors["raine-waverka"], /
+  author: authors["raine-waverka"], 
   topic: "medical-research",
   readingTime: "7 min read",
   featured: true,
