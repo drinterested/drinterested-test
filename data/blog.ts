@@ -71,6 +71,12 @@ export const authors: Record<string, Author> = {
       bio: "Dabosmita is a Year 12 student who is endlessly curious and excited to explore new ideas. She actively engages with the latest developments in technology and medicine, while also enjoying deep, contemplative discussions in philosophy. Her interdisciplinary mindset and passion for learning drive her to seek knowledge beyond the classroom.",
       linkedIn: "https://linkedin.com", // Replace with her actual LinkedIn if available
   },
+"raine-waverka": {
+  name: "Raine Waverka",
+  image: "/raine.png",
+  bio: "Raine Waverka is a sophomore at Cumberland County High School in Tennessee. She is passionate about bacteriophage research, CRISPR-Cas technologies, and improving medical literacy. She is currently part of Vanderbilt’s SHE Oncology Program and BU’s SummerLab.",
+  linkedIn: "https://linkedin.com", // Replace with actual LinkedIn if available
+},
 }
 
 // Blog Topics
@@ -103,6 +109,13 @@ export const blogTopics: BlogTopic[] = [
       "Dive into the legal aspects of medicine, from malpractice to medical ethics and patients' rights.",
     image: "/logo.png",
   },
+{
+  name: "Medical Research & Innovation",
+  slug: "medical-research",
+  description:
+    "Explore cutting-edge developments in medical science, including bacteriophage therapy, CRISPR, and other revolutionary treatments shaping the future of healthcare.",
+  image: "/logo.png",
+},
 ]
 
 // Blog Posts
@@ -1115,6 +1128,64 @@ This legislation remains a foundational pillar in preserving dignity and rights 
   date: "June 1, 2025",
   author: authors["muhammad-lari"],
   topic: "Healthcare Law",
+  readingTime: "7 min read",
+  featured: true,
+},
+{
+  slug: "bacteriophages-antibiotic-resistance",
+  title: "Bacteriophages: The Future of Antimicrobial Resistance?",
+  excerpt:
+    "An exploration of how bacteriophages—viruses that target bacteria—are emerging as a powerful solution to the global antibiotic resistance crisis.",
+  content: `
+
+# Bacteriophages: The Future of Antimicrobial Resistance?
+
+In the microscopic world, bacteria evolve rapidly, often outpacing the effectiveness of antibiotics designed to contain them. Antibiotic resistance has become a silent pandemic—an escalating threat few recognize, yet one with global consequences. As traditional antibiotics continue to lose their efficacy, bacteriophages, viruses that specifically infect and kill bacteria, are gaining renewed attention as a viable solution.
+
+## The Rise of Superbugs
+
+When antibiotics are used, they kill most—but not all—bacteria. The survivors often mutate, developing resistance and passing these traits to future generations. A study examining 137 strains of *E. coli* in urinary tract infections found resistance ranging from 51.1% to 91.2% (Olorunmola et al.). This growing resistance underscores the urgency of alternative treatments as millions of bacteria continue evolving unchecked.
+
+## What Are Bacteriophages?
+
+Bacteriophages, or phages, are viruses that infect bacteria. With over 10³¹ phages estimated to exist—more than all other organisms on Earth combined—they are nature’s most prolific biological entities (Scott and Buschman). Each phage is structurally equipped with a DNA-filled head, tail fibers to attach to bacteria, and a baseplate for DNA injection. Found in soil, water, and even on human skin, phages offer remarkable specificity by targeting only one bacterial species, leaving human cells and beneficial microbes unaffected.
+
+## How Phages Work
+
+Phages operate by injecting their genetic material into a bacterial cell, hijacking its machinery to replicate, and eventually lysing the cell to release new phage particles. This precise method avoids the collateral damage caused by broad-spectrum antibiotics.
+
+Phage therapy is not a novel idea—it dates back to the late 19th century with researchers like Ernest Hanbury Hankin and George Eliava—but is gaining renewed interest due to rising antibiotic resistance. The potential lies not only in their precision but in their adaptability: as bacteria evolve resistance, phages evolve alongside them.
+
+## Advantages Over Antibiotics
+
+- **Precision Targeting**: Unlike antibiotics, which indiscriminately kill bacteria, phages attack only specific pathogens.
+- **Effective Against Biofilms**: Phages can penetrate biofilms—protective layers that shield bacteria from most drugs—by lysing bacterial layers or using enzymes to degrade biofilm polymers (Loc-Carrillo).
+- **Auto-Dosing**: Phages replicate at the infection site, adjusting their population based on bacterial presence (Abedon).
+- **Lower Cost**: Some treatments are reported to be up to 50% cheaper than antibiotics (Verbeken et al.).
+- **Dual Benefit**: When bacteria develop resistance to phages, they often become more sensitive to antibiotics (Li et al.).
+
+## Are Phages Safe?
+
+Extensive studies show that phage therapy is non-toxic and free from harmful side effects (Liu et al.). Given their specificity and safety profile, phages could become a critical tool in modern medicine, especially for infections where antibiotics fail.
+
+## Conclusion
+
+Bacteriophages represent a promising frontier in the fight against antibiotic resistance. As superbugs evolve and conventional treatments falter, phage therapy could redefine the future of medicine. Investing in phage research and raising public awareness may be key steps toward overcoming one of the greatest health threats of our time.
+
+## Citations:
+
+- A.B. Shabbir, Muhammad, et al. “Bacteria vs. Bacteriophages: Parallel Evolution of Immune Arsenals.” *Frontiers*, 2016. [Link](https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full)
+- Liu, Dan, et al. “The Safety and Toxicity of Phage Therapy.” *Viruses*, 2021. [Link](https://www.mdpi.com/1999-4915/13/7/1268)
+- Loc-Carrillo, Catherine, and Abedon, Stephen T. “Pros and Cons of Phage Therapy.” *Bacteriophage*, 2011.
+- Olorunmola, Felix Oluwasola, et al. “Antibiotic Resistance in *E. coli*.” *African Journal of Infectious Diseases*, 2013.
+- Sapkota, Anupama. “Bacteriophage Overview.” *Microbe Notes*, 2022. [Link](https://microbenotes.com/bacteriophage/)
+- Verbeken, Gilbert, et al. “Taking Bacteriophage Therapy Seriously: A Moral Argument.” *BioMed Research International*, 2014. [Link](https://onlinelibrary.wiley.com/doi/10.1155/2014/621316)
+
+  `,
+  coverImage: "/phage-therapy.png",
+  date: "June 11, 2025",
+  author: authors["raine-waverka"], /
+  topic: "medical-research",
   readingTime: "7 min read",
   featured: true,
 },
