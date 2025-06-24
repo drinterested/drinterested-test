@@ -188,7 +188,7 @@ Even if mRNA platforms face challenges in a post-COVID world, they remain one of
   topic: "Healthcare Law",
   readingTime: "6 min read",
   featured: false,
-}
+},
 
   {
     slug: "youth-ai-healthcare-policy",
