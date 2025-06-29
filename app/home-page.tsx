@@ -33,7 +33,7 @@ import { generateOrganizationSchema } from "@/lib/seo-utils"
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // Scroll to top on page load
+  // Scroll to top on page load test
   useEffect(() => {
     window.scrollTo(0, 0)
     setIsLoaded(true)
