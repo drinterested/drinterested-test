@@ -79,6 +79,15 @@ export const authors: Record<string, Author> = {
     bio: "Dabosmita is a Year 12 student who is endlessly curious and excited to explore new ideas. She actively engages with the latest developments in technology and medicine, while also enjoying deep, contemplative discussions in philosophy. Her interdisciplinary mindset and passion for learning drive her to seek knowledge beyond the classroom.",
     linkedIn: "https://linkedin.com",
   },
+  "manasvi-bobade": {
+  name: "Manasvi Bobade",
+  role: "Student Contributor",
+  bio: "Manasvi Bobade is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She writes to explore the intersection of science, innovation, and youth engagement.",
+  linkedin: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
+  twitter: "",
+},
+
+  
 }
 
 // Blog Topics
@@ -121,6 +130,66 @@ export const blogTopics: BlogTopic[] = [
 
 // Blog Posts (Ordered from Most Recent to Oldest)
 export const blogPosts: BlogPost[] = [
+  {
+  slug: "history-of-mrna-vaccines",
+  title: "The History of mRNA Vaccines: From Scientific Curiosity to Global Breakthrough",
+  excerpt:
+    "From decades of setbacks to pandemic-defining success, this piece explores the rise of mRNA vaccines and their future potential in modern medicine.",
+  content: `
+# The History of mRNA Vaccines: From Scientific Curiosity to Global Breakthrough
+
+## Setting the Foundation: Initial Discoveries and Challenges
+
+Accomplishments in basic science by researchers in the 1960s and 1970s laid the groundwork for today's messenger RNA vaccines. Scientists established the vital role that messenger RNA plays in making proteins in living cells. They laid the intellectual and fundamental groundwork on the physics and chemistry of messenger RNA that make it a viable ingredient in making safe and effective vaccines.
+
+However, using messenger RNA for vaccines and other medical purposes was viewed skeptically due to the problems of instability and adverse immunogenicity that were known during the 1980s and 1990s. Many early studies using messenger RNA in vitro or in animal models frequently provided unreliable and irreproducible outcomes. This tended to discourage a lot of investment and interest.
+
+Those decades are now seen as a necessary period of time. They were years in which the scientific community made a sufficient number of not-so-smart mistakes with messenger RNA. Those mistakes, however, led the scientific community on a path to a smarter understanding and more effective use of messenger RNA.
+
+## How Do mRNA Vaccines Work?
+
+Things began to change in the 2000s due to several revolutionary and successful studies led by scientists Katalin Karikó and Drew Weissman. They took on the challenge of upgrading and downgrading the immunogenicity of modified messenger RNA.
+
+In contrast to standard vaccines, mRNA vaccines operate on fundamentally different principles. Directly providing instructions (in the form of mRNA), they tell the body's cells to build a harmless part of the virus—often the spike protein. If a person is then exposed to the actual virus, their immune system will recognize it and respond rapidly.
+
+The beauty of this is not only that an mRNA-based vaccine can be developed in weeks after identifying a virus, but also that it is far more versatile than previous types of vaccines.
+
+## A Global Turning Point: COVID-19
+
+The real turning point in the COVID-19 pandemic came from the new mRNA vaccines. Once the genetic code of the virus was known, companies such as Pfizer-BioNTech and Moderna developed mRNA vaccines in record time—within just a few months.
+
+By the end of 2020, these vaccines had both been authorized for emergency use and became the major tools in the world’s defense against COVID-19. High effectiveness was seen with these new mRNA vaccines, changing how the world viewed vaccine science.
+
+## New Horizons and Ongoing Research
+
+Following the triumph of the COVID-19 vaccines, mRNA technology is now being explored for HIV, influenza, malaria, and even cancer.
+
+In fact, Moderna conducted a Phase 1 clinical trial of a personalized cancer vaccine using mRNA. Despite challenges like the need for cold storage, we may be approaching a world where mRNA cancer treatments are routine and customized.
+
+## An Enduring Legacy
+
+One of the most significant scientific advancements of the 21st century is the development of mRNA vaccines. They began in an obscure corner of science, but are now a frontline solution for global health crises.
+
+Even if mRNA platforms face challenges in a post-COVID world, they remain one of our best bets—especially for vulnerable populations. The rapid, adaptable, and effective nature of mRNA science secures its place in medical history.
+
+## Works Cited
+
+- Karikó, Katalin, et al. “Suppression of RNA Recognition by Toll-Like Receptors.” *Immunity*, 2005. [Link](https://doi.org/10.1016/j.immuni.2005.06.008)  
+- Pardi, Norbert, et al. “mRNA Vaccines — A New Era in Vaccinology.” *Nature Reviews Drug Discovery*, 2018. [Link](https://doi.org/10.1038/nrd.2017.243)  
+- “Emergency Use Authorization for Pfizer-BioNTech COVID-19 Vaccine.” FDA, 2020. [PDF](https://www.fda.gov/media/144416/download)  
+- WHO. “mRNA Vaccines: A New Era.” *World Health Organization*, 2021.  
+- Moderna. “The Science of mRNA.” *Moderna*, 2023.  
+- ClinicalTrials.gov. “Study of mRNA-4157 With Pembrolizumab in Participants With High-Risk Melanoma.” 2022.  
+- “mRNA Vaccines: A Turning Point in the Fight Against Disease.” *Nature*, 2021.
+`,
+  coverImage: "/mrna-history.png", // Replace with actual image path
+  date: "June 24, 2025",
+  author: authors["manasvi-bobade"],
+  topic: "Healthcare Law",
+  readingTime: "6 min read",
+  featured: false,
+},
+
   {
     slug: "youth-ai-healthcare-policy",
     title: "Youth in the Age of AI: Why Canada Needs a Youth-Centred AI Policy Now",
