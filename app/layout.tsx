@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     "dr interested",
     "dr interest",
     "Adil Mukhi",
+    "medical students",
+    "healthcare advisors",
+    "impact report",
+    "healthcare impact",
   ],
   authors: [{ name: "Dr. Interested Team" }],
   creator: "Dr. Interested",
@@ -58,10 +62,10 @@ export const metadata: Metadata = {
     siteName: "Dr. Interested",
     images: [
       {
-        url: "/logo.png",
-        width: 800,
-        height: 800,
-        alt: "Dr. Interested Logo",
+        url: "/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Dr. Interested Logo - Heart-shaped stethoscope representing healthcare education",
       },
     ],
   },
@@ -70,7 +74,7 @@ export const metadata: Metadata = {
     title: "Dr. Interested - Inspiring Future Healthcare Professionals",
     description:
       "Empowering high school students to explore careers in healthcare through education, research, and mentorship. Earn volunteer hours while building your future!",
-    images: ["/circle-logo.png"],
+    images: ["/android-chrome-512x512.png"],
     creator: "@DrInterested",
   },
   alternates: {
@@ -81,12 +85,26 @@ export const metadata: Metadata = {
   },
   icons: [
     { rel: "icon", url: "/favicon.ico" },
-    { rel: "apple-touch-icon", url: "/circle-logo.png" },
+    { rel: "icon", type: "image/png", sizes: "16x16", url: "/favicon-16x16.png" },
+    { rel: "icon", type: "image/png", sizes: "32x32", url: "/favicon-32x32.png" },
+    { rel: "apple-touch-icon", sizes: "180x180", url: "/apple-touch-icon.png" },
+    { rel: "manifest", url: "/site.webmanifest" },
   ],
   generator: "Next.js",
   metadataBase: new URL("https://drinterested.tech"),
   verification: {
     google: "google-site-verification-code",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 
@@ -116,6 +134,7 @@ export default function RootLayout({
           `}
         </Script>
         <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="lazyOnload" />
+        <link rel="canonical" href="https://drinterested.tech" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

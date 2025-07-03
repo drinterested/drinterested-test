@@ -1,32 +1,25 @@
-import type { Metadata } from "next"
+"use client"
+
+import { useState, useEffect } from "react"
 import HomePage from "./home-page"
+import ImpactPopup from "@/components/impact-popup"
 
-export const metadata: Metadata = {
-  title: "Dr. Interested - Inspiring Future Healthcare Professionals",
-  description:
-    "Dr. Interested empowers high school students to explore healthcare careers through education, mentorship, and hands-on experiences. Join our community for volunteer hours and leadership opportunities!",
-  alternates: {
-    canonical: "https://drinterested.tech",
-  },
-  openGraph: {
-    title: "Dr. Interested - Inspiring Future Healthcare Professionals",
-    description:
-      "Empowering high school students to explore healthcare careers through education, mentorship, and hands-on experiences. Earn volunteer hours while building your future!",
-    url: "https://drinterested.tech",
-    siteName: "Dr. Interested",
-    images: [
-      {
-        url: "/logo.png",
-        width: 800,
-        height: 800,
-        alt: "Dr. Interested Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-}
+export default function Page() {
+  const [showPopup, setShowPopup] = useState(false)
 
-export default function Home() {
-  return <HomePage />
+  useEffect(() => {
+    // Show popup when component mounts (page loads)
+    setShowPopup(true)
+  }, [])
+
+  const handleClosePopup = () => {
+    setShowPopup(false)
+  }
+
+  return (
+    <>
+      <HomePage />
+      <ImpactPopup isOpen={showPopup} onClose={handleClosePopup} />
+    </>
+  )
 }
