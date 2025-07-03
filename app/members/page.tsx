@@ -3,232 +3,196 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Linkedin, Twitter, Mail, Globe, ChevronDown, ChevronUp } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { leadership, teamMembers, advisors, type Member, type Advisor } from "@/data/members"
-
-interface MemberCardProps {
-  member: Member | Advisor
-  isExpanded: boolean
-  onToggle: () => void
-}
-
-function MemberCard({ member, isExpanded, onToggle }: MemberCardProps) {
-  return (
-    <Card className="hover-card-effect bg-white border-[#405862]/10">
-      <CardContent className="p-6">
-        <div className="flex flex-col items-center text-center">
-          <div className="relative w-32 h-32 mb-4">
-            <Image
-              src={member.image || "/placeholder.svg"}
-              alt={member.name}
-              fill
-              className="rounded-full object-cover border-4 border-[#4ecdc4]/20"
-            />
-          </div>
-          <h3 className="text-xl font-bold text-[#405862] mb-1">{member.name}</h3>
-          <p className="text-[#4ecdc4] font-medium mb-2">{member.role}</p>
-          {"institution" in member && member.institution && (
-            <p className="text-[#405862]/60 text-sm mb-3">{member.institution}</p>
-          )}
-
-          <div className="w-full">
-            <Button
-              variant="ghost"
-              onClick={onToggle}
-              className="text-[#405862] hover:text-[#4ecdc4] p-0 h-auto font-normal text-sm mb-3"
-            >
-              {isExpanded ? (
-                <>
-                  Show Less <ChevronUp className="ml-1 h-4 w-4" />
-                </>
-              ) : (
-                <>
-                  Read Bio <ChevronDown className="ml-1 h-4 w-4" />
-                </>
-              )}
-            </Button>
-
-            {isExpanded && (
-              <div className="mb-4 animate-in slide-in-from-top-2 duration-300">
-                <p className="text-[#405862]/80 text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            )}
-          </div>
-
-          <div className="flex space-x-3">
-            {member.linkedin && (
-              <Link
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            )}
-            {member.twitter && (
-              <Link
-                href={member.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-            )}
-            {member.email && (
-              <Link href={`mailto:${member.email}`} className="text-[#405862] hover:text-[#4ecdc4] transition-colors">
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">Email</span>
-              </Link>
-            )}
-            {member.website && (
-              <Link
-                href={member.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#405862] hover:text-[#4ecdc4] transition-colors"
-              >
-                <Globe className="h-5 w-5" />
-                <span className="sr-only">Website</span>
-              </Link>
-            )}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
+import { ChevronDown, ChevronUp, Linkedin, Instagram, Globe, ExternalLink } from "lucide-react"
+import { president, vicePresidents, advisors, departments } from "@/data/members"
+import type { MemberType } from "@/data/members"
 
 export default function MembersPage() {
   const [expandedMembers, setExpandedMembers] = useState<Set<string>>(new Set())
 
   const toggleMemberExpansion = (memberId: string) => {
-    setExpandedMembers((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(memberId)) {
-        newSet.delete(memberId)
-      } else {
-        newSet.add(memberId)
-      }
-      return newSet
-    })
+    const newExpanded = new Set(expandedMembers)
+    if (newExpanded.has(memberId)) {
+      newExpanded.delete(memberId)
+    } else {
+      newExpanded.add(memberId)
+    }
+    setExpandedMembers(newExpanded)
+  }
+
+  const renderSocialLinks = (socialLinks?: MemberType["socialLinks"]) => {
+    if (!socialLinks) return null
+
+    return (
+      <div className="flex gap-2 mt-3">
+        {socialLinks.linkedin && (
+          <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm" className="h-8 w-8 p-0 bg-transparent">
+              <Linkedin className="h-4 w-4" />
+            </Button>
+          </Link>
+        )}
+        {socialLinks.instagram && (
+          <Link href={socialLinks.instagram} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm" className="h-8 w-8 p-0 bg-transparent">
+              <Instagram className="h-4 w-4" />
+            </Button>
+          </Link>
+        )}
+        {socialLinks.website && (
+          <Link href={socialLinks.website} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm" className="h-8 w-8 p-0 bg-transparent">
+              <Globe className="h-4 w-4" />
+            </Button>
+          </Link>
+        )}
+        {socialLinks.other && (
+          <Link href={socialLinks.other} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm" className="h-8 w-8 p-0 bg-transparent">
+              <ExternalLink className="h-4 w-4" />
+            </Button>
+          </Link>
+        )}
+      </div>
+    )
+  }
+
+  const renderMemberCard = (member: MemberType, isLeadership = false) => {
+    const isExpanded = expandedMembers.has(member.id)
+    const bioPreview = member.bio.length > 150 ? member.bio.substring(0, 150) + "..." : member.bio
+
+    return (
+      <Card key={member.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+        <CardContent className="p-6">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100">
+              <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-semibold text-lg text-gray-900">{member.name}</h3>
+              <Badge variant={isLeadership ? "default" : "secondary"} className="text-xs">
+                {member.role}
+              </Badge>
+            </div>
+
+            <div className="w-full">
+              <p className="text-sm text-gray-600 leading-relaxed">{isExpanded ? member.bio : bioPreview}</p>
+
+              {member.bio.length > 150 && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleMemberExpansion(member.id)}
+                  className="mt-2 h-8 px-2 text-xs"
+                >
+                  {isExpanded ? (
+                    <>
+                      Show Less <ChevronUp className="ml-1 h-3 w-3" />
+                    </>
+                  ) : (
+                    <>
+                      Read More <ChevronDown className="ml-1 h-3 w-3" />
+                    </>
+                  )}
+                </Button>
+              )}
+            </div>
+
+            {renderSocialLinks(member.socialLinks)}
+          </div>
+        </CardContent>
+      </Card>
+    )
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f1eb]">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#405862] to-[#4a6570] text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Meet Our Team</h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Passionate students and dedicated advisors working together to inspire the next generation of healthcare
-            professionals
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Meet the passionate individuals who make Dr. Interested possible. Our diverse team of students, educators,
+            and healthcare professionals work together to inspire the next generation of medical leaders.
           </p>
         </div>
-      </section>
 
-      {/* Team Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <Tabs defaultValue="leadership" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12 bg-white border border-[#405862]/10">
-              <TabsTrigger
-                value="leadership"
-                className="data-[state=active]:bg-[#4ecdc4] data-[state=active]:text-white"
-              >
-                Leadership
-              </TabsTrigger>
-              <TabsTrigger value="team" className="data-[state=active]:bg-[#4ecdc4] data-[state=active]:text-white">
-                Team Members
-              </TabsTrigger>
-              <TabsTrigger value="advisors" className="data-[state=active]:bg-[#4ecdc4] data-[state=active]:text-white">
-                Advisors
-              </TabsTrigger>
-            </TabsList>
+        <Tabs defaultValue="leadership" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsTrigger value="leadership">Leadership</TabsTrigger>
+            <TabsTrigger value="advisors">Advisors</TabsTrigger>
+            <TabsTrigger value="departments">Departments</TabsTrigger>
+          </TabsList>
 
-            <TabsContent value="leadership">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-[#405862] mb-4">Leadership Team</h2>
-                <p className="text-[#405862]/80 max-w-2xl mx-auto">
-                  Meet the visionary leaders who founded and guide Dr. Interested's mission to empower future healthcare
-                  professionals.
-                </p>
+          <TabsContent value="leadership" className="space-y-12">
+            {/* President */}
+            <section>
+              <h2 className="text-2xl font-bold text-center mb-8 text-gray-900">President</h2>
+              <div className="flex justify-center">
+                <div className="w-full max-w-md">{renderMemberCard(president, true)}</div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {leadership.map((member) => (
-                  <MemberCard
-                    key={member.id}
-                    member={member}
-                    isExpanded={expandedMembers.has(member.id)}
-                    onToggle={() => toggleMemberExpansion(member.id)}
-                  />
-                ))}
-              </div>
-            </TabsContent>
+            </section>
 
-            <TabsContent value="team">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-[#405862] mb-4">Team Members</h2>
-                <p className="text-[#405862]/80 max-w-2xl mx-auto">
-                  Our dedicated team of student leaders who work tirelessly to create opportunities and support for
-                  their peers.
-                </p>
+            {/* Vice Presidents */}
+            <section>
+              <h2 className="text-2xl font-bold text-center mb-8 text-gray-900">Vice Presidents</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {vicePresidents.map((vp) => renderMemberCard(vp, true))}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {teamMembers.map((member) => (
-                  <MemberCard
-                    key={member.id}
-                    member={member}
-                    isExpanded={expandedMembers.has(member.id)}
-                    onToggle={() => toggleMemberExpansion(member.id)}
-                  />
-                ))}
-              </div>
-            </TabsContent>
+            </section>
+          </TabsContent>
 
-            <TabsContent value="advisors">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-[#405862] mb-4">Medical Student Advisors</h2>
-                <p className="text-[#405862]/80 max-w-2xl mx-auto">
-                  Experienced medical students who provide mentorship, guidance, and real-world insights to help high
-                  school students navigate their healthcare career journey.
-                </p>
+          <TabsContent value="advisors" className="space-y-8">
+            <section>
+              <h2 className="text-2xl font-bold text-center mb-4 text-gray-900">Medical Student Advisors</h2>
+              <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                Our medical student advisors provide valuable guidance and mentorship, sharing their experiences and
+                insights to help high school students navigate their path to healthcare careers.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {advisors.map((advisor) => renderMemberCard(advisor))}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {advisors.map((advisor) => (
-                  <MemberCard
-                    key={advisor.id}
-                    member={advisor}
-                    isExpanded={expandedMembers.has(advisor.id)}
-                    onToggle={() => toggleMemberExpansion(advisor.id)}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
+            </section>
+          </TabsContent>
 
-      {/* Call to Action */}
-      <section className="bg-[#405862] text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Want to Join Our Team?</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            We're always looking for passionate students who want to make a difference in healthcare education.
-          </p>
-          <Link href="/contact">
-            <Button className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
-              Get Involved
-            </Button>
-          </Link>
-        </div>
-      </section>
+          <TabsContent value="departments" className="space-y-12">
+            {departments.map((department) => (
+              <section key={department.id} className="space-y-6">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">{department.name}</h2>
+                  <p className="text-gray-600 max-w-2xl mx-auto">{department.description}</p>
+                </div>
+
+                {/* Department Director(s) */}
+                <div>
+                  <h3 className="text-lg font-semibold text-center mb-4 text-gray-800">
+                    {Array.isArray(department.director) ? "Directors" : "Director"}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    {Array.isArray(department.director)
+                      ? department.director.map((director) => renderMemberCard(director))
+                      : [renderMemberCard(department.director)]}
+                  </div>
+                </div>
+
+                {/* Department Members */}
+                {department.members.length > 0 && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-center mb-4 text-gray-800">Team Members</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {department.members.map((member) => renderMemberCard(member))}
+                    </div>
+                  </div>
+                )}
+              </section>
+            ))}
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   )
 }
