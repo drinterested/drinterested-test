@@ -1,117 +1,272 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
-import { X, ChevronDown, ChevronUp, Globe } from "lucide-react"
+
+import { useState, useEffect } from "react"
+import { X, Globe, ChevronDown, ChevronUp, ExternalLink, Mail, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import NewsletterForm from "@/components/newsletter-form"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 interface ImpactPopupProps {
-  isOpen: boolean
-  onClose: () => void
+  onClose?: () => void
 }
 
-const translations = {
-  en: {
-    title: "🎉 Big News!",
-    subtitle: "Dr. Interested Semi-Annual Impact Report 2025",
-    description:
-      "Discover the measurable impact Dr. Interested has made in empowering high school students to explore healthcare careers. See our achievements from January 2025 through June 2025.",
-    checkItOut: "Check It Out",
-    dontMiss: "Don't want to miss an update?",
-    subscribeText: "Subscribe to our email list for the latest healthcare opportunities and updates!",
-    close: "Close",
-  },
-  fr: {
-    title: "🎉 Grande Nouvelle!",
-    subtitle: "Rapport d'Impact Semestriel 2025 de Dr. Interested",
-    description:
-      "Découvrez l'impact mesurable que Dr. Interested a eu en permettant aux lycéens d'explorer les carrières de santé. Voyez nos réalisations de janvier 2025 à juin 2025.",
-    checkItOut: "Découvrir",
-    dontMiss: "Vous ne voulez pas manquer une mise à jour?",
-    subscribeText: "Abonnez-vous à notre liste de diffusion pour les dernières opportunités de santé et mises à jour!",
-    close: "Fermer",
-  },
-}
-
-export default function ImpactPopup({ isOpen, onClose }: ImpactPopupProps) {
-  const [isNewsletterExpanded, setIsNewsletterExpanded] = useState(false)
+export function ImpactPopup({ onClose }: ImpactPopupProps) {
+  const [isVisible, setIsVisible] = useState(false)
   const [language, setLanguage] = useState<"en" | "fr">("en")
+  const [isNewsletterExpanded, setIsNewsletterExpanded] = useState(false)
+  const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const t = translations[language]
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 1000)
 
-  if (!isOpen) return null
+    return () => clearTimeout(timer)
+  }, [])
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose()
-    }
+  const handleClose = () => {
+    setIsVisible(false)
+    setTimeout(() => {
+      onClose?.()
+    }, 300)
   }
 
-  const handleImpactReportClick = () => {
-    window.open("https://impact2025.drinterested.tech/", "_blank")
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+    setEmail("")
+
+    // Auto close after success
+    setTimeout(() => {
+      handleClose()
+    }, 2000)
   }
+
+  const content = {
+    en: {
+      badge: "New Release",
+      title: "2025 Semi-Annual Impact Report",
+      subtitle: "Measuring Our Healthcare Education Impact",
+      description:
+        "Discover how Dr. Interested has empowered 550+ high school students across 65+ countries to explore healthcare careers through comprehensive education and mentorship.",
+      stats: [
+        { number: "550+", label: "Members" },
+        { number: "350K+", label: "Views" },
+        { number: "6+", label: "Programs" },
+        { number: "65+", label: "Countries" },
+      ],
+      button: "View Impact Report",
+      newsletter: {
+        title: "Stay Updated",
+        subtitle: "Get the latest healthcare opportunities & insights",
+        placeholder: "Enter your email address",
+        button: "Subscribe Now",
+        submitting: "Subscribing...",
+        success: "Welcome to our community!",
+      },
+    },
+    fr: {
+      badge: "Nouvelle Publication",
+      title: "Rapport d'Impact Semestriel 2025",
+      subtitle: "Mesurer Notre Impact en Éducation Sanitaire",
+      description:
+        "Découvrez comment Dr. Interested a permis à plus de 550 lycéens dans plus de 65 pays d'explorer les carrières de santé grâce à une éducation et un mentorat complets.",
+      stats: [
+        { number: "550+", label: "Membres" },
+        { number: "350K+", label: "Vues" },
+        { number: "6+", label: "Programmes" },
+        { number: "65+", label: "Pays" },
+      ],
+      button: "Voir le Rapport d'Impact",
+      newsletter: {
+        title: "Restez Informé",
+        subtitle: "Recevez les dernières opportunités et insights en santé",
+        placeholder: "Entrez votre adresse e-mail",
+        button: "S'abonner Maintenant",
+        submitting: "Abonnement...",
+        success: "Bienvenue dans notre communauté!",
+      },
+    },
+  }
+
+  const currentContent = content[language]
+
+  if (!isVisible) return null
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-      onClick={handleBackdropClick}
-    >
-      <div className="relative w-full max-w-md mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
-        {/* Language Toggle */}
-        <div className="absolute top-4 left-4 z-10">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Enhanced Backdrop */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60 backdrop-blur-md"
+        onClick={handleClose}
+      />
+
+      {/* Popup Container */}
+      <div
+        className={`relative transform transition-all duration-500 ease-out ${
+          isVisible ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 translate-y-4"
+        }`}
+      >
+        {/* Language Toggle - Floating */}
+        <div className="absolute -top-16 right-0 z-10">
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
             onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-            className="bg-white/80 hover:bg-white/90 text-[#405862] border border-[#405862]/20 rounded-full px-3 py-1 text-xs font-medium"
+            className="bg-white/95 backdrop-blur-sm border-white/20 shadow-lg hover:bg-white hover:scale-105 transition-all duration-200"
           >
-            <Globe className="w-3 h-3 mr-1" />
-            {language === "en" ? "FR" : "ENG"}
+            <Globe className="h-3 w-3 mr-1.5" />
+            <span className="font-medium">{language === "en" ? "FR" : "ENG"}</span>
           </Button>
         </div>
 
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white/90 text-[#405862] transition-colors"
-          aria-label={t.close}
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        {/* Main Content - Beige Background */}
-        <div className="bg-[#f5f1eb] p-8 pt-12">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-[#405862] mb-2">{t.title}</h2>
-            <h3 className="text-lg font-semibold text-[#405862] mb-4">{t.subtitle}</h3>
-            <p className="text-[#405862]/80 text-sm mb-6 leading-relaxed">{t.description}</p>
-            <Button
-              onClick={handleImpactReportClick}
-              className="bg-[#4ecdc4] hover:bg-[#3dbdb5] text-white px-6 py-2.5 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              {t.checkItOut}
-            </Button>
-          </div>
-        </div>
-
-        {/* Newsletter Section - Expandable */}
-        <div className="bg-[#405862]">
-          <button
-            onClick={() => setIsNewsletterExpanded(!isNewsletterExpanded)}
-            className="w-full p-4 text-white hover:bg-[#4a6570] transition-colors flex items-center justify-between"
+        {/* Main Card */}
+        <Card className="w-full max-w-lg mx-auto overflow-hidden shadow-2xl border-0">
+          {/* Close Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleClose}
+            className="absolute right-3 top-3 z-10 h-8 w-8 p-0 rounded-full bg-white/80 hover:bg-white/90 shadow-sm"
           >
-            <span className="text-sm font-medium">{t.dontMiss}</span>
-            {isNewsletterExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </button>
+            <X className="h-4 w-4" />
+          </Button>
 
-          {isNewsletterExpanded && (
-            <div className="px-6 pb-6 animate-in slide-in-from-top-2 duration-300">
-              <p className="text-white/80 text-xs mb-4 text-center">{t.subscribeText}</p>
-              <NewsletterForm darkMode={true} compact={true} showFirstName={false} />
+          {/* Main Content - Enhanced Beige Section */}
+          <CardContent className="p-0">
+            <div className="bg-gradient-to-br from-[#f5f1eb] to-[#f0ebe3] p-8 pt-12 relative overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#4ecdc4]/10 rounded-full -translate-y-16 translate-x-16" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#405862]/10 rounded-full translate-y-12 -translate-x-12" />
+
+              <div className="relative z-10 text-center space-y-6">
+                {/* Badge */}
+                <div className="flex justify-center">
+                  <Badge className="bg-[#4ecdc4] hover:bg-[#4ecdc4] text-white px-3 py-1 text-xs font-medium shadow-sm">
+                    <Sparkles className="h-3 w-3 mr-1" />
+                    {currentContent.badge}
+                  </Badge>
+                </div>
+
+                {/* Title */}
+                <div className="space-y-2">
+                  <h2 className="text-2xl font-bold text-[#405862] leading-tight">{currentContent.title}</h2>
+                  <p className="text-sm font-medium text-[#405862]/70">{currentContent.subtitle}</p>
+                </div>
+
+                {/* Description */}
+                <p className="text-sm text-[#405862]/80 leading-relaxed max-w-md mx-auto">
+                  {currentContent.description}
+                </p>
+
+                {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-4 py-4">
+                  {currentContent.stats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className="text-xl font-bold text-[#405862]">{stat.number}</div>
+                      <div className="text-xs text-[#405862]/60 font-medium">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <Button
+                  asChild
+                  className="bg-gradient-to-r from-[#405862] to-[#4a6570] hover:from-[#4a6570] hover:to-[#405862] text-white px-8 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <a href="https://impact2025.drinterested.tech/" target="_blank" rel="noopener noreferrer">
+                    {currentContent.button}
+                    <ExternalLink className="h-4 w-4 ml-2" />
+                  </a>
+                </Button>
+              </div>
             </div>
-          )}
-        </div>
+
+            {/* Newsletter Section - Enhanced Dark Section */}
+            <div className="bg-gradient-to-br from-[#405862] to-[#4a6570] text-white relative overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 left-0 w-20 h-20 bg-white/5 rounded-full -translate-y-10 -translate-x-10" />
+              <div className="absolute bottom-0 right-0 w-16 h-16 bg-white/5 rounded-full translate-y-8 translate-x-8" />
+
+              {/* Toggle Button */}
+              <button
+                onClick={() => setIsNewsletterExpanded(!isNewsletterExpanded)}
+                className="w-full p-5 flex items-center justify-between hover:bg-white/5 transition-all duration-200 relative z-10"
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 bg-white/10 rounded-lg">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-semibold text-sm">{currentContent.newsletter.title}</div>
+                    <div className="text-xs opacity-80">{currentContent.newsletter.subtitle}</div>
+                  </div>
+                </div>
+                <div className="p-1">
+                  {isNewsletterExpanded ? (
+                    <ChevronUp className="h-4 w-4 transition-transform duration-200" />
+                  ) : (
+                    <ChevronDown className="h-4 w-4 transition-transform duration-200" />
+                  )}
+                </div>
+              </button>
+
+              {/* Newsletter Form */}
+              {isNewsletterExpanded && (
+                <div className="px-6 pb-6 relative z-10 animate-in slide-in-from-top-2 duration-300">
+                  {isSubmitted ? (
+                    <div className="text-center py-6">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-full mb-3">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full" />
+                        </div>
+                      </div>
+                      <div className="text-green-300 font-medium text-sm">{currentContent.newsletter.success}</div>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="relative">
+                        <Input
+                          type="email"
+                          placeholder={currentContent.newsletter.placeholder}
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/15 focus:border-white/40 rounded-lg h-11"
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting || !email}
+                        className="w-full bg-white text-[#405862] hover:bg-white/90 font-semibold rounded-lg h-11 disabled:opacity-50 transition-all duration-200"
+                      >
+                        {isSubmitting ? (
+                          <div className="flex items-center justify-center space-x-2">
+                            <div className="w-4 h-4 border-2 border-[#405862]/30 border-t-[#405862] rounded-full animate-spin" />
+                            <span>{currentContent.newsletter.submitting}</span>
+                          </div>
+                        ) : (
+                          currentContent.newsletter.button
+                        )}
+                      </Button>
+                    </form>
+                  )}
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )

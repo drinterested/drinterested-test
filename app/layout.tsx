@@ -9,6 +9,8 @@ import Script from "next/script"
 import { Toaster } from "@/components/ui/toaster"
 import { generateOrganizationSchema } from "@/lib/seo-utils"
 import SeoSchema from "@/components/seo-schema"
+import { Analytics } from "@vercel/analytics/next"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -139,12 +141,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <SeoSchema schema={generateOrganizationSchema()} />
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <Toaster />
-          </div>
+          <Suspense fallback={null}>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <Toaster />
+            </div>
+          </Suspense>
+          <Analytics />
         </ThemeProvider>
         <Script id="accessibility-widget" strategy="afterInteractive">
           {`

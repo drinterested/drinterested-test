@@ -2,8 +2,6 @@ import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://drinterested.tech"
-
-  // Get current date for lastModified
   const currentDate = new Date()
 
   return [
@@ -16,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 0.9,
     },
     {
@@ -29,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/members`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/our-work`,
@@ -46,14 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/links`,
       lastModified: currentDate,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/events/internship-recap`,
-      lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy-policy`,
@@ -68,36 +60,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/thank-you`,
+      url: `${baseUrl}/events/internship-recap`,
       lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.2,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
-    // Impact report subdomain
     {
       url: "https://impact2025.drinterested.tech",
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    // Blog topic pages (dynamic - add main topics)
-    {
-      url: `${baseUrl}/blog/topic/healthcare-education`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/topic/medical-research`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/topic/student-opportunities`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.8,
     },
   ]
 }

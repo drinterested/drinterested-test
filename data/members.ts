@@ -1,89 +1,74 @@
 // Types for our data
-export type MemberType = {
+export interface Member {
   id: string
   name: string
   role: string
-  image: string
-  bio: string
-  socialLinks?: {
-    linkedin?: string
-    instagram?: string
-    website?: string
-    other?: string
-  }
+  department?: string
+  bio?: string
+  image?: string
+  linkedin?: string
+  twitter?: string
+  email?: string
+  institution?: string
+  year?: string
 }
 
 export type DepartmentType = {
   id: string
   name: string
   description: string
-  director: MemberType | MemberType[]
-  members: MemberType[]
+  director: Member | Member[]
+  members: Member[]
 }
 
-// President data
-export const president: MemberType = {
-  id: "president",
-  name: "Adil Mukhi",
-  role: "President",
-  image: "/adil.png", // Updated image path
-  bio: "I started Dr. Interested after seeing too many youth struggle to navigate med school paths or build core skills like research and public speaking. This platform exists to change that—by giving students the tools and guidance they need to thrive. Beyond this, I have worked with Drs. Alene Toulany and Ashley Vandermorris on applying for a CIHR grant for a SickKids project to develop national guidelines on healthy youth social media use. I also supported the Future of Sport in Canada Commission by signing onto key policy recommendations aimed at making sports safer and more inclusive. I am passionate about turning ideas into impact—and helping youth lead the way. If you want to learn more about me, feel free to check out my website, which I am sure is linked somewhere",
-  socialLinks: {
-    website: "https://adilmukhi.vercel.app/",
-    linkedin: "https://www.linkedin.com/in/adil-mukhi-6aba27246/",
-    instagram: "https://www.instagram.com/adilm.0/",
-  },
-}
-
-// Vice Presidents data
-export const vicePresidents: MemberType[] = [
+// Leadership data
+export const leadership: Member[] = [
   {
-    id: "vp1",
-    name: "Velan Mangai Sivakumar",
-    role: "Vice President",
-    bio: "Velan Mangai Sivakumar is a Grade 10 student in Glenforest Secondary School. He is extremely passionate about STEM and biological sciences in particular. He has volunteered for many STEM organizations such as the Rosalind Franklin Institute. He is a trainer for HOSA (Health Occupation Students of America). His best result in STEM contests would be getting top 25 nationally and qualifying for the national camp in the Junior Science Olympiad of Canada. He also plays chess and his best results include qualifying for the Canadian Youth Chess Championship U16 twice and getting 4th in the Canadian Chess League Twice.",
-    image: "/velan.png",
-    socialLinks: {},
-  },
-  {
-    id: "vp2",
-    name: "Kishan Suhirthan",
-    role: "Vice President",
-    bio: "Kishan Suhirthan is a Grade 10 Student in the IB Program at Glenforest Secondary School. With a passion for Engineering and Technology, he delivers 100% effort to all his interactions and projects. He is also a proven leader in his skills as a Sergeant in the Royal Air Cadet Program. He shows teamwork and collaboration through his time with Innovire. Proficient in Development and Electrical work, he shows that he is a well rounded individual set for any task at hand.",
-    image: "/kishan-headshot.jpg",
-    socialLinks: {
-      linkedin: "https://linkedin.com/in/kishansuhirthan",
-      instagram: "https://instagram.com/k1shxnsuh1",
-      website: "https://kishansuhi.acelabsai.tech",
-    },
+    id: "adil-mukhi",
+    name: "Adil Mukhi",
+    role: "Founder & CEO",
+    bio: "Passionate about empowering the next generation of healthcare professionals through innovative education and mentorship programs.",
+    image: "/placeholder.svg?height=300&width=300",
+    linkedin: "https://linkedin.com/in/adilmukhi",
+    twitter: "https://twitter.com/adilmukhi",
+    email: "adil@drinterested.tech",
   },
 ]
 
-// Advisors data (new addition)
-export const advisors: MemberType[] = [
+// Advisors data
+export const advisors: Member[] = [
   {
-    id: "advisor1",
+    id: "kate-tucker",
     name: "Kate Tucker",
     role: "Medical Student Advisor",
-    bio: "Kate Tucker is a dedicated medical student who provides valuable guidance and mentorship to Dr. Interested members. Her expertise in medical education and passion for teaching help shape our programs and ensure they align with current healthcare standards. She specializes in helping high school students navigate the complex path to medical school.",
-    image: "/placeholder.svg?height=200&width=200",
-    socialLinks: {},
+    institution: "Medical School",
+    year: "3rd Year",
+    bio: "Passionate about mentoring high school students interested in pursuing careers in medicine. Specializing in internal medicine with a focus on patient care and medical education.",
+    image: "/placeholder.svg?height=300&width=300",
+    linkedin: "https://linkedin.com/in/kate-tucker",
+    email: "kate@drinterested.tech",
   },
   {
-    id: "advisor2",
+    id: "akeer-kuol-malual",
     name: "Akeer Kuol Malual",
     role: "Medical Student Advisor",
-    bio: "Akeer Kuol Malual brings extensive knowledge from medical school to advise Dr. Interested on curriculum development and student mentorship. His commitment to healthcare education excellence helps guide our organization's educational initiatives. He focuses on diversity and inclusion in medical education.",
-    image: "/placeholder.svg?height=200&width=200",
-    socialLinks: {},
+    institution: "Medical School",
+    year: "2nd Year",
+    bio: "Dedicated to supporting underrepresented students in healthcare. Interested in surgery and global health initiatives with experience in medical research.",
+    image: "/placeholder.svg?height=300&width=300",
+    linkedin: "https://linkedin.com/in/akeer-kuol-malual",
+    email: "akeer@drinterested.tech",
   },
   {
-    id: "advisor3",
+    id: "muhammad-shamoon-umerani",
     name: "Muhammad Shamoon Umerani",
     role: "Medical Student Advisor",
-    bio: "Muhammad Shamoon Umerani serves as a medical student advisor, offering insights into medical education pathways and career development. His guidance helps ensure our programs prepare students effectively for healthcare careers. He has particular expertise in research methodology and clinical practice.",
-    image: "/placeholder.svg?height=200&width=200",
-    socialLinks: {},
+    institution: "Medical School",
+    year: "4th Year",
+    bio: "Experienced in medical education and student mentorship. Focusing on cardiology with a passion for teaching and guiding future healthcare professionals.",
+    image: "/placeholder.svg?height=300&width=300",
+    linkedin: "https://linkedin.com/in/muhammad-shamoon-umerani",
+    email: "muhammad@drinterested.tech",
   },
 ]
 
@@ -222,6 +207,7 @@ export const departments: DepartmentType[] = [
         role: "Research Member",
         image: "/logo.png", // Need Image
         bio: "Prithi brings a unique blend of STEM and medicinal knowledge to the mix of strengths here at the FireGuard cause. Currently a 10th grader in Charlotte, NC, Prithi is ranked 1st in a class of 686 students, with a weighted GPA of 4.55. She is deeply involved in both academics and extracurricular activities, showcasing leadership in various roles. Prithi's academic focus spans subjects like AP Computer Science, Honors Biomedical Sciences, and AP Psychology, with a particular interest in the application of AI in healthcare. She is currently working on a research paper exploring the use of CNN-LSTM AI models for diagnosing melanoma, combining her technical skills and passion for medical innovation. She also placed Gold for NCSO Regionals, and continues to compete in events related to disease detection, anatomy, and experimental design. As an intern with ThinkNeuro, Prithi has had the opportunity to engage in various professional development initiatives, including contributing to the development of neurologic curriculum reforms and working on complex marketing logistics. Finally, she has had the opportunity to represent her impact on her community by giving back to the middle schoolers through volunteering, committing to a subcommittee of 4H where she actively volunteers, and being a proofreader for a global set of users at Project Gutenberg. Ultimately, these experiences have all led Prithi to become a motivated, inspired, and resilient individual, who will strive to improve her knowledge whilst contributing to the excellent atmosphere that is the Academy of Sciences.",
+        socialLinks: {},
       },
       {
         id: "research-mem4",
@@ -501,6 +487,54 @@ export const departments: DepartmentType[] = [
         image: "/logo.png",
         bio: "Young and innovative entrepreneur and budding engineer, Daniel aims to create a future of collaboration between companies and organizations to ensure a brighter and better future, free of financial burdens, starting with Dr. Interested. Daniel is always actively trying to learn more about how the world of medicine works, with his goal at Dr. Interested being trying to walk away from it with more skills and experiences than when he came.",
         socialLinks: {},
+      },
+    ],
+  },
+  {
+    id: "research-development",
+    name: "Research & Development",
+    description: "Leading innovative research initiatives in healthcare education and student engagement.",
+    director: [],
+    members: [
+      {
+        id: "research-lead",
+        name: "Research Team Lead",
+        role: "Research Director",
+        department: "Research & Development",
+        bio: "Leading innovative research initiatives in healthcare education and student engagement.",
+        image: "/placeholder.svg?height=300&width=300",
+      },
+    ],
+  },
+  {
+    id: "content-education",
+    name: "Content & Education",
+    description: "Developing comprehensive educational resources and curriculum for aspiring healthcare professionals.",
+    director: [],
+    members: [
+      {
+        id: "content-lead",
+        name: "Content Team Lead",
+        role: "Education Director",
+        department: "Content & Education",
+        bio: "Developing comprehensive educational content and curriculum for healthcare career exploration.",
+        image: "/placeholder.svg?height=300&width=300",
+      },
+    ],
+  },
+  {
+    id: "community-outreach",
+    name: "Community Outreach",
+    description: "Building partnerships and expanding our global community of healthcare-interested students.",
+    director: [],
+    members: [
+      {
+        id: "community-lead",
+        name: "Community Team Lead",
+        role: "Community Director",
+        department: "Community Outreach",
+        bio: "Building and nurturing our global community of aspiring healthcare professionals.",
+        image: "/placeholder.svg?height=300&width=300",
       },
     ],
   },
