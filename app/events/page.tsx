@@ -30,10 +30,10 @@ export default function EventsPage() {
       <section className="bg-[#f5f1eb] py-10">
         <div className="container">
           <motion.div className="text-center" initial="hidden" animate="visible" variants={fadeIn}>
-            <h1 className="text-3xl font-bold text-[#405862]">Events</h1>
+            <h1 className="text-3xl font-bold text-[#405862]">Events & Initiatives</h1>
             <p className="text-[#405862]/80 mt-3 max-w-2xl mx-auto">
-              Join us for engaging events designed to educate and inspire the next generation of healthcare
-              professionals.
+              Join us for engaging events and initiatives designed to educate and inspire the next 
+              generation of healthcare professionals.
             </p>
           </motion.div>
         </div>
@@ -44,12 +44,12 @@ export default function EventsPage() {
         <div className="container">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-[#405862] flex items-center">
-              Upcoming Events
+              Upcoming 
               <div className="w-12 h-1 bg-[#4ecdc4] ml-3"></div>
             </h2>
           </div>
           <p className="text-[#405862]/80 mb-8 max-w-2xl">
-            Stay informed about our upcoming events, designed to educate and inspire.
+            Stay informed about our upcoming events and initiatives, designed to educate and inspire.
           </p>
 
           <motion.div
@@ -144,7 +144,7 @@ export default function EventsPage() {
         <div className="container">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-[#405862] flex items-center">
-              Past Events
+              Past Events/Initiatives 
               <div className="w-12 h-1 bg-[#4ecdc4] ml-3"></div>
             </h2>
           </div>

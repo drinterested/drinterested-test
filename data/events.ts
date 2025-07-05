@@ -14,14 +14,50 @@ export type EventType = {
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
   {
+    title: "Office Hours"
+    date: "June - Ongoing",
+    time: "Whenever you need help",
+    location: "Virtual",
+    description:
+      "Join our office hours for personalized support and guidance on your healthcare journey. Whether you have questions about our programs or need advice on your medical career path or even just life in general, we're here to help! Join our discord and go to #office-hours to book a time slot.",
+    image: "/office-hours.png",
+    status: "open",
+    link: "https://discord.gg/pzbGRgsGXY",
+    featured: true,
+  },
+  {
+    title: "Dr. Interested Club Ambassador Program",
+    date: "July 2025 - Ongoing",
+    time: "Ongoing",
+    location: "Virtual",
+    description:
+      "Join our Dr. Interested Club Ambassador Program to lead and innovate in the healthcare community. Applications are now open!",
+    image: "/club-ambassador.png",
+    status: "open",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSf3J7k3y32jncOKVkngx2MKC_QvpWCDXY3o8CP6xNRzKvlLog/viewform",
+  },
+]
+
+// Past events data
+export const pastEvents: EventType[] = [
+  {
+    title: "Dr. Interested Executive Board Application",
+    date: "June 2025",
+    location: "Virtual",
+    description: "Applications for the Dr. Interested Executive Board are now open! Join us to lead and innovate in the healthcare community.",
+    image: "/exec-apps-june2025.png",
+    status: "closed",
+    link: "https://impact2025.drinterested.tech/",
+  },
+  {
     title: "Podcast Collaboration with BioMedizone",
     date: "June 2025",
     location: "Virtual",
     description: "Join our exciting podcast collaboration with BioMedizone to explore cutting-edge topics in healthcare and medical innovation. Sign-ups to make the podcast with us are now open!",
     image: "/biomedpodcast.png",
-    status: "open",
+    status: "completed",
     link: "https://forms.gle/2Dxui6bq1Xdgpz5M8",
-    featured: true,
+    featured: false,
   },
   {
     title: "Healthcare Media Promotion Event",
@@ -30,15 +66,10 @@ export const upcomingEvents: EventType[] = [
     location: "Virtual & Social Media Platforms",
     description: "Promoting healthcare-related media to spread awareness on medical topics and innovations.",
     image: "/media-event.png",
-    status: "open",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSfx4SmOt6v3zgsgTunvjzLd8kwZUqV6RywEpkYekYPPFfw36A/viewform",
-    featured: false,
+    status: "closed",
+    link: "https://www.instagram.com/p/DLN6eRTvJZc/m",
   },
-]
-
-// Past events data
-export const pastEvents: EventType[] = [
-    {
+  {
     title: "Podcast Collaboration with Health Beyond Borders",
     date: "May 2025",
     location: "Virtual",
@@ -46,20 +77,18 @@ export const pastEvents: EventType[] = [
       "A collaborative podcast with Health Beyond Borders, featuring discussions on youth engagement in global health equity. Check out the recap!",
     image: "/hbbpodcast.png",
     status: "completed",
-    link: "https://www.instagram.com/p/DJzlI2ouJ8R/?img_index=1",
-    featured: false,
+    link: "https://open.spotify.com/show/6SLlRUL6co6fPxckAdrigf?utm_medium=share&utm_source=linktree",
   },
   {
     title: "The Resilient Minds Project",
     date: "April 27, 2025",
     time: "2:00 PM - 4:00 PM EST",
-    location: "Virtual Event",
+    location: "Google Meet",
     description:
       "A virtual initiative aimed at empowering youth with practical strategies to improve mental, emotional, and physical well-being. Through engaging workshops, interactive activities, and expert insights, participants will gain valuable skills in stress management, resilience-building, and self-care.",
     image: "/mindsproject.png",
     status: "completed",
     link: "https://www.instagram.com/p/DI9yuL0u8SK/?img_index=1",
-    featured: false,
   },
   {
     title: "Dr. Interested Medical-Technological Compitition",

@@ -34,6 +34,7 @@ export const authors: Record<string, Author> = {
     image: "/adil.png",
     bio: "I started Dr. Interested after seeing too many youth struggle to navigate med school paths or build core skills like research and public speaking. This platform exists to change that—by giving students the tools and guidance they need to thrive.",
     linkedIn: "https://adilmukhi.vercel.app/",
+    instagram: "https://instagram.com/adilm.0",
   },
   "muhammad-lari": {
     name: "Muhammad Ibrahim Lari",
@@ -75,19 +76,16 @@ export const authors: Record<string, Author> = {
   },
   "dabosmita-das": {
     name: "Dabosmita Das",
-    image: "/dabosmita.jpg",
+    image: "/Dabosmita.jpg",
     bio: "Dabosmita is a Year 12 student who is endlessly curious and excited to explore new ideas. She actively engages with the latest developments in technology and medicine, while also enjoying deep, contemplative discussions in philosophy. Her interdisciplinary mindset and passion for learning drive her to seek knowledge beyond the classroom.",
     linkedIn: "https://linkedin.com",
   },
   "manasvi-bobade": {
-  name: "Manasvi Bobade",
-  role: "Student Contributor",
-  bio: "Manasvi Bobade is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She writes to explore the intersection of science, innovation, and youth engagement.",
-  linkedin: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
-  twitter: "",
+    name: "Manasvi Bobade",
+    image: "/Manasvi.jpg",
+    bio: "Manasvi Bobade is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She writes to explore the intersection of science, innovation, and youth engagement.",
+    linkedIn: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
 },
-
-  
 }
 
 // Blog Topics
