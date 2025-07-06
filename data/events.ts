@@ -14,7 +14,7 @@ export type EventType = {
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
   {
-    title: "Office Hours"
+    title: "Office Hours",
     date: "June - Ongoing",
     time: "Whenever you need help",
     location: "Virtual",
