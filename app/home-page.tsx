@@ -90,8 +90,8 @@ export default function HomePage() {
                 Inspiring the Next Generation of Healthcare Professionals
               </p>
               <p className="text-[#405862]/80 max-w-md">
-                Discover your pathway to a career in healthcare with Dr. Interested. We connect passionate high school
-                students with resources, mentorship, and hands-on experiences in medicine.
+                Dr. Interested is a youth-led global pre-med community helping students explore the vast world of healthcare, research, and advocacy. 
+                We support youth in finding their unique "spark" in medicine through interactive programs, publishing opportunities, and leadership development.
               </p>
               <div className="flex flex-wrap gap-3 items-center mt-4">
                 <Link
@@ -209,7 +209,7 @@ export default function HomePage() {
               <div className="w-16 h-1 bg-[#4ecdc4] mt-2"></div>
             </h2>
             <p className="text-[#405862]/70 max-w-2xl mx-auto mt-2 text-sm">
-              Empowering high school students to explore and excel in healthcare careers
+              To bridge the gap betweer interest and action in youth healthcare leadership by offering accessible resources, mentorship, and research opportunities.
             </p>
           </motion.div>
 
@@ -300,7 +300,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-base font-bold mb-1 text-[#405862]">Vision</h3>
               <p className="text-[#405862]/80 text-sm">
-                A future where students are equipped with the knowledge and opportunities needed to excel in healthcare.
+                A world where every young person, regardless of background, has the support to discover their passion in medicine and drive change through innovation and advocacy.
               </p>
             </motion.div>
           </motion.div>
