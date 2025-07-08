@@ -86,6 +86,11 @@ export const authors: Record<string, Author> = {
     bio: "Manasvi Bobade is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She writes to explore the intersection of science, innovation, and youth engagement.",
     linkedIn: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
 },
+"raine-waverka": {
+  name: "Raine Waverka",
+  image: "/raine.jpg", 
+  bio: "Raine Waverka is a budding phage researcher exploring CRISPR and oncology through elite science programs at Vanderbilt and Boston University."
+},
 }
 
 // Blog Topics
@@ -124,10 +129,69 @@ export const blogTopics: BlogTopic[] = [
       "Discover the latest research, treatments, and insights into cancer, one of the most challenging medical conditions of our time.",
     image: "/logo.png",
   },
+{
+  name: "Medical Innovation",
+  slug: "medical-innovation",
+  description: "Explore groundbreaking research, futuristic treatments, and the technologies shaping the next era of healthcare.",
+  image: "/logo.png"
+},
 ]
 
 // Blog Posts (Ordered from Most Recent to Oldest)
 export const blogPosts: BlogPost[] = [
+  {
+  slug: "bacteriophages-antimicrobial-resistance",
+  title: "Bacteriophages: The Future of Antimicrobial Resistance?",
+  excerpt:
+    "As antibiotic resistance surges, bacteriophages—viruses that prey on bacteria—may offer a targeted, sustainable, and powerful solution to combat superbugs.",
+  content: `
+In the microscopic world, bacteria evolve as cunning tacticians, rapidly outpacing the drugs invented to restrain them. Antibiotic resistance has recast into a war of attrition—and the microbes are winning. Despite humanity meeting its Waterloo in the race between the tortoise and the hare, humanity's parasitic friends, bacteriophages, emerge as a promising solution to this escalating crisis.
+
+Antibiotics have been widely recognized as a "silent pandemic," as most of the population remains oblivious to the eroding state of antibiotic care. Like Darwin's finches, bacteria quickly utilize natural selection to combat antibiotics. Prescriptions extinguish the bulk of all microorganisms, permitting the minute survivors left to mutate and acquire a defense inimical to antibiotics, forming superbugs. In addition, a study tested 137 strains of *E. coli* in UTIs, and *"the results showed widespread resistance (51.1 – 91.2%)"* (Olorunmola, et al.). There are millions of bacteria worldwide, and the pathogens will grow if unchecked. The pandemic operates as an indomitable blaze, where water only fuels the flames.
+
+### What Are Bacteriophages?
+
+One promising avenue is bacteriophage therapy. Derived from *bacterio-* (bacteria) and the Greek word *phagein* (to devour), bacteriophages are viruses that specifically target and destroy bacteria.
+
+Incredibly abundant, *“it’s estimated there are more than 10³¹ bacteriophages on the planet… more than every other organism on Earth, including bacteria, combined”* (Scott and Buschman). They contain a decahedron head full of DNA, spikes to latch onto their prey, and a baseplate to inject DNA. As ubiquitous as they are plentiful, they are found in soil, water, skin, and virtually all environments.
+
+Discovered in 1896 by Ernest Hanbury Hankin and advanced by George Eliava, phages infect bacterial cells, replicate inside, and lyse them to release their progeny. Their specificity ensures they attack only one bacterial species, leaving human cells and helpful microbes untouched.
+
+As a master’s student in biology put it: *“These deadly viruses provide a multitude of opportunities for the scientific field; the hardest part is ensuring society recognizes it.”*
+
+### Advantages Over Antibiotics
+
+Unlike antibiotics, which target all bacteria indiscriminately, each phage is built to target a specific bacterial species. Unlike antibiotics, which often struggle against bacterial biofilms—fortress-like structures protecting bacteria—phages can penetrate these barriers (Sapkota).
+
+They can clear biofilms by *“actively penetrating their way into biofilms by lysing one bacterial layer at a time, or due to the display of biofilm exopolymer-degrading depolymerases”* (Loc-Carrillo). Phages also have a natural "auto-dosing" ability, making them self-regulating treatments (Abedon).
+
+Are phages safe? Research confirms that bacteriophages are non-toxic and have no side effects (Liu, Dan, et al.). Treatments are also up to 50% cheaper than antibiotics (Verbeken, Gilbert, et al.).
+
+As bacteria evolve resistance, phages evolve alongside them, creating a natural arms race. Interestingly, bacteria that evade phage attacks often become more vulnerable to antibiotics—a molecular catch-22 (Li, et al.).
+
+### Conclusion
+
+Bacteriophages offer a sustainable, precise, and powerful response to antimicrobial resistance. As superbugs rise, phage therapy may be the key to revolutionizing healthcare and ensuring humanity stays ahead in the battle against microbial threats.
+
+---
+
+### Works Cited
+
+- A.B. Shabbir, Muhammad, et al. “Bacteria vs. Bacteriophages: Parallel Evolution of Immune Arsenals.” *Frontiers*, 7:1292. [https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full](https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full)
+- Liu, Dan, et al. “The Safety and Toxicity of Phage Therapy: A Review of Animal and Clinical Studies.” *Viruses*, vol. 13,7 1268. [https://www.mdpi.com/1999-4915/13/7/1268](https://www.mdpi.com/1999-4915/13/7/1268)
+- Loc-Carrillo, Catherine, and Stephen T. Abedon. “Pros and cons of phage therapy.” *Bacteriophage*, vol. 1,2: 111–114. DOI:10.4161/bact.1.2.14590
+- Olorunmola, Felix Oluwasola, et al. “Antibiotic resistance and virulence properties in Escherichia coli strains from cases of urinary tract infections.” *African Journal of Infectious Diseases*, vol. 7,1: 1–7. [https://www.ajol.info/index.php/ajid/article/view/85474](https://www.ajol.info/index.php/ajid/article/view/85474)
+- Sapkota, Anupama. “Bacteriophage – Definition, Structure, Life Cycles, Applications, Phage Therapy.” *Microbe Notes*. [https://microbenotes.com/bacteriophage/](https://microbenotes.com/bacteriophage/)
+- Verbeken, Gilbert, et al. “Taking bacteriophage therapy seriously: a moral argument.” *BioMed Research International*, 621316. [https://onlinelibrary.wiley.com/doi/10.1155/2014/621316](https://onlinelibrary.wiley.com/doi/10.1155/2014/621316)
+  `,
+  coverImage: "/bacteriophage-article.png",
+  date: "June 2, 2025",
+  author: authors["raine-waverka"],
+  topic: "Medical Innovation", 
+  readingTime: "6 min read",
+  featured: true
+},
+
   {
   slug: "maurice-hilleman-vaccine-legacy",
   title: "Maurice Hilleman and His Vaccine Legacy",
@@ -158,7 +222,7 @@ Even after retiring, Hilleman kept helping scientists around the world. He worke
 
 Maurice Hilleman’s work is still helping people today. His name is remembered through labs and awards dedicated to vaccine research. His mission to protect people from disease lives on in every shot that saves a life. He wasn’t in it for fame, he just wanted to stop kids from dying. And that’s exactly what he did.
   `,
-  coverImage: "/maurice-hilleman.png", // Replace with actual image path
+  coverImage: "/maurice-hilleman.png", 
   date: "July 4, 2025",
   author: authors["manha-atiq"],
   topic: "Doctors",
@@ -217,7 +281,7 @@ Even if mRNA platforms face challenges in a post-COVID world, they remain one of
 - ClinicalTrials.gov. “Study of mRNA-4157 With Pembrolizumab in Participants With High-Risk Melanoma.” 2022.  
 - “mRNA Vaccines: A Turning Point in the Fight Against Disease.” *Nature*, 2021.
 `,
-  coverImage: "/mrna-history.png", // Replace with actual image path
+  coverImage: "/mrna-history.png", 
   date: "June 24, 2025",
   author: authors["manasvi-bobade"],
   topic: "Healthcare Law",
@@ -1284,7 +1348,7 @@ Endocrinologists play a crucial role in diagnosing and treating hormone-related 
 `,
     coverImage: "/endocrinologist.png",
     date: "March 30, 2025",
-    author: authors["manha-atiq"],
+    author: authors["maliha-metla"],
     topic: "Types of Doctors",
     readingTime: "8 min read",
   },
