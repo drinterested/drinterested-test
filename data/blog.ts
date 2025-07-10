@@ -849,7 +849,7 @@ In conclusion, vascular surgeons are very important doctors who help people with
 `,
     coverImage: "/vascular.png",
     date: "April 27, 2025",
-    author: authors["muhammad-lari"],
+    author: authors["manha-atiq"],
     topic: "Types of Doctors",
     readingTime: "5 min read",
   },
