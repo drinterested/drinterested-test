@@ -134,7 +134,7 @@ export const departments: DepartmentType[] = [
         id: "tech-mem3",
         name: "Ouedraogo Boukary",
         role: "Technology Member",
-        image: "/madina.jpg",
+        image: "/logo.png",
         bio: "Supporting the technology team with expertise in frontend development and user experience design..",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/madina-behboode-88a334270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
