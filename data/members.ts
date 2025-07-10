@@ -252,7 +252,7 @@ export const departments: DepartmentType[] = [
       socialLinks: {},
       },
       {
-        id: "publications-mem2",
+        id: "publications-mem1",
         name: "Maliha Metla",
         role: "Publications Member",
         image: "/Maliha.JPG",
@@ -262,7 +262,7 @@ export const departments: DepartmentType[] = [
         },
       },
       {
-        id: "publications-mem3",
+        id: "publications-mem2",
         name: "Manha Atiq",
         role: "Publications Member",
         image: "/logo.png",
@@ -270,7 +270,7 @@ export const departments: DepartmentType[] = [
         socialLinks: {},
       },
       {
-        id: "publications-mem4",
+        id: "publications-mem3",
         name: "Manasvi Bobade",
         role: "Publications Member",
         image: "/Manasvi.jpg",
@@ -281,44 +281,60 @@ export const departments: DepartmentType[] = [
         },
       },
       {
-        id: "publications-mem5",
-        name: "Raine Waverka",
+        id: "publications-mem4",
+        name: "Iosef Isaac Perez",
         role: "Publications Member",
-        image: "/raine.jpg",
-        bio: "Raine Waverka is a sophomore originating from Florida, currently enrolled in Cumberland County High School TN. With a deep interest in bacteriophage research and CRISPR-CAS, Raine is dedicated to increasing medical literacy and contributing to phage genomics. She is currently studying under Vanderbilt University’s SHE oncology program, and researching CRISPR in BU’s SummerLab program. Eager to make a meaningful contribution to the scientific field, Raine seeks to find genuine connections and form useful publications.",
+        image: "/logo.png",
+        bio: "Ensuring consistent tone, style, and accuracy in all materials.",
         socialLinks: {
           instagram: "https://www.instagram.com/b.iird/",
         },
       },
       {
-        id: "research-mem1",
+        id: "publications-mem5",
         name: "Gaeun Lee",
-        role: "Research Member",
+        role: "Publications Member",
         image: "/logo.png", // Need Image
         bio: "Supporting research projects and mentorship programs for aspiring medical researchers.",
         socialLinks: {},
       },
       {
-        id: "research-mem2",
+        id: "publications-mem6",
         name: "Dabosmita Parial",
-        role: "Research Member",
+        role: "Publications Member",
         image: "/Dabosmita.jpg",
         bio: "Dabosmita is a year 12 student who is curious and excited to learn new things all the time- whether it be about the latest developments in tech, medicine, or random contemplative philosophical ideas. She is passionate about leadership and public speaking- which she demonstrates at her school by being a prefect and also being part of the school's debate team that regularly takes part in interschool debates organised by Qatar Debate. Alongside debate, she takes part in MUN conferences and speech competitions within and outside her school. She is a member of publications at Cosmic-Us, a student-led organization and works as a research team member at Dr.Interested. Dabosmita will always look forward to future projects to develop her skills and discover her potential further!",
         socialLinks: {},
       },
       {
-        id: "research-mem3",
+        id: "publications-mem7",
         name: "Prithi Balaji",
-        role: "Research Member",
+        role: "Publications Member",
         image: "/logo.png", // Need Image
         bio: "Prithi brings a unique blend of STEM and medicinal knowledge to the mix of strengths here at the FireGuard cause. Currently a 10th grader in Charlotte, NC, Prithi is ranked 1st in a class of 686 students, with a weighted GPA of 4.55. She is deeply involved in both academics and extracurricular activities, showcasing leadership in various roles. Prithi's academic focus spans subjects like AP Computer Science, Honors Biomedical Sciences, and AP Psychology, with a particular interest in the application of AI in healthcare. She is currently working on a research paper exploring the use of CNN-LSTM AI models for diagnosing melanoma, combining her technical skills and passion for medical innovation. She also placed Gold for NCSO Regionals, and continues to compete in events related to disease detection, anatomy, and experimental design. As an intern with ThinkNeuro, Prithi has had the opportunity to engage in various professional development initiatives, including contributing to the development of neurologic curriculum reforms and working on complex marketing logistics. Finally, she has had the opportunity to represent her impact on her community by giving back to the middle schoolers through volunteering, committing to a subcommittee of 4H where she actively volunteers, and being a proofreader for a global set of users at Project Gutenberg. Ultimately, these experiences have all led Prithi to become a motivated, inspired, and resilient individual, who will strive to improve her knowledge whilst contributing to the excellent atmosphere that is the Academy of Sciences.",
       },
       {
-        id: "research-mem4",
+        id: "publications-mem8",
         name: "Manasvi Kale",
-        role: "Research Member",
+        role: "Publications Member",
         image: "/logo.png", // Need Image
         bio: "Developing resources to help students understand and engage in medical research.",
+        socialLinks: {},
+      },
+      {
+        id: "publications-mem9",
+        name: "Manasvi Kale",
+        role: "Publications Member",
+        image: "/logo.png", // Need Image
+        bio: "Developing resources to help students understand and engage in medical research.",
+        socialLinks: {},
+      },
+      {
+        id: "publications-mem10",
+        name: "Avika Tyagi",
+        role: "Publications Member",
+        image: "/logo.png", // Need Image
+        bio: "Producing articles, blogs, and printed materials for distribution.",
         socialLinks: {},
       },
     ],
