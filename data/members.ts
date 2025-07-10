@@ -163,10 +163,10 @@ export const departments: DepartmentType[] = [
     members: [
       {
         id: "marketing-mem1",
-        name: "Adam Alchihneh",
+        name: "Jawwad Ahmad",
         role: "Marketing Member",
         image: "/logo.png",
-        bio: "Adam is a dedicated Grade 11 student enrolled in the IB Diploma Programme at Erindale Secondary School. During Adam’s free time, he enjoys going for walks and runs, spending time with family and friends, coding and gaming. Passionate about the health sciences, Adam wishes to go into the medical field in the future. ",
+        bio: "Managing brand identity across platforms and campaigns.",
         socialLinks: {},
       },
       {
@@ -195,10 +195,26 @@ export const departments: DepartmentType[] = [
       },
       {
         id: "marketing-mem5",
-        name: "Jeevn Grewal",
+        name: "Avishi Jain",
         role: "Marketing Member",
         image: "/logo.png",
-        bio: "Jeevn is a Grade 11 student at Sherwood Heights with a strong interest in the sciences and medicine. As a member of the marketing team for the Dr. Interested program, she is excited to be part of an initiative that encourages exploration in the medical field. Jeevn’s ultimate career goal is to become a biomedical engineer, combining her passion for technology and healthcare to improve lives.",
+        bio: "Designing promotional content that captures attention and builds interest.",
+        socialLinks: {},
+      },
+      {
+        id: "marketing-mem6",
+        name: "Keyaan Wali Chowdhury",
+        role: "Marketing Member",
+        image: "/logo.png",
+        bio: "Running campaigns to grow awareness and reach.",
+        socialLinks: {},
+      },
+      {
+        id: "marketing-mem7",
+        name: "Emily Do",
+        role: "Marketing Member",
+        image: "/logo.png",
+        bio: "Creating content tailored to our audience’s needs and interests.",
         socialLinks: {},
       },
     ],
