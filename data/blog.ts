@@ -129,12 +129,18 @@ export const blogTopics: BlogTopic[] = [
       "Discover the latest research, treatments, and insights into cancer, one of the most challenging medical conditions of our time.",
     image: "/logo.png",
   },
-{
+  {
   name: "Medical Innovation",
   slug: "medical-innovation",
   description: "Explore groundbreaking research, futuristic treatments, and the technologies shaping the next era of healthcare.",
   image: "/logo.png"
-},
+  },
+  {
+  name: "Recent News",
+  slug: "recent-news",
+  description: "Stay informed with the latest developments, discoveries, and updates from the world of healthcare and medical science.",
+  image: "/logo.png"
+  },
 ]
 
 // Blog Posts (Ordered from Most Recent to Oldest)
