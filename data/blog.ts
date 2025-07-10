@@ -738,7 +738,7 @@ Psychiatrists aren't here to "fix" people. They are guides, helping individuals 
 `,
     coverImage: "/Psychiatrists.png",
     date: "May 13, 2025",
-    author: authors["manasvi-kale"],
+    author: authors["shaza-ali"],
     topic: "Types of Doctors",
     readingTime: "6 min read",
     featured: true,
