@@ -414,7 +414,7 @@ export const departments: DepartmentType[] = [
     director: {
       id: "outreach-dir",
       name: "Ali Salman",
-      role: "Director of Outreach",
+      role: "Director of Events",
       image: "/ali-salman.jpeg", 
       bio: "Ali Salman is a Grade 10 student at Glenforest Secondary School pursuing the IB program. He is deeply passionate about engineering, robotics, and computer science, demonstrated through his involvement in school and external initiatives. At school, he serves as the Secretary and Trainer of the Computer Science Club and was part of the pit-crew team for the FRC Robotics Club before it disbanded. Outside of school, he is a logistics member at a STEM nonprofit, writes for prominent student-led science journals, and is part of the mechanical sub-team for one of Ontario's top 10 ranked FRC robotics teams. His most prominent achievements include being recognized as a global finalist at the prestigious New York Academy of Sciences Junior Academy Ethical AI competition.",
       socialLinks: {
@@ -439,9 +439,9 @@ export const departments: DepartmentType[] = [
         socialLinks: {},
       },
       {
-        id: "outreach-mem1",
+        id: "events-mem3",
         name: "Keenan Johnson",
-        role: "Outreach Member",
+        role: "Events Member",
         image: "/keenan.jpg", // Need Image
         bio: "Hi! I'm Keenan! I am a dedicated high school student with a passion for leadership, STEM exploration, and community engagement. Through my involvement in extracurricular activities such as the Athletic Council and STEM Fellowship programs, I have developed strong communication, teamwork, and problem-solving skills. I am committed to fostering positive, inclusive environments and inspiring young children to grow through creative activities. My curiosity and initiative drive me to explore various fields of knowledge, from physics to graphic design and video editing.",
         socialLinks: {
@@ -449,22 +449,45 @@ export const departments: DepartmentType[] = [
         },
       },
       {
-        id: "outreach-mem2",
+        id: "events-mem4",
         name: "Ganesh Kartik Nagasubramanian",
-        role: "Outreach Member",
+        role: "Events Member",
         image: "/logo.png", // Need Image
         bio: "Ganesh Kartik Nagasubramanian is a Grade 10 student at Glenforest enrolled in the IB Program at Glenforest Secondary School.",
         socialLinks: {
         },
       },
       {
-        id: "outreach-mem4",
+        id: "events-mem5",
         name: "Maria Mohamed",
-        role: "Outreach Member",
+        role: "Events Member",
         image: "/logo.png", // Need Image
         bio: "Hi, I am Maria Mohamed. I am a high school student with a passion for medicine and a dream of becoming a surgeon. I joined Dr. Interested as a member of the outreach team because I want to help others learn about healthcare and connect with opportunities that can shape their future.",
-        socialLinks: {
-        },
+        socialLinks: {},
+      },
+      {
+        id: "events-mem6",
+        name: "Ajitesh Sankara Narayanan",
+        role: "Events Member",
+        image: "/logo.png", // Need Image
+        bio: "Planning engaging events that align with our mission and goals.",
+        socialLinks: {},
+      },
+      {
+        id: "events-mem7",
+        name: "Olivia McIntosh",
+        role: "Events Member",
+        image: "/logo.png", // Need Image
+        bio: "Developing creative themes and ideas for upcoming events.",
+        socialLinks: {},
+      },
+      {
+        id: "events-mem8",
+        name: "Cindy Cao",
+        role: "Events Member",
+        image: "/logo.png", // Need Image
+        bio: "Collecting feedback and analyzing success post-event.",
+        socialLinks: {},
       },
     ],
   },
