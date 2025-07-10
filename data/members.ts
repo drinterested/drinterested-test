@@ -324,14 +324,6 @@ export const departments: DepartmentType[] = [
       },
       {
         id: "publications-mem9",
-        name: "Manasvi Kale",
-        role: "Publications Member",
-        image: "/logo.png", // Need Image
-        bio: "Developing resources to help students understand and engage in medical research.",
-        socialLinks: {},
-      },
-      {
-        id: "publications-mem10",
         name: "Avika Tyagi",
         role: "Publications Member",
         image: "/logo.png", // Need Image
