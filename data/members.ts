@@ -130,7 +130,7 @@ export const departments: DepartmentType[] = [
           instagram: "https://www.instagram.com/madina_ ",
         },
       },
-        {
+      {
         id: "tech-mem3",
         name: "Ouedraogo Boukary",
         role: "Technology Member",
