@@ -1567,7 +1567,7 @@ Cardiologists don't just treat—they innovate. A recent case involved a man wit
 
 Cardiologists are essential to maintaining cardiovascular health. From diagnosing early-stage hypertension to performing life-saving interventions, they blend **advanced technology** with a **deep understanding of heart physiology**. With new innovations emerging regularly, cardiology remains a dynamic and vital field in modern medicine.
   `,
-  coverImage: "/cardiologist-tools.jpg",
+  coverImage: "/cardiologists.jpg",
   date: "February 20, 2025",
   author: authors["shaza-ali"],
   topic: "Doctors",
