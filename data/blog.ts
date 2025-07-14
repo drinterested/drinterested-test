@@ -145,59 +145,60 @@ export const blogTopics: BlogTopic[] = [
 
 // Blog Posts (Ordered from Most Recent to Oldest)
 export const blogPosts: BlogPost[] = [
+  
   {
-  slug: "bacteriophages-antimicrobial-resistance",
-  title: "Bacteriophages: The Future of Antimicrobial Resistance?",
+  slug: "cps1-crispr-breakthrough",
+  title: "From Diagnosis to Hope: A Medical Milestone in Gene Editing",
   excerpt:
-    "As antibiotic resistance surges, bacteriophages—viruses that prey on bacteria—may offer a targeted, sustainable, and powerful solution to combat superbugs.",
+    "A historic CRISPR breakthrough gives an infant with a rare genetic disorder a second chance at life—ushering in a new era of personalized medicine.",
   content: `
-In the microscopic world, bacteria evolve as cunning tacticians, rapidly outpacing the drugs invented to restrain them. Antibiotic resistance has recast into a war of attrition—and the microbes are winning. Despite humanity meeting its Waterloo in the race between the tortoise and the hare, humanity's parasitic friends, bacteriophages, emerge as a promising solution to this escalating crisis.
+## Overview of CPS1 Deficiency
 
-Antibiotics have been widely recognized as a "silent pandemic," as most of the population remains oblivious to the eroding state of antibiotic care. Like Darwin's finches, bacteria quickly utilize natural selection to combat antibiotics. Prescriptions extinguish the bulk of all microorganisms, permitting the minute survivors left to mutate and acquire a defense inimical to antibiotics, forming superbugs. In addition, a study tested 137 strains of *E. coli* in UTIs, and *"the results showed widespread resistance (51.1 – 91.2%)"* (Olorunmola, et al.). There are millions of bacteria worldwide, and the pathogens will grow if unchecked. The pandemic operates as an indomitable blaze, where water only fuels the flames.
+Carbamoyl phosphate synthetase 1 (CPS1) deficiency is a rare, inherited genetic disorder where the body lacks a critical liver enzyme. Without it, nitrogen cannot be processed, leading to a dangerous buildup of ammonia in the bloodstream. This neurotoxin can cause severe damage to the brain and spinal cord if left untreated.
 
-### What Are Bacteriophages?
+## Defying a Death Sentence
 
-One promising avenue is bacteriophage therapy. Derived from *bacterio-* (bacteria) and the Greek word *phagein* (to devour), bacteriophages are viruses that specifically target and destroy bacteria.
+On May 15, 2025, a research team at the Children’s Hospital of Philadelphia revealed a groundbreaking personalized gene editing therapy for a critically ill infant, nicknamed “KJ,” who was diagnosed with CPS1 deficiency. Using the CRISPR gene editing platform, scientists developed a treatment customized to target only non-reproductive (somatic) cells. This marks the **first known case of CRISPR-based therapy** tailored to a specific individual and administered to a living patient—offering hope for thousands facing genetic disorders.
 
-Incredibly abundant, *“it’s estimated there are more than 10³¹ bacteriophages on the planet… more than every other organism on Earth, including bacteria, combined”* (Scott and Buschman). They contain a decahedron head full of DNA, spikes to latch onto their prey, and a baseplate to inject DNA. As ubiquitous as they are plentiful, they are found in soil, water, skin, and virtually all environments.
+## Importance of the Breakthrough
 
-Discovered in 1896 by Ernest Hanbury Hankin and advanced by George Eliava, phages infect bacterial cells, replicate inside, and lyse them to release their progeny. Their specificity ensures they attack only one bacterial species, leaving human cells and helpful microbes untouched.
+Doctors and researchers around the world hailed this moment as a **milestone in modern medicine**. By treating KJ soon after birth, the team prevented irreversible neurological damage. As Dr. Rebecca Ahrens-Nicklas noted, the success came after “years and years of progress” in gene editing. Until now, liver transplant was the only possible intervention for CPS1 deficiency—one often unfeasible for newborns due to rapid ammonia accumulation.
 
-As a master’s student in biology put it: *“These deadly viruses provide a multitude of opportunities for the scientific field; the hardest part is ensuring society recognizes it.”*
+This personalized treatment offers a new path forward for patients facing life-threatening genetic disorders once deemed untreatable.
 
-### Advantages Over Antibiotics
+## Ethical & Practical Challenges
 
-Unlike antibiotics, which target all bacteria indiscriminately, each phage is built to target a specific bacterial species. Unlike antibiotics, which often struggle against bacterial biofilms—fortress-like structures protecting bacteria—phages can penetrate these barriers (Sapkota).
+While revolutionary, this development raises important questions:
 
-They can clear biofilms by *“actively penetrating their way into biofilms by lysing one bacterial layer at a time, or due to the display of biofilm exopolymer-degrading depolymerases”* (Loc-Carrillo). Phages also have a natural "auto-dosing" ability, making them self-regulating treatments (Abedon).
+- **Long-term safety**: CRISPR's precision is unmatched, but off-target edits may have unintended consequences. KJ must be closely monitored throughout life.
+- **Cost and accessibility**: Custom treatments like this require months of development and millions of dollars—posing serious questions about healthcare equity.
+- **Ethics of gene editing**: Although this therapy only alters somatic cells, experts warn about potential future misuse of gene editing for non-medical enhancements.
+- **Delivery limitations**: The liver is relatively easy to target, but many genetic diseases affect the brain or heart—where safe delivery of gene editors remains a scientific challenge.
 
-Are phages safe? Research confirms that bacteriophages are non-toxic and have no side effects (Liu, Dan, et al.). Treatments are also up to 50% cheaper than antibiotics (Verbeken, Gilbert, et al.).
+These concerns underscore the importance of ethical oversight, transparency, and sustained investment in equitable access.
 
-As bacteria evolve resistance, phages evolve alongside them, creating a natural arms race. Interestingly, bacteria that evade phage attacks often become more vulnerable to antibiotics—a molecular catch-22 (Li, et al.).
+## Outcome
 
-### Conclusion
-
-Bacteriophages offer a sustainable, precise, and powerful response to antimicrobial resistance. As superbugs rise, phage therapy may be the key to revolutionizing healthcare and ensuring humanity stays ahead in the battle against microbial threats.
+This treatment is a **landmark achievement**: the first successful personalized CRISPR gene therapy in a living patient. It opens doors to future innovations in treating genetic conditions from birth. Despite challenges, it provides real hope to families like KJ’s—proof that scientific advancement can rewrite what once seemed a death sentence into a story of survival and strength.
 
 ---
 
 ### Works Cited
 
-- A.B. Shabbir, Muhammad, et al. “Bacteria vs. Bacteriophages: Parallel Evolution of Immune Arsenals.” *Frontiers*, 7:1292. [https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full](https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full)
-- Liu, Dan, et al. “The Safety and Toxicity of Phage Therapy: A Review of Animal and Clinical Studies.” *Viruses*, vol. 13,7 1268. [https://www.mdpi.com/1999-4915/13/7/1268](https://www.mdpi.com/1999-4915/13/7/1268)
-- Loc-Carrillo, Catherine, and Stephen T. Abedon. “Pros and cons of phage therapy.” *Bacteriophage*, vol. 1,2: 111–114. DOI:10.4161/bact.1.2.14590
-- Olorunmola, Felix Oluwasola, et al. “Antibiotic resistance and virulence properties in Escherichia coli strains from cases of urinary tract infections.” *African Journal of Infectious Diseases*, vol. 7,1: 1–7. [https://www.ajol.info/index.php/ajid/article/view/85474](https://www.ajol.info/index.php/ajid/article/view/85474)
-- Sapkota, Anupama. “Bacteriophage – Definition, Structure, Life Cycles, Applications, Phage Therapy.” *Microbe Notes*. [https://microbenotes.com/bacteriophage/](https://microbenotes.com/bacteriophage/)
-- Verbeken, Gilbert, et al. “Taking bacteriophage therapy seriously: a moral argument.” *BioMed Research International*, 621316. [https://onlinelibrary.wiley.com/doi/10.1155/2014/621316](https://onlinelibrary.wiley.com/doi/10.1155/2014/621316)
+- Children’s Hospital of Philadelphia. (2025, May 15). *World’s first patient treated with personalized CRISPR gene editing therapy*. [Link](https://www.chop.edu/news/worlds-first-patient-treated-personalized-crispr-gene-editing-therapy-childrens-hospital)
+- He, X., & Zhao, W. (2020). *Advances in CRISPR/Cas-based gene therapy in human genetic diseases*. Frontiers in Genetics, 11, 567. [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC7129066/)
+- National Institutes of Health. (2025, May 15). *Infant with rare, incurable disease is first to successfully receive personalized gene therapy treatment*. [Link](https://www.nih.gov/news-events/news-releases/infant-rare-incurable-disease-first-successfully-receive-personalized-gene-therapy-treatment)
+- Sample, I. (2025, May 15). *US doctors rewrite DNA of infant with severe genetic disorder in medical first*. The Guardian. [Link](https://www.theguardian.com/science/2025/may/15/us-doctors-rewrite-dna-of-infant-with-severe-genetic-disorder-in-medical-first)
+- Roth, B. L. (2009). *DSM-IV: Diagnosis and classification of mental disorders*. Clinical Neuroscience Research, 6(3–4), 131–137. [Link](https://pubmed.ncbi.nlm.nih.gov/19104924/)
   `,
-  coverImage: "/bacteriophage-article.png",
-  date: "June 2, 2025",
+  coverImage: "/cps1-gene-editing.png", 
+  date: "July 10, 2025",
   author: authors["raine-waverka"],
   topic: "Medical Innovation", 
   readingTime: "6 min read",
   featured: true
 },
-
+  
   {
   slug: "maurice-hilleman-vaccine-legacy",
   title: "Maurice Hilleman and His Vaccine Legacy",
@@ -749,6 +750,59 @@ Psychiatrists aren't here to "fix" people. They are guides, helping individuals 
     readingTime: "6 min read",
     featured: true,
   },
+  {
+  slug: "bacteriophages-antimicrobial-resistance",
+  title: "Bacteriophages: The Future of Antimicrobial Resistance?",
+  excerpt:
+    "As antibiotic resistance surges, bacteriophages—viruses that prey on bacteria—may offer a targeted, sustainable, and powerful solution to combat superbugs.",
+  content: `
+In the microscopic world, bacteria evolve as cunning tacticians, rapidly outpacing the drugs invented to restrain them. Antibiotic resistance has recast into a war of attrition—and the microbes are winning. Despite humanity meeting its Waterloo in the race between the tortoise and the hare, humanity's parasitic friends, bacteriophages, emerge as a promising solution to this escalating crisis.
+
+Antibiotics have been widely recognized as a "silent pandemic," as most of the population remains oblivious to the eroding state of antibiotic care. Like Darwin's finches, bacteria quickly utilize natural selection to combat antibiotics. Prescriptions extinguish the bulk of all microorganisms, permitting the minute survivors left to mutate and acquire a defense inimical to antibiotics, forming superbugs. In addition, a study tested 137 strains of *E. coli* in UTIs, and *"the results showed widespread resistance (51.1 – 91.2%)"* (Olorunmola, et al.). There are millions of bacteria worldwide, and the pathogens will grow if unchecked. The pandemic operates as an indomitable blaze, where water only fuels the flames.
+
+### What Are Bacteriophages?
+
+One promising avenue is bacteriophage therapy. Derived from *bacterio-* (bacteria) and the Greek word *phagein* (to devour), bacteriophages are viruses that specifically target and destroy bacteria.
+
+Incredibly abundant, *“it’s estimated there are more than 10³¹ bacteriophages on the planet… more than every other organism on Earth, including bacteria, combined”* (Scott and Buschman). They contain a decahedron head full of DNA, spikes to latch onto their prey, and a baseplate to inject DNA. As ubiquitous as they are plentiful, they are found in soil, water, skin, and virtually all environments.
+
+Discovered in 1896 by Ernest Hanbury Hankin and advanced by George Eliava, phages infect bacterial cells, replicate inside, and lyse them to release their progeny. Their specificity ensures they attack only one bacterial species, leaving human cells and helpful microbes untouched.
+
+As a master’s student in biology put it: *“These deadly viruses provide a multitude of opportunities for the scientific field; the hardest part is ensuring society recognizes it.”*
+
+### Advantages Over Antibiotics
+
+Unlike antibiotics, which target all bacteria indiscriminately, each phage is built to target a specific bacterial species. Unlike antibiotics, which often struggle against bacterial biofilms—fortress-like structures protecting bacteria—phages can penetrate these barriers (Sapkota).
+
+They can clear biofilms by *“actively penetrating their way into biofilms by lysing one bacterial layer at a time, or due to the display of biofilm exopolymer-degrading depolymerases”* (Loc-Carrillo). Phages also have a natural "auto-dosing" ability, making them self-regulating treatments (Abedon).
+
+Are phages safe? Research confirms that bacteriophages are non-toxic and have no side effects (Liu, Dan, et al.). Treatments are also up to 50% cheaper than antibiotics (Verbeken, Gilbert, et al.).
+
+As bacteria evolve resistance, phages evolve alongside them, creating a natural arms race. Interestingly, bacteria that evade phage attacks often become more vulnerable to antibiotics—a molecular catch-22 (Li, et al.).
+
+### Conclusion
+
+Bacteriophages offer a sustainable, precise, and powerful response to antimicrobial resistance. As superbugs rise, phage therapy may be the key to revolutionizing healthcare and ensuring humanity stays ahead in the battle against microbial threats.
+
+---
+
+### Works Cited
+
+- A.B. Shabbir, Muhammad, et al. “Bacteria vs. Bacteriophages: Parallel Evolution of Immune Arsenals.” *Frontiers*, 7:1292. [https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full](https://www.frontiersin.org/articles/10.3389/fmicb.2016.01292/full)
+- Liu, Dan, et al. “The Safety and Toxicity of Phage Therapy: A Review of Animal and Clinical Studies.” *Viruses*, vol. 13,7 1268. [https://www.mdpi.com/1999-4915/13/7/1268](https://www.mdpi.com/1999-4915/13/7/1268)
+- Loc-Carrillo, Catherine, and Stephen T. Abedon. “Pros and cons of phage therapy.” *Bacteriophage*, vol. 1,2: 111–114. DOI:10.4161/bact.1.2.14590
+- Olorunmola, Felix Oluwasola, et al. “Antibiotic resistance and virulence properties in Escherichia coli strains from cases of urinary tract infections.” *African Journal of Infectious Diseases*, vol. 7,1: 1–7. [https://www.ajol.info/index.php/ajid/article/view/85474](https://www.ajol.info/index.php/ajid/article/view/85474)
+- Sapkota, Anupama. “Bacteriophage – Definition, Structure, Life Cycles, Applications, Phage Therapy.” *Microbe Notes*. [https://microbenotes.com/bacteriophage/](https://microbenotes.com/bacteriophage/)
+- Verbeken, Gilbert, et al. “Taking bacteriophage therapy seriously: a moral argument.” *BioMed Research International*, 621316. [https://onlinelibrary.wiley.com/doi/10.1155/2014/621316](https://onlinelibrary.wiley.com/doi/10.1155/2014/621316)
+  `,
+  coverImage: "/bacteriophage-article.png",
+  date: "May 7, 2025",
+  author: authors["raine-waverka"],
+  topic: "Medical Innovation", 
+  readingTime: "6 min read",
+  featured: true
+},
+
   {
     slug: "neurosurgeon-masters-mind-spine",
     title: "Neurosurgeon",
