@@ -61,10 +61,10 @@ export const vicePresidents: MemberType[] = [
 
 export const advisors: Member[] = [
   {
-    id: "kate-tucker",
-    name: "Kate Tucker",
+    id: "Chinthala-Trisha-goud",
+    name: "Chinthala Trisha Goud",
     role: "Medical Student Advisor",
-    bio: "Kate Tucker is a dedicated medical student who provides valuable guidance and mentorship to Dr. Interested members. Her expertise in medical education and passion for teaching help shape our programs and ensure they align with current healthcare standards.",
+    bio: "Chinthala Trisha Goud is a dedicated medical student who provides valuable guidance and mentorship to Dr. Interested members. Her expertise in medical education and passion for teaching help shape our programs and ensure they align with current healthcare standards.",
     image: "/logo.png",
     socialLinks: {},
   },
