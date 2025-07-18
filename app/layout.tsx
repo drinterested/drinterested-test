@@ -16,11 +16,11 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "Dr. Interested - Inspiring Future Healthcare Professionals",
+    default: "Dr. Interested - Inspiring Future Healthcare Leaders",
     template: "%s | Dr. Interested",
   },
   description:
-    "Dr. Interested empowers high school students to explore careers in healthcare through education, research, and mentorship. Join our community today for volunteer hours and leadership opportunities!",
+    "Dr. Interested supports youth in finding their unique \"spark\" in medicine through programs & opportunities. Earn volunteer hours while building your future!",
   keywords: [
     "healthcare education",
     "medical careers",
@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     "healthcare advisors",
     "impact report",
     "healthcare impact",
+    "policy spark",
+    "healthcare policy",
+    "healthcare events",
   ],
   authors: [{ name: "Dr. Interested Team" }],
   creator: "Dr. Interested",
@@ -58,9 +61,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://drinterested.tech",
-    title: "Dr. Interested - Inspiring Future Healthcare Professionals",
+    title: "Dr. Interested - Inspiring Future Healthcare Leaders",
     description:
-      "Empowering high school students to explore careers in healthcare through education, research, and mentorship. Earn volunteer hours while building your future!",
+      "Dr. Interested supports youth in finding their unique \"spark\" in medicine through programs & opportunities. Earn volunteer hours while building your future!",
     siteName: "Dr. Interested",
     images: [
       {
@@ -73,9 +76,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr. Interested - Inspiring Future Healthcare Professionals",
+    title: "Dr. Interested - Inspiring Future Healthcare Leaders",
     description:
-      "Empowering high school students to explore careers in healthcare through education, research, and mentorship. Earn volunteer hours while building your future!",
+      "Dr. Interested supports youth in finding their unique \"spark\" in medicine through programs & opportunities. Earn volunteer hours while building your future!",
     images: ["/android-chrome-512x512.png"],
     creator: "@DrInterested",
   },

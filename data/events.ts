@@ -13,6 +13,18 @@ export type EventType = {
 
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
+    {
+    title: "Research Proposal Competition",
+    date: "Closes July 23, 2025",
+    time: "Apply Anytime Before Deadline",
+    location: "Virtual",
+    description:
+      "Compete with students around the world to pitch a real research idea — no experience needed! Top 3 win mentorship and publication (Dr. Interested covers the $200 DOI cost). All participants receive certificates. Deadline: July 23.",
+    image: "/research-proposal.png",
+    status: "open",
+    link: "https://forms.gle/cNMth3sUa4d3AhEY8",
+    featured: true,
+  },
   {
     title: "Office Hours",
     date: "June - Ongoing",
@@ -23,7 +35,6 @@ export const upcomingEvents: EventType[] = [
     image: "/office-hours.png",
     status: "open",
     link: "https://discord.gg/pzbGRgsGXY",
-    featured: true,
   },
   {
     title: "Dr. Interested Club Ambassador Program",
