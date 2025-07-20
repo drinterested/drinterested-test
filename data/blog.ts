@@ -193,7 +193,7 @@ This treatment is a **landmark achievement**: the first successful personalized 
   `,
   coverImage: "/cps1-gene-editing.png", 
   date: "July 10, 2025",
-  author: authors["raine-waverka"],
+  author: authors["muhammad-lari"],
   topic: "Medical Innovation", 
   readingTime: "6 min read",
   featured: true
