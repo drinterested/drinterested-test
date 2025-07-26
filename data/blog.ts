@@ -185,7 +185,7 @@ Oncology nurses are deeply involved in a patient’s journey through cancer diag
   coverImage: "/oncology_nurse_cover.jpg", 
   date: "July 8, 2025",
   author: authors["iosef-isaac-perez"],
-  topic: "Healthcare",
+  topic: "nurses",
   readingTime: "4 min read",
   featured: true
 },
