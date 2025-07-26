@@ -91,6 +91,11 @@ export const authors: Record<string, Author> = {
   image: "/raine.jpg", 
   bio: "Raine Waverka is a budding phage researcher exploring CRISPR and oncology through elite science programs at Vanderbilt and Boston University."
 },
+"iosef-isaac-perez": {
+  name: "Iosef Isaac Perez",
+  image: "/iosef.jpg", 
+  bio: "Iosef is an undergraduate passionate about neuroscience, medicine, and the research of pain and addiction at their intersection."
+},
 }
 
 // Blog Topics
@@ -145,7 +150,45 @@ export const blogTopics: BlogTopic[] = [
 
 // Blog Posts (Ordered from Most Recent to Oldest)
 export const blogPosts: BlogPost[] = [
-  
+  {
+  slug: "oncology-nurses-healthcare",
+  title: "The Role of Oncology Nurses in Healthcare",
+  excerpt:
+    "Oncology nurses play a vital role in cancer care—administering treatments, supporting patients emotionally, and navigating specialized healthcare settings. Learn how to become one and why they matter.",
+  content: `
+## The Role of Oncology Nurses in Healthcare
+
+Nurses are a critical part of a healthcare team and are essential for ensuring that a patient’s treatment plan is conducted in a timely and effective manner. In a given day, nurses may administer medications, change bedsheets, or offer emotional support. In the U.S., there are approximately 4.7 million registered nurses, with 87% remaining active in the profession. Among many specialties, oncology nurses work specifically with patients diagnosed with or at risk of developing cancer.
+
+---
+
+## How to Become an Oncology Nurse
+
+To become an oncology nurse, you must first be a registered nurse (RN). This requires completing either an Associate’s or Bachelor’s degree in nursing from an accredited program, followed by passing the NCLEX-RN exam to earn licensure.
+
+While specialization in oncology is available after becoming an RN, it's recommended to gain general experience first. Oncology nurses handle responsibilities like administering chemotherapy, supporting surgical recovery, and assessing the emotional and mental health of cancer patients.
+
+---
+
+## Oncology Nursing Job Outlook
+
+Oncology nurses earn competitive salaries in the U.S., ranging from $84,768 to $97,103. Their services are in demand across various clinical environments—hospitals, outpatient clinics, hospices, and cancer centers.
+
+They may also choose to subspecialize, working with pediatric, adult, or geriatric cancer patients. Opportunities exist in focused areas such as immunotherapy, bone marrow transplantation, and breast cancer care.
+
+---
+
+## Why They Matter
+
+Oncology nurses are deeply involved in a patient’s journey through cancer diagnosis and treatment. They are not only healthcare professionals but emotional anchors for patients and families during some of life’s most difficult moments. As the need for cancer treatment grows, so does the need for skilled, compassionate oncology nurses.
+  `,
+  coverImage: "/oncology_nurse_cover.jpg", 
+  date: "July 8, 2025",
+  author: authors["iosef-isaac-perez"],
+  topic: "Healthcare",
+  readingTime: "4 min read",
+  featured: true
+},
   {
   slug: "cps1-crispr-breakthrough",
   title: "From Diagnosis to Hope: A Medical Milestone in Gene Editing",
@@ -357,7 +400,7 @@ Even if young people cannot vote on policies just yet, we will still be affected
     author: authors["adil-mukhi"],
     topic: "Op-Eds",
     readingTime: "5 min read",
-    featured: true,
+    featured: false,
   },
   {
     slug: "crispr-gene-editing-ethics-law",
