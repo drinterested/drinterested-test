@@ -212,7 +212,7 @@ export default function Navbar() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href="https://forms.gle/i3Y6vazF5TErGBxG7"
+            href="https://discord.gg/pzbGRgsGXY"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex bg-[#405862] text-white hover:bg-[#334852] px-3 py-1.5 rounded-md text-sm font-medium transition-all hover:shadow-md hover:scale-105 duration-300"
