@@ -21,7 +21,7 @@ export const upcomingEvents: EventType[] = [
     description:
       "Compete with students around the world to pitch a real research idea — no experience needed! Top 3 win mentorship and publication (Dr. Interested covers the $200 DOI cost). All participants receive certificates. Deadline: July 23.",
     image: "/research-proposal.png",
-    status: "full",
+    status: "closed",
     link: "https://forms.gle/cNMth3sUa4d3AhEY8",
     featured: true,
   },
