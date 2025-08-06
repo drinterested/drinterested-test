@@ -59,7 +59,7 @@ export const vicePresidents: MemberType[] = [
   },
 ]
 
-export const advisors: Member[] = [
+export const advisors: MemberType[] = [
   {
     id: "Chinthala-Trisha-goud",
     name: "Chinthala Trisha Goud",
@@ -330,6 +330,14 @@ export const departments: DepartmentType[] = [
         bio: "Producing articles, blogs, and printed materials for distribution.",
         socialLinks: {},
       },
+      {
+        id: "publications-mem10",
+        name: "Saniyah Sajjad",
+        role: "Publications Member",
+        image: "/logo.png", // Need Image
+        bio: "Hi, I am an incoming first-year Psychology student at Western with an AEO status. I am passionate about business and psychology, and I aim to enter the marketing field in the future. ",
+        socialLinks: {},
+      },
     ],
   },
   {
@@ -423,6 +431,22 @@ export const departments: DepartmentType[] = [
     },
     members: [
       {
+        id: "events-mem10",
+        name: "Rameen Usman",
+        role: "Deputy Director of Events",
+        image: "/logo.png",
+        bio: "Hello, I'm Rameen Usman, a Year 11 student currently living in Lahore- Pakistan. I have a strong passion for STEM and love working behind the scenes to organize and manage events. I am a three-time scholarship recipient from institutions like Dartmouth, Harvard and Polygence which have allowed me to explore more within the pre-med field and gain exposure to real-world applications of science. In my free time I enjoy writing as a creative outlet. I’m deeply committed to closing the gender gap in STEM and helping create space for more women to lead in this field.",
+        socialLinks: {},
+      },
+      {
+        id: "events-mem9",
+        name: "Amina Assanova",
+        role: "Deputy Director of Events",
+        image: "/logo.png",
+        bio: "Planning and executing workshops that provide hands-on learning experiences.",
+        socialLinks: {},
+      },
+      {
         id: "events-mem1",
         name: "Andrew Wang",
         role: "Events Member",
@@ -505,6 +529,16 @@ export const departments: DepartmentType[] = [
       socialLinks: {},
     },
     members: [
+      {
+        id: "grants-mem7",
+        name: "Ishanth Shantmoorthy",
+        role: "Deputy Director of Finance",
+        image: "/logo.png",
+        bio: "I’m Ishanth Shantmoorthy, a Grade 12 student at an IB school in Arizona with a strong passion for biomedical engineering and the intersection of healthcare and technology. My academic interests motivate me to explore how innovation can improve medical care and patient outcomes. To support this passion, I currently serve as Deputy Director of Finance for Dr. Interested, where I manage the club’s finances and contribute to STEM outreach initiatives. I also serve as treasurer of the National Honor Society, which has helped me develop valuable skills in budgeting and leadership.In addition to these roles, I’m co-captain of my school’s robotics team and the sub-team lead for engineering. These leadership positions allow me to guide design projects and organize technical outreach efforts, combining my interests in engineering and community engagement. I also compete in FBLA, where I placed 2nd in Coding & Programming at Regionals, ranked in the Top 10 for Accounting at States, and qualified for Nationals. Alongside these experiences, I have published two biomedical research papers and gained real-world insight by shadowing professionals in biomedical engineering. Outside of academics and leadership, I volunteer at Banner Health in both the supply chain department and the laboratory, where I assist with essential operations that support patient care. I also co-host a student-run medical podcast and have developed Money Plant, a personal finance app designed to help students build strong money management skills. My current coursework reflects my diverse interests and includes HL Biology, SL Psychology, HL History, HL Language & Literature, SL Spanish, HL Math, and Anatomy and Physiology.",
+        socialLinks: {
+          linkedin:"https://www.linkedin.com/in/ishanth-shantmoorthy-baab73359/ ",
+        },
+      },
       {
         id: "grants-mem1",
         name: "Akeer Kuol Malual Nyok",
