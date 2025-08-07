@@ -244,7 +244,7 @@ export const departments: DepartmentType[] = [
     },
     members: [
       {
-      id: "research-dir",
+      id: "1-deputy-dir",
       name: "Manmeet Singh",
       role: "Assistant Director of Publications (Research)",
       image: "/manmeet.png", 
@@ -252,7 +252,7 @@ export const departments: DepartmentType[] = [
       socialLinks: {},
       },
       {
-      id: "podcast-dir",
+      id: "2-deputy-dir",
       name: "Adhi Ammanath",
       role: "Assistant Director of Publications (Podcast)",
       image: "/logo.png", 
@@ -345,7 +345,7 @@ export const departments: DepartmentType[] = [
     },
     members: [
       {
-        id: "hr-dep-dir",
+        id: "3-deputy-dir",
         name: "Vicky Shi",
         role: "Assistant Director of HR (Ambassador Program)",
         image: "/logo.png", 
@@ -419,7 +419,7 @@ export const departments: DepartmentType[] = [
     },
     members: [
       {
-        id: "events-mem10",
+        id: "4-deputy-dir",
         name: "Rameen Usman",
         role: "Deputy Director of Events",
         image: "/logo.png",
@@ -427,7 +427,7 @@ export const departments: DepartmentType[] = [
         socialLinks: {},
       },
       {
-        id: "events-mem9",
+        id: "5-deputy-dir",
         name: "Amina Assanova",
         role: "Deputy Director of Events",
         image: "/logo.png",
