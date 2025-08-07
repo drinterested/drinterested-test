@@ -278,17 +278,6 @@ export const departments: DepartmentType[] = [
         socialLinks: {},
       },
       {
-        id: "publications-mem3",
-        name: "Manasvi Bobade",
-        role: "Publications Member",
-        image: "/Manasvi.jpg",
-        bio: "Manasvi is a sophomore at Alliance Academy for Innovation with a strong passion for business and a growing interest in healthcare. She’s actively pursuing both fields and has already started several initiatives in business. With an entrepreneurial mindset, she serves as the Director of Marketing & Outreach for EcoWave Foundation, a nonprofit focused on environmental conservation, particularly ocean cleanup. Manasvi also works as a social media marketing intern for an Airbnb rental, where she’s building her skills in digital marketing. With a remarkable academic turnaround and determination, she aims to make a positive impact through her work and plans to continue growing both professionally and personally.",
-        socialLinks: {
-          linkedin: "https://www.linkedin.com/in/manasvi-bobade-6695a0330/",
-          instagram: "https://www.instagram.com/misti.bobade/",
-        },
-      },
-      {
         id: "publications-mem4",
         name: "Iosef Isaac Perez",
         role: "Publications Member",
@@ -320,14 +309,6 @@ export const departments: DepartmentType[] = [
         role: "Publications Member",
         image: "/logo.png", // Need Image
         bio: "Prithi brings a unique blend of STEM and medicinal knowledge to the mix of strengths here at the FireGuard cause. Currently a 10th grader in Charlotte, NC, Prithi is ranked 1st in a class of 686 students, with a weighted GPA of 4.55. She is deeply involved in both academics and extracurricular activities, showcasing leadership in various roles. Prithi's academic focus spans subjects like AP Computer Science, Honors Biomedical Sciences, and AP Psychology, with a particular interest in the application of AI in healthcare. She is currently working on a research paper exploring the use of CNN-LSTM AI models for diagnosing melanoma, combining her technical skills and passion for medical innovation. She also placed Gold for NCSO Regionals, and continues to compete in events related to disease detection, anatomy, and experimental design. As an intern with ThinkNeuro, Prithi has had the opportunity to engage in various professional development initiatives, including contributing to the development of neurologic curriculum reforms and working on complex marketing logistics. Finally, she has had the opportunity to represent her impact on her community by giving back to the middle schoolers through volunteering, committing to a subcommittee of 4H where she actively volunteers, and being a proofreader for a global set of users at Project Gutenberg. Ultimately, these experiences have all led Prithi to become a motivated, inspired, and resilient individual, who will strive to improve her knowledge whilst contributing to the excellent atmosphere that is the Academy of Sciences.",
-      },
-      {
-        id: "publications-mem8",
-        name: "Manasvi Kale",
-        role: "Publications Member",
-        image: "/logo.png", // Need Image
-        bio: "Developing resources to help students understand and engage in medical research.",
-        socialLinks: {},
       },
       {
         id: "publications-mem9",
