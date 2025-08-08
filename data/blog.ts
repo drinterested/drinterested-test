@@ -211,7 +211,7 @@ Perioperative nurses create a sterile, safe surgical environment and ensure proc
   coverImage: "/operational-nurses.jpg",
   date: "August 8, 2025",
   author: authors["dabosmita-das"],
-  topic: "Healthcare",
+  topic: "nurses",
   readingTime: "4 min read",
   featured: false
 },
@@ -277,7 +277,7 @@ Emergency room nursing is not for the faint of heart—but for those who thrive 
   coverImage: "/emergency_nurse_cover.jpg", 
   date: "August 8, 2025",
   author: authors["prithi-balaji"],
-  topic: "Healthcare",
+  topic: "nurses",
   readingTime: "5 min read",
   featured: false
 },
@@ -348,7 +348,7 @@ Travel nursing is more than a profession—it’s a calling. These nurses are th
   coverImage: "/travel_nurse_cover.jpg", 
   date: "August 6, 2025",
   author: authors["gaeun-lee"],
-  topic: "Healthcare",
+  topic: "nurses",
   readingTime: "5 min read",
   featured: false
 },
