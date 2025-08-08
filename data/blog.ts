@@ -96,6 +96,16 @@ export const authors: Record<string, Author> = {
   image: "/iosef.jpg", 
   bio: "Iosef is an undergraduate passionate about neuroscience, medicine, and the research of pain and addiction at their intersection."
 },
+"gaeun-lee": {
+  name: "Gaeun Lee",
+  image: "/gaeun.jpg", 
+  bio: "Gaeun Lee is a Korean high school student passionate about society, healthcare, and environmental issues, with a growing interest in economics and investment."
+},
+  "prithi-balaji": {
+  name: "Prithi Balaji",
+  image: "/prithi.jpg",
+  bio: "Prithi is a high school junior exploring genomic biochemistry and medicine, passionate about making science accessible through writing."
+},
 }
 
 // Blog Topics
@@ -150,7 +160,199 @@ export const blogTopics: BlogTopic[] = [
 
 // Blog Posts (Ordered from Most Recent to Oldest)
 export const blogPosts: BlogPost[] = [
+ {
+  slug: "who-are-operational-nurses",
+  title: "Who Are Operational Nurses and Why They Matter",
+  excerpt:
+    "Explore the vital roles of operational (perioperative) nurses before, during, and after surgery — including their types, training, and impact on patient care.",
+  content: `
+## Who are operational nurses?
+
+Operational nurses, or perioperative nurses, are healthcare professionals who assist doctors during surgeries. They monitor patients and care for them before, during, and after operations. These nurses must remain calm under stress and handle complex tasks with focus and care.
+
+
+## Common responsibilities
+
+While specific tasks may vary by role, operational nurses typically:
+
+- Collaborate with doctors and communicate with patients  
+- Ensure consent forms are signed  
+- Answer pre-surgery questions  
+- Sterilize and manage surgical tools  
+- Monitor vitals and give medications before and after surgery  
+
+## What are the educational qualifications?
+
+To become an operational nurse:
+
+- Earn a **BSN** (Bachelor of Science in Nursing) or **ADN** (Associate Degree in Nursing)  
+- Pass the **NCLEX-RN**  
+- Become a licensed Registered Nurse (RN)  
+- Complete a perioperative certification or surgical nursing specialization  
+
+## What are the different types of operational nurses?
+
+### → Scrub Nurses  
+Prepare tools, sterile gowns, and gloves for surgery, allowing surgeons to operate smoothly.
+
+### → Circulating Nurses  
+Work pre-operatively by gathering medical histories, checking documentation, and educating patients and families.
+
+### → RNFA (Registered Nurse First Assistant)  
+Advanced intra-operative nurses who can suture, control bleeding, and directly assist surgeons. Certifications may include RNAS-C and CRNFA.
+
+### → PACU Nurses (Post-Anaesthesia Care Unit)  
+Care for patients post-surgery, monitoring recovery and handling discharge communication.
+
+## Why are they important?
+
+Perioperative nurses create a sterile, safe surgical environment and ensure procedures run smoothly. Their role helps reduce complications and improve patient outcomes. With U.S. demand rising, the Bureau of Labor Statistics projects a **6% job growth** rate for nurses by 2031.
+  `,
+  coverImage: "/operational-nurses.jpg",
+  date: "August 8, 2025",
+  author: authors["dabosmita-das"],
+  topic: "Healthcare",
+  readingTime: "4 min read",
+  featured: false
+},
+ {
+  slug: "emergency-room-nurses",
+  title: "What It’s Like to Be an Emergency Room Nurse",
+  excerpt:
+    "Emergency room nurses are the first line of defense in life-threatening situations, providing critical care under pressure. Explore their intense, fast-paced world and what it takes to become one.",
+  content: `
+## What It’s Like to Be an Emergency Room Nurse
+
+Working as an emergency room nurse means being prepared for anything at any time. From trauma and heart attacks to allergic reactions and broken bones, ER nurses are trained to handle it all with skill and speed.
+
+## What Does an ER Nurse Do?
+
+Emergency room (ER) nurses specialize in providing acute care to patients in urgent and critical conditions. They work in hospital emergency departments, often under high pressure, and must assess, stabilize, and monitor patients rapidly.
+
+Their responsibilities include:
+
+- **Triage:** Determining the severity of a patient’s condition and prioritizing care  
+- **Administering medications and IVs**  
+- **Assisting with procedures and CPR**  
+- **Communicating with doctors and family members**  
+- **Documenting patient care and responses**
+
+## The Fast-Paced Nature of Emergency Nursing
+
+ER nurses must think fast, act quickly, and stay calm under stress. They may face patients with life-threatening injuries, perform CPR, or respond to mass casualty events.
+
+This role demands strong decision-making skills, teamwork, and emotional resilience. No two days are alike, and every shift can bring new challenges.
+
+
+## How to Become an Emergency Room Nurse
+
+To become an ER nurse, you must first:
+
+- **Earn a nursing degree:** Associate’s Degree in Nursing (ADN) or Bachelor of Science in Nursing (BSN)  
+- **Pass the NCLEX-RN exam** to become a licensed registered nurse (RN)  
+- **Gain clinical experience,** often starting in medical-surgical or intensive care units  
+
+Optional certifications include:
+
+- **Certified Emergency Nurse (CEN)**  
+- **Basic Life Support (BLS)** and **Advanced Cardiovascular Life Support (ACLS)**
+
+## Job Outlook and Salary
+
+Emergency room nurses are in **high demand**, especially as hospitals face nursing shortages. Salaries vary but typically range from **$75,000 to $95,000+ per year**, depending on location, experience, and certifications.
+
+
+## The Human Side of ER Nursing
+
+Beyond medical skills, ER nurses are often a comforting presence for patients in distress. They must manage not only physical emergencies but also the emotional impact on families and loved ones.
+
+As one ER nurse puts it:  
+> “We don’t just save lives—we hold hands, calm fears, and stay strong when others can’t.”
+
+
+## Final Thoughts
+
+Emergency room nursing is not for the faint of heart—but for those who thrive in intensity, crave variety, and find purpose in helping others during their worst moments, it can be one of the most meaningful careers in healthcare.
+  `,
+  coverImage: "/emergency_nurse_cover.jpg", 
+  date: "August 8, 2025",
+  author: authors["prithi-balaji"],
+  topic: "Healthcare",
+  readingTime: "5 min read",
+  featured: false
+},
   {
+  slug: "travel-nurses-world",
+  title: "The World of Travel Nurses",
+  excerpt:
+    "Travel nurses are dynamic healthcare professionals who take their skills on the road, filling urgent needs in hospitals across the country. Explore what it takes to become one, the benefits, and the challenges they face.",
+  content: `
+## The World of Travel Nurses
+
+In today’s ever-changing healthcare landscape, Travel Nurses serve as vital responders—stepping in wherever they’re needed most. These professionals take on short-term assignments across cities, states, and even countries to solve staffing shortages and provide high-quality care during times of crisis, such as pandemics or natural disasters.
+
+
+## What is a Travel Nurse?
+
+A Travel Nurse is a registered nurse who accepts temporary nursing contracts, often through staffing agencies, in different locations. Whether it's during the COVID-19 pandemic, a hurricane, or in an underserved rural area, travel nurses are dispatched quickly to meet urgent healthcare demands. They are the steady hand in unpredictable moments, ensuring patients still receive timely and expert care.
+
+
+## The Journey of a Travel Nurse
+
+Travel nurses typically rotate through multiple healthcare facilities, working on contracts that last a few weeks to several months. Staffing agencies usually coordinate their placement, housing, and licensing, making it easier for them to adapt quickly to each new environment.
+
+Their responsibilities are similar to hospital-based nurses:
+
+- Monitoring patient health
+- Administering medications
+- Educating patients and families
+- Completing documentation
+
+The key difference? They constantly adapt to new environments, workflows, and teams—making resilience and flexibility essential qualities.
+
+
+## Requirements for Becoming a Travel Nurse
+
+While the role offers flexibility and adventure, becoming a travel nurse takes preparation:
+
+- **Education**: An Associate Degree in Nursing (ADN) or a Bachelor of Science in Nursing (BSN) is required.
+- **Experience**: Most agencies require at least one year of clinical experience.
+- **Licensing**: Nurses must hold a valid license in the state they wish to work. Luckily, many U.S. states are part of the Nurse Licensure Compact (NLC), allowing easier license portability.
+
+## Why Choose Travel Nursing?
+
+There are many compelling reasons to consider this career path:
+
+- **High Pay**: Travel nurses often earn more than staff nurses and may receive housing stipends, travel reimbursements, and signing bonuses.
+- **Career Growth**: Exposure to diverse medical environments enhances clinical skills and builds adaptability.
+- **Flexibility**: You choose when and where to work—allowing time for rest, travel, or long-term personal projects.
+- **New Experiences**: Whether it's working in a bustling city hospital or a rural clinic near scenic mountains, every assignment is a new adventure.
+
+
+## A Role Beyond Medicine
+
+Travel nurses are not just filling staffing gaps—they’re providing stability, compassion, and professionalism during critical times. One travel nurse remarked, “The day I go to work, one more life has hope.”
+
+## Challenges of Travel Nursing
+
+While rewarding, the role is not without its difficulties:
+
+- **Constant Mobility**: Frequent relocation can be physically and emotionally taxing.
+- **Licensing Hurdles**: Navigating different state regulations requires time and administrative effort.
+- **Team Dynamics**: Adapting to new coworkers and workplace cultures calls for strong interpersonal skills.
+
+## Conclusion
+
+Travel nursing is more than a profession—it’s a calling. These nurses are the first to respond, the fastest to adapt, and often the warmest presence in a patient’s care. Their journey across hospitals and cities reflects a deep love for life and a commitment to healing wherever they go.
+  `,
+  coverImage: "/travel_nurse_cover.jpg", 
+  date: "August 6, 2025",
+  author: authors["gaeun-lee"],
+  topic: "Healthcare",
+  readingTime: "5 min read",
+  featured: false
+},
+{
   slug: "oncology-nurses-healthcare",
   title: "The Role of Oncology Nurses in Healthcare",
   excerpt:
