@@ -13,6 +13,18 @@ export type EventType = {
 
 // Upcoming events data
 export const upcomingEvents: EventType[] = [
+  {
+    title: "Dr. Interested Webinar Series: Certificate Stream",
+    date: "August 31st to November 2nd",
+    time: "11AM EST",
+    location: "Virtual",
+    description:
+      "Hear directly from medical students and executive team members on a variety of healthcare topics—from preparing for university and research tips to how to get involved in health policy. Complete all sections to register and track your progress throughout the series.",
+    image: "/webinar-cert.png",
+    status: "open",
+    link: "https://forms.gle/gdr9VHdcPs21tNTM8",
+    featured: true,
+  },
     {
     title: "Research Proposal Competition",
     date: "July 1 to September 1",
