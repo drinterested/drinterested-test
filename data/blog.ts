@@ -93,17 +93,17 @@ export const authors: Record<string, Author> = {
 },
 "iosef-isaac-perez": {
   name: "Iosef Isaac Perez",
-  image: "/iosef.jpg", 
+  image: "/logo.png", 
   bio: "Iosef is an undergraduate passionate about neuroscience, medicine, and the research of pain and addiction at their intersection."
 },
 "gaeun-lee": {
   name: "Gaeun Lee",
-  image: "/gaeun.jpg", 
+  image: "/logo.png", 
   bio: "Gaeun Lee is a Korean high school student passionate about society, healthcare, and environmental issues, with a growing interest in economics and investment."
 },
   "prithi-balaji": {
   name: "Prithi Balaji",
-  image: "/prithi.jpg",
+  image: "/logo.png",
   bio: "Prithi is a high school junior exploring genomic biochemistry and medicine, passionate about making science accessible through writing."
 },
 }
@@ -208,7 +208,7 @@ Care for patients post-surgery, monitoring recovery and handling discharge commu
 
 Perioperative nurses create a sterile, safe surgical environment and ensure procedures run smoothly. Their role helps reduce complications and improve patient outcomes. With U.S. demand rising, the Bureau of Labor Statistics projects a **6% job growth** rate for nurses by 2031.
   `,
-  coverImage: "/operational-nurses.jpg",
+  coverImage: "/or-nurse.jpg",
   date: "August 8, 2025",
   author: authors["dabosmita-das"],
   topic: "nurses",
