@@ -67,10 +67,11 @@ export const metadata: Metadata = {
     siteName: "Dr. Interested",
     images: [
       {
-        url: "/android-chrome-512x512.png",
-        width: 512,
-        height: 512,
-        alt: "Dr. Interested Logo - Heart-shaped stethoscope representing healthcare education",
+        url: "/websitebanner.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Dr. Interested - Pre-Med Youth Org - Supporting youth in finding their unique 'spark' in medicine!",
+        type: "image/jpeg",
       },
     ],
   },
@@ -79,7 +80,11 @@ export const metadata: Metadata = {
     title: "Dr. Interested - Inspiring Future Healthcare Leaders",
     description:
       "Dr. Interested supports youth in finding their unique \"spark\" in medicine through programs & opportunities. Earn volunteer hours while building your future!",
-    images: ["/android-chrome-512x512.png"],
+    images: {
+      url: "/websitebanner.jpg",
+      alt: "Dr. Interested - Pre-Med Youth Org - Supporting youth in finding their unique 'spark' in medicine!",
+      type: "image/jpeg",
+    },
     creator: "@DrInterested",
   },
   alternates: {
