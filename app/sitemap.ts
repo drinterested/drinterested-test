@@ -66,10 +66,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: "https://impact2025.drinterested.tech",
+      url: `${baseUrl}/dr-interested-impact-report-2025.pdf`,
       lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "yearly",
+      priority: 0.9,
     },
   ]
 }

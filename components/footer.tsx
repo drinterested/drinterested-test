@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Instagram, Linkedin, ArrowUp } from "lucide-react"
-import NewsletterForm from "./newsletter-form"
+import Link from "next/link";
+import Image from "next/image";
+import { Instagram, Linkedin, ArrowUp } from "lucide-react";
+import NewsletterForm from "./newsletter-form";
 
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   return (
     <footer className="bg-[#405862] text-white py-10">
@@ -33,8 +33,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm mb-4 text-white/80">
-              Inspiring the next generation of healthcare professionals through education, collaboration, and meaningful
-              experiences.
+              Inspiring the next generation of healthcare professionals through
+              education, collaboration, and meaningful experiences.
             </p>
             <div className="flex space-x-3">
               <Link
@@ -90,33 +90,61 @@ export default function Footer() {
             </h3>
             <ul className="space-y-1.5 text-sm">
               <li>
-                <Link href="/" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <Link
+                  href="/"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/our-work" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <Link
+                  href="/our-work"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   Our Work
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <Link
+                  href="/events"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <Link
+                  href="/blog"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/members" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <Link
+                  href="/members"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   Members
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="dr-interested-impact-report-2025.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
+                  Dr. Interested 2025 Impact Report (View and Download)
                 </Link>
               </li>
             </ul>
@@ -130,7 +158,9 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <div className="text-[#4ecdc4] font-medium text-xs">Administration</div>
+                <div className="text-[#4ecdc4] font-medium text-xs">
+                  Administration
+                </div>
                 <a
                   href="mailto:admin@drinterested.tech"
                   className="text-white/80 hover:text-[#4ecdc4] transition-colors"
@@ -139,13 +169,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <div className="text-[#4ecdc4] font-medium text-xs">Human Resources</div>
-                <a href="mailto:hr@drinterested.tech" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                <div className="text-[#4ecdc4] font-medium text-xs">
+                  Human Resources
+                </div>
+                <a
+                  href="mailto:hr@drinterested.tech"
+                  className="text-white/80 hover:text-[#4ecdc4] transition-colors"
+                >
                   hr@drinterested.tech
                 </a>
               </li>
               <li>
-                <div className="text-[#4ecdc4] font-medium text-xs">Outreach</div>
+                <div className="text-[#4ecdc4] font-medium text-xs">
+                  Outreach
+                </div>
                 <a
                   href="mailto:outreach@drinterested.tech"
                   className="text-white/80 hover:text-[#4ecdc4] transition-colors"
@@ -162,23 +199,37 @@ export default function Footer() {
               <span className="w-2 h-4 bg-[#4ecdc4] mr-2"></span>
               Stay Updated
             </h3>
-            <p className="text-sm mb-3 text-white/80">Subscribe for the latest events and opportunities.</p>
+            <p className="text-sm mb-3 text-white/80">
+              Subscribe for the latest events and opportunities.
+            </p>
 
             {/* Use our newsletter component with compact styling for the footer */}
             <div className="bg-[#4f6b75] p-3 rounded">
-              <NewsletterForm darkMode={true} showFirstName={false} compact={true} />
+              <NewsletterForm
+                darkMode={true}
+                showFirstName={false}
+                compact={true}
+              />
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-5 border-t border-[#4f6b75] flex flex-col md:flex-row justify-between items-center gap-3">
-          <div className="text-xs text-white/70">© 2025 Dr. Interested. All rights reserved.</div>
+          <div className="text-xs text-white/70">
+            © 2025 Dr. Interested. All rights reserved.
+          </div>
           <div className="flex items-center gap-3 text-xs">
-            <Link href="/terms" className="text-white/70 hover:text-[#4ecdc4] transition-colors">
+            <Link
+              href="/terms"
+              className="text-white/70 hover:text-[#4ecdc4] transition-colors"
+            >
               Terms & Conditions
             </Link>
             <span className="text-white/50">•</span>
-            <Link href="/privacy-policy" className="text-white/70 hover:text-[#4ecdc4] transition-colors">
+            <Link
+              href="/privacy-policy"
+              className="text-white/70 hover:text-[#4ecdc4] transition-colors"
+            >
               Privacy Policy
             </Link>
             <button
@@ -192,5 +243,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

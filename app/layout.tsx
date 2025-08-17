@@ -166,6 +166,18 @@ export default function RootLayout({
             });
           `}
         </Script>
+        <Script id="pdf-schema" type="application/ld+json" strategy="afterInteractive">
+  {`
+    {
+      "@context": "https://schema.org",
+      "@type": "MediaObject",
+      "name": "Dr Interested 2025 Impact Report",
+      "contentUrl": "drinterested.tech/impact2025.pdf",
+      "encodingFormat": "application/pdf",
+      "description": "Download and view the Dr Interested Annual 2025 Impact Report to learn about our initiatives, programs, and impact in healthcare education."
+    }
+  `}
+</Script>
       </body>
     </html>
   )
