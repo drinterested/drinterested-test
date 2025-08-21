@@ -65,7 +65,7 @@ export const advisors: MemberType[] = [
     name: "Chinthala Trisha Goud",
     role: "Medical Student Advisor",
     bio: "Chinthala Trisha Goud is a dedicated medical student who provides valuable guidance and mentorship to Dr. Interested members. Her expertise in medical education and passion for teaching help shape our programs and ensure they align with current healthcare standards.",
-    image: "/logo.png",
+    image: "/chinthala.png",
     socialLinks: {},
   },
   {
@@ -73,7 +73,7 @@ export const advisors: MemberType[] = [
     name: "Akeer Kuol Malual",
     role: "Medical Student Advisor",
     bio: "Akeer Kuol Malual brings extensive knowledge from medical school to advise Dr. Interested on curriculum development and student mentorship. His commitment to healthcare education excellence helps guide our organization's educational initiatives.",
-    image: "/logo.png",
+    image: "/akeer-med.png",
     socialLinks: {},
   },
   {
@@ -81,7 +81,7 @@ export const advisors: MemberType[] = [
     name: "Muhammad Shamoon Umerani",
     role: "Medical Student Advisor",
     bio: "Muhammad Shamoon Umerani serves as a medical student advisor, offering insights into medical education pathways and career development. His guidance helps ensure our programs prepare students effectively for healthcare careers.",
-    image: "/logo.png",
+    image: "/shamoon.png",
     socialLinks: {},
   },
 ]
