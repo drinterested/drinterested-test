@@ -81,7 +81,7 @@ export const advisors: MemberType[] = [
     name: "Muhammad Shamoon Umerani",
     role: "Medical Student Advisor",
     bio: "Muhammad Shamoon Umerani serves as a medical student advisor, offering insights into medical education pathways and career development. His guidance helps ensure our programs prepare students effectively for healthcare careers.",
-    image: "/shamoon.png",
+    image: "/shamoon.jpg",
     socialLinks: {},
   },
 ]
