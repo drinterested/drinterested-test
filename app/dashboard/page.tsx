@@ -37,6 +37,7 @@ type Blog = {
   reading_time: string
   featured: boolean
   author_id: string
+  author_name?: string
   created_at: string
 }
 
