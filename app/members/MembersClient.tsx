@@ -104,6 +104,8 @@ export default function MembersClient() {
   }
 
   // Dynamic distribution of members
+  // NOTE: Podcast members are routed into Publications (no separate sub-section per meeting decision)
+  // NOTE: Ambassadors are excluded from the generic dept match — rendered as a sub-section inside HR
   const getDepartmentMatch = (deptId: string, memberDept: string) => {
     const id = deptId.toLowerCase()
     const mDept = (memberDept || "").toLowerCase()
@@ -111,12 +113,28 @@ export default function MembersClient() {
     if (id === "outreach") return mDept.includes("outreach")
     if (id === "research") return mDept.includes("research")
     if (id === "marketing") return mDept.includes("marketing")
-    if (id === "publications") return mDept.includes("publication")
-    if (id === "hr") return mDept.includes("human resources") || mDept.includes("hr")
+    // Podcast members show under Publications (meeting decision: no separate sub-section)
+    if (id === "publications") return mDept.includes("publication") || mDept.includes("podcast")
+    // Ambassadors are handled separately inside HR — exclude them from the generic HR match
+    if (id === "hr") return (mDept.includes("human resources") || mDept.includes("hr")) && !mDept.includes("ambassador")
     if (id === "events") return mDept.includes("event")
     if (id === "grants") return mDept.includes("grant") || mDept.includes("finance")
     return false
   }
+
+  // Ambassadors — shown as a sub-section inside the HR department card
+  const rawAmbassadors = dbMembers.filter((m) =>
+    (m.department || "").toLowerCase().includes("ambassador") ||
+    (m.role || "").toLowerCase().includes("organizational ambassador")
+  )
+  const ambassadorsList: MemberType[] = rawAmbassadors.map((a) => ({
+    id: a.id,
+    name: a.name,
+    role: a.role,
+    image: formatImagePath(a.image),
+    bio: a.bio || "",
+    socialLinks: a.socials || {},
+  }))
 
   // 1. Executive Director / President
   const rawEd = dbMembers.find((m) => m.role === "Executive Director" || m.role === "President")
@@ -560,6 +578,57 @@ export default function MembersClient() {
                                     </div>
                                   </CardContent>
                                 </Card>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Ambassadors sub-section — shown inside HR department only (meeting decision) */}
+                      {department.id === "hr" && ambassadorsList.length > 0 && (
+                        <div className="p-4 border-t border-[#405862]/10">
+                          <div className="flex items-center gap-2 mb-3">
+                            <h4 className="text-sm font-semibold text-[#405862]/80 font-bricolage">Organizational Ambassadors</h4>
+                            <span className="text-[10px] bg-[#4ecdc4]/15 text-[#405862] px-1.5 py-0.5 rounded-full font-medium border border-[#4ecdc4]/25">
+                              Sub-team
+                            </span>
+                          </div>
+                          <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+                            {ambassadorsList.map((ambassador) => {
+                              if (!ambassador) return null;
+                              return (
+                                <div
+                                  key={ambassador.id}
+                                  className="flex items-center gap-2 p-2 rounded-lg bg-[#f5f1eb]/40 border border-[#405862]/10 hover:border-[#4ecdc4]/40 transition-colors"
+                                >
+                                  <div className="relative h-7 w-7 rounded-full overflow-hidden flex-shrink-0">
+                                    <Image
+                                      src={ambassador.image}
+                                      alt={ambassador.name}
+                                      fill
+                                      sizes="28px"
+                                      className="object-cover"
+                                    />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <p className="font-medium text-xs text-[#405862] truncate font-bricolage">{ambassador.name}</p>
+                                    <p className="text-[10px] text-[#405862]/60 truncate">{ambassador.role}</p>
+                                  </div>
+                                  {(ambassador.socialLinks?.linkedin || ambassador.socialLinks?.instagram) && (
+                                    <div className="flex gap-1 ml-auto shrink-0">
+                                      {ambassador.socialLinks?.linkedin && (
+                                        <Link href={ambassador.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#405862]/50 hover:text-[#4ecdc4] transition-colors">
+                                          <Linkedin className="h-3 w-3" />
+                                        </Link>
+                                      )}
+                                      {ambassador.socialLinks?.instagram && (
+                                        <Link href={ambassador.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-[#405862]/50 hover:text-[#4ecdc4] transition-colors">
+                                          <Instagram className="h-3 w-3" />
+                                        </Link>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
                               );
                             })}
                           </div>

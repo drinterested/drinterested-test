@@ -60,6 +60,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   let authorData = post.author || {}
   if (Array.isArray(authorData)) authorData = authorData[0] || {}
 
+  // Priority: joined member name > manual author_name field > "Unknown Author"
+  const resolvedAuthorName = authorData.name || post.author_name || "Unknown Author"
+
   const formattedPost = {
     slug: post.slug,
     title: post.title,
@@ -74,7 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       day: "numeric",
     }),
     author: {
-      name: authorData.name || "Unknown Author",
+      name: resolvedAuthorName,
       image: authorData.image || "/logo.png",
       bio: authorData.bio || "",
       linkedIn: authorData.socials?.linkedin || "",

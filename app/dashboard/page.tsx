@@ -715,7 +715,9 @@ export default function DbAdminPage() {
         cover_image: blogForm.cover_image,
         topic: blogForm.topic,
         reading_time: blogForm.reading_time,
-        author_id: blogForm.author_id,
+        // author_id links to a member; author_name is for non-member / guest authors
+        author_id: blogForm.author_id || null,
+        author_name: !blogForm.author_id ? (blogForm.author_name || null) : null,
         featured: blogForm.featured || false
       }
 
@@ -1581,14 +1583,27 @@ export default function DbAdminPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-1">Author</label>
                   <select
                     value={blogForm.author_id || ""}
-                    onChange={(e) => setBlogForm({ ...blogForm, author_id: e.target.value })}
+                    onChange={(e) => setBlogForm({ ...blogForm, author_id: e.target.value, author_name: e.target.value ? "" : blogForm.author_name })}
                     className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
                   >
-                    <option value="" disabled>Select an Author</option>
+                    <option value="">— No member selected (use name below) —</option>
                     {members.map(m => (
                       <option key={m.id} value={m.id}>{m.name} ({m.role})</option>
                     ))}
                   </select>
+                  {/* Manual author name — for guest authors / non-members (meeting decision) */}
+                  {!blogForm.author_id && (
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        value={(blogForm as any).author_name || ""}
+                        onChange={(e) => setBlogForm({ ...blogForm, author_name: e.target.value } as any)}
+                        placeholder="Or type author name manually (e.g. guest writer)"
+                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] text-sm"
+                      />
+                      <p className="text-xs text-gray-400 mt-1">Leave blank to show \"Unknown Author\"</p>
+                    </div>
+                  )}
                 </div>
               </div>
 

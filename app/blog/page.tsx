@@ -44,6 +44,9 @@ export default async function BlogPage() {
       let authorData = blog.author || {}
       if (Array.isArray(authorData)) authorData = authorData[0] || {}
 
+      // Priority: joined member name > manual author_name field > "Unknown Author"
+      const resolvedAuthorName = authorData.name || blog.author_name || "Unknown Author"
+
       return {
         slug: blog.slug,
         title: blog.title,
@@ -59,7 +62,7 @@ export default async function BlogPage() {
           day: "numeric",
         }),
         author: {
-          name: authorData.name || "Unknown Author",
+          name: resolvedAuthorName,
           image: authorData.image || "/logo.png",
           bio: authorData.bio || "",
           linkedIn:  authorData.socials?.linkedin || "",
