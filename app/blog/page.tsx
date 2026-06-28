@@ -3,7 +3,7 @@ import { generateSeoMetadata } from "@/lib/seo-utils"
 import BlogClientPage from "./BlogClientPage"
 import { supabase } from "@/lib/supabase-client"
 
-export const revalidate = 0; // Don't statically cache, fetch dynamically
+export const revalidate = 300; // Revalidate blogs every 5 minutes (ISR)
 
 export const metadata: Metadata = generateSeoMetadata({
   title: "Blog",

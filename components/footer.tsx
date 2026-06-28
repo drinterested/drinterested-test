@@ -180,7 +180,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-5 border-t border-[#4f6b75] flex flex-col md:flex-row justify-between items-center gap-3">
-          <div className="text-xs text-white/70">© 2026 Dr. Interested. All rights reserved.</div>
+          <div className="text-xs text-white/70">© {new Date().getFullYear()} Dr. Interested. All rights reserved.</div>
+
           <div className="flex items-center gap-3 text-xs">
             <Link
               href="/dashboard?login=true"

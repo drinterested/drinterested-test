@@ -19,6 +19,7 @@ import {
   ShoppingBag,
   ShoppingCart,
   Tag,
+  Link2,
 } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
@@ -28,22 +29,20 @@ import { getFeaturedPosts, getRecentPosts } from "@/data/blog"
 import NewsletterForm from "@/components/newsletter-form"
 import { motion } from "framer-motion"
 import { Quote, Users, TrendingUp, Heart, Award, BookOpen, Sparkles, Globe } from "lucide-react"
-import SeoSchema from "@/components/seo-schema"
-import { generateOrganizationSchema } from "@/lib/seo-utils"
+
 import { DomainAnnouncementPopup } from "@/components/domain-announcement-popup"
 import DiscordIcon from "@/components/icons/discord-icon"
 
+export default function HomePage({ recentPost: passedRecentPost }: { recentPost?: any }) {
+  const [isLoaded, setIsLoaded] = useState(false)
 
+  // A13: scaleIn moved inside component (was incorrectly at module scope)
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   }
-export default function HomePage({ recentPost: passedRecentPost }: { recentPost?: any }) {
-  const [isLoaded, setIsLoaded] = useState(false)
 
-  // Scroll to top on page load test
   useEffect(() => {
-    window.scrollTo(0, 0)
     setIsLoaded(true)
   }, [])
 
@@ -72,7 +71,6 @@ export default function HomePage({ recentPost: passedRecentPost }: { recentPost?
 
   return (
     <div className="flex flex-col min-h-screen">
-      <SeoSchema schema={generateOrganizationSchema()} />
       <ScrollToTop />
       <DomainAnnouncementPopup />
 
@@ -145,20 +143,7 @@ export default function HomePage({ recentPost: passedRecentPost }: { recentPost?
                     className="inline-flex items-center text-[#405862] hover:text-[#4ecdc4] transition-colors gap-1 hover:scale-110 duration-200"
                     aria-label="All Links"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
+                    <Link2 className="h-5 w-5" />
                   </Link>
                 </div>
               </div>
