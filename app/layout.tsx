@@ -111,9 +111,9 @@ export const metadata: Metadata = {
   ],
   generator: "Next.js",
   metadataBase: new URL("https://www.drinterested.org"),
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? {
-    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
-  } : {}),
+  verification: {
+    google: "google-site-verification-code",
+  },
   robots: {
     index: true,
     follow: true,
@@ -156,14 +156,14 @@ export default function RootLayout({
             })();
           `}
         </Script>
-        {/* Google Analytics - ID configured via NEXT_PUBLIC_GA_ID env var */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
+        {/* Google tag (gtag.js) */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-6MYCRFPPGE" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+            gtag('config', 'G-6MYCRFPPGE');
           `}
         </Script>
         <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="lazyOnload" />
