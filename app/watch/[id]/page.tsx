@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import WatchPageClient from "@/components/watch/WatchPageClient"
 import { supabase } from "@/lib/supabase-client"
 
-export const revalidate = 0; // Don't statically cache
+export const revalidate = 3600; // Revalidate individual webinars every hour (ISR)
 
 export async function generateMetadata({
   params,

@@ -3,7 +3,7 @@ import { generateSeoMetadata } from "@/lib/seo-utils"
 import BlogClientPage from "./BlogClientPage"
 import { supabase } from "@/lib/supabase-client"
 
-export const revalidate = 0; // Don't statically cache, fetch dynamically
+export const revalidate = 300; // Revalidate blogs every 5 minutes (ISR)
 
 export const metadata: Metadata = generateSeoMetadata({
   title: "Blog",
@@ -44,6 +44,9 @@ export default async function BlogPage() {
       let authorData = blog.author || {}
       if (Array.isArray(authorData)) authorData = authorData[0] || {}
 
+      // Priority: joined member name > manual author_name field > "Unknown Author"
+      const resolvedAuthorName = authorData.name || blog.author_name || "Unknown Author"
+
       return {
         slug: blog.slug,
         title: blog.title,
@@ -59,7 +62,7 @@ export default async function BlogPage() {
           day: "numeric",
         }),
         author: {
-          name: authorData.name || "Unknown Author",
+          name: resolvedAuthorName,
           image: authorData.image || "/logo.png",
           bio: authorData.bio || "",
           linkedIn:  authorData.socials?.linkedin || "",

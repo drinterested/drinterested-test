@@ -167,7 +167,6 @@ export default function RootLayout({
           `}
         </Script>
         <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="lazyOnload" />
-        <link rel="canonical" href="https://www.drinterested.org" />
         <link
           rel="alternate"
           type="application/rss+xml"

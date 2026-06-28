@@ -18,7 +18,7 @@ export function generateSeoMetadata(config: SEOConfig): Metadata {
     title,
     description,
     keywords = [],
-    image = "/android-chrome-512x512.png",
+    image = "/websitebanner.jpg",
     url,
     type = "website",
     publishedTime,
@@ -39,14 +39,15 @@ export function generateSeoMetadata(config: SEOConfig): Metadata {
       images: [
         {
           url: image,
-          width: 512,
-          height: 512,
+          width: image === "/android-chrome-512x512.png" ? 512 : 1200,
+          height: image === "/android-chrome-512x512.png" ? 512 : 630,
           alt: title,
         },
       ],
       siteName: "Dr. Interested",
       locale: "en_US",
     },
+
     twitter: {
       card: "summary_large_image",
       title,

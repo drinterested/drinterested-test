@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { supabase } from "@/lib/supabase-client"
 
-export const revalidate = 0; // Don't statically cache
+export const revalidate = 300; // Revalidate webinars every 5 minutes (ISR)
 
 export default async function WebinarGalleryPage() {
 
