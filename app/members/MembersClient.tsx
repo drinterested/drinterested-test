@@ -60,7 +60,11 @@ export default function MembersClient() {
           .order("created_at", { ascending: true })
 
         if (error) throw error
-        setDbMembers(data || [])
+        // Filter out members with the deprecated "Blog Author" role (meeting decision: remove Blog Author as a distinct tag in the directory)
+        const filtered = (data || []).filter(
+          (m) => (m.role || "").toLowerCase() !== "blog author"
+        )
+        setDbMembers(filtered)
       } catch (err) {
         console.error("Error loading database members:", err)
       } finally {
