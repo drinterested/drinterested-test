@@ -524,11 +524,12 @@ export default function HomePage({ recentPost: passedRecentPost }: { recentPost?
                           Registration Closed
                         </Button>
                       ) : (
-                        <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5] group" asChild>
-                          <Link href={latestEvent.link}>
-                            See Impact
-                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                          </Link>
+                        <Button
+                          className="w-full bg-[#405862]/20 text-[#405862]/50 cursor-not-allowed"
+                          disabled
+                        >
+                          <AlertCircle className="mr-2 h-4 w-4" />
+                          Event Completed
                         </Button>
                       )}
                     </div>

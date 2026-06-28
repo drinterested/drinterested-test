@@ -92,6 +92,8 @@ export default function DbApplyPage() {
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
   const [selectedDepartment, setSelectedDepartment] = useState("")
   const [selectedRole, setSelectedRole] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   // Cropper State
   const [imageSrc, setImageSrc] = useState<string | null>(null)
@@ -134,6 +136,12 @@ export default function DbApplyPage() {
     setMessage(null)
 
     const formData = new FormData(e.currentTarget)
+
+    if (password !== confirmPassword) {
+      setMessage({ type: "error", text: "Passwords do not match." })
+      setLoading(false)
+      return
+    }
 
     // Server-side length validation
     const nameVal = formData.get("name") as string
@@ -229,6 +237,16 @@ export default function DbApplyPage() {
       validateSocialUrl(newMember.socials.linkedin)
       validateSocialUrl(newMember.socials.instagram)
       
+      // Register credentials in Supabase Auth
+      const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+        email: newMember.email,
+        password: password,
+      })
+
+      if (signUpError) {
+        throw new Error(`Authentication signup failed: ${signUpError.message}`)
+      }
+
       const { error } = await supabase.from("members").insert([newMember])
 
       if (error) throw error
@@ -251,6 +269,8 @@ export default function DbApplyPage() {
       ;(e.target as HTMLFormElement).reset()
       setSelectedDepartment("")
       setSelectedRole("")
+      setPassword("")
+      setConfirmPassword("")
       setFinalCroppedFile(null)
       setImageSrc(null)
     } catch (err: any) {
@@ -333,6 +353,36 @@ export default function DbApplyPage() {
             required
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] focus:border-transparent transition-all"
           />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="password" className="block font-medium mb-1 text-[#1a1a1a]">Password *</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minLength={6}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] focus:border-transparent transition-all"
+              placeholder="Min. 6 characters"
+            />
+          </div>
+          <div>
+            <label htmlFor="confirmPassword" className="block font-medium mb-1 text-[#1a1a1a]">Confirm Password *</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] focus:border-transparent transition-all"
+              placeholder="Re-type password"
+            />
+          </div>
         </div>
 
         <div>

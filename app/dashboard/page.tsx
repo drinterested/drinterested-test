@@ -75,6 +75,8 @@ export default function DbAdminPage() {
   const [authError, setAuthError] = useState(false)
   const [isLoggingIn, setIsLoggingIn] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [googleDriveUrl, setGoogleDriveUrl] = useState("https://drive.google.com")
+  const [isSavingUrl, setIsSavingUrl] = useState(false)
 
   // Current Logged-in User Data
   const [currentUser, setCurrentUser] = useState<any | null>(null)
@@ -188,9 +190,43 @@ export default function DbAdminPage() {
     getProfile()
   }, [isAuthenticated])
 
+  const fetchGoogleDriveUrl = async () => {
+    try {
+      const { data } = await supabase
+        .from("settings")
+        .select("value")
+        .eq("key", "google_drive_url")
+        .maybeSingle()
+      if (data?.value) {
+        setGoogleDriveUrl(data.value)
+      }
+    } catch (err) {
+      console.error("Error fetching Google Drive URL:", err)
+    }
+  }
+
+  const handleUpdateDriveUrl = async (newUrl: string) => {
+    setIsSavingUrl(true)
+    try {
+      const { error } = await supabase
+        .from("settings")
+        .upsert({ key: "google_drive_url", value: newUrl })
+      if (error) throw error
+      alert("Google Drive URL updated successfully!")
+    } catch (err: any) {
+      console.error(err)
+      alert("Failed to update Google Drive URL: " + err.message)
+    } finally {
+      setIsSavingUrl(false)
+    }
+  }
+
+
   // Data Fetching Effect for Admins and Members
   useEffect(() => {
     if (!isAuthenticated) return
+
+    fetchGoogleDriveUrl()
 
     if (isHrOrAdmin) {
       if (activeMainTab === "members") {
@@ -318,6 +354,22 @@ export default function DbAdminPage() {
 
       if (error) throw error
       setActiveTimecard(data)
+
+      // Securely trigger the Discord notification via our API route
+      try {
+        await fetch("/api/members/timecard/notify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            member_name: currentUser.name,
+            action: "in",
+            description: clockInInput.trim() || undefined
+          })
+        })
+      } catch (notifyErr) {
+        console.error("Failed to send clock-in notification:", notifyErr)
+      }
+
       setClockInInput("")
     } catch (err: any) {
       console.error(err)
@@ -342,6 +394,23 @@ export default function DbAdminPage() {
         .eq("id", activeTimecard.id)
 
       if (error) throw error
+
+      // Securely trigger the Discord notification via our API route
+      try {
+        await fetch("/api/members/timecard/notify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            member_name: currentUser.name,
+            action: "out",
+            description: clockInInput.trim() || undefined,
+            duration_minutes: durationMin
+          })
+        })
+      } catch (notifyErr) {
+        console.error("Failed to send clock-out notification:", notifyErr)
+      }
+
       setActiveTimecard(null)
       setClockInInput("")
       fetchMemberTimecardHistory()
@@ -432,49 +501,6 @@ export default function DbAdminPage() {
     } catch (err: any) {
       console.error(err)
       alert(`Approval operation failed: ${err.message}`)
-    }
-  }
-
-  const handleDownloadTimesheetsAndReset = async () => {
-    if (!confirm("This will download a CSV archive of all current timecards and delete/archive them to reset hours for the year. Continue?")) return
-
-    try {
-      // 1. Generate CSV content
-      const headers = ["Member Name", "Department", "Role", "Clock In", "Clock Out", "Duration (Minutes)", "Description", "Approved"]
-      const rows = allTimecards.map(c => [
-        c.member?.name || "System Admin/Owner",
-        c.member?.department || "HR",
-        c.member?.role || "Administrator",
-        c.clock_in,
-        c.clock_out || "Active/Pending",
-        c.duration_minutes || 0,
-        `"${(c.description || "").replace(/"/g, '""')}"`,
-        c.approved
-      ])
-
-      const csvContent = [headers.join(","), ...rows.map(e => e.join(","))].join("\n")
-      
-      // Trigger browser download
-      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" })
-      const link = document.createElement("a")
-      link.href = URL.createObjectURL(blob)
-      link.setAttribute("download", `DrInterested_Timesheets_Archive_${new Date().getFullYear()}.csv`)
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-
-      // 2. Perform bulk reset - flag everything as archived
-      const { error } = await supabase
-        .from("timecards")
-        .update({ archived: true })
-        .eq("archived", false)
-
-      if (error) throw error
-      alert("Successfully reset active hours and downloaded the spreadsheet archive!")
-      fetchAdminTimesheets()
-    } catch (err: any) {
-      console.error(err)
-      alert(`Export/Reset failed: ${err.message}`)
     }
   }
 
@@ -1044,7 +1070,7 @@ export default function DbAdminPage() {
               <p className="text-gray-500 text-sm mb-6 leading-relaxed">Access all community documentation, design templates, and shared folders directly via the central Google Drive workspace link.</p>
             </div>
             <Link
-              href="https://drive.google.com"
+              href={googleDriveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold rounded-lg text-center transition-all flex items-center justify-center gap-2 text-sm"
@@ -1078,12 +1104,6 @@ export default function DbAdminPage() {
         <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
           <div className="flex justify-between items-center pb-4 mb-6 border-b border-gray-100">
             <h2 className="text-xl font-bold font-bricolage text-[#1a1a1a]">Timesheet Shift Approvals</h2>
-            <button
-              onClick={handleDownloadTimesheetsAndReset}
-              className="px-4 py-2 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg transition-colors text-sm"
-            >
-              Archive & Reset Year
-            </button>
           </div>
 
           {allTimecards.length === 0 ? (
@@ -1202,6 +1222,27 @@ export default function DbAdminPage() {
       {/* 6. Original Members Tab */}
       {isHrOrAdmin && activeMainTab === "members" && (
         <>
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
+            <h3 className="text-lg font-bold font-bricolage mb-1.5 text-[#1a1a1a]">Configure Portal Links</h3>
+            <p className="text-xs text-gray-500 mb-4">Update the central Google Drive URL accessed by all coordinators.</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="url"
+                value={googleDriveUrl}
+                onChange={(e) => setGoogleDriveUrl(e.target.value)}
+                className="flex-1 p-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                placeholder="https://drive.google.com/..."
+              />
+              <button
+                onClick={() => handleUpdateDriveUrl(googleDriveUrl)}
+                disabled={isSavingUrl}
+                className="px-5 py-2.5 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg text-sm transition-colors disabled:opacity-75"
+              >
+                {isSavingUrl ? "Saving..." : "Update Link"}
+              </button>
+            </div>
+          </div>
+
           <div className="flex gap-4 border-b-2 border-gray-200 mb-8">
             <button
               onClick={() => setActiveTab("pending")}

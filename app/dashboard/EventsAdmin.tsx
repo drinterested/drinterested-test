@@ -26,6 +26,7 @@ export default function EventsAdmin() {
   const [isCreating, setIsCreating] = useState(false)
   const [form, setForm] = useState<Partial<Event>>({})
   const [saving, setSaving] = useState(false)
+  const [activeSubTab, setActiveSubTab] = useState<"active" | "inactive">("active")
 
   useEffect(() => {
     fetchEvents()
@@ -178,22 +179,57 @@ export default function EventsAdmin() {
     )
   }
 
+  const sortEvents = (list: Event[], ascending = true) => {
+    return [...list].sort((a, b) => {
+      const dateA = new Date(a.date).getTime() || 0
+      const dateB = new Date(b.date).getTime() || 0
+      return ascending ? dateA - dateB : dateB - dateA
+    })
+  }
+
+  const activeEvents = sortEvents(events.filter(e => !e.is_past), true)
+  const inactiveEvents = sortEvents(events.filter(e => e.is_past), false)
+  const displayedEvents = activeSubTab === "active" ? activeEvents : inactiveEvents
+
   return (
     <>
-      <div className="flex justify-between items-center border-b-2 border-gray-200 pb-4 mb-8">
+      <div className="flex justify-between items-center border-b-2 border-gray-200 pb-4 mb-6">
         <h2 className="text-xl font-semibold text-gray-800">Manage Events</h2>
         <button onClick={() => { setForm({}); setIsCreating(true); }} className="px-4 py-2 bg-[#4CAF7D] text-white font-semibold rounded-lg">
           + Create New Event
         </button>
       </div>
 
+      <div className="flex gap-4 border-b border-gray-200 mb-6">
+        <button
+          onClick={() => setActiveSubTab("active")}
+          className={`px-4 py-2 font-medium text-sm border-b-2 transition-colors -mb-[2px] ${
+            activeSubTab === "active"
+              ? "text-[#4CAF7D] border-[#4CAF7D] font-bold"
+              : "text-gray-500 border-transparent hover:text-gray-700"
+          }`}
+        >
+          Active Events ({activeEvents.length})
+        </button>
+        <button
+          onClick={() => setActiveSubTab("inactive")}
+          className={`px-4 py-2 font-medium text-sm border-b-2 transition-colors -mb-[2px] ${
+            activeSubTab === "inactive"
+              ? "text-[#4CAF7D] border-[#4CAF7D] font-bold"
+              : "text-gray-500 border-transparent hover:text-gray-700"
+          }`}
+        >
+          Inactive/Past Events ({inactiveEvents.length})
+        </button>
+      </div>
+
       {loading ? (
         <div className="flex justify-center py-10"><Loader2 className="w-8 h-8 animate-spin text-[#4CAF7D]" /></div>
-      ) : events.length === 0 ? (
-        <div className="text-center py-10 text-gray-500">No events found</div>
+      ) : displayedEvents.length === 0 ? (
+        <div className="text-center py-10 text-gray-500">No events found in this category</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event) => (
+          {displayedEvents.map((event) => (
             <div key={event.id} className="bg-white border rounded-xl overflow-hidden flex flex-col">
               <div className="h-40 bg-gray-100 relative">
                 <img src={event.image} className="w-full h-full object-cover" alt={event.title} />

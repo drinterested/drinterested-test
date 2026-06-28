@@ -123,11 +123,13 @@ export default function EventsClientPage({ upcomingEvents, pastEvents }: { upcom
                         Registration Closed
                       </Button>
                     ) : (
-                      <Button className="w-full bg-[#4ecdc4] hover:bg-[#3dbdb5] text-xs h-8 group" size="sm" asChild>
-                        <Link href={event.link}>
-                          See Impact
-                          <CheckCircle className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                        </Link>
+                      <Button
+                        className="w-full bg-[#405862]/20 text-[#405862]/50 cursor-not-allowed text-xs h-8"
+                        size="sm"
+                        disabled
+                      >
+                        <AlertCircle className="mr-1.5 h-3.5 w-3.5" />
+                        Event Completed
                       </Button>
                     )}
                   </CardFooter>
@@ -178,14 +180,14 @@ export default function EventsClientPage({ upcomingEvents, pastEvents }: { upcom
                       {event.date}
                     </div>
                     <p className="text-xs text-[#405862]/80 mb-3 line-clamp-3">{event.description}</p>
-                    <Button
+                     <Button
                       variant="outline"
-                      className="border-[#405862] text-[#405862] hover:bg-[#405862] hover:text-white h-8 text-xs group bg-transparent"
+                      className="w-full md:w-auto border-[#405862] text-[#405862] hover:bg-[#405862] hover:text-white h-8 text-xs group bg-transparent"
                       size="sm"
                       asChild
                     >
                       {event.title === "Dr. Interested Medical-Technological Internship" ? (
-                        <Link href="/events/internship-recap" className="inline-flex items-center">
+                        <Link href="/events/internship-recap" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center">
                           View Recap
                           <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                         </Link>
@@ -194,7 +196,7 @@ export default function EventsClientPage({ upcomingEvents, pastEvents }: { upcom
                           href={event.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center"
+                          className="inline-flex items-center justify-center"
                         >
                           View Recap
                           <ExternalLink className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

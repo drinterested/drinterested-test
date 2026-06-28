@@ -45,8 +45,19 @@ export default async function EventsPage() {
     .select("*")
     .order("created_at", { ascending: false })
 
-  const upcomingEvents = allEventsData?.filter(e => !e.is_past) || []
-  const pastEvents = allEventsData?.filter(e => e.is_past) || []
+  const sortEvents = (eventsList: any[], ascending = true) => {
+    return [...eventsList].sort((a, b) => {
+      const dateA = new Date(a.date).getTime() || 0
+      const dateB = new Date(b.date).getTime() || 0
+      return ascending ? dateA - dateB : dateB - dateA
+    })
+  }
+
+  const rawUpcoming = allEventsData?.filter(e => !e.is_past) || []
+  const rawPast = allEventsData?.filter(e => e.is_past) || []
+
+  const upcomingEvents = sortEvents(rawUpcoming, true)
+  const pastEvents = sortEvents(rawPast, false)
 
   const weissOpenEventSchema = {
     "@context": "https://schema.org",
