@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import ClientPage from "./client-page"
 import { supabase } from "@/lib/supabase-client"
 
-export const revalidate = 300; // Revalidate homepage every 5 minutes (ISR)
+export const revalidate = 10; // Caches for 10 seconds to ensure quick dashboard updates are visible
 
 export const metadata: Metadata = {
   title: "Dr. Interested - Inspiring Future Healthcare Leaders",
@@ -48,7 +48,7 @@ export default async function Page() {
         day: "numeric",
       }),
       author: {
-        name: authorData.name || "Unknown Author",
+        name: authorData.name || recentPostData.author_name || "Unknown Author",
         image: authorData.image || "/logo.png",
         bio: authorData.bio || "",
         linkedIn: authorData.socials?.linkedin || "",

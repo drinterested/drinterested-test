@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import EventsClientPage from "./EventsClientPage"
 import { supabase } from "@/lib/supabase-client"
 
-export const revalidate = 60; // Revalidate events every 60 seconds (ISR)
+export const revalidate = 10; // Caches for 10 seconds to ensure quick dashboard updates are visible
 
 export const metadata: Metadata = {
   title: "Events",
