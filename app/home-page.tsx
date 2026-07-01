@@ -97,7 +97,7 @@ export default function HomePage({ recentPost: passedRecentPost, featuredEvent: 
                 Inspiring the Next Generation of Healthcare Professionals
               </p>
               <p className="text-[#405862]/80 max-w-md">
-                Dr. Interested is a youth-led global pre-med community helping students explore the vast world of healthcare, research, and advocacy. 
+                Dr. Interested is a global organization helping students explore the vast world of healthcare, research, and advocacy. 
                 We support youth in finding their unique "spark" in medicine through interactive programs, publishing opportunities, and leadership development.
               </p>
               <div className="flex flex-wrap gap-3 items-center mt-4">

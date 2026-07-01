@@ -129,7 +129,7 @@ export default function Navbar() {
                     Join Us
                   </Link>
                   <Link
-                    href="https://discord.gg/pzbGRgsGXY"
+                    href="https://forms.gle/UMyitptfyXvdSCtz7"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full justify-center bg-[#405862] text-white hover:bg-[#334852] px-4 py-3 rounded-md text-sm font-medium transition-all hover:shadow-md"

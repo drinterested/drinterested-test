@@ -820,14 +820,14 @@ export default function MembersClient() {
                   <div className="p-5 bg-[#f5f1eb]/30 rounded-xl border border-[#405862]/10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                       <h4 className="font-bold text-[#405862] font-bricolage text-sm md:text-base">
-                        Extra Opportunities <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-[#405862]/10 rounded text-[#405862] ml-1">Canada · Under 18</span>
+                        Extra Opportunities <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-[#405862]/10 rounded text-[#405862] ml-1">Worldwide · Under 30</span>
                       </h4>
                       <div className="relative w-20 h-6 shrink-0">
                         <Image src="/glocal.webp" alt="GLOCAL Foundation Logo" fill sizes="80px" className="object-contain" />
                       </div>
                     </div>
                     <p className="text-[11px] text-[#405862]/70 mb-3 italic">
-                      Canadian youth opportunities with support from the GLOCAL Foundation of Canada.
+                      Global youth opportunities with support from the GLOCAL Foundation.
                     </p>
                     <ul className="space-y-2.5">
                       {[
@@ -900,7 +900,7 @@ export default function MembersClient() {
                         </p>
                       </div>
                       <Link
-                        href="https://forms.gle/TrkdUpn2TtDrRAAH6"
+                        href="https://forms.gle/UMyitptfyXvdSCtz7"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full"
@@ -924,7 +924,7 @@ export default function MembersClient() {
                         </p>
                       </div>
                       <Link
-                        href="https://forms.gle/H5jZkekPubdtwcTS6"
+                        href="https://forms.gle/UMyitptfyXvdSCtz7"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full"
@@ -948,7 +948,7 @@ export default function MembersClient() {
                         </p>
                       </div>
                       <Link
-                        href="https://forms.gle/fH2equ2mCwDX9PpH6"
+                        href="https://forms.gle/UMyitptfyXvdSCtz7"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full"
