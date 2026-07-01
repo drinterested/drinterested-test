@@ -162,16 +162,6 @@ export default async function MemberPage({ params }: { params: Promise<{ id: str
                       Website
                     </Link>
                   )}
-                  {member.socials.github && (
-                    <Link
-                      href={member.socials.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#405862] hover:text-[#4ecdc4] underline"
-                    >
-                      GitHub
-                    </Link>
-                  )}
                 </div>
               )}
               <div className="mt-6">

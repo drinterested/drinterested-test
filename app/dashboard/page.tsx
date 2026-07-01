@@ -20,7 +20,7 @@ type Member = {
   approved: boolean
   created_at: string
   socials: {
-    github?: string
+    website?: string
     linkedin?: string
     instagram?: string
   }
@@ -1524,11 +1524,11 @@ export default function DbAdminPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">GitHub</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Website</label>
                   <input
                     type="text"
-                    value={editForm.socials?.github || ""}
-                    onChange={(e) => setEditForm({ ...editForm, socials: { ...editForm.socials, github: e.target.value } })}
+                    value={editForm.socials?.website || ""}
+                    onChange={(e) => setEditForm({ ...editForm, socials: { ...editForm.socials, website: e.target.value } })}
                     className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
                   />
                 </div>
