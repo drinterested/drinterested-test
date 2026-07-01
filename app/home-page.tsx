@@ -669,8 +669,8 @@ export default function HomePage({ recentPost: passedRecentPost, featuredEvent: 
               className="mb-10"
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-[#405862]">Latest from Our Blog</h3>
-                <Link href="/blog" className="text-[#405862] hover:text-[#4ecdc4] text-sm flex items-center group">
+                <h3 className="text-lg font-semibold text-[#405862]">Latest from Our Publications</h3>
+                <Link href="/publications" className="text-[#405862] hover:text-[#4ecdc4] text-sm flex items-center group">
                   <span>View all posts</span>
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -917,7 +917,7 @@ export default function HomePage({ recentPost: passedRecentPost, featuredEvent: 
 
             <motion.div variants={fadeIn}>
               <Link
-                href="/blog"
+                href="/publications"
                 className="flex flex-col items-center p-4 rounded-lg border border-[#405862]/10 hover:border-[#4ecdc4]/30 hover:bg-[#f5f1eb]/30 transition-all duration-300 h-full group"
               >
                 <div className="w-12 h-12 rounded-full bg-[#4ecdc4]/10 flex items-center justify-center mb-3 group-hover:bg-[#4ecdc4]/20 transition-colors">

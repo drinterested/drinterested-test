@@ -38,6 +38,8 @@ type Blog = {
   featured: boolean
   author_id: string
   author_name?: string
+  content_type?: string
+  policy_type?: string | null
   created_at: string
 }
 
@@ -719,7 +721,9 @@ export default function DbAdminPage() {
         // author_id links to a member; author_name is for non-member / guest authors
         author_id: blogForm.author_id || null,
         author_name: !blogForm.author_id ? (blogForm.author_name || null) : null,
-        featured: blogForm.featured || false
+        featured: blogForm.featured || false,
+        content_type: (blogForm as any).content_type || "blog",
+        policy_type: (blogForm as any).policy_type || null
       }
 
       let error;
@@ -1606,6 +1610,35 @@ export default function DbAdminPage() {
                     </div>
                   )}
                 </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Content Type</label>
+                  <select
+                    value={(blogForm as any).content_type || "blog"}
+                    onChange={(e) => setBlogForm({ ...blogForm, content_type: e.target.value } as any)}
+                    className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                  >
+                    <option value="blog">Blog Post</option>
+                    <option value="op-ed">Op-Ed</option>
+                    <option value="policy">Policy Work</option>
+                  </select>
+                </div>
+                {(blogForm as any).content_type === "policy" && (
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Policy Type</label>
+                    <select
+                      value={(blogForm as any).policy_type || "report"}
+                      onChange={(e) => setBlogForm({ ...blogForm, policy_type: e.target.value } as any)}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                    >
+                      <option value="report">Report</option>
+                      <option value="joint-statement">Joint Statement</option>
+                      <option value="input">Input / Submission</option>
+                    </select>
+                  </div>
+                )}
               </div>
 
               <div className="grid grid-cols-2 gap-4">

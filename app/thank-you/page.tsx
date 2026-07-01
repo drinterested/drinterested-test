@@ -72,7 +72,7 @@ export default function ThankYouPage() {
               variant="outline"
               className="w-full border-[#405862] text-[#405862] hover:bg-[#405862] hover:text-white bg-transparent"
             >
-              <Link href="/blog">Read Our Latest Articles</Link>
+              <Link href="/publications">Read Our Latest Articles</Link>
             </Button>
 
             <Button asChild variant="ghost" className="w-full text-[#405862] hover:bg-[#f5f1eb]">

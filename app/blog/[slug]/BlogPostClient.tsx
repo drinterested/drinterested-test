@@ -97,7 +97,7 @@ export default function BlogPostClient({ post, relatedPosts }: { post: BlogPost,
         <h1 className="text-2xl font-bold text-[#405862] mb-4">Article not found</h1>
         <p className="text-[#405862]/70 mb-6">The article you're looking for doesn't exist or has been moved.</p>
         <Button asChild>
-          <Link href="/blog">Back to Blog</Link>
+          <Link href="/publications">Back to Publications</Link>
         </Button>
       </div>
     )
@@ -115,9 +115,9 @@ export default function BlogPostClient({ post, relatedPosts }: { post: BlogPost,
       <section className="hero-section bg-[#f5f1eb] py-12">
         <div className="container">
           <div className="flex items-center gap-2 mb-6">
-            <Link href="/blog" className="text-[#405862] hover:text-[#4ecdc4] transition-colors flex items-center">
+            <Link href="/publications" className="text-[#405862] hover:text-[#4ecdc4] transition-colors flex items-center">
               <ChevronLeft className="h-4 w-4 mr-1" />
-              Back to All Blogs
+              Back to All Publications
             </Link>
           </div>
 
@@ -539,13 +539,13 @@ export default function BlogPostClient({ post, relatedPosts }: { post: BlogPost,
         </section>
       )}
 
-      {/* Back to Blog */}
+      {/* Back to Publications */}
       <section className="py-12 bg-white">
         <div className="container text-center">
           <Button asChild className="bg-[#405862] hover:bg-[#334852]">
-            <Link href="/blog">
+            <Link href="/publications">
               <ChevronLeft className="h-4 w-4 mr-2" />
-              Back to All Blogs
+              Back to All Publications
             </Link>
           </Button>
         </div>

@@ -49,7 +49,7 @@ export default async function Page() {
       )
     `)
     .eq("featured", true)
-    .eq("is_published", true)
+    .eq("content_type", "blog")
     .order("created_at", { ascending: false })
     .limit(3)
 
@@ -65,7 +65,7 @@ export default async function Page() {
         socials
       )
     `)
-    .eq("is_published", true)
+    .eq("content_type", "blog")
     .order("created_at", { ascending: false })
     .limit(1)
     .single()

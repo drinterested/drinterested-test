@@ -482,9 +482,9 @@ export default function WatchPageClient({ webinar }: WatchPageClientProps) {
                         className="w-full justify-start border-gray-700 bg-transparent"
                         size="lg"
                       >
-                        <Link href="/blog">
+                        <Link href="/publications">
                           <ChevronRight className="h-5 w-5 mr-2 rotate-180" />
-                          Read Our Blog
+                          Read Our Publications
                         </Link>
                       </Button>
                       <Button

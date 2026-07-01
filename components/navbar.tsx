@@ -14,7 +14,7 @@ const routes = [
   { href: "/", label: "Home" },
   { href: "/our-work", label: "Our Work" },
   { href: "/events", label: "Events" },
-  { href: "/blog", label: "Blog" },
+  { href: "/publications", label: "Publications" },
   { href: "/members", label: "Members" },
   { href: "/sponsorships", label: "Sponsorships" },
   { href: "/contact", label: "Contact" },

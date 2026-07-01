@@ -658,10 +658,10 @@ export default function OurWorkPage() {
                 Get Involved
               </a>
               <a
-                href="/blog"
+                href="/publications"
                 className="bg-white/10 text-white px-7 py-2.5 rounded-lg font-semibold hover:bg-white/20 transition-colors backdrop-blur-sm"
               >
-                Read Our Blog
+                Read Our Publications
               </a>
             </div>
           </motion.div>

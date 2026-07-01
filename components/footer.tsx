@@ -91,8 +91,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
-                  Blog
+                <Link href="/publications" className="text-white/80 hover:text-[#4ecdc4] transition-colors">
+                  Publications
                 </Link>
               </li>
               <li>
