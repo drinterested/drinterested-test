@@ -108,7 +108,7 @@ export default async function Page() {
     recentPost = formatBlogPost(recentPostData)
   }
 
-  let featuredPosts = []
+  let featuredPosts: any[] = []
   if (featuredBlogsData && Array.isArray(featuredBlogsData)) {
     featuredPosts = featuredBlogsData.map(formatBlogPost)
   }
