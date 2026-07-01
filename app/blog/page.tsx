@@ -44,8 +44,8 @@ export default async function BlogPage() {
       let authorData = blog.author || {}
       if (Array.isArray(authorData)) authorData = authorData[0] || {}
 
-      // Priority: joined member name > manual author_name field > "Unknown Author"
-      const resolvedAuthorName = authorData.name || blog.author_name || "Unknown Author"
+      // Priority: manual author_name field > joined member name > "Unknown Author"
+      const resolvedAuthorName = blog.author_name || authorData.name || "Unknown Author"
 
       return {
         slug: blog.slug,

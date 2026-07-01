@@ -11,7 +11,49 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
+  // Fetch featured event from Supabase
+  const { data: featuredEventData } = await supabase
+    .from("events")
+    .select("*")
+    .eq("featured", true)
+    .eq("is_past", false)
+    .order("date", { ascending: true })
+    .limit(1)
+    .single()
 
+  // If no featured upcoming event, get the latest upcoming event
+  let featuredEvent = null
+  if (featuredEventData) {
+    featuredEvent = featuredEventData
+  } else {
+    const { data: latestEventData } = await supabase
+      .from("events")
+      .select("*")
+      .eq("is_past", false)
+      .order("date", { ascending: true })
+      .limit(1)
+      .single()
+    featuredEvent = latestEventData
+  }
+
+  // Fetch featured blog posts from Supabase
+  const { data: featuredBlogsData } = await supabase
+    .from("blogs")
+    .select(`
+      *,
+      author:members (
+        name,
+        bio,
+        image,
+        socials
+      )
+    `)
+    .eq("featured", true)
+    .eq("is_published", true)
+    .order("created_at", { ascending: false })
+    .limit(3)
+
+  // Fetch most recent blog post from Supabase
   const { data: recentPostData } = await supabase
     .from("blogs")
     .select(`
@@ -23,32 +65,35 @@ export default async function Page() {
         socials
       )
     `)
+    .eq("is_published", true)
     .order("created_at", { ascending: false })
     .limit(1)
     .single()
 
-  let recentPost = null;
-
-  if (recentPostData) {
-    let authorData = recentPostData.author || {}
+  // Helper function to format blog posts
+  const formatBlogPost = (blogData: any) => {
+    let authorData = blogData.author || {}
     if (Array.isArray(authorData)) authorData = authorData[0] || {}
+    
+    // Priority: manual author_name field > joined member name > "Unknown Author"
+    const resolvedAuthorName = blogData.author_name || authorData.name || "Unknown Author"
 
-    recentPost = {
-      slug: recentPostData.slug,
-      title: recentPostData.title,
-      excerpt: recentPostData.excerpt,
-      content: recentPostData.content,
-      coverImage: recentPostData.cover_image,
-      topic: recentPostData.topic,
-      readingTime: recentPostData.reading_time,
-      featured: recentPostData.featured,
-      date: new Date(recentPostData.created_at).toLocaleDateString("en-US", {
+    return {
+      slug: blogData.slug,
+      title: blogData.title,
+      excerpt: blogData.excerpt,
+      content: blogData.content,
+      coverImage: blogData.cover_image,
+      topic: blogData.topic,
+      readingTime: blogData.reading_time,
+      featured: blogData.featured,
+      date: new Date(blogData.created_at).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
       }),
       author: {
-        name: authorData.name || "Unknown Author",
+        name: resolvedAuthorName,
         image: authorData.image || "/logo.png",
         bio: authorData.bio || "",
         linkedIn: authorData.socials?.linkedin || "",
@@ -58,5 +103,15 @@ export default async function Page() {
     }
   }
 
-  return <ClientPage recentPost={recentPost} />
+  let recentPost = null
+  if (recentPostData) {
+    recentPost = formatBlogPost(recentPostData)
+  }
+
+  let featuredPosts = []
+  if (featuredBlogsData && Array.isArray(featuredBlogsData)) {
+    featuredPosts = featuredBlogsData.map(formatBlogPost)
+  }
+
+  return <ClientPage recentPost={recentPost} featuredEvent={featuredEvent} featuredPosts={featuredPosts} />
 }

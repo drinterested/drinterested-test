@@ -217,7 +217,7 @@ export default function DbApplyPage() {
       bio: formData.get("bio") as string,
       image: imageUrl,
       socials: {
-        github: (formData.get("github") as string).trim() || null,
+        website: (formData.get("website") as string).trim() || null,
         linkedin: (formData.get("linkedin") as string).trim() || null,
         instagram: (formData.get("instagram") as string).trim() || null,
       },
@@ -233,7 +233,7 @@ export default function DbApplyPage() {
         }
       }
 
-      validateSocialUrl(newMember.socials.github)
+      validateSocialUrl(newMember.socials.website)
       validateSocialUrl(newMember.socials.linkedin)
       validateSocialUrl(newMember.socials.instagram)
       
@@ -491,12 +491,12 @@ export default function DbApplyPage() {
           <label className="block font-medium text-[#1a1a1a]">Social Links (optional)</label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="github" className="block text-sm mb-1 text-gray-600">GitHub</label>
+              <label htmlFor="website" className="block text-sm mb-1 text-gray-600">Personal Website</label>
               <input
                 type="url"
-                id="github"
-                name="github"
-                placeholder="https://github.com/username"
+                id="website"
+                name="website"
+                placeholder="https://yourwebsite.com"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] focus:border-transparent transition-all"
               />
             </div>

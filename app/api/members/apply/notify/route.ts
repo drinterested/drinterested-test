@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     // Add socials if present
     if (socials) {
       const socialLinks = []
-      if (socials.github) socialLinks.push(`[GitHub](${socials.github})`)
+      if (socials.website) socialLinks.push(`[Website](${socials.website})`)
       if (socials.linkedin) socialLinks.push(`[LinkedIn](${socials.linkedin})`)
       if (socials.instagram) socialLinks.push(`[Instagram](${socials.instagram})`)
       

@@ -2,6 +2,6 @@
 
 import HomePage from "./home-page"
 
-export default function ClientPage({ recentPost }: { recentPost?: any }) {
-  return <HomePage recentPost={recentPost} />
+export default function ClientPage({ recentPost, featuredEvent, featuredPosts }: { recentPost?: any, featuredEvent?: any, featuredPosts?: any[] }) {
+  return <HomePage recentPost={recentPost} featuredEvent={featuredEvent} featuredPosts={featuredPosts} />
 }

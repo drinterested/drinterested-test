@@ -24,7 +24,7 @@ import {
 import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { getLatestOngoingEvent } from "@/data/events"
+
 import { getFeaturedPosts, getRecentPosts } from "@/data/blog"
 import NewsletterForm from "@/components/newsletter-form"
 import { motion } from "framer-motion"
@@ -33,7 +33,7 @@ import { Quote, Users, TrendingUp, Heart, Award, BookOpen, Sparkles, Globe } fro
 import { DomainAnnouncementPopup } from "@/components/domain-announcement-popup"
 import DiscordIcon from "@/components/icons/discord-icon"
 
-export default function HomePage({ recentPost: passedRecentPost }: { recentPost?: any }) {
+export default function HomePage({ recentPost: passedRecentPost, featuredEvent: passedFeaturedEvent, featuredPosts: passedFeaturedPosts }: { recentPost?: any, featuredEvent?: any, featuredPosts?: any[] }) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   // A13: scaleIn moved inside component (was incorrectly at module scope)
@@ -46,12 +46,12 @@ export default function HomePage({ recentPost: passedRecentPost }: { recentPost?
     setIsLoaded(true)
   }, [])
 
-  // Get the latest ongoing event
-  const latestEvent = getLatestOngoingEvent()
-  // Get featured blog posts
-  const featuredPosts = getFeaturedPosts().slice(0, 3)
-  // Get the most recent blog post
-  const recentPost = passedRecentPost || getRecentPosts(1)[0]
+  // Use the featured event from Supabase
+  const latestEvent = passedFeaturedEvent
+  // Get featured blog posts from Supabase (passed via props)
+  const featuredPosts = passedFeaturedPosts || []
+  // Get the most recent blog post (from Supabase)
+  const recentPost = passedRecentPost
 
   // Animation variants
   const fadeIn = {
