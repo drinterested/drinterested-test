@@ -9,11 +9,12 @@ import NewsletterForm from "@/components/newsletter-form"
 import ReactMarkdown from "react-markdown"
 import SeoSchema from "@/components/seo-schema"
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
   const { data: publication } = await supabase
     .from("blogs")
     .select("*")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single()
 
   if (!publication) {
@@ -28,7 +29,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   })
 }
 
-export default async function PublicationPage({ params }: { params: { slug: string } }) {
+export default async function PublicationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const { data: publication } = await supabase
     .from("blogs")
     .select(
@@ -43,7 +45,7 @@ export default async function PublicationPage({ params }: { params: { slug: stri
       )
     `
     )
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single()
 
   if (!publication) {
