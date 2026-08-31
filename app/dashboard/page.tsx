@@ -2,11 +2,12 @@
 
 import { useEffect, useState, useRef } from "react"
 import { supabase } from "@/lib/supabase-client"
-import { Loader2, X, Clock, Play, Square, Award, FileText, CheckCircle2, User, HelpCircle, ExternalLink, Trash, Edit, Check } from "lucide-react"
+import { Loader2, X, Clock, Play, Square, Award, FileText, CheckCircle2, User, HelpCircle, ExternalLink, Trash, Edit, Check, Calendar } from "lucide-react"
 import Link from "next/link"
 import EventsAdmin from "./EventsAdmin"
 import WebinarsAdmin from "./WebinarsAdmin"
 import ReactMarkdown from "react-markdown"
+import ImageUploadField from "@/components/admin/image-upload-field"
 
 type Member = {
   id: string
@@ -60,6 +61,78 @@ type Timecard = {
   }
 }
 
+// --- ACCESS CONTROL ---
+// Three UI tiers, resolved from the signed-in member's existing `email`/`role`/`department`
+// fields (no schema change — same pattern the previous isHrOrAdmin/isExec check already used):
+//   - owner:    full access to every admin tab. Two kinds of person land here:
+//               (a) the true owner (OWNER_EMAILS) — unrestricted, including the two actions
+//                   below, and
+//               (b) Admin Team leadership (Executive Director / Deputy Executive Director /
+//                   Executive Assistant) — same tab access, but NOT the true owner, so they
+//                   cannot delete members or touch the org-wide Drive/Calendar settings.
+//               Use isTrueOwner() (checked against the live user email, not this tier) to gate
+//               those two actions specifically — never `accessLevel === "owner"` alone.
+//   - director: any other "Director"/"Deputy Director"/"Lead"/"Chair" role — sees ONLY the admin
+//               tab(s) that belong to their own department.
+//   - member:   everyone else (approved, non-director) — punch card, tasks, and shared resources.
+const OWNER_EMAILS = ["mukhiadil2009@gmail.com"]
+
+// Admin Team roles that get full owner-tier tab access without being the true owner.
+const ADMIN_TEAM_LEADERSHIP_ROLES = ["Executive Director", "Deputy Executive Director", "Executive Assistant"]
+const DIRECTOR_ROLE_PATTERN = /Director|President|Chair|Lead/i
+const NON_DIRECTOR_ROLE_PATTERN = /Coordinator|Ambassador|Member of/i
+
+function isTrueOwner(email: string | undefined | null): boolean {
+  return !!email && OWNER_EMAILS.includes(email.toLowerCase())
+}
+
+// Which admin tabs each department's directors get. Departments not listed here (Marketing,
+// Technology, Finance, Ambassadors, Medical Student Advisory Council) don't have a
+// department-specific tool built yet — their directors still get the cross-cutting
+// timesheets/tasks tools below.
+const DEPARTMENT_TABS: Record<string, string[]> = {
+  "HR": ["members", "timesheets", "tasks"],
+  "Human Resources": ["members", "timesheets", "tasks"],
+  "Events": ["events"],
+  "Publications": ["blogs", "webinars"],
+  "Podcast": ["blogs", "webinars"],
+}
+// Every director gets these regardless of department — approving shifts and assigning tasks
+// for your own team is a director-level responsibility everywhere, not just in HR.
+const DIRECTOR_BASELINE_TABS = ["timesheets", "tasks"]
+const OWNER_TABS = ["members", "blogs", "events", "webinars", "timesheets", "tasks"]
+
+// "none" = signed in (valid Supabase session) but no recognized account — e.g. someone who
+// signs in via SSO with an email that was never approved through /members/apply. They get
+// signed straight back out; this is NOT a tier that grants any dashboard access.
+type AccessLevel = "owner" | "director" | "member" | "none"
+
+function resolveAccess(member: Member | null, userEmail: string | undefined): { level: AccessLevel; tabs: string[] } {
+  const email = userEmail?.toLowerCase()
+  const role = member?.role || ""
+  const department = member?.department || ""
+
+  // Owner is decided ONLY by the allowlisted email — never by "no member row found". A missing
+  // row must never imply elevated access, or anyone who can authenticate (e.g. via SSO with any
+  // email) would land here and get full owner access to every tab.
+  if (email && OWNER_EMAILS.includes(email)) {
+    return { level: "owner", tabs: OWNER_TABS }
+  }
+  if (!member) {
+    return { level: "none", tabs: [] }
+  }
+  if (department === "Admin Team" && ADMIN_TEAM_LEADERSHIP_ROLES.some((r) => role.includes(r))) {
+    return { level: "owner", tabs: OWNER_TABS }
+  }
+  const isDirector = DIRECTOR_ROLE_PATTERN.test(role) && !NON_DIRECTOR_ROLE_PATTERN.test(role)
+  if (isDirector) {
+    const deptTabs = DEPARTMENT_TABS[department] || []
+    const tabs = Array.from(new Set([...deptTabs, ...DIRECTOR_BASELINE_TABS]))
+    return { level: "director", tabs }
+  }
+  return { level: "member", tabs: [] }
+}
+
 type Task = {
   id: string
   title: string
@@ -69,6 +142,9 @@ type Task = {
   due_date: string
   status: string
   created_at: string
+  submission_url?: string | null
+  time_spent_minutes?: number | null
+  completed_at?: string | null
 }
 
 export default function DbAdminPage() {
@@ -77,18 +153,38 @@ export default function DbAdminPage() {
   const [password, setPassword] = useState("")
   const [authError, setAuthError] = useState(false)
   const [isLoggingIn, setIsLoggingIn] = useState(false)
+  const [authView, setAuthView] = useState<"login" | "forgot">("login")
+  const [resetSent, setResetSent] = useState(false)
+  const [resetError, setResetError] = useState<string | false>(false)
+  const [isSendingReset, setIsSendingReset] = useState(false)
+  const [isSsoLoading, setIsSsoLoading] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [googleDriveUrl, setGoogleDriveUrl] = useState("https://drive.google.com")
+  const [googleDriveUrl, setGoogleDriveUrl] = useState("https://drive.google.com/drive/folders/1-xwckNS2TWLPFjFuBNvpGgct43Bz4dvP?usp=drive_link")
   const [isSavingUrl, setIsSavingUrl] = useState(false)
+  const [sharedCalendarUrl, setSharedCalendarUrl] = useState(
+    "https://calendar.google.com/calendar/u/0/embed?src=3d7733d92a09a4aa58dd1ea18913131ce2e3d2d67477a0dce617044538d5b755@group.calendar.google.com&ctz=America/Toronto"
+  )
+  const [isSavingCalendarUrl, setIsSavingCalendarUrl] = useState(false)
 
   // Current Logged-in User Data
   const [currentUser, setCurrentUser] = useState<any | null>(null)
   const [currentMemberProfile, setCurrentMemberProfile] = useState<Member | null>(null)
-  const [isHrOrAdmin, setIsHrOrAdmin] = useState(false)
+  // accessLevel: "owner" (full access) | "director" (department-scoped admin tabs) | "member"
+  // (punch card / tasks / shared resources only). visibleTabs is the director/owner's allowed
+  // admin tab list — see resolveAccess() above.
+  const [accessLevel, setAccessLevel] = useState<AccessLevel>("member")
+  const [visibleTabs, setVisibleTabs] = useState<string[]>([])
+  const isHrOrAdmin = accessLevel === "owner" || accessLevel === "director"
+  // Deputy Executive Directors / Executive Assistants get the same tabs as the true owner, but
+  // NOT these two: deleting a member, and editing the org-wide Drive/Calendar settings. HR
+  // directors keep member-deletion (it's already their job); nobody else gets either.
+  const userIsTrueOwner = isTrueOwner(currentUser?.email)
+  const canDeleteMembers =
+    userIsTrueOwner || (accessLevel === "director" && (currentMemberProfile?.department === "HR" || currentMemberProfile?.department === "Human Resources"))
 
   // Active Main Tabs
-  // Admins see: members, blogs, events, webinars, timesheets, tasks
-  // Members see: punchcard, mytasks, shared, profile
+  // Owners see every admin tab; directors see only their department's (+ timesheets/tasks);
+  // members see: punchcard, mytasks, shared
   const [activeMainTab, setActiveMainTab] = useState<string>("punchcard")
 
   // Members State
@@ -127,17 +223,35 @@ export default function DbAdminPage() {
   const [isCreatingTask, setIsCreatingTask] = useState(false)
   const [taskForm, setTaskForm] = useState<Partial<Task>>({ status: "Pending" })
   const [savingTask, setSavingTask] = useState(false)
+  // Marking a task Completed opens this modal to capture the actual work + time spent,
+  // which also gets auto-logged as a (pending-approval) timecard entry.
+  const [completingTask, setCompletingTask] = useState<Task | null>(null)
+  const [completionForm, setCompletionForm] = useState({ submission_url: "", time_spent_minutes: "" })
+  const [savingCompletion, setSavingCompletion] = useState(false)
 
-  // Auth Effect
+  // Auth Effect — the single place that syncs isAuthenticated with the actual Supabase
+  // session AND keeps the portal-session cookie (read by proxy.ts middleware) in lockstep,
+  // regardless of how the session was created: password login, SSO/OAuth callback, or a
+  // magic/recovery link. Password login used to set this cookie itself; centralizing it
+  // here is what makes SSO work without a separate cookie-setting step in every handler.
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    const syncPortalCookie = (session: unknown) => {
       setIsAuthenticated(!!session)
+      if (session) {
+        document.cookie = "portal-session=authenticated; path=/; SameSite=Strict; Secure"
+      } else {
+        document.cookie = "portal-session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict; Secure"
+      }
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      syncPortalCookie(session)
     })
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setIsAuthenticated(!!session)
+      syncPortalCookie(session)
     })
 
     return () => subscription.unsubscribe()
@@ -148,7 +262,8 @@ export default function DbAdminPage() {
     if (!isAuthenticated) {
       setCurrentUser(null)
       setCurrentMemberProfile(null)
-      setIsHrOrAdmin(false)
+      setAccessLevel("member")
+      setVisibleTabs([])
       return
     }
 
@@ -158,7 +273,7 @@ export default function DbAdminPage() {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           setCurrentUser(user)
-          
+
           // Query matching member profile by email
           const { data: profile } = await supabase
             .from("members")
@@ -166,23 +281,12 @@ export default function DbAdminPage() {
             .eq("email", user.email?.toLowerCase())
             .maybeSingle()
 
-          if (profile) {
-            setCurrentMemberProfile(profile)
-            const role = profile.role || ""
-            const dept = profile.department || ""
-            const isHR = dept === "Human Resources" || dept === "HR"
-            const isExec = role.includes("Executive Director") || role.includes("President") || role.includes("Director") || role.includes("Lead")
-            
-            const adminLevel = isHR || isExec
-            setIsHrOrAdmin(adminLevel)
-            
-            // Default tabs
-            setActiveMainTab(adminLevel ? "members" : "punchcard")
-          } else {
-            // Default to admin-level view if no matching profile is found (owner/developer fallback)
-            setIsHrOrAdmin(true)
-            setActiveMainTab("members")
-          }
+          setCurrentMemberProfile(profile || null)
+
+          const { level, tabs } = resolveAccess(profile || null, user.email)
+          setAccessLevel(level)
+          setVisibleTabs(tabs)
+          setActiveMainTab(tabs.length > 0 ? tabs[0] : "punchcard")
         }
       } catch (err) {
         console.error("Error loading user profile:", err)
@@ -224,14 +328,46 @@ export default function DbAdminPage() {
     }
   }
 
+  const fetchSharedCalendarUrl = async () => {
+    try {
+      const { data } = await supabase
+        .from("settings")
+        .select("value")
+        .eq("key", "shared_calendar_url")
+        .maybeSingle()
+      if (data?.value) {
+        setSharedCalendarUrl(data.value)
+      }
+    } catch (err) {
+      console.error("Error fetching shared calendar URL:", err)
+    }
+  }
+
+  const handleUpdateCalendarUrl = async (newUrl: string) => {
+    setIsSavingCalendarUrl(true)
+    try {
+      const { error } = await supabase
+        .from("settings")
+        .upsert({ key: "shared_calendar_url", value: newUrl })
+      if (error) throw error
+      alert("Shared calendar link updated successfully!")
+    } catch (err: any) {
+      console.error(err)
+      alert("Failed to update shared calendar link: " + err.message)
+    } finally {
+      setIsSavingCalendarUrl(false)
+    }
+  }
+
 
   // Data Fetching Effect for Admins and Members
   useEffect(() => {
     if (!isAuthenticated) return
 
     fetchGoogleDriveUrl()
+    fetchSharedCalendarUrl()
 
-    if (isHrOrAdmin) {
+    if (isHrOrAdmin && visibleTabs.includes(activeMainTab)) {
       if (activeMainTab === "members") {
         fetchMembers()
       } else if (activeMainTab === "blogs") {
@@ -253,7 +389,7 @@ export default function DbAdminPage() {
         fetchMemberTasks()
       }
     }
-  }, [isAuthenticated, isHrOrAdmin, activeMainTab])
+  }, [isAuthenticated, isHrOrAdmin, activeMainTab, visibleTabs])
 
   // Pulse Timer for Active Shift
   useEffect(() => {
@@ -441,13 +577,22 @@ export default function DbAdminPage() {
     }
   }
 
-  const handleUpdateTaskStatus = async (taskId: string, currentStatus: string) => {
+  const handleUpdateTaskStatus = async (taskId: string, currentStatus: string, task?: Task) => {
     const nextStatusMap: Record<string, string> = {
       "Pending": "In Progress",
       "In Progress": "Completed",
       "Completed": "Pending"
     }
     const nextStatus = nextStatusMap[currentStatus] || "Pending"
+
+    // Marking something Completed captures the actual work + time spent first, rather than
+    // just flipping a status — see handleSubmitTaskCompletion, which does the status update.
+    if (nextStatus === "Completed" && task) {
+      setCompletingTask(task)
+      setCompletionForm({ submission_url: "", time_spent_minutes: "" })
+      return
+    }
+
     try {
       const { error } = await supabase
         .from("tasks")
@@ -460,6 +605,61 @@ export default function DbAdminPage() {
     } catch (err: any) {
       console.error(err)
       alert(`Failed to update task status: ${err.message}`)
+    }
+  }
+
+  const handleSubmitTaskCompletion = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!completingTask || !currentUser) return
+
+    const minutes = parseInt(completionForm.time_spent_minutes, 10)
+    if (!minutes || minutes <= 0) {
+      alert("Please enter how long this took (in minutes).")
+      return
+    }
+
+    setSavingCompletion(true)
+    try {
+      const nowIso = new Date().toISOString()
+
+      const { error: taskError } = await supabase
+        .from("tasks")
+        .update({
+          status: "Completed",
+          submission_url: completionForm.submission_url.trim() || null,
+          time_spent_minutes: minutes,
+          completed_at: nowIso,
+        })
+        .eq("id", completingTask.id)
+      if (taskError) throw taskError
+
+      // Auto-log the time against the member's own timesheet, pending the usual approval.
+      const clockOut = new Date()
+      const clockIn = new Date(clockOut.getTime() - minutes * 60000)
+      const workNote = completionForm.submission_url.trim()
+        ? `Task: ${completingTask.title} — ${completionForm.submission_url.trim()}`
+        : `Task: ${completingTask.title}`
+
+      const { error: timecardError } = await supabase.from("timecards").insert([{
+        member_id: currentUser.id,
+        clock_in: clockIn.toISOString(),
+        clock_out: clockOut.toISOString(),
+        duration_minutes: minutes,
+        description: workNote,
+        approved: false,
+        archived: false,
+      }])
+      if (timecardError) throw timecardError
+
+      setCompletingTask(null)
+      fetchMemberTasks()
+      fetchMemberTimecardHistory()
+      if (isHrOrAdmin) fetchAdminTasks()
+    } catch (err: any) {
+      console.error(err)
+      alert(`Failed to submit completion: ${err.message}`)
+    } finally {
+      setSavingCompletion(false)
     }
   }
 
@@ -539,6 +739,26 @@ export default function DbAdminPage() {
 
       const { error } = await supabase.from("tasks").insert([newTask])
       if (error) throw error
+
+      // Best-effort — a failed notification shouldn't undo the task that was just created.
+      try {
+        const assignee = members.find((m) => m.email?.toLowerCase() === newTask.assigned_to)
+        await fetch("/api/tasks/notify-assigned", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            assignee_email: newTask.assigned_to,
+            assignee_name: assignee?.name,
+            title: newTask.title,
+            description: newTask.description,
+            due_date: newTask.due_date,
+            assigned_by_name: currentMemberProfile?.name,
+          }),
+        })
+      } catch (notifyErr) {
+        console.error("Failed to send task assignment email:", notifyErr)
+      }
+
       setIsCreatingTask(false)
       setTaskForm({ status: "Pending" })
       fetchAdminTasks()
@@ -579,15 +799,54 @@ export default function DbAdminPage() {
     if (error) {
       setAuthError(true)
     } else {
-      document.cookie = "portal-session=authenticated; path=/; SameSite=Strict; Secure"
+      // portal-session cookie is set by the auth-state-change listener above once the
+      // session lands — no need to duplicate that here.
       setEmail("")
       setPassword("")
     }
   }
 
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSendingReset(true)
+    setResetError(false)
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/dashboard/reset-password`,
+      })
+      if (error) throw error
+      setResetSent(true)
+    } catch (err: any) {
+      setResetError(err.message || "Couldn't send the reset email. Try again.")
+    } finally {
+      setIsSendingReset(false)
+    }
+  }
+
+  const handleOAuthSignIn = async (provider: "google" | "discord") => {
+    setIsSsoLoading(true)
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        // "login=true" lets the proxy.ts middleware through on the redirect back, before
+        // the client-side auth listener has had a chance to set the portal-session cookie.
+        options: { redirectTo: `${window.location.origin}/dashboard?login=true` },
+      })
+      if (error) {
+        alert(`${provider === "google" ? "Google" : "Discord"} sign-in failed: ${error.message}`)
+        setIsSsoLoading(false)
+      }
+      // On success the browser navigates away to the provider, so no further state update
+      // is needed here — isSsoLoading resets naturally on the next page load.
+    } catch (err: any) {
+      alert(err.message || "Sign-in failed.")
+      setIsSsoLoading(false)
+    }
+  }
+
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    document.cookie = "portal-session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict; Secure"
+    // portal-session cookie is cleared by the auth-state-change listener above.
     setIsAuthenticated(false)
   }
 
@@ -710,6 +969,13 @@ export default function DbAdminPage() {
     try {
       const finalSlug = blogForm.slug || blogForm.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
+      // Snapshot the linked member's current name into author_name even when author_id is set.
+      // Previously author_name was nulled out whenever a member was linked, which meant that if
+      // that member was later removed from the members table, the post permanently lost any
+      // record of who wrote it (the FK just dangled). Keeping a denormalized text copy means the
+      // credit survives regardless of what happens to the members table later.
+      const linkedMemberName = blogForm.author_id ? members.find((m) => m.id === blogForm.author_id)?.name : undefined
+
       const blogData = {
         title: blogForm.title,
         slug: finalSlug,
@@ -718,9 +984,10 @@ export default function DbAdminPage() {
         cover_image: blogForm.cover_image,
         topic: blogForm.topic,
         reading_time: blogForm.reading_time,
-        // author_id links to a member; author_name is for non-member / guest authors
+        // author_id links to a member for a live avatar/bio when they're still a member;
+        // author_name is always kept in sync as a permanent text credit either way.
         author_id: blogForm.author_id || null,
-        author_name: !blogForm.author_id ? (blogForm.author_name || null) : null,
+        author_name: linkedMemberName || blogForm.author_name || null,
         featured: blogForm.featured || false,
         content_type: (blogForm as any).content_type || "blog",
         policy_type: (blogForm as any).policy_type || null
@@ -778,48 +1045,169 @@ export default function DbAdminPage() {
           >
             <X className="w-5 h-5" />
           </Link>
-          <h2 className="text-2xl font-bold font-bricolage mb-6 text-[#1a1a1a]">Portal Login</h2>
-          
-          {authError && (
-            <p className="text-[#c62828] text-sm mb-4">Invalid email or password.</p>
-          )}
 
-          <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value)
-                setAuthError(false)
-              }}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] mb-4"
-              autoFocus
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value)
-                setAuthError(false)
-              }}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] mb-4"
-              required
-            />
-            <button
-              type="submit"
-              disabled={isLoggingIn}
-              className="w-full py-3 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
-            >
-              {isLoggingIn && <Loader2 className="w-4 h-4 animate-spin" />}
-              Login
-            </button>
-          </form>
-          <p className="text-xs text-gray-500 mt-4 text-center">
-            Log in with your individual member profile account.
+          {authView === "forgot" ? (
+            <>
+              <h2 className="text-2xl font-bold font-bricolage mb-2 text-[#1a1a1a]">Reset Password</h2>
+              <p className="text-sm text-gray-500 mb-6">
+                Enter the email you applied with — we&apos;ll send a link to set a new password.
+              </p>
+
+              {resetSent ? (
+                <div className="bg-[#e8f5e9] text-[#2e7d32] border border-[#81c784] rounded-lg p-4 text-sm">
+                  Check your inbox for a reset link. It may take a minute to arrive.
+                </div>
+              ) : (
+                <form onSubmit={handleForgotPassword}>
+                  {resetError && <p className="text-[#c62828] text-sm mb-4">{resetError}</p>}
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] mb-4"
+                    autoFocus
+                    required
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSendingReset}
+                    className="w-full py-3 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {isSendingReset && <Loader2 className="w-4 h-4 animate-spin" />}
+                    Send Reset Link
+                  </button>
+                </form>
+              )}
+
+              <button
+                onClick={() => {
+                  setAuthView("login")
+                  setResetSent(false)
+                  setResetError(false)
+                }}
+                className="text-xs text-gray-500 hover:text-[#4CAF7D] mt-4 block mx-auto"
+              >
+                ← Back to login
+              </button>
+            </>
+          ) : (
+            <>
+              <h2 className="text-2xl font-bold font-bricolage mb-6 text-[#1a1a1a]">Portal Login</h2>
+
+              {authError && (
+                <p className="text-[#c62828] text-sm mb-4">Invalid email or password.</p>
+              )}
+
+              <form onSubmit={handleLogin}>
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                    setAuthError(false)
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] mb-4"
+                  autoFocus
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value)
+                    setAuthError(false)
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D] mb-1"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setAuthView("forgot")}
+                  className="text-xs text-gray-500 hover:text-[#4CAF7D] mb-4 block"
+                >
+                  Forgot password?
+                </button>
+                <button
+                  type="submit"
+                  disabled={isLoggingIn}
+                  className="w-full py-3 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+                >
+                  {isLoggingIn && <Loader2 className="w-4 h-4 animate-spin" />}
+                  Login
+                </button>
+              </form>
+
+              <div className="flex items-center gap-3 my-5">
+                <div className="flex-1 h-px bg-gray-200" />
+                <span className="text-xs text-gray-400 uppercase tracking-wide">or</span>
+                <div className="flex-1 h-px bg-gray-200" />
+              </div>
+
+              <div className="space-y-2.5">
+                <button
+                  type="button"
+                  onClick={() => handleOAuthSignIn("google")}
+                  disabled={isSsoLoading}
+                  className="w-full py-3 border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold rounded-lg transition-colors flex items-center justify-center gap-2.5 disabled:opacity-70"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.87c2.27-2.09 3.58-5.17 3.58-8.82Z" />
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.94-2.9l-3.87-3.02c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.12-6.73-4.96H1.27v3.12A12 12 0 0 0 12 24Z" />
+                    <path fill="#FBBC05" d="M5.27 14.27a7.2 7.2 0 0 1 0-4.54V6.61H1.27a12 12 0 0 0 0 10.78l4-3.12Z" />
+                    <path fill="#EA4335" d="M12 4.77c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.94 1.19 15.24 0 12 0A12 12 0 0 0 1.27 6.61l4 3.12C6.22 6.89 8.87 4.77 12 4.77Z" />
+                  </svg>
+                  Continue with Google
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleOAuthSignIn("discord")}
+                  disabled={isSsoLoading}
+                  className="w-full py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2.5 disabled:opacity-70"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.26a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.26.08.08 0 0 0-.08-.04c-1.7.29-3.36.8-4.89 1.52a.07.07 0 0 0-.03.03C.53 8.6-.32 12.72.1 16.78a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.79 8.18 1.79 12.06 0a.07.07 0 0 1 .08 0c.12.1.24.19.37.28a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.78 1.37 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.03.08.08 0 0 0 .03-.06c.5-4.7-.83-8.79-3.51-12.38a.06.06 0 0 0-.03-.03ZM8.02 14.35c-1.18 0-2.15-1.08-2.15-2.41 0-1.33.95-2.41 2.15-2.41 1.21 0 2.17 1.09 2.15 2.41 0 1.33-.95 2.41-2.15 2.41Zm7.97 0c-1.18 0-2.15-1.08-2.15-2.41 0-1.33.95-2.41 2.15-2.41 1.21 0 2.17 1.09 2.15 2.41 0 1.33-.94 2.41-2.15 2.41Z" />
+                  </svg>
+                  Continue with Discord
+                </button>
+              </div>
+
+              <p className="text-xs text-gray-500 mt-4 text-center">
+                Log in with your individual member profile account.
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  // Signed in, but no recognized account (no matching members row and not the owner) —
+  // e.g. someone reached SSO with an email that was never approved. Never show them any
+  // dashboard content; hand them straight back to the apply flow.
+  if (!loading && accessLevel === "none") {
+    return (
+      <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-xl p-8 w-full max-w-sm shadow-[0_10px_40px_rgba(0,0,0,0.1)] text-center">
+          <h2 className="text-xl font-bold font-bricolage mb-2 text-[#1a1a1a]">No Account Found</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            {currentUser?.email} isn&apos;t linked to a Dr. Interested member profile yet.
           </p>
+          <Link
+            href="/members/apply"
+            className="w-full py-3 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg transition-colors inline-block mb-3"
+          >
+            Apply for Membership
+          </Link>
+          <button
+            onClick={handleLogout}
+            className="text-sm text-gray-500 hover:text-[#c62828] transition-colors"
+          >
+            Sign out
+          </button>
         </div>
       </div>
     )
@@ -836,7 +1224,11 @@ export default function DbAdminPage() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 border-b border-gray-100 pb-6">
         <div>
           <h1 className="text-3xl font-bold font-bricolage text-[#1a1a1a]">
-            {isHrOrAdmin ? "HR & Admin Control Center" : "Member Portal"}
+            {accessLevel === "owner"
+              ? "Owner Control Center"
+              : accessLevel === "director"
+                ? `${currentMemberProfile?.department || "Director"} Panel`
+                : "Member Portal"}
           </h1>
           {currentMemberProfile ? (
             <p className="text-sm text-gray-500 mt-1">
@@ -846,12 +1238,24 @@ export default function DbAdminPage() {
             <p className="text-sm text-gray-500 mt-1">Logged in as System Admin</p>
           )}
         </div>
-        <button
-          onClick={handleLogout}
-          className="text-[#c62828] hover:text-[#a01a1a] font-semibold border border-red-200 hover:border-red-400 bg-red-50/50 hover:bg-red-50 px-4 py-2 rounded-lg transition-all text-sm"
-        >
-          Sign Out Portal
-        </button>
+        <div className="flex items-center gap-3">
+          {/* Portal-only — the Volunteer Agreement applies to every role in here (member,
+              director, and owner alike are unpaid volunteers under its terms) but is
+              deliberately not linked anywhere public — no footer link, no sitemap entry, and
+              the page itself is noindexed (see app/volunteer-agreement/page.tsx). */}
+          <Link
+            href="/volunteer-agreement"
+            className="text-gray-500 hover:text-[#4CAF7D] font-medium text-sm underline underline-offset-2"
+          >
+            Volunteer Agreement
+          </Link>
+          <button
+            onClick={handleLogout}
+            className="text-[#c62828] hover:text-[#a01a1a] font-semibold border border-red-200 hover:border-red-400 bg-red-50/50 hover:bg-red-50 px-4 py-2 rounded-lg transition-all text-sm"
+          >
+            Sign Out Portal
+          </button>
+        </div>
       </div>
 
       {/* ADMIN NAVIGATION TABS */}
@@ -877,8 +1281,16 @@ export default function DbAdminPage() {
             </div>
           </div>
 
+          {accessLevel === "director" && (
+            <p className="text-sm text-gray-500 mb-4 -mt-2">
+              You have director access for <span className="font-semibold text-gray-700">{currentMemberProfile?.department}</span> only.
+              {visibleTabs.length <= DIRECTOR_BASELINE_TABS.length &&
+                " There's no department-specific tool built for this department yet — ask the owner if you need one."}
+            </p>
+          )}
+
           <div className="flex gap-4 mb-8 bg-gray-100 p-1 rounded-lg w-fit overflow-x-auto">
-            {["members", "blogs", "events", "webinars", "timesheets", "tasks"].map((tab) => (
+            {visibleTabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveMainTab(tab)}
@@ -897,7 +1309,7 @@ export default function DbAdminPage() {
           {[
             { id: "punchcard", label: "Punch Card" },
             { id: "mytasks", label: "My Tasks" },
-            { id: "shared", label: "Google Drive & Tools" }
+            { id: "shared", label: "Drive & Calendar" }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -1030,7 +1442,7 @@ export default function DbAdminPage() {
                 <div key={task.id} className="p-4 border border-gray-150 rounded-xl hover:border-gray-300 transition-colors flex items-start gap-4 justify-between">
                   <div className="flex items-start gap-3">
                     <button
-                      onClick={() => handleUpdateTaskStatus(task.id, task.status)}
+                      onClick={() => handleUpdateTaskStatus(task.id, task.status, task)}
                       className={`mt-1 flex-shrink-0 transition-transform active:scale-95 ${task.status === "Completed" ? "text-green-500" : "text-gray-300 hover:text-gray-400"}`}
                     >
                       <CheckCircle2 className="w-5 h-5" />
@@ -1048,6 +1460,19 @@ export default function DbAdminPage() {
                         <span className={`inline-block text-[0.75rem] font-bold mt-2 px-2 py-0.5 rounded ${new Date(task.due_date) < new Date() && task.status !== "Completed" ? "bg-red-50 text-red-600" : "bg-gray-100 text-gray-500"}`}>
                           Due {new Date(task.due_date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                         </span>
+                      )}
+                      {task.status === "Completed" && (task.submission_url || task.time_spent_minutes) && (
+                        <p className="text-xs text-gray-400 mt-2">
+                          {task.time_spent_minutes && <span>{Math.round((task.time_spent_minutes / 6)) / 10} hrs logged</span>}
+                          {task.submission_url && (
+                            <>
+                              {task.time_spent_minutes && " · "}
+                              <a href={task.submission_url} target="_blank" rel="noopener noreferrer" className="text-[#4CAF7D] hover:underline">
+                                View submitted work
+                              </a>
+                            </>
+                          )}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -1067,7 +1492,7 @@ export default function DbAdminPage() {
 
       {/* 3. Resources Tab */}
       {!isHrOrAdmin && activeMainTab === "shared" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center mb-4">
@@ -1084,6 +1509,34 @@ export default function DbAdminPage() {
             >
               Open Google Drive <ExternalLink className="w-4 h-4" />
             </Link>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center mb-4">
+                <Calendar className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg mb-2">Shared Team Calendar</h3>
+              <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+                {sharedCalendarUrl
+                  ? "Open the shared team calendar to see meetings, deadlines, and department schedules."
+                  : "The owner hasn't linked a shared calendar yet — check back soon."}
+              </p>
+            </div>
+            {sharedCalendarUrl ? (
+              <Link
+                href={sharedCalendarUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 bg-purple-50 hover:bg-purple-100 text-purple-700 font-semibold rounded-lg text-center transition-all flex items-center justify-center gap-2 text-sm"
+              >
+                Open Shared Calendar <ExternalLink className="w-4 h-4" />
+              </Link>
+            ) : (
+              <span className="w-full py-2.5 bg-gray-50 text-gray-400 font-semibold rounded-lg text-center text-sm cursor-not-allowed">
+                Not linked yet
+              </span>
+            )}
           </div>
 
           <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
@@ -1107,7 +1560,7 @@ export default function DbAdminPage() {
       {/* --- RENDER HR & ADMIN CONTROL VIEWS --- */}
 
       {/* 4. Timesheets Log Approval */}
-      {isHrOrAdmin && activeMainTab === "timesheets" && (
+      {isHrOrAdmin && visibleTabs.includes("timesheets") && activeMainTab === "timesheets" && (
         <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
           <div className="flex justify-between items-center pb-4 mb-6 border-b border-gray-100">
             <h2 className="text-xl font-bold font-bricolage text-[#1a1a1a]">Timesheet Shift Approvals</h2>
@@ -1165,7 +1618,7 @@ export default function DbAdminPage() {
       )}
 
       {/* 5. Admin Task Assigner */}
-      {isHrOrAdmin && activeMainTab === "tasks" && (
+      {isHrOrAdmin && visibleTabs.includes("tasks") && activeMainTab === "tasks" && (
         <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
           <div className="flex justify-between items-center pb-4 mb-6 border-b border-gray-100">
             <h2 className="text-xl font-bold font-bricolage text-[#1a1a1a]">Assign Tasks Panel</h2>
@@ -1227,28 +1680,64 @@ export default function DbAdminPage() {
       {/* --- RENDER ORIGINAL ADMIN TAB CONTENTS (STILL FULLY SUPPORTED) --- */}
 
       {/* 6. Original Members Tab */}
-      {isHrOrAdmin && activeMainTab === "members" && (
+      {isHrOrAdmin && visibleTabs.includes("members") && activeMainTab === "members" && (
         <>
-          <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
-            <h3 className="text-lg font-bold font-bricolage mb-1.5 text-[#1a1a1a]">Configure Portal Links</h3>
-            <p className="text-xs text-gray-500 mb-4">Update the central Google Drive URL accessed by all coordinators.</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="url"
-                value={googleDriveUrl}
-                onChange={(e) => setGoogleDriveUrl(e.target.value)}
-                className="flex-1 p-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
-                placeholder="https://drive.google.com/..."
-              />
-              <button
-                onClick={() => handleUpdateDriveUrl(googleDriveUrl)}
-                disabled={isSavingUrl}
-                className="px-5 py-2.5 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg text-sm transition-colors disabled:opacity-75"
-              >
-                {isSavingUrl ? "Saving..." : "Update Link"}
-              </button>
+          {/* Site-wide links (Drive folder, shared calendar) shown to every member on the
+              Resources tab — true-owner-only (not Admin Team leadership), since these apply
+              org-wide, not just to HR. */}
+          {userIsTrueOwner && (
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
+              <h3 className="text-lg font-bold font-bricolage mb-1.5 text-[#1a1a1a]">Configure Portal Links</h3>
+              <p className="text-xs text-gray-500 mb-4">
+                These links are shown to every member on the Resources tab of their portal.
+              </p>
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Shared Google Drive Folder</label>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="url"
+                      value={googleDriveUrl}
+                      onChange={(e) => setGoogleDriveUrl(e.target.value)}
+                      className="flex-1 p-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                      placeholder="https://drive.google.com/drive/folders/..."
+                    />
+                    <button
+                      onClick={() => handleUpdateDriveUrl(googleDriveUrl)}
+                      disabled={isSavingUrl}
+                      className="px-5 py-2.5 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg text-sm transition-colors disabled:opacity-75 flex-shrink-0"
+                    >
+                      {isSavingUrl ? "Saving..." : "Update Link"}
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Shared Team Calendar</label>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="url"
+                      value={sharedCalendarUrl}
+                      onChange={(e) => setSharedCalendarUrl(e.target.value)}
+                      className="flex-1 p-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                      placeholder="https://calendar.google.com/calendar/embed?src=..."
+                    />
+                    <button
+                      onClick={() => handleUpdateCalendarUrl(sharedCalendarUrl)}
+                      disabled={isSavingCalendarUrl}
+                      className="px-5 py-2.5 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg text-sm transition-colors disabled:opacity-75 flex-shrink-0"
+                    >
+                      {isSavingCalendarUrl ? "Saving..." : "Update Link"}
+                    </button>
+                  </div>
+                  {!sharedCalendarUrl && (
+                    <p className="text-xs text-amber-600 mt-1">
+                      Not set yet — members won&apos;t see a calendar link until you add one.
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="flex gap-4 border-b-2 border-gray-200 mb-8">
             <button
@@ -1329,20 +1818,24 @@ export default function DbAdminPage() {
                             >
                               Approve
                             </button>
-                            <button
-                              onClick={() => handleRejectOrRemove(member.id, false)}
-                              className="flex-1 py-2 bg-[#f5f5f5] hover:bg-[#ffebee] text-[#c62828] border border-gray-200 text-sm font-semibold rounded transition-colors"
-                            >
-                              Reject
-                            </button>
+                            {canDeleteMembers && (
+                              <button
+                                onClick={() => handleRejectOrRemove(member.id, false)}
+                                className="flex-1 py-2 bg-[#f5f5f5] hover:bg-[#ffebee] text-[#c62828] border border-gray-200 text-sm font-semibold rounded transition-colors"
+                              >
+                                Reject
+                              </button>
+                            )}
                           </>
                         ) : (
-                          <button
-                            onClick={() => handleRejectOrRemove(member.id, true)}
-                            className="flex-1 py-2 bg-[#f5f5f5] hover:bg-[#ffebee] text-[#c62828] border border-gray-200 text-sm font-semibold rounded transition-colors"
-                          >
-                            Remove
-                          </button>
+                          canDeleteMembers && (
+                            <button
+                              onClick={() => handleRejectOrRemove(member.id, true)}
+                              className="flex-1 py-2 bg-[#f5f5f5] hover:bg-[#ffebee] text-[#c62828] border border-gray-200 text-sm font-semibold rounded transition-colors"
+                            >
+                              Remove
+                            </button>
+                          )
                         )}
                       </div>
                       <button
@@ -1361,7 +1854,7 @@ export default function DbAdminPage() {
       )}
 
       {/* 7. Original Blogs Tab */}
-      {isHrOrAdmin && activeMainTab === "blogs" && (
+      {isHrOrAdmin && visibleTabs.includes("blogs") && activeMainTab === "blogs" && (
         <>
           <div className="flex justify-between items-center border-b-2 border-gray-200 pb-4 mb-8">
             <h2 className="text-xl font-semibold text-gray-800">Published Blogs</h2>
@@ -1423,12 +1916,68 @@ export default function DbAdminPage() {
       )}
 
       {/* 8. Original Events Tab */}
-      {isHrOrAdmin && activeMainTab === "events" && <EventsAdmin />}
+      {isHrOrAdmin && visibleTabs.includes("events") && activeMainTab === "events" && <EventsAdmin />}
 
       {/* 9. Original Webinars Tab */}
-      {isHrOrAdmin && activeMainTab === "webinars" && <WebinarsAdmin />}
+      {isHrOrAdmin && visibleTabs.includes("webinars") && activeMainTab === "webinars" && <WebinarsAdmin />}
 
       {/* --- MODAL POPUPS --- */}
+
+      {/* Task Completion Modal — captures the actual work + time spent, which also gets
+          auto-logged as a pending-approval timecard entry. */}
+      {completingTask && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl p-8 w-full max-w-md shadow-2xl">
+            <h2 className="text-xl font-bold font-bricolage mb-1 text-[#1a1a1a]">Mark as Complete</h2>
+            <p className="text-sm text-gray-500 mb-6">{completingTask.title}</p>
+            <form onSubmit={handleSubmitTaskCompletion} className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Link to your work <span className="text-gray-400 font-normal">(optional — e.g. a Canva link)</span>
+                </label>
+                <input
+                  type="url"
+                  placeholder="https://..."
+                  value={completionForm.submission_url}
+                  onChange={(e) => setCompletionForm({ ...completionForm, submission_url: e.target.value })}
+                  className="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">How long did this take? (minutes) *</label>
+                <input
+                  type="number"
+                  min={1}
+                  required
+                  placeholder="e.g. 45"
+                  value={completionForm.time_spent_minutes}
+                  onChange={(e) => setCompletionForm({ ...completionForm, time_spent_minutes: e.target.value })}
+                  className="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
+                />
+                <p className="text-xs text-gray-400 mt-1">This gets added to your timesheet, pending HR approval.</p>
+              </div>
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setCompletingTask(null)}
+                  className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg transition-colors"
+                  disabled={savingCompletion}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={savingCompletion}
+                  className="flex-1 py-2.5 bg-[#4CAF7D] hover:bg-[#2d8659] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+                >
+                  {savingCompletion && <Loader2 className="w-4 h-4 animate-spin" />}
+                  Submit & Complete
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Edit Member Modal */}
       {editingMember && (
@@ -1641,17 +2190,14 @@ export default function DbAdminPage() {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Cover Image URL</label>
-                  <input
-                    type="text"
-                    value={blogForm.cover_image || ""}
-                    onChange={(e) => setBlogForm({ ...blogForm, cover_image: e.target.value })}
-                    placeholder="/cover.png"
-                    className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4CAF7D]"
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ImageUploadField
+                  label="Cover Image"
+                  bucket="blog-images"
+                  pathPrefix="covers"
+                  value={blogForm.cover_image || ""}
+                  onChange={(url) => setBlogForm({ ...blogForm, cover_image: url })}
+                />
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-1">Reading Time</label>
                   <input

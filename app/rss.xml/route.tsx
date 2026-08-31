@@ -1,4 +1,6 @@
 import { supabase } from "@/lib/supabase-client"
+import { POLICY_SUBMISSIONS } from "@/data/policy-submissions"
+import { getEpisodesByCategory } from "@/lib/episodes"
 
 // Helper function to escape XML special characters
 function escapeXml(unsafe: string): string {
@@ -13,6 +15,10 @@ function escapeXml(unsafe: string): string {
 
 export async function GET() {
   const baseUrl = "https://www.drinterested.org"
+
+  // RSS <media:content>/<img> URLs must be absolute — some curated data entries store a
+  // site-relative path (e.g. "/11.png") rather than a full URL.
+  const absoluteUrl = (path: string) => (path.startsWith("http") ? path : `${baseUrl}${path.startsWith("/") ? "" : "/"}${path}`)
 
   const imageDescriptions: Record<string, string> = {
     // Logo and branding
@@ -205,13 +211,74 @@ export async function GET() {
 
   const items: string[] = []
 
+  // ===== MedExplore 2026 (MedX 2026) Conference Recap =====
+  {
+    const recapUrl = `${baseUrl}/medx-2026`
+    const recapImage = `${baseUrl}/medexplore-2026/MedExplore2026.png`
+    const recapDescription =
+      "See how the Dr. Interested MedExplore 2026 Conference (MedX 2026) went at the University of Toronto Mississauga, Davis Building on Sunday, August 16, 2026. Over 100 students, 23 speakers, guests, and panelists, and 17 volunteers came together for a full day exploring careers in healthcare. Photos, full agenda recap, letters of support, and certificates of recognition."
+
+    items.push(`
+    <item>
+      <title><![CDATA[MedExplore 2026 Recap (MedX 2026)]]></title>
+      <link>${escapeXml(recapUrl)}</link>
+      <guid isPermaLink="true">${escapeXml(recapUrl)}</guid>
+      <description><![CDATA[${recapDescription}]]></description>
+      <pubDate>${new Date("2026-08-16T09:30:00-04:00").toUTCString()}</pubDate>
+      <category>Event</category>
+      <category>MedExplore 2026</category>
+      <category>MedX 2026</category>
+      <media:content url="${escapeXml(recapImage)}" medium="image" type="image/png">
+        <media:title><![CDATA[MedExplore 2026 (MedX 2026) Conference]]></media:title>
+        <media:description><![CDATA[Students, speakers, and volunteers at the Dr. Interested MedExplore 2026 Conference (MedX 2026), University of Toronto Mississauga, August 16, 2026]]></media:description>
+      </media:content>
+      <content:encoded><![CDATA[
+        <img src="${escapeXml(recapImage)}" alt="MedExplore 2026 (MedX 2026) Conference Recap" />
+        <p>${recapDescription}</p>
+      ]]></content:encoded>
+    </item>`)
+  }
+
+  // ===== Policy Submissions (e.g. UN/OHCHR filings) =====
+  POLICY_SUBMISSIONS.forEach((submission) => {
+    const policyUrl = `${baseUrl}/publications/policy/${submission.slug}`
+    const policyImage = `${baseUrl}${submission.documents[0]?.pages[0]?.file || "/websitebanner.jpg"}`
+
+    items.push(`
+    <item>
+      <title><![CDATA[${submission.title}]]></title>
+      <link>${escapeXml(policyUrl)}</link>
+      <guid isPermaLink="true">${escapeXml(policyUrl)}</guid>
+      <description><![CDATA[${submission.summary}]]></description>
+      <pubDate>${new Date(submission.isoDate).toUTCString()}</pubDate>
+      <category>Policy Work</category>
+      <category>${escapeXml(submission.resolution)}</category>
+      <media:content url="${escapeXml(policyImage)}" medium="image" type="image/jpeg">
+        <media:title><![CDATA[${submission.title}]]></media:title>
+        <media:description><![CDATA[${submission.summary}]]></media:description>
+      </media:content>
+      <content:encoded><![CDATA[
+        <img src="${escapeXml(policyImage)}" alt="${escapeXml(submission.title)}" />
+        <p>${submission.summary}</p>
+        <p>Hosted by OHCHR: <a href="${escapeXml(submission.ohchrPdfUrl)}">${escapeXml(submission.ohchrPdfUrl)}</a></p>
+      ]]></content:encoded>
+    </item>`)
+  })
+
   // Fetch blogs
   const { data: blogs } = await supabase.from("blogs").select("*")
   const blogPosts = blogs || []
 
-  // Fetch webinars
-  const { data: webinarsData } = await supabase.from("webinars").select("*")
+  // Admin-announced webinars that are NOT part of the episode archive below (no slug set —
+  // the registration-flow "upcoming webinar" use case, keyed by UUID at /watch/<uuid>).
+  // Excluding slugged rows avoids listing the same underlying row twice under two URLs.
+  const { data: webinarsData } = await supabase.from("webinars").select("*").is("slug", null)
   const webinars = webinarsData || []
+
+  const [archiveWebinars, archivePodcasts] = await Promise.all([
+    getEpisodesByCategory("webinar"),
+    getEpisodesByCategory("podcast"),
+  ])
 
   // Fetch events
   const { data: eventsData } = await supabase.from("events").select("*")
@@ -267,6 +334,55 @@ export async function GET() {
         <img src="${escapeXml(thumbnailUrl)}" alt="${escapeXml(webinar.title)}" />
         <p>${webinar.description}</p>
         ${webinar.speaker ? `<p><strong>Speaker:</strong> ${escapeXml(webinar.speaker)}</p>` : ""}
+      ]]></content:encoded>
+    </item>`)
+  })
+
+  // ===== Curated episode archive (Webinar Series, Code Blue Planet 2026, Podcast) =====
+  archiveWebinars.forEach((w) => {
+    const url = `${baseUrl}/watch/${w.slug}`
+    const pubDate = new Date(w.date).toUTCString()
+    items.push(`
+    <item>
+      <title><![CDATA[${w.title}]]></title>
+      <link>${escapeXml(url)}</link>
+      <guid isPermaLink="true">${escapeXml(url)}</guid>
+      <description><![CDATA[${w.description}]]></description>
+      <pubDate>${pubDate}</pubDate>
+      <category>Webinar</category>
+      ${w.speaker ? `<author><![CDATA[${w.speaker}]]></author>` : ""}
+      <media:content url="${escapeXml(absoluteUrl(w.thumbnailPath))}" medium="image" type="image/jpeg">
+        <media:title><![CDATA[${w.title} - Thumbnail]]></media:title>
+        <media:description><![CDATA[${w.description}]]></media:description>
+      </media:content>
+      <content:encoded><![CDATA[
+        <img src="${escapeXml(absoluteUrl(w.thumbnailPath))}" alt="${escapeXml(w.title)}" />
+        <p>${w.description}</p>
+        <p><a href="${escapeXml(w.youtubeUrl)}">Watch on YouTube</a>${w.spotifyUrl ? ` &middot; <a href="${escapeXml(w.spotifyUrl)}">Listen on Spotify</a>` : ""}</p>
+      ]]></content:encoded>
+    </item>`)
+  })
+
+  archivePodcasts.forEach((p) => {
+    const url = `${baseUrl}/listen/${p.slug}`
+    const pubDate = new Date(p.date).toUTCString()
+    items.push(`
+    <item>
+      <title><![CDATA[${p.title}]]></title>
+      <link>${escapeXml(url)}</link>
+      <guid isPermaLink="true">${escapeXml(url)}</guid>
+      <description><![CDATA[${p.description}]]></description>
+      <pubDate>${pubDate}</pubDate>
+      <category>Podcast</category>
+      ${p.speaker ? `<author><![CDATA[${p.speaker}]]></author>` : ""}
+      <media:content url="${escapeXml(absoluteUrl(p.thumbnailPath))}" medium="image" type="image/jpeg">
+        <media:title><![CDATA[${p.title} - Thumbnail]]></media:title>
+        <media:description><![CDATA[${p.description}]]></media:description>
+      </media:content>
+      <content:encoded><![CDATA[
+        <img src="${escapeXml(absoluteUrl(p.thumbnailPath))}" alt="${escapeXml(p.title)}" />
+        <p>${p.description}</p>
+        <p><a href="${escapeXml(p.youtubeUrl)}">Watch on YouTube</a>${p.spotifyUrl ? ` &middot; <a href="${escapeXml(p.spotifyUrl)}">Listen on Spotify</a>` : ""}</p>
       ]]></content:encoded>
     </item>`)
   })
